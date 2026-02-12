@@ -10,17 +10,21 @@
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PP+Neue+Montreal:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #141414;
-            --bg-tertiary: #1a1a1a;
+            /* Unplugs Brand Colors */
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #141414;
+            --bg-card: #0f0f0f;
             --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #c9a227;
-            --accent-hover: #dbb635;
-            --border: #2a2a2a;
+            --text-secondary: #888888;
+            --accent: #E8D5B5; /* Unplugs cream/gold */
+            --accent-hover: #f0e2c7;
+            --accent-dark: #c4b08a;
+            --border: #222222;
+            --success: #22c55e;
         }
         
         * {
@@ -40,6 +44,12 @@
             line-height: 1.6;
         }
         
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -53,7 +63,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
@@ -66,12 +76,25 @@
         }
         
         .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
         
-        .logo span {
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+        
+        .logo-text span {
             color: var(--accent);
         }
         
@@ -79,10 +102,12 @@
             background: var(--accent);
             color: var(--bg-primary);
             padding: 12px 24px;
-            border-radius: 6px;
+            border-radius: 0;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             transition: all 0.2s;
         }
         
@@ -99,7 +124,7 @@
             justify-content: center;
             text-align: center;
             padding: 120px 24px 80px;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            background: var(--bg-primary);
             position: relative;
             overflow: hidden;
         }
@@ -110,9 +135,9 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(232, 213, 181, 0.03) 0%, transparent 70%);
             pointer-events: none;
         }
         
@@ -123,26 +148,31 @@
         }
         
         .hero-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.875rem;
+            padding: 10px 20px;
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
-        .hero-badge span {
-            color: var(--accent);
+        .hero-badge img {
+            height: 20px;
+            width: auto;
         }
         
         h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(3rem, 10vw, 6rem);
             font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 24px;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 32px;
+            text-transform: uppercase;
         }
         
         h1 span {
@@ -150,11 +180,11 @@
         }
         
         .hero-subtitle {
-            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--text-secondary);
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto 48px;
-            line-height: 1.5;
+            line-height: 1.7;
         }
         
         .hero-ctas {
@@ -167,11 +197,12 @@
         .btn-primary {
             background: var(--accent);
             color: var(--bg-primary);
-            padding: 16px 32px;
-            border-radius: 6px;
+            padding: 16px 40px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             transition: all 0.2s;
             border: 2px solid var(--accent);
         }
@@ -185,11 +216,12 @@
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
-            padding: 16px 32px;
-            border-radius: 6px;
+            padding: 16px 40px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             transition: all 0.2s;
             border: 2px solid var(--border);
         }
@@ -204,28 +236,29 @@
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            padding: 48px 24px;
+            padding: 60px 24px;
         }
         
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
+            gap: 48px;
             text-align: center;
         }
         
         .stat-item h3 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--accent);
             margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
         
         .stat-item p {
             color: var(--text-secondary);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
         }
         
         /* Section Styling */
@@ -236,27 +269,117 @@
         .section-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 64px;
+            margin: 0 auto 80px;
         }
         
         .section-label {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             color: var(--accent);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         
         h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
         
         .section-subtitle {
             color: var(--text-secondary);
             font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        /* Sound Rider Section - NEW */
+        .rider-section {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+        }
+        
+        .rider-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .rider-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+        
+        .rider-text h2 {
+            margin-bottom: 24px;
+        }
+        
+        .rider-text p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 1.0625rem;
+            line-height: 1.8;
+        }
+        
+        .rider-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 48px;
+        }
+        
+        .rider-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .rider-card-header img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .rider-card-header span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+        }
+        
+        .rider-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .rider-requirements {
+            list-style: none;
+        }
+        
+        .rider-requirements li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .rider-requirements li:last-child {
+            border-bottom: none;
+        }
+        
+        .rider-check {
+            color: var(--accent);
+            font-size: 1.25rem;
+            line-height: 1;
         }
         
         /* Founding Artists */
@@ -273,8 +396,7 @@
         .artist-card {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
+            padding: 40px 32px;
             text-align: center;
             transition: all 0.3s;
         }
@@ -285,29 +407,34 @@
         }
         
         .artist-avatar {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent) 0%, #8b6914 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
             margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
+            color: var(--bg-primary);
         }
         
         .artist-card h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .artist-role {
             color: var(--accent);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             font-weight: 500;
             margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
         .artist-bio {
@@ -317,15 +444,14 @@
         
         .founding-badge {
             display: inline-block;
-            background: rgba(201, 162, 39, 0.15);
+            background: rgba(232, 213, 181, 0.1);
             color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            padding: 6px 14px;
+            font-size: 0.625rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
         }
         
         /* Mission Section */
@@ -340,24 +466,30 @@
         }
         
         .mission-item {
-            padding: 32px;
-            border-left: 3px solid var(--accent);
+            padding: 40px;
+            border-left: 2px solid var(--accent);
+            background: var(--bg-secondary);
         }
         
         .mission-item h3 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .mission-item p {
             color: var(--text-secondary);
+            line-height: 1.8;
         }
         
         /* Quote Section */
         .quote-section {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            background: var(--bg-secondary);
             text-align: center;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
         
         .quote-content {
@@ -371,6 +503,7 @@
             line-height: 1.4;
             margin-bottom: 32px;
             font-style: italic;
+            letter-spacing: -0.01em;
         }
         
         blockquote span {
@@ -379,6 +512,9 @@
         
         .quote-attribution {
             color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
         .quote-attribution strong {
@@ -399,7 +535,6 @@
         .join-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 12px;
             padding: 48px;
             transition: all 0.3s;
         }
@@ -412,6 +547,8 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .join-card p {
@@ -425,11 +562,12 @@
         }
         
         .join-features li {
-            padding: 12px 0;
+            padding: 14px 0;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             gap: 12px;
+            font-size: 0.9375rem;
         }
         
         .join-features li:last-child {
@@ -451,7 +589,6 @@
         .form-input {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            border-radius: 6px;
             padding: 16px;
             color: var(--text-primary);
             font-family: inherit;
@@ -468,6 +605,24 @@
             color: var(--text-secondary);
         }
         
+        .form-submit {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border: none;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .form-submit:hover {
+            background: var(--accent-hover);
+        }
+        
         /* Venue Certification */
         .venue-section {
             background: var(--bg-secondary);
@@ -480,6 +635,12 @@
             align-items: center;
         }
         
+        @media (max-width: 900px) {
+            .venue-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .venue-text h2 {
             margin-bottom: 24px;
         }
@@ -487,6 +648,7 @@
         .venue-text p {
             color: var(--text-secondary);
             margin-bottom: 32px;
+            line-height: 1.8;
         }
         
         .venue-benefits {
@@ -494,10 +656,10 @@
         }
         
         .venue-benefits li {
-            padding: 16px 0;
+            padding: 20px 0;
             display: flex;
             align-items: flex-start;
-            gap: 16px;
+            gap: 20px;
             border-bottom: 1px solid var(--border);
         }
         
@@ -506,21 +668,24 @@
         }
         
         .benefit-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(201, 162, 39, 0.15);
-            border-radius: 8px;
+            width: 48px;
+            height: 48px;
+            background: rgba(232, 213, 181, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent);
             font-weight: 700;
             flex-shrink: 0;
+            font-size: 1.25rem;
         }
         
         .benefit-text h4 {
             font-weight: 600;
             margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9375rem;
         }
         
         .benefit-text p {
@@ -532,17 +697,16 @@
         .certification-badge {
             background: var(--bg-tertiary);
             border: 2px solid var(--accent);
-            border-radius: 16px;
-            padding: 48px;
+            padding: 60px;
             text-align: center;
         }
         
         .badge-icon {
             width: 120px;
             height: 120px;
-            background: linear-gradient(135deg, var(--accent) 0%, #8b6914 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
             border-radius: 50%;
-            margin: 0 auto 24px;
+            margin: 0 auto 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -552,6 +716,8 @@
         .certification-badge h3 {
             font-size: 1.5rem;
             margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
         .certification-badge p {
@@ -563,26 +729,40 @@
         .partners-section {
             background: var(--bg-primary);
             text-align: center;
+            border-top: 1px solid var(--border);
         }
         
         .partners-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 64px;
+            gap: 80px;
             flex-wrap: wrap;
-            opacity: 0.6;
         }
         
         .partner-logo {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+        }
+        
+        .partner-logo img {
+            height: 32px;
+            width: auto;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        
+        .partner-logo:hover img {
+            opacity: 1;
         }
         
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #1a1506 0%, var(--bg-primary) 100%);
+            background: var(--bg-secondary);
             text-align: center;
             border-top: 1px solid var(--border);
         }
@@ -604,7 +784,7 @@
         
         /* Footer */
         footer {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             border-top: 1px solid var(--border);
             padding: 48px 24px;
         }
@@ -617,6 +797,11 @@
             gap: 24px;
         }
         
+        .footer-logo img {
+            height: 24px;
+            width: auto;
+        }
+        
         .footer-links {
             display: flex;
             gap: 32px;
@@ -625,7 +810,9 @@
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             transition: color 0.2s;
         }
         
@@ -635,7 +822,7 @@
         
         .footer-brand {
             color: var(--text-secondary);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
         }
         
         .footer-brand a {
@@ -655,10 +842,6 @@
             
             section {
                 padding: 80px 24px;
-            }
-            
-            .venue-content {
-                grid-template-columns: 1fr;
             }
             
             .join-grid {
@@ -681,7 +864,10 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">SAFE SOUND <span>COLLECTIVE</span></div>
+            <div class="logo">
+                <img src="https://unplugshearing.com/cdn/shop/files/Logo.png?v=1723853882" alt="Unplugs">
+                <span class="logo-text">Safe Sound <span>Collective</span></span>
+            </div>
             <a href="#join" class="nav-cta">Join the Movement</a>
         </div>
     </nav>
@@ -689,7 +875,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Powered by <span>Unplugs</span></div>
+            <div class="hero-badge">
+                <img src="https://unplugshearing.com/cdn/shop/files/Logo.png?v=1723853882" alt="Unplugs">
+                Powered by Unplugs
+            </div>
             <h1>The Future of Music is <span>Hearing It</span></h1>
             <p class="hero-subtitle">The first artist-led movement for hearing health in music. We're uniting artists, venues, and brands to protect the ears that power our culture.</p>
             <div class="hero-ctas">
@@ -722,6 +911,50 @@
             </div>
         </div>
     </div>
+
+    <!-- Sound Rider Section - NEW -->
+    <section class="rider-section" id="rider">
+        <div class="container">
+            <div class="rider-content">
+                <div class="rider-text">
+                    <p class="section-label">The Sound Rider</p>
+                    <h2>Artists Are Taking a Stand</h2>
+                    <p>Collective artists don't just wear hearing protection — they require it. The Safe Sound Rider is a standard clause artists add to their performance contracts, ensuring every venue provides adequate hearing safety for their fans and crew.</p>
+                    <p>When artists demand it, venues provide it. When venues provide it, fans use it. This is how we change the culture.</p>
+                    <a href="#join" class="btn-primary">Get the Sound Rider</a>
+                </div>
+                <div class="rider-card">
+                    <div class="rider-card-header">
+                        <img src="https://unplugshearing.com/cdn/shop/files/Logo.png?v=1723853882" alt="Unplugs">
+                        <span>Official Sound Rider</span>
+                    </div>
+                    <h3>Venue Requirements</h3>
+                    <ul class="rider-requirements">
+                        <li>
+                            <span class="rider-check">✓</span>
+                            <span>Hearing protection available for purchase or free distribution at entry points</span>
+                        </li>
+                        <li>
+                            <span class="rider-check">✓</span>
+                            <span>Sound level monitoring equipment active during performance</span>
+                        </li>
+                        <li>
+                            <span class="rider-check">✓</span>
+                            <span>Visible signage about hearing health and protection availability</span>
+                        </li>
+                        <li>
+                            <span class="rider-check">✓</span>
+                            <span>Designated "lower volume" areas for attendees who need breaks</span>
+                        </li>
+                        <li>
+                            <span class="rider-check">✓</span>
+                            <span>Staff trained on hearing safety protocols</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Founding Artists Section -->
     <section class="artists-section">
@@ -827,9 +1060,9 @@
                     <p>Join the collective of artists redefining what it means to protect your craft.</p>
                     <ul class="join-features">
                         <li><span class="check-icon">✓</span> Free Unplugs product</li>
+                        <li><span class="check-icon">✓</span> Official Sound Rider template</li>
                         <li><span class="check-icon">✓</span> Collective branding & visibility</li>
                         <li><span class="check-icon">✓</span> Partnership opportunities</li>
-                        <li><span class="check-icon">✓</span> Early access to new products</li>
                         <li><span class="check-icon">✓</span> Equity opportunities for founding members</li>
                     </ul>
                     <form class="join-form" action="https://formspree.io/f/your-form-id" method="POST">
@@ -837,7 +1070,7 @@
                         <input type="email" name="email" placeholder="Email Address" class="form-input" required>
                         <input type="text" name="artist_name" placeholder="Artist / Creator Name" class="form-input" required>
                         <input type="text" name="socials" placeholder="Instagram or Spotify Link" class="form-input">
-                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Apply to Join</button>
+                        <button type="submit" class="form-submit">Apply to Join</button>
                     </form>
                 </div>
                 <div class="join-card">
@@ -855,7 +1088,7 @@
                         <input type="email" name="email" placeholder="Email Address" class="form-input" required>
                         <input type="text" name="company" placeholder="Company / Brand" class="form-input" required>
                         <input type="text" name="website" placeholder="Website" class="form-input">
-                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Get in Touch</button>
+                        <button type="submit" class="form-submit">Get in Touch</button>
                     </form>
                 </div>
             </div>
@@ -869,7 +1102,7 @@
                 <div class="venue-text">
                     <p class="section-label">For Venues</p>
                     <h2>Safe Sound Certified</h2>
-                    <p>Join the growing network of venues committed to protecting their patrons' hearing. Certification signals that you care about your community's long-term health.</p>
+                    <p>Join the growing network of venues committed to protecting their patrons' hearing. Certification signals that you care about your community's long-term health — and gets you on the radar of Collective artists.</p>
                     <ul class="venue-benefits">
                         <li>
                             <div class="benefit-icon">✓</div>
@@ -888,8 +1121,8 @@
                         <li>
                             <div class="benefit-icon">✓</div>
                             <div class="benefit-text">
-                                <h4>Marketing Support</h4>
-                                <p>Co-branded marketing assets and inclusion in Collective communications.</p>
+                                <h4>Sound Rider Ready</h4>
+                                <p>Meet the requirements that Collective artists include in their performance contracts.</p>
                             </div>
                         </li>
                         <li>
@@ -919,8 +1152,10 @@
                 <h2>Industry Leaders</h2>
             </div>
             <div class="partners-logos">
+                <div class="partner-logo">
+                    <img src="https://unplugshearing.com/cdn/shop/files/Logo.png?v=1723853882" alt="Unplugs">
+                </div>
                 <div class="partner-logo">LIVE NATION</div>
-                <div class="partner-logo">UNPLUGS</div>
                 <div class="partner-logo">INSOMNIAC</div>
             </div>
         </div>
@@ -944,11 +1179,14 @@
     <footer>
         <div class="container">
             <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://unplugshearing.com/cdn/shop/files/Logo.png?v=1723853882" alt="Unplugs">
+                </div>
                 <div class="footer-links">
                     <a href="https://unplugshearing.com" target="_blank">Unplugs</a>
                     <a href="mailto:collective@unplugshearing.com">Contact</a>
                     <a href="https://instagram.com/unplugshearing" target="_blank">Instagram</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="science.html">The Science of Sound</a>
                 </div>
                 <div class="footer-brand">
                     © 2026 Safe Sound Collective. Powered by <a href="https://unplugshearing.com" target="_blank">Unplugs</a>.
