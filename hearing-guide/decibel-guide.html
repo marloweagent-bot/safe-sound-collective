@@ -148,8 +148,63 @@
         .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
         
         @media (max-width: 768px) {
-            .db-info-grid { grid-template-columns: 1fr; }
-            .db-value { font-size: 3.5rem; }
+            /* Fix content padding */
+            .content { padding: 1.5rem 1rem; }
+            
+            /* Fix hero spacing */
+            .hero { padding: 3rem 1rem 2rem; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero-sub { font-size: 0.95rem; }
+            
+            /* Fix interactive slider section */
+            .db-explorer { padding: 1.25rem; border-radius: 16px; }
+            .db-slider-container { padding: 0.75rem 0 1.5rem; }
+            .db-slider::-webkit-slider-thumb { width: 28px; height: 28px; }
+            
+            /* Fix info grid - single column */
+            .db-info-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            .db-info-card { padding: 1rem; }
+            .db-info-icon { font-size: 1.5rem; }
+            .db-info-value { font-size: 1.25rem; }
+            
+            /* Fix display value */
+            .db-value { font-size: 3rem; }
+            .db-label { font-size: 1rem; }
+            
+            /* Fix comparison section */
+            .db-comparison { padding: 1rem; }
+            .comparison-example { gap: 0.75rem; padding: 0.6rem 0; }
+            .comparison-icon { font-size: 1.25rem; width: 32px; }
+            
+            /* Fix intro box */
+            .intro-box { padding: 1.25rem; border-radius: 12px; }
+            
+            /* Fix sound items */
+            .sound-item { padding: 0.875rem; gap: 0.75rem; }
+            .sound-icon { font-size: 1.25rem; width: 32px; }
+            .sound-name { font-size: 0.9rem; }
+            .sound-context { font-size: 0.8rem; }
+            .sound-db { font-size: 1rem; }
+            
+            /* Fix math section */
+            .math-section { padding: 1.25rem; border-radius: 12px; }
+            .formula-box { padding: 1rem; }
+            .formula { font-size: 1rem; }
+            .examples-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .example-card { padding: 0.875rem; }
+            .example-db { font-size: 1.25rem; }
+            
+            /* Fix CTA */
+            .protection-cta { padding: 1.5rem; border-radius: 12px; }
+            .protection-cta h2 { font-size: 1.25rem; }
+            
+            /* Fix takeaways */
+            .takeaways { padding: 1.25rem; border-radius: 12px; }
+            .takeaway-list li { gap: 0.75rem; padding: 0.75rem 0; }
+            
+            /* Fix related grid */
+            .related-grid { grid-template-columns: 1fr; }
+            .related-card { padding: 1rem; }
         }
     
 /* Mega Menu Header */

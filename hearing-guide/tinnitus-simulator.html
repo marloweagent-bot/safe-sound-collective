@@ -130,10 +130,39 @@
         .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; }
 
         @media (max-width: 768px) {
-            .content { padding: 1.5rem; }
-            .sound-types { grid-template-columns: repeat(2, 1fr); }
+            .content { padding: 1.5rem 1rem; }
+            .hero { padding: 3rem 1rem 2rem; }
+            .hero h1 { font-size: 1.75rem; }
+            
+            /* Fix simulator container */
+            .simulator { padding: 1.25rem; border-radius: 16px; }
+            
+            /* Fix sound type buttons */
+            .sound-types { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .sound-type { padding: 1rem; min-height: 70px; }
+            .sound-type-icon { font-size: 1.5rem; }
+            
+            /* Fix controls */
+            .controls-section { padding: 1rem; }
             .control-row { flex-direction: column; align-items: stretch; gap: 0.5rem; }
             .control-value { text-align: left; }
+            
+            /* Fix slider touch target */
+            input[type="range"] { height: 20px; }
+            input[type="range"]::-webkit-slider-thumb { width: 28px; height: 28px; }
+            
+            /* Fix play button */
+            .play-btn { min-height: 60px; min-width: 60px; font-size: 2rem; }
+            
+            /* Fix stats grid */
+            .stats-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            
+            /* Fix info sections */
+            .info-section { padding: 1.25rem; border-radius: 12px; }
+            
+            /* Fix CTA */
+            .cta-box { padding: 1.5rem; border-radius: 12px; }
+            .cta-box h3 { font-size: 1.25rem; }
         }
     
 /* Mega Menu Header */

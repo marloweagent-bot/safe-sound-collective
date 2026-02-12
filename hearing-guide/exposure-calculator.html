@@ -108,9 +108,31 @@
         .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
 
         @media (max-width: 768px) {
-            .exposure-item { grid-template-columns: 1fr; }
-            .dose-breakdown { grid-template-columns: 1fr; }
-            .compare-grid { grid-template-columns: 1fr; }
+            /* Fix content spacing */
+            .content { padding: 1.5rem 1rem; }
+            .hero { padding: 3rem 1rem 2rem; }
+            .hero h1 { font-size: 1.75rem; }
+            
+            /* Fix calculator */
+            .calculator { padding: 1.25rem; border-radius: 16px; margin-bottom: 2rem; }
+            .exposure-item { grid-template-columns: 1fr; gap: 0.75rem; padding: 1rem; }
+            
+            /* Fix slider touch target */
+            input[type="range"] { height: 20px; }
+            input[type="range"]::-webkit-slider-thumb { width: 28px; height: 28px; }
+            
+            /* Fix result display */
+            .dose-breakdown { grid-template-columns: 1fr; gap: 0.75rem; }
+            .dose-card { padding: 1rem; }
+            
+            /* Fix compare grid */
+            .compare-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            
+            /* Fix info sections */
+            .info-section { padding: 1.25rem; border-radius: 12px; margin-bottom: 1.5rem; }
+            
+            /* Fix buttons */
+            .add-btn, .remove-btn { min-height: 44px; min-width: 44px; }
         }
     
 /* Mega Menu Header */
