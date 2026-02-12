@@ -10,9 +10,27 @@
     <!-- Unplugs Typography - Using Oswald as Bamboy approximation -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Bamboy Font */
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
         /* ============================================
            UNPLUGS DESIGN SYSTEM
            Electric Midnight - Dark + Neon Green
@@ -40,7 +58,7 @@
             --border-hover: rgba(255, 255, 255, 0.15);
             
             /* Typography */
-            --font-display: 'Oswald', sans-serif;
+            --font-display: 'Bamboy', sans-serif;
             --font-body: 'Inter', -apple-system, sans-serif;
         }
 
