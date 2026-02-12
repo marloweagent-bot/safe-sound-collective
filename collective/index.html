@@ -330,6 +330,78 @@
             box-shadow: 0 10px 30px rgba(41, 239, 120, 0.2);
         }
         
+        /* Founders Section */
+        .founders {
+            padding: 6rem 2rem;
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+        }
+        
+        .founders-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .founders h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        
+        .founders-sub {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .founder {
+            padding: 1.5rem;
+        }
+        
+        .founder-avatar {
+            width: 72px;
+            height: 72px;
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+        
+        .founder h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .founder p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 700px) {
+            .founders-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
         /* CTA Section */
         .cta-section {
             padding: 6rem 2rem;
@@ -529,6 +601,33 @@
                         to industrial settings, workplaces, and commuter hubs. Everywhere sound exists, 
                         protection should too.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Founders Section -->
+    <section class="founders">
+        <div class="founders-inner">
+            <div class="section-label">Built By</div>
+            <h2>70 Years of Combined Expertise</h2>
+            <p class="founders-sub">Audiologists and mission-driven builders creating the future of hearing protection.</p>
+            
+            <div class="founders-grid">
+                <div class="founder">
+                    <div class="founder-avatar">TW</div>
+                    <h3>Tom Worcester</h3>
+                    <p>Founder, Unplugs & Lunchbox. Building products that protect people at live events.</p>
+                </div>
+                <div class="founder">
+                    <div class="founder-avatar">NB</div>
+                    <h3>Natan Bauman, Au.D.</h3>
+                    <p>50+ years in audiology. Invented the RIC hearing aid — the most widely used design in the world.</p>
+                </div>
+                <div class="founder">
+                    <div class="founder-avatar">RC</div>
+                    <h3>Ralph Campagna, BC-HIS</h3>
+                    <p>Board-certified hearing specialist. 20+ years fitting and designing hearing solutions.</p>
                 </div>
             </div>
         </div>
