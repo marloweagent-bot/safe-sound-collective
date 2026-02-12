@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Hearing Survival Guide: Protect Your Ears All Weekend | Safe Sound Guide</title>
+    <meta name="description" content="Complete guide to protecting your hearing at music festivals. Learn positioning strategies, earplug tips, recovery protocols, and how to enjoy 3+ days of music safely.">
+    <meta name="keywords" content="festival hearing protection, music festival earplugs, festival ear safety, protect hearing festival, concert weekend hearing">
+    <link rel="canonical" href="https://safesoundcollective.org/festival-survival">
+    <meta property="og:title" content="Festival Hearing Survival Guide | Safe Sound Guide">
+    <meta property="og:description" content="Enjoy every set without sacrificing your hearing. Your complete festival ear protection strategy.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Bamboy Font */
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --primary: #29EF78;
+            --secondary: #222222;
+            --accent: #29EF78;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #FFFFFF;
+            --text-muted: #909090;
+            --card: #2A2A2A;
+            --border: rgba(255,255,255,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { padding-top: 64px; font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .back-link { color: var(--text-muted); font-size: 0.9rem; }
+        .back-link:hover { color: var(--text); text-decoration: none; }
+
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .warning-banner { background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(245,158,11,0.2)); border: 1px solid rgba(239,68,68,0.3); border-radius: 16px; padding: 1.5rem; margin-bottom: 3rem; text-align: center; }
+        .warning-banner h3 { color: var(--danger); margin-bottom: 0.5rem; }
+        .warning-banner p { color: var(--text-muted); }
+        .warning-banner strong { color: var(--text); }
+
+        section { margin-bottom: 3rem; }
+        section h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; }
+        section h3 { font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: var(--accent); }
+        section p { color: var(--text-muted); margin-bottom: 1rem; }
+        section ul { color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem; }
+        section li { margin-bottom: 0.5rem; }
+
+        .day-planner { background: var(--card); border-radius: 16px; overflow: hidden; margin: 2rem 0; }
+        .day-tabs { display: flex; border-bottom: 1px solid var(--border); }
+        .day-tab { flex: 1; padding: 1rem; text-align: center; cursor: pointer; transition: background 0.2s; font-weight: 600; }
+        .day-tab:hover { background: rgba(255,255,255,0.05); }
+        .day-tab.active { background: var(--primary); }
+        .day-content { padding: 2rem; display: none; }
+        .day-content.active { display: block; }
+        .schedule-item { display: flex; gap: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; margin-bottom: 0.75rem; }
+        .schedule-time { color: var(--accent); font-weight: 600; min-width: 80px; }
+        .schedule-activity h4 { margin-bottom: 0.25rem; font-size: 1rem; }
+        .schedule-activity p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        .zone-map { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .zone-visual { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 2rem; position: relative; min-height: 300px; }
+        .zone { position: absolute; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-align: center; cursor: pointer; transition: transform 0.2s; }
+        .zone:hover { transform: scale(1.05); }
+        .zone.stage { background: var(--danger); top: 10%; left: 50%; transform: translateX(-50%); width: 60%; }
+        .zone.front { background: rgba(239,68,68,0.6); top: 30%; left: 50%; transform: translateX(-50%); width: 80%; }
+        .zone.mid { background: rgba(245,158,11,0.6); top: 50%; left: 50%; transform: translateX(-50%); width: 90%; }
+        .zone.back { background: rgba(16,185,129,0.6); top: 70%; left: 50%; transform: translateX(-50%); width: 95%; }
+        .zone.sides { background: var(--success); bottom: 5%; right: 5%; }
+        .zone.booth { background: var(--primary); bottom: 5%; left: 5%; }
+        .zone-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .legend-item { display: flex; align-items: center; gap: 0.5rem; }
+        .legend-color { width: 16px; height: 16px; border-radius: 4px; }
+        .legend-text { font-size: 0.85rem; }
+        .legend-text span { color: var(--text-muted); font-size: 0.8rem; }
+
+        .packing-list { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .packing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .packing-category h4 { color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .packing-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; cursor: pointer; }
+        .packing-item input { display: none; }
+        .packing-check { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
+        .packing-item input:checked + .packing-check { background: var(--success); border-color: var(--success); }
+        .packing-item input:checked + .packing-check::after { content: "✓"; color: white; font-size: 0.75rem; }
+        .packing-label { font-size: 0.9rem; }
+
+        .recovery-protocol { background: linear-gradient(135deg, var(--card), rgba(16,185,129,0.1)); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .recovery-timeline { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+        .recovery-step { display: flex; gap: 1rem; align-items: flex-start; }
+        .recovery-time { background: var(--success); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; min-width: 100px; text-align: center; flex-shrink: 0; }
+        .recovery-action h4 { margin-bottom: 0.25rem; }
+        .recovery-action p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        .quick-tips { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .quick-tip { background: var(--card); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--primary); }
+        .quick-tip h4 { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .quick-tip p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        .earplug-guide { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .earplug-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .earplug-type { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; text-align: center; }
+        .earplug-type h4 { margin-bottom: 0.5rem; }
+        .earplug-type .db { color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; }
+        .earplug-type p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+        .earplug-type .best-for { margin-top: 0.75rem; font-size: 0.8rem; color: var(--success); }
+
+        .related-articles { background: var(--card); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
+        .related-articles h3 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .related-card { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; transition: background 0.2s; }
+        .related-card:hover { background: rgba(0,0,0,0.3); text-decoration: none; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); }
+        .related-card p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+
+        .cta-box { background: linear-gradient(135deg, var(--primary), #8B5CF6); border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+        .cta-box h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-box p { opacity: 0.9; margin-bottom: 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; transition: transform 0.2s; }
+        .cta-btn:hover { transform: scale(1.05); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .content { padding: 1.5rem; }
+            .zone-visual { min-height: 250px; padding: 1rem; }
+            .zone { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+            .day-tabs { flex-wrap: wrap; }
+            .day-tab { min-width: 33.33%; }
+        }
+    
+/* Mega Menu Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0;
+}
+
+.header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.header-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.header-nav { display: flex; align-items: center; gap: 0.5rem; }
+.nav-item { position: relative; }
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.nav-link:hover, .nav-item:hover .nav-link { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-arrow { font-size: 0.7rem; transition: transform 0.2s; }
+.nav-item:hover .nav-arrow { transform: rotate(180deg); }
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.mega-menu-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.mega-menu-links { display: flex; flex-direction: column; gap: 0.25rem; }
+.mega-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+.mega-link:hover { background: rgba(99,102,241,0.15); color: var(--accent); }
+.mega-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+.mega-link-text { flex: 1; }
+.mega-link-title { font-weight: 600; font-size: 0.9rem; display: block; }
+.mega-link-desc { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+.header-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-left: 0.5rem;
+}
+.header-cta:hover { background: #22D969; transform: translateY(-1px); }
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary);
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section { margin-bottom: 1.5rem; }
+.mobile-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+.mobile-link:hover { background: rgba(255,255,255,0.05); }
+.mobile-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+
+@media (max-width: 900px) {
+    .header-nav { display: none; }
+    .mobile-toggle { display: block; }
+    .header-cta { display: none; }
+}
+
+.page-content { padding-top: 64px; }
+
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-main">
+        <a href="/" class="header-logo">
+            <span class="header-logo-icon">🔊</span>
+            Safe Sound Guide
+        </a>
+        
+        <nav class="header-nav">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Learn <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Understanding Sound</div>
+                    <div class="mega-menu-links">
+                        <a href="decibel-guide.html" class="mega-link"><span class="mega-link-icon">📊</span><span class="mega-link-text"><span class="mega-link-title">Decibel Guide</span><span class="mega-link-desc">Interactive sound levels</span></span></a>
+                        <a href="how-hearing-works.html" class="mega-link"><span class="mega-link-icon">👂</span><span class="mega-link-text"><span class="mega-link-title">How Hearing Works</span><span class="mega-link-desc">The journey of sound</span></span></a>
+                        <a href="noise-induced-hearing-loss.html" class="mega-link"><span class="mega-link-icon">📉</span><span class="mega-link-text"><span class="mega-link-title">NIHL Explained</span><span class="mega-link-desc">Causes & prevention</span></span></a>
+                        <a href="temporary-vs-permanent.html" class="mega-link"><span class="mega-link-icon">⚠️</span><span class="mega-link-text"><span class="mega-link-title">Temporary vs Permanent</span><span class="mega-link-desc">When damage is reversible</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Protect <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Protection Basics</div>
+                    <div class="mega-menu-links">
+                        <a href="85-decibel-rule.html" class="mega-link"><span class="mega-link-icon">📏</span><span class="mega-link-text"><span class="mega-link-title">The 85 dB Rule</span><span class="mega-link-desc">Your safety threshold</span></span></a>
+                        <a href="tinnitus-prevention.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Prevention</span><span class="mega-link-desc">Stop the ringing</span></span></a>
+                        <a href="safe-listening-guidelines.html" class="mega-link"><span class="mega-link-icon">✅</span><span class="mega-link-text"><span class="mega-link-title">Safe Listening</span><span class="mega-link-desc">WHO guidelines</span></span></a>
+                        <a href="headphone-safety.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Headphone Safety</span><span class="mega-link-desc">The 60/60 rule</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Guides <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu" style="min-width: 320px;">
+                    <div class="mega-menu-title">Situation Guides</div>
+                    <div class="mega-menu-links">
+                        <a href="concert-hearing-safety.html" class="mega-link"><span class="mega-link-icon">🎸</span><span class="mega-link-text"><span class="mega-link-title">Concerts & Shows</span><span class="mega-link-desc">Live music protection</span></span></a>
+                        <a href="festival-survival.html" class="mega-link"><span class="mega-link-icon">🎪</span><span class="mega-link-text"><span class="mega-link-title">Festival Survival</span><span class="mega-link-desc">Multi-day strategies</span></span></a>
+                        <a href="dj-hearing-protection.html" class="mega-link"><span class="mega-link-icon">🎛️</span><span class="mega-link-text"><span class="mega-link-title">DJ Protection</span><span class="mega-link-desc">Behind the decks</span></span></a>
+                        <a href="musician-hearing-guide.html" class="mega-link"><span class="mega-link-icon">🎵</span><span class="mega-link-text"><span class="mega-link-title">Musician's Guide</span><span class="mega-link-desc">By instrument type</span></span></a>
+                        <a href="kids-hearing-protection.html" class="mega-link"><span class="mega-link-icon">👶</span><span class="mega-link-text"><span class="mega-link-title">Kids & Parents</span><span class="mega-link-desc">Protecting young ears</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Tools <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Interactive Tools</div>
+                    <div class="mega-menu-links">
+                        <a href="exposure-calculator.html" class="mega-link"><span class="mega-link-icon">⏱️</span><span class="mega-link-text"><span class="mega-link-title">Exposure Calculator</span><span class="mega-link-desc">Daily noise dose</span></span></a>
+                        <a href="hearing-test.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Hearing Test</span><span class="mega-link-desc">Check your frequencies</span></span></a>
+                        <a href="tinnitus-simulator.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Simulator</span><span class="mega-link-desc">Hear what it's like</span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" class="header-cta">Get Unplugs →</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span id="menuIcon">☰</span></button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-section">
+        <div class="mobile-section-title">Understanding Sound</div>
+        <a href="decibel-guide.html" class="mobile-link"><span class="mobile-link-icon">📊</span> Decibel Guide</a>
+        <a href="how-hearing-works.html" class="mobile-link"><span class="mobile-link-icon">👂</span> How Hearing Works</a>
+        <a href="noise-induced-hearing-loss.html" class="mobile-link"><span class="mobile-link-icon">📉</span> NIHL Explained</a>
+        <a href="temporary-vs-permanent.html" class="mobile-link"><span class="mobile-link-icon">⚠️</span> Temporary vs Permanent</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Protection Basics</div>
+        <a href="85-decibel-rule.html" class="mobile-link"><span class="mobile-link-icon">📏</span> The 85 dB Rule</a>
+        <a href="tinnitus-prevention.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Prevention</a>
+        <a href="safe-listening-guidelines.html" class="mobile-link"><span class="mobile-link-icon">✅</span> Safe Listening</a>
+        <a href="headphone-safety.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Headphone Safety</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Situation Guides</div>
+        <a href="concert-hearing-safety.html" class="mobile-link"><span class="mobile-link-icon">🎸</span> Concerts & Shows</a>
+        <a href="festival-survival.html" class="mobile-link"><span class="mobile-link-icon">🎪</span> Festival Survival</a>
+        <a href="dj-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">🎛️</span> DJ Protection</a>
+        <a href="musician-hearing-guide.html" class="mobile-link"><span class="mobile-link-icon">🎵</span> Musician's Guide</a>
+        <a href="kids-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">👶</span> Kids & Parents</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Interactive Tools</div>
+        <a href="exposure-calculator.html" class="mobile-link"><span class="mobile-link-icon">⏱️</span> Exposure Calculator</a>
+        <a href="hearing-test.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Hearing Test</a>
+        <a href="tinnitus-simulator.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Simulator</a>
+    </div>
+    <div class="mobile-section" style="padding: 1rem;">
+        <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" style="display: block; background: var(--primary); color: white; text-align: center; padding: 1rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Get Unplugs →</a>
+    </div>
+</div>
+
+    
+
+    <div class="hero">
+        <h1>Festival Hearing Survival Guide</h1>
+        <p class="hero-sub">Three days of non-stop music doesn't have to mean a lifetime of hearing damage. Here's how to enjoy every set while protecting your ears.</p>
+    </div>
+
+    <main class="content">
+        <div class="warning-banner">
+            <h3>⚠️ Festival Math</h3>
+            <p>A typical festival = <strong>30-40 hours</strong> of exposure over 3-4 days at <strong>95-110 dB</strong>.<br>
+            Without protection, that's equivalent to <strong>10+ years</strong> of normal daily noise exposure compressed into one weekend.</p>
+        </div>
+
+        <section>
+            <h2>🗺️ Stage Positioning Strategy</h2>
+            <p>Where you stand matters more than you think. Sound levels can vary by 15+ dB depending on your position.</p>
+
+            <div class="zone-map">
+                <h3>Festival Stage Sound Zones</h3>
+                <div class="zone-visual">
+                    <div class="zone stage">🎤 STAGE</div>
+                    <div class="zone front">Front Rail: 105-115 dB</div>
+                    <div class="zone mid">Mid-crowd: 95-105 dB</div>
+                    <div class="zone back">Back/VIP: 85-95 dB</div>
+                    <div class="zone sides">📍 Sides</div>
+                    <div class="zone booth">🎧 Sound Booth</div>
+                </div>
+                <div class="zone-legend">
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: var(--danger)"></span>
+                        <span class="legend-text">Danger Zone <span>(&gt;100 dB)</span></span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: var(--warning)"></span>
+                        <span class="legend-text">Caution <span>(90-100 dB)</span></span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: var(--success)"></span>
+                        <span class="legend-text">Safer Zones <span>(&lt;95 dB)</span></span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: var(--primary)"></span>
+                        <span class="legend-text">Sweet Spot <span>(Best sound!)</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Pro Positioning Tips</h3>
+            <ul>
+                <li><strong>Sound booth area:</strong> Engineers mix for this spot. Best sound quality AND usually 10-15 dB lower than front.</li>
+                <li><strong>Avoid speaker stacks:</strong> Standing directly in front of or beside main PA = maximum damage.</li>
+                <li><strong>Sides are safer:</strong> Sound disperses more. Great views, lower levels.</li>
+                <li><strong>Front rail:</strong> Only with strong hearing protection. The energy is real, but so is the damage.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📅 Your Festival Day Plan</h2>
+            <p>Structure your days to give your ears recovery time between sets.</p>
+
+            <div class="day-planner">
+                <div class="day-tabs">
+                    <div class="day-tab active" onclick="showDay(1)">Day 1</div>
+                    <div class="day-tab" onclick="showDay(2)">Day 2</div>
+                    <div class="day-tab" onclick="showDay(3)">Day 3</div>
+                </div>
+                
+                <div class="day-content active" id="day-1">
+                    <div class="schedule-item">
+                        <span class="schedule-time">12:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Arrive & Acclimate</h4>
+                            <p>Get your bearings, find quiet zones, identify recovery spots</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">2:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>First Set (with earplugs)</h4>
+                            <p>Ease in. Your ears are fresh—don't blast them immediately</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">4:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Break: Food, Chill Zone</h4>
+                            <p>Find the quiet areas. Eat. Let your ears rest 30+ minutes</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">6:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Evening Sets</h4>
+                            <p>Prime time begins. Earplugs essential. Rotate positions</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">11:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Headliner (Protected Front or Safer Back)</h4>
+                            <p>If going front, use highest protection level you have</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-content" id="day-2">
+                    <div class="schedule-item">
+                        <span class="schedule-time">Morning</span>
+                        <div class="schedule-activity">
+                            <h4>Late Start / Recovery</h4>
+                            <p>Sleep in if possible. Your ears repair during sleep</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">2:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Check Your Ears</h4>
+                            <p>Any ringing? Muffled hearing? If yes, use maximum protection today</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">3:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Selective Sets</h4>
+                            <p>Don't catch everything. Quality over quantity. Skip one or two</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">6:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Longer Break</h4>
+                            <p>Cumulative damage is building. Take a full hour off</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">8:00 PM</span>
+                        <div class="schedule-activity">
+                            <h4>Evening Strategy</h4>
+                            <p>Stand further back than Day 1. Use higher-rated plugs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-content" id="day-3">
+                    <div class="schedule-item">
+                        <span class="schedule-time">Morning</span>
+                        <div class="schedule-activity">
+                            <h4>Honest Assessment</h4>
+                            <p>How are your ears? Persistent ringing = time to be very careful</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">Afternoon</span>
+                        <div class="schedule-activity">
+                            <h4>Minimal Exposure</h4>
+                            <p>Save your ears for the acts you really care about</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">Evening</span>
+                        <div class="schedule-activity">
+                            <h4>Final Night</h4>
+                            <p>Back of crowd or sound booth area. Maximum protection. Worth it</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">Post-Fest</span>
+                        <div class="schedule-activity">
+                            <h4>Recovery Protocol</h4>
+                            <p>48-72 hours of quiet. No headphones on the drive home</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎒 Festival Hearing Kit</h2>
+            <p>Pack these items to protect your ears all weekend:</p>
+
+            <div class="packing-list">
+                <h3>Your Packing Checklist</h3>
+                <div class="packing-grid">
+                    <div class="packing-category">
+                        <h4>🔇 Protection</h4>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Primary hi-fi earplugs</span>
+                        </label>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Backup pair of earplugs</span>
+                        </label>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Foam plugs (emergency)</span>
+                        </label>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Earplug case/keychain</span>
+                        </label>
+                    </div>
+                    <div class="packing-category">
+                        <h4>🧹 Care</h4>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Earplug cleaning wipes</span>
+                        </label>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Alcohol wipes (for customs)</span>
+                        </label>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Small flashlight (for insertion)</span>
+                        </label>
+                    </div>
+                    <div class="packing-category">
+                        <h4>📱 Support</h4>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">dB meter app installed</span>
+                        </label>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">Volume-limited headphones</span>
+                        </label>
+                        <label class="packing-item">
+                            <input type="checkbox">
+                            <span class="packing-check"></span>
+                            <span class="packing-label">White noise app (sleep)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔌 Choosing Festival Earplugs</h2>
+            <p>Different situations call for different levels of protection:</p>
+
+            <div class="earplug-guide">
+                <h3>Protection Levels Explained</h3>
+                <div class="earplug-types">
+                    <div class="earplug-type">
+                        <h4>Light (-12 to -15 dB)</h4>
+                        <div class="db">NRR 12-15</div>
+                        <p>Takes the edge off while preserving detail</p>
+                        <div class="best-for">✓ Back of crowd, smaller stages</div>
+                    </div>
+                    <div class="earplug-type">
+                        <h4>Medium (-18 to -20 dB)</h4>
+                        <div class="db">NRR 18-20</div>
+                        <p>Good all-around festival protection</p>
+                        <div class="best-for">✓ Main stages, mid-crowd</div>
+                    </div>
+                    <div class="earplug-type">
+                        <h4>Strong (-22 to -25 dB)</h4>
+                        <div class="db">NRR 22-25</div>
+                        <p>For extended exposure or front sections</p>
+                        <div class="best-for">✓ Front rail, bass stages, Day 3</div>
+                    </div>
+                    <div class="earplug-type">
+                        <h4>Maximum (-28+ dB)</h4>
+                        <div class="db">NRR 28+</div>
+                        <p>Foam plugs for emergencies or recovery</p>
+                        <div class="best-for">✓ Sleep, extreme situations</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔄 Post-Festival Recovery</h2>
+            <p>What you do after the festival is just as important as protection during:</p>
+
+            <div class="recovery-protocol">
+                <h3>Recovery Timeline</h3>
+                <div class="recovery-timeline">
+                    <div class="recovery-step">
+                        <span class="recovery-time">0-2 Hours</span>
+                        <div class="recovery-action">
+                            <h4>Immediate Quiet</h4>
+                            <p>No headphones, no loud car audio. Silence or very soft sounds only.</p>
+                        </div>
+                    </div>
+                    <div class="recovery-step">
+                        <span class="recovery-time">2-8 Hours</span>
+                        <div class="recovery-action">
+                            <h4>Keep It Gentle</h4>
+                            <p>If you must listen to something, keep it under 60% volume. Better: conversation-level sounds only.</p>
+                        </div>
+                    </div>
+                    <div class="recovery-step">
+                        <span class="recovery-time">8-24 Hours</span>
+                        <div class="recovery-action">
+                            <h4>Sleep & Rest</h4>
+                            <p>Your ears repair during sleep. Get a full night's rest in a quiet environment.</p>
+                        </div>
+                    </div>
+                    <div class="recovery-step">
+                        <span class="recovery-time">24-72 Hours</span>
+                        <div class="recovery-action">
+                            <h4>Gradual Return</h4>
+                            <p>Slowly return to normal listening. If tinnitus persists past 48h, see an audiologist.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💡 Quick Survival Tips</h2>
+            <div class="quick-tips">
+                <div class="quick-tip">
+                    <h4>🥤 Stay Hydrated</h4>
+                    <p>Dehydration can worsen hearing sensitivity. Water helps everything, including your ears.</p>
+                </div>
+                <div class="quick-tip">
+                    <h4>🚭 Skip the Substances</h4>
+                    <p>Alcohol and other substances can mask warning signs of hearing damage. Stay aware.</p>
+                </div>
+                <div class="quick-tip">
+                    <h4>📵 No Earbuds at Camp</h4>
+                    <p>Give your ears complete rest between sets. No headphones, no earbuds, no exceptions.</p>
+                </div>
+                <div class="quick-tip">
+                    <h4>👥 Buddy System</h4>
+                    <p>Remind friends to wear their plugs. Make it part of your crew's culture.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="related-articles">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <a href="concert-hearing-safety.html" class="related-card">
+                    <h4>Concert Hearing Safety →</h4>
+                    <p>Protection tips for single shows and events</p>
+                </a>
+                <a href="tinnitus-prevention.html" class="related-card">
+                    <h4>Tinnitus Prevention →</h4>
+                    <p>Understanding and preventing ringing in your ears</p>
+                </a>
+                <a href="exposure-calculator.html" class="related-card">
+                    <h4>Exposure Calculator →</h4>
+                    <p>Calculate your festival noise dose</p>
+                </a>
+                <a href="decibel-guide.html" class="related-card">
+                    <h4>Decibel Guide →</h4>
+                    <p>Understanding sound levels at festivals</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>Festival-Ready Protection</h3>
+            <p>Premium earplugs that won't fall out during your favorite set. Designed for all-weekend wear.</p>
+            <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" class="cta-btn">Get Unplugs →</a>
+        </div>
+    </main>
+
+    <script>
+        function showDay(day) {
+            document.querySelectorAll('.day-tab').forEach((tab, i) => {
+                tab.classList.toggle('active', i === day - 1);
+            });
+            document.querySelectorAll('.day-content').forEach((content, i) => {
+                content.classList.toggle('active', i === day - 1);
+            });
+        }
+
+        // Persist packing list
+        document.querySelectorAll('.packing-item input').forEach((cb, i) => {
+            cb.checked = localStorage.getItem(`fest-pack-${i}`) === 'true';
+            cb.addEventListener('change', () => {
+                localStorage.setItem(`fest-pack-${i}`, cb.checked);
+            });
+        });
+    </script>
+</body>
+</html>

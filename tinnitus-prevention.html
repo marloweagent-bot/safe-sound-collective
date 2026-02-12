@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinnitus Prevention: How to Stop the Ringing Before It Starts | Safe Sound Guide</title>
+    <meta name="description" content="15% of adults have tinnitus. Most cases are preventable. Learn what causes tinnitus, who's at risk, and how to protect yourself from permanent ringing in your ears.">
+    <meta name="keywords" content="tinnitus prevention, stop ringing ears, prevent tinnitus, tinnitus causes, ringing in ears prevention">
+    <link rel="canonical" href="https://safesoundcollective.org/tinnitus-prevention">
+    <meta property="og:title" content="Tinnitus Prevention | Safe Sound Guide">
+    <meta property="og:description" content="15% of adults have tinnitus. Most cases are preventable. Learn how to protect yourself.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Bamboy Font */
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root { --primary: #29EF78; --secondary: #222222; --accent: #29EF78; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #FFFFFF; --text-muted: #909090; --card: #2A2A2A; --border: rgba(255,255,255,0.08); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { padding-top: 64px; font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); }
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(239,68,68,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        .warning-banner { background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.1)); border: 1px solid var(--danger); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .warning-stat { font-size: 4rem; font-weight: 900; color: var(--danger); }
+        .warning-label { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .warning-sub { color: var(--text-muted); }
+        
+        .section { margin-bottom: 3rem; }
+        .section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .section h3 { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; color: var(--accent); }
+        .section p { color: var(--text-muted); margin-bottom: 1rem; }
+        
+        .card { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+        .card h3 { color: var(--text); margin-top: 0; }
+        
+        /* Tinnitus Simulator */
+        .simulator { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .simulator h2 { margin-bottom: 0.5rem; }
+        .simulator-sub { color: var(--text-muted); margin-bottom: 2rem; }
+        
+        .sound-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .sound-btn { padding: 1rem; background: rgba(0,0,0,0.3); border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s; }
+        .sound-btn:hover { border-color: var(--primary); }
+        .sound-btn.active { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+        .sound-btn-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .sound-btn-label { font-size: 0.85rem; font-weight: 600; }
+        .sound-btn-hz { font-size: 0.75rem; color: var(--text-muted); }
+        
+        .volume-control { margin: 2rem 0; }
+        .volume-label { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .volume-slider { width: 100%; max-width: 300px; height: 8px; border-radius: 4px; -webkit-appearance: none; background: linear-gradient(90deg, var(--success), var(--warning), var(--danger)); }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; background: white; border-radius: 50%; cursor: pointer; }
+        
+        .play-btn { padding: 1rem 3rem; background: var(--danger); border: none; border-radius: 12px; color: white; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+        .play-btn:hover { transform: scale(1.05); }
+        .play-btn.playing { background: #333; }
+        
+        .simulator-warning { margin-top: 1.5rem; padding: 1rem; background: rgba(239,68,68,0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-muted); }
+        
+        /* Risk Assessment */
+        .risk-quiz { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; }
+        .quiz-question { margin-bottom: 2rem; }
+        .quiz-q { font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem; }
+        .quiz-options { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .quiz-opt { padding: 0.75rem 1.5rem; background: rgba(0,0,0,0.3); border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; }
+        .quiz-opt:hover { border-color: var(--primary); }
+        .quiz-opt.selected { border-color: var(--primary); background: rgba(99,102,241,0.2); }
+        .quiz-opt[data-risk="high"].selected { border-color: var(--danger); background: rgba(239,68,68,0.2); }
+        .quiz-opt[data-risk="medium"].selected { border-color: var(--warning); background: rgba(245,158,11,0.2); }
+        
+        .quiz-result { padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 12px; text-align: center; margin-top: 2rem; display: none; }
+        .quiz-result.show { display: block; }
+        .result-score { font-size: 3rem; font-weight: 900; }
+        .result-score.low { color: var(--success); }
+        .result-score.medium { color: var(--warning); }
+        .result-score.high { color: var(--danger); }
+        .result-label { font-size: 1.25rem; margin: 0.5rem 0; }
+        .result-advice { color: var(--text-muted); font-size: 0.95rem; }
+        
+        /* Prevention Strategies */
+        .strategies { display: grid; gap: 1.5rem; }
+        .strategy { display: flex; gap: 1.5rem; padding: 1.5rem; background: var(--card); border-radius: 12px; align-items: flex-start; }
+        .strategy-icon { font-size: 2.5rem; flex-shrink: 0; }
+        .strategy-content h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .strategy-content p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+        
+        /* CTA */
+        .cta { background: linear-gradient(135deg, var(--primary), #29EF78); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+        .cta h2 { color: #222222; margin-bottom: 0.75rem; }
+        .cta p { color: #333333; max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+        
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+        
+        @media (max-width: 600px) { .strategy { flex-direction: column; gap: 1rem; } }
+    
+/* Mega Menu Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0;
+}
+
+.header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.header-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.header-nav { display: flex; align-items: center; gap: 0.5rem; }
+.nav-item { position: relative; }
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.nav-link:hover, .nav-item:hover .nav-link { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-arrow { font-size: 0.7rem; transition: transform 0.2s; }
+.nav-item:hover .nav-arrow { transform: rotate(180deg); }
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.mega-menu-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.mega-menu-links { display: flex; flex-direction: column; gap: 0.25rem; }
+.mega-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+.mega-link:hover { background: rgba(99,102,241,0.15); color: var(--accent); }
+.mega-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+.mega-link-text { flex: 1; }
+.mega-link-title { font-weight: 600; font-size: 0.9rem; display: block; }
+.mega-link-desc { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+.header-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-left: 0.5rem;
+}
+.header-cta:hover { background: #22D969; transform: translateY(-1px); }
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary);
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section { margin-bottom: 1.5rem; }
+.mobile-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+.mobile-link:hover { background: rgba(255,255,255,0.05); }
+.mobile-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+
+@media (max-width: 900px) {
+    .header-nav { display: none; }
+    .mobile-toggle { display: block; }
+    .header-cta { display: none; }
+}
+
+.page-content { padding-top: 64px; }
+
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-main">
+        <a href="/" class="header-logo">
+            <span class="header-logo-icon">🔊</span>
+            Safe Sound Guide
+        </a>
+        
+        <nav class="header-nav">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Learn <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Understanding Sound</div>
+                    <div class="mega-menu-links">
+                        <a href="decibel-guide.html" class="mega-link"><span class="mega-link-icon">📊</span><span class="mega-link-text"><span class="mega-link-title">Decibel Guide</span><span class="mega-link-desc">Interactive sound levels</span></span></a>
+                        <a href="how-hearing-works.html" class="mega-link"><span class="mega-link-icon">👂</span><span class="mega-link-text"><span class="mega-link-title">How Hearing Works</span><span class="mega-link-desc">The journey of sound</span></span></a>
+                        <a href="noise-induced-hearing-loss.html" class="mega-link"><span class="mega-link-icon">📉</span><span class="mega-link-text"><span class="mega-link-title">NIHL Explained</span><span class="mega-link-desc">Causes & prevention</span></span></a>
+                        <a href="temporary-vs-permanent.html" class="mega-link"><span class="mega-link-icon">⚠️</span><span class="mega-link-text"><span class="mega-link-title">Temporary vs Permanent</span><span class="mega-link-desc">When damage is reversible</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Protect <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Protection Basics</div>
+                    <div class="mega-menu-links">
+                        <a href="85-decibel-rule.html" class="mega-link"><span class="mega-link-icon">📏</span><span class="mega-link-text"><span class="mega-link-title">The 85 dB Rule</span><span class="mega-link-desc">Your safety threshold</span></span></a>
+                        <a href="tinnitus-prevention.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Prevention</span><span class="mega-link-desc">Stop the ringing</span></span></a>
+                        <a href="safe-listening-guidelines.html" class="mega-link"><span class="mega-link-icon">✅</span><span class="mega-link-text"><span class="mega-link-title">Safe Listening</span><span class="mega-link-desc">WHO guidelines</span></span></a>
+                        <a href="headphone-safety.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Headphone Safety</span><span class="mega-link-desc">The 60/60 rule</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Guides <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu" style="min-width: 320px;">
+                    <div class="mega-menu-title">Situation Guides</div>
+                    <div class="mega-menu-links">
+                        <a href="concert-hearing-safety.html" class="mega-link"><span class="mega-link-icon">🎸</span><span class="mega-link-text"><span class="mega-link-title">Concerts & Shows</span><span class="mega-link-desc">Live music protection</span></span></a>
+                        <a href="festival-survival.html" class="mega-link"><span class="mega-link-icon">🎪</span><span class="mega-link-text"><span class="mega-link-title">Festival Survival</span><span class="mega-link-desc">Multi-day strategies</span></span></a>
+                        <a href="dj-hearing-protection.html" class="mega-link"><span class="mega-link-icon">🎛️</span><span class="mega-link-text"><span class="mega-link-title">DJ Protection</span><span class="mega-link-desc">Behind the decks</span></span></a>
+                        <a href="musician-hearing-guide.html" class="mega-link"><span class="mega-link-icon">🎵</span><span class="mega-link-text"><span class="mega-link-title">Musician's Guide</span><span class="mega-link-desc">By instrument type</span></span></a>
+                        <a href="kids-hearing-protection.html" class="mega-link"><span class="mega-link-icon">👶</span><span class="mega-link-text"><span class="mega-link-title">Kids & Parents</span><span class="mega-link-desc">Protecting young ears</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Tools <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Interactive Tools</div>
+                    <div class="mega-menu-links">
+                        <a href="exposure-calculator.html" class="mega-link"><span class="mega-link-icon">⏱️</span><span class="mega-link-text"><span class="mega-link-title">Exposure Calculator</span><span class="mega-link-desc">Daily noise dose</span></span></a>
+                        <a href="hearing-test.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Hearing Test</span><span class="mega-link-desc">Check your frequencies</span></span></a>
+                        <a href="tinnitus-simulator.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Simulator</span><span class="mega-link-desc">Hear what it's like</span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" class="header-cta">Get Unplugs →</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span id="menuIcon">☰</span></button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-section">
+        <div class="mobile-section-title">Understanding Sound</div>
+        <a href="decibel-guide.html" class="mobile-link"><span class="mobile-link-icon">📊</span> Decibel Guide</a>
+        <a href="how-hearing-works.html" class="mobile-link"><span class="mobile-link-icon">👂</span> How Hearing Works</a>
+        <a href="noise-induced-hearing-loss.html" class="mobile-link"><span class="mobile-link-icon">📉</span> NIHL Explained</a>
+        <a href="temporary-vs-permanent.html" class="mobile-link"><span class="mobile-link-icon">⚠️</span> Temporary vs Permanent</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Protection Basics</div>
+        <a href="85-decibel-rule.html" class="mobile-link"><span class="mobile-link-icon">📏</span> The 85 dB Rule</a>
+        <a href="tinnitus-prevention.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Prevention</a>
+        <a href="safe-listening-guidelines.html" class="mobile-link"><span class="mobile-link-icon">✅</span> Safe Listening</a>
+        <a href="headphone-safety.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Headphone Safety</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Situation Guides</div>
+        <a href="concert-hearing-safety.html" class="mobile-link"><span class="mobile-link-icon">🎸</span> Concerts & Shows</a>
+        <a href="festival-survival.html" class="mobile-link"><span class="mobile-link-icon">🎪</span> Festival Survival</a>
+        <a href="dj-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">🎛️</span> DJ Protection</a>
+        <a href="musician-hearing-guide.html" class="mobile-link"><span class="mobile-link-icon">🎵</span> Musician's Guide</a>
+        <a href="kids-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">👶</span> Kids & Parents</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Interactive Tools</div>
+        <a href="exposure-calculator.html" class="mobile-link"><span class="mobile-link-icon">⏱️</span> Exposure Calculator</a>
+        <a href="hearing-test.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Hearing Test</a>
+        <a href="tinnitus-simulator.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Simulator</a>
+    </div>
+    <div class="mobile-section" style="padding: 1rem;">
+        <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" style="display: block; background: var(--primary); color: white; text-align: center; padding: 1rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Get Unplugs →</a>
+    </div>
+</div>
+
+    
+
+    <section class="hero">
+        <h1>Tinnitus Prevention: Stop the Ringing Before It Starts</h1>
+        <p class="hero-sub">That ringing, buzzing, or hissing that won't go away? It's called tinnitus, and for most people, it's completely preventable.</p>
+        <div style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(239,68,68,0.15); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem;">
+            <span style="color: var(--success);">✓</span>
+            <span>By <strong>Dr. Natan Bauman, Ed.D.</strong> · Founder, Tinnitus Practitioners Association</span>
+        </div>
+    </section>
+
+    <main class="content">
+        <div class="warning-banner">
+            <div class="warning-stat">50M+</div>
+            <div class="warning-label">Americans have tinnitus</div>
+            <div class="warning-sub">That's about 15% of adults. Most cases are caused by noise exposure—and could have been prevented.</div>
+        </div>
+
+        <section class="simulator">
+            <h2>🔔 Tinnitus Sound Simulator</h2>
+            <p class="simulator-sub">Experience what people with tinnitus hear 24/7. This never stops for them.</p>
+            
+            <div class="sound-types">
+                <div class="sound-btn active" data-freq="4000" data-type="sine">
+                    <div class="sound-btn-icon">〰️</div>
+                    <div class="sound-btn-label">High Ring</div>
+                    <div class="sound-btn-hz">4000 Hz</div>
+                </div>
+                <div class="sound-btn" data-freq="8000" data-type="sine">
+                    <div class="sound-btn-icon">📍</div>
+                    <div class="sound-btn-label">Very High</div>
+                    <div class="sound-btn-hz">8000 Hz</div>
+                </div>
+                <div class="sound-btn" data-freq="1000" data-type="sine">
+                    <div class="sound-btn-icon">🔉</div>
+                    <div class="sound-btn-label">Low Tone</div>
+                    <div class="sound-btn-hz">1000 Hz</div>
+                </div>
+                <div class="sound-btn" data-freq="0" data-type="noise">
+                    <div class="sound-btn-icon">📻</div>
+                    <div class="sound-btn-label">Static/Hiss</div>
+                    <div class="sound-btn-hz">Broadband</div>
+                </div>
+                <div class="sound-btn" data-freq="500" data-type="pulse">
+                    <div class="sound-btn-icon">💓</div>
+                    <div class="sound-btn-label">Pulsing</div>
+                    <div class="sound-btn-hz">Rhythmic</div>
+                </div>
+            </div>
+            
+            <div class="volume-control">
+                <div class="volume-label">Volume (use caution)</div>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="30" value="15">
+            </div>
+            
+            <button class="play-btn" id="playBtn" onclick="toggleTinnitus()">▶ Play Tinnitus Sound</button>
+            
+            <div class="simulator-warning">
+                ⚠️ Use low volume. This is meant to demonstrate the experience, not cause damage. For many people, sounds like this play in their head constantly—during conversations, while trying to sleep, forever.
+            </div>
+        </section>
+
+        <!-- Expert Context -->
+        <div style="background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--danger);">
+            <blockquote style="font-size: 1.1rem; font-style: italic; margin-bottom: 1rem; line-height: 1.6;">
+                "People complain of tinnitus particularly when it is quiet. The brain, deprived of proper sound stimulation, has a tendency to increase its own gain — and in doing so, inadvertently promotes tinnitus. A little bit of light in a very dark room is perceived as extremely bright. I tell my patients: let's brighten up your auditory room."
+            </blockquote>
+            <div style="font-weight: 600;">Dr. Natan Bauman, Ed.D., FAAA</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Founder, Tinnitus Practitioners Association · Developer of Cognitive Habituation Tinnitus Therapy (CHaTT)</div>
+        </div>
+
+        <section class="section">
+            <h2>What is Tinnitus?</h2>
+            <p>Tinnitus is the perception of sound when no external sound is present. It's not a disease itself, but a symptom of damage to the auditory system—usually to the delicate hair cells in your inner ear.</p>
+            
+            <div class="card">
+                <h3>What People With Tinnitus Experience:</h3>
+                <ul style="color: var(--text-muted); margin-left: 1.5rem;">
+                    <li><strong>Ringing</strong> - The most common type, a high-pitched tone</li>
+                    <li><strong>Buzzing</strong> - Like an electric hum or bee</li>
+                    <li><strong>Hissing</strong> - Static or steam-like sounds</li>
+                    <li><strong>Clicking</strong> - Rhythmic or random clicking</li>
+                    <li><strong>Roaring</strong> - Like ocean waves or wind</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>The worst part:</strong> For most people, it never stops. It's there when you wake up, during every conversation, and when you're trying to fall asleep.</p>
+            </div>
+        </section>
+
+        <section class="risk-quiz">
+            <h2>🎯 Tinnitus Risk Assessment</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Answer these questions to understand your risk level.</p>
+            
+            <div class="quiz-question">
+                <div class="quiz-q">1. How often do you attend loud events (concerts, clubs, festivals)?</div>
+                <div class="quiz-options">
+                    <div class="quiz-opt" data-risk="low" data-points="0" onclick="selectQuiz(this)">Rarely/Never</div>
+                    <div class="quiz-opt" data-risk="medium" data-points="1" onclick="selectQuiz(this)">Few times a year</div>
+                    <div class="quiz-opt" data-risk="high" data-points="2" onclick="selectQuiz(this)">Monthly or more</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <div class="quiz-q">2. Do you use hearing protection at loud events?</div>
+                <div class="quiz-options">
+                    <div class="quiz-opt" data-risk="low" data-points="0" onclick="selectQuiz(this)">Always</div>
+                    <div class="quiz-opt" data-risk="medium" data-points="1" onclick="selectQuiz(this)">Sometimes</div>
+                    <div class="quiz-opt" data-risk="high" data-points="2" onclick="selectQuiz(this)">Rarely/Never</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <div class="quiz-q">3. How loud do you typically listen to headphones/earbuds?</div>
+                <div class="quiz-options">
+                    <div class="quiz-opt" data-risk="low" data-points="0" onclick="selectQuiz(this)">50% or less</div>
+                    <div class="quiz-opt" data-risk="medium" data-points="1" onclick="selectQuiz(this)">50-75%</div>
+                    <div class="quiz-opt" data-risk="high" data-points="2" onclick="selectQuiz(this)">Over 75%</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <div class="quiz-q">4. Do you ever experience temporary ringing after loud noise exposure?</div>
+                <div class="quiz-options">
+                    <div class="quiz-opt" data-risk="low" data-points="0" onclick="selectQuiz(this)">Never</div>
+                    <div class="quiz-opt" data-risk="medium" data-points="1" onclick="selectQuiz(this)">Occasionally</div>
+                    <div class="quiz-opt" data-risk="high" data-points="3" onclick="selectQuiz(this)">Frequently</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <div class="quiz-q">5. What's your occupation/hobby?</div>
+                <div class="quiz-options">
+                    <div class="quiz-opt" data-risk="low" data-points="0" onclick="selectQuiz(this)">Office/quiet</div>
+                    <div class="quiz-opt" data-risk="medium" data-points="1" onclick="selectQuiz(this)">Moderate noise</div>
+                    <div class="quiz-opt" data-risk="high" data-points="2" onclick="selectQuiz(this)">Loud (music, construction, etc.)</div>
+                </div>
+            </div>
+            
+            <button class="play-btn" style="background: var(--primary);" onclick="calculateRisk()">Calculate My Risk</button>
+            
+            <div class="quiz-result" id="quizResult">
+                <div class="result-score" id="resultScore">0</div>
+                <div class="result-label" id="resultLabel">Risk Level</div>
+                <div class="result-advice" id="resultAdvice">Advice will appear here.</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The #1 Cause: Noise Exposure</h2>
+            <p>While tinnitus can have multiple causes (ear infections, medications, age), <strong>noise-induced damage is the leading preventable cause</strong>. Here's how it happens:</p>
+            
+            <div class="card">
+                <h3>The Damage Process</h3>
+                <ol style="color: var(--text-muted); margin-left: 1.5rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>Loud sound enters your ear</strong> - Sound waves hit your eardrum and travel to your inner ear</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Hair cells get overstimulated</strong> - The delicate hair cells that detect sound are pushed beyond their limits</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Hair cells become damaged or die</strong> - Unlike other cells, they don't regenerate</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Your brain tries to compensate</strong> - It "turns up the volume" looking for missing signals</li>
+                    <li><strong>Phantom sounds appear</strong> - This compensation creates the perception of sound that isn't there—tinnitus</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Prevent Tinnitus</h2>
+            
+            <div class="strategies">
+                <div class="strategy">
+                    <div class="strategy-icon">🛡️</div>
+                    <div class="strategy-content">
+                        <h4>Wear Hearing Protection at Loud Events</h4>
+                        <p>Concerts, clubs, festivals, and sporting events regularly exceed 100 dB. Quality earplugs reduce this to safe levels while preserving sound quality.</p>
+                    </div>
+                </div>
+                <div class="strategy">
+                    <div class="strategy-icon">🎧</div>
+                    <div class="strategy-content">
+                        <h4>Follow the 60/60 Rule for Headphones</h4>
+                        <p>Listen at no more than 60% volume for no more than 60 minutes at a time. If you can't hear people around you, it's too loud.</p>
+                    </div>
+                </div>
+                <div class="strategy">
+                    <div class="strategy-icon">🚶</div>
+                    <div class="strategy-content">
+                        <h4>Take "Sound Breaks" at Loud Venues</h4>
+                        <p>Step outside or to a quiet area for 10-15 minutes every hour. This gives your hair cells time to recover from overstimulation.</p>
+                    </div>
+                </div>
+                <div class="strategy">
+                    <div class="strategy-icon">📍</div>
+                    <div class="strategy-content">
+                        <h4>Keep Distance from Speakers</h4>
+                        <p>Sound intensity drops significantly with distance. Move back from speaker stacks when possible—you'll still hear everything, with less risk.</p>
+                    </div>
+                </div>
+                <div class="strategy">
+                    <div class="strategy-icon">⚠️</div>
+                    <div class="strategy-content">
+                        <h4>Take Temporary Ringing Seriously</h4>
+                        <p>That ringing after a loud night? It's a warning sign. Your hair cells are damaged. If it happens regularly, permanent tinnitus often follows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta">
+            <h2>Don't Wait Until It's Too Late</h2>
+            <p>Unplugs let you enjoy live music while protecting your hearing. One click switches between protection and full transparency.</p>
+            <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" class="cta-btn">Get Unplugs →</a>
+        </div>
+
+        <section class="section">
+            <h2>If You Already Have Tinnitus</h2>
+            <p>While there's no cure for most tinnitus, there are effective management strategies:</p>
+            
+            <div class="card">
+                <ul style="color: var(--text-muted); margin-left: 1.5rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>Sound therapy</strong> - Background noise can make tinnitus less noticeable</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Cognitive behavioral therapy (CBT)</strong> - Helps change your reaction to tinnitus</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Hearing aids</strong> - Can help if you also have hearing loss</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Protect remaining hearing</strong> - Prevent it from getting worse</li>
+                    <li><strong>See an audiologist</strong> - Get a proper evaluation and personalized treatment plan</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Related Articles</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <a href="tinnitus-simulator.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Tinnitus Simulator →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Experience what it sounds like</span>
+                </a>
+                <a href="noise-induced-hearing-loss.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>NIHL Explained →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">The main cause of tinnitus</span>
+                </a>
+                <a href="temporary-vs-permanent.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Temporary vs Permanent →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">When damage is reversible</span>
+                </a>
+                <a href="concert-hearing-safety.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Concert Safety →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Protect ears at live events</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Safe Sound Guide</a> · Educational content by <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc">Unplugs</a></p>
+    </footer>
+
+    <script>
+        let audioCtx = null;
+        let oscillator = null;
+        let noiseNode = null;
+        let gainNode = null;
+        let isPlaying = false;
+        let currentType = 'sine';
+        let currentFreq = 4000;
+
+        document.querySelectorAll('.sound-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sound-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFreq = parseInt(btn.dataset.freq);
+                currentType = btn.dataset.type;
+                if (isPlaying) {
+                    stopTinnitus();
+                    startTinnitus();
+                }
+            });
+        });
+
+        function startTinnitus() {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            gainNode = audioCtx.createGain();
+            const volume = document.getElementById('volumeSlider').value / 100;
+            gainNode.gain.value = volume * 0.3;
+            gainNode.connect(audioCtx.destination);
+
+            if (currentType === 'noise') {
+                const bufferSize = 2 * audioCtx.sampleRate;
+                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const output = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    output[i] = Math.random() * 2 - 1;
+                }
+                noiseNode = audioCtx.createBufferSource();
+                noiseNode.buffer = noiseBuffer;
+                noiseNode.loop = true;
+                noiseNode.connect(gainNode);
+                noiseNode.start();
+            } else if (currentType === 'pulse') {
+                oscillator = audioCtx.createOscillator();
+                oscillator.type = 'sine';
+                oscillator.frequency.value = 500;
+                const pulseGain = audioCtx.createGain();
+                oscillator.connect(pulseGain);
+                pulseGain.connect(gainNode);
+                oscillator.start();
+                // Create pulsing effect
+                function pulse() {
+                    if (!isPlaying) return;
+                    pulseGain.gain.setValueAtTime(1, audioCtx.currentTime);
+                    pulseGain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                    setTimeout(pulse, 800);
+                }
+                pulse();
+            } else {
+                oscillator = audioCtx.createOscillator();
+                oscillator.type = 'sine';
+                oscillator.frequency.value = currentFreq;
+                oscillator.connect(gainNode);
+                oscillator.start();
+            }
+        }
+
+        function stopTinnitus() {
+            if (oscillator) { oscillator.stop(); oscillator = null; }
+            if (noiseNode) { noiseNode.stop(); noiseNode = null; }
+            if (audioCtx) { audioCtx.close(); audioCtx = null; }
+        }
+
+        function toggleTinnitus() {
+            const btn = document.getElementById('playBtn');
+            if (isPlaying) {
+                stopTinnitus();
+                btn.textContent = '▶ Play Tinnitus Sound';
+                btn.classList.remove('playing');
+            } else {
+                startTinnitus();
+                btn.textContent = '⏹ Stop';
+                btn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        document.getElementById('volumeSlider').addEventListener('input', (e) => {
+            if (gainNode) gainNode.gain.value = (e.target.value / 100) * 0.3;
+        });
+
+        // Quiz
+        function selectQuiz(el) {
+            el.parentElement.querySelectorAll('.quiz-opt').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        function calculateRisk() {
+            const selected = document.querySelectorAll('.quiz-opt.selected');
+            let total = 0;
+            selected.forEach(opt => { total += parseInt(opt.dataset.points); });
+            
+            const result = document.getElementById('quizResult');
+            const score = document.getElementById('resultScore');
+            const label = document.getElementById('resultLabel');
+            const advice = document.getElementById('resultAdvice');
+            
+            result.classList.add('show');
+            
+            if (total <= 3) {
+                score.textContent = 'LOW';
+                score.className = 'result-score low';
+                label.textContent = 'Low Risk';
+                advice.textContent = 'Your habits suggest low tinnitus risk. Keep it up! Continue using protection at loud events and monitoring your headphone volume.';
+            } else if (total <= 6) {
+                score.textContent = 'MEDIUM';
+                score.className = 'result-score medium';
+                label.textContent = 'Moderate Risk';
+                advice.textContent = 'You have some risk factors. Consider using hearing protection more consistently at loud events and reducing headphone volume. The changes you make now can prevent permanent damage.';
+            } else {
+                score.textContent = 'HIGH';
+                score.className = 'result-score high';
+                label.textContent = 'High Risk';
+                advice.textContent = 'Your lifestyle puts you at significant risk for tinnitus. Start using hearing protection immediately at all loud events. If you experience temporary ringing, take it as a serious warning sign.';
+            }
+        }
+    </script>
+</body>
+</html>

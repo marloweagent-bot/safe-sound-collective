@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noise-Induced Hearing Loss (NIHL): Causes, Prevention & Signs | Safe Sound Guide</title>
+    <meta name="description" content="Noise-induced hearing loss is the only type that's 100% preventable. Learn what causes NIHL, early warning signs, and how to protect yourself.">
+    <meta name="keywords" content="noise induced hearing loss, NIHL, hearing damage causes, prevent hearing loss, hair cell damage, occupational hearing loss">
+    <link rel="canonical" href="https://safesoundcollective.org/noise-induced-hearing-loss">
+    <meta property="og:title" content="Noise-Induced Hearing Loss (NIHL) | Safe Sound Guide">
+    <meta property="og:description" content="The only type of hearing loss that's 100% preventable. Learn what causes NIHL and how to protect yourself.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Bamboy Font */
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root { --primary: #29EF78; --secondary: #222222; --accent: #29EF78; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #FFFFFF; --text-muted: #909090; --card: #2A2A2A; --border: rgba(255,255,255,0.08); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { padding-top: 64px; font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); }
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; }
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(239,68,68,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .section { margin-bottom: 3rem; }
+        .section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .section p { color: var(--text-muted); margin-bottom: 1rem; }
+        .card { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+        .highlight-box { background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.1)); border: 1px solid var(--success); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 3rem; }
+        .highlight-box .big { font-size: 3rem; font-weight: 900; color: var(--success); }
+        .warning-signs { display: grid; gap: 1rem; }
+        .sign { display: flex; gap: 1rem; padding: 1rem; background: rgba(239,68,68,0.1); border-radius: 10px; }
+        .sign-icon { font-size: 1.5rem; }
+        .expert-box { background: var(--card); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
+        .cta { background: linear-gradient(135deg, var(--primary), #29EF78); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .cta h2 { color: #222222; margin-bottom: 0.75rem; }
+        .cta p { color: #333333; max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    
+/* Mega Menu Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0;
+}
+
+.header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.header-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.header-nav { display: flex; align-items: center; gap: 0.5rem; }
+.nav-item { position: relative; }
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.nav-link:hover, .nav-item:hover .nav-link { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-arrow { font-size: 0.7rem; transition: transform 0.2s; }
+.nav-item:hover .nav-arrow { transform: rotate(180deg); }
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.mega-menu-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.mega-menu-links { display: flex; flex-direction: column; gap: 0.25rem; }
+.mega-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+.mega-link:hover { background: rgba(99,102,241,0.15); color: var(--accent); }
+.mega-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+.mega-link-text { flex: 1; }
+.mega-link-title { font-weight: 600; font-size: 0.9rem; display: block; }
+.mega-link-desc { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+.header-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-left: 0.5rem;
+}
+.header-cta:hover { background: #22D969; transform: translateY(-1px); }
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary);
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section { margin-bottom: 1.5rem; }
+.mobile-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+.mobile-link:hover { background: rgba(255,255,255,0.05); }
+.mobile-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+
+@media (max-width: 900px) {
+    .header-nav { display: none; }
+    .mobile-toggle { display: block; }
+    .header-cta { display: none; }
+}
+
+.page-content { padding-top: 64px; }
+
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-main">
+        <a href="/" class="header-logo">
+            <span class="header-logo-icon">🔊</span>
+            Safe Sound Guide
+        </a>
+        
+        <nav class="header-nav">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Learn <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Understanding Sound</div>
+                    <div class="mega-menu-links">
+                        <a href="decibel-guide.html" class="mega-link"><span class="mega-link-icon">📊</span><span class="mega-link-text"><span class="mega-link-title">Decibel Guide</span><span class="mega-link-desc">Interactive sound levels</span></span></a>
+                        <a href="how-hearing-works.html" class="mega-link"><span class="mega-link-icon">👂</span><span class="mega-link-text"><span class="mega-link-title">How Hearing Works</span><span class="mega-link-desc">The journey of sound</span></span></a>
+                        <a href="noise-induced-hearing-loss.html" class="mega-link"><span class="mega-link-icon">📉</span><span class="mega-link-text"><span class="mega-link-title">NIHL Explained</span><span class="mega-link-desc">Causes & prevention</span></span></a>
+                        <a href="temporary-vs-permanent.html" class="mega-link"><span class="mega-link-icon">⚠️</span><span class="mega-link-text"><span class="mega-link-title">Temporary vs Permanent</span><span class="mega-link-desc">When damage is reversible</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Protect <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Protection Basics</div>
+                    <div class="mega-menu-links">
+                        <a href="85-decibel-rule.html" class="mega-link"><span class="mega-link-icon">📏</span><span class="mega-link-text"><span class="mega-link-title">The 85 dB Rule</span><span class="mega-link-desc">Your safety threshold</span></span></a>
+                        <a href="tinnitus-prevention.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Prevention</span><span class="mega-link-desc">Stop the ringing</span></span></a>
+                        <a href="safe-listening-guidelines.html" class="mega-link"><span class="mega-link-icon">✅</span><span class="mega-link-text"><span class="mega-link-title">Safe Listening</span><span class="mega-link-desc">WHO guidelines</span></span></a>
+                        <a href="headphone-safety.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Headphone Safety</span><span class="mega-link-desc">The 60/60 rule</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Guides <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu" style="min-width: 320px;">
+                    <div class="mega-menu-title">Situation Guides</div>
+                    <div class="mega-menu-links">
+                        <a href="concert-hearing-safety.html" class="mega-link"><span class="mega-link-icon">🎸</span><span class="mega-link-text"><span class="mega-link-title">Concerts & Shows</span><span class="mega-link-desc">Live music protection</span></span></a>
+                        <a href="festival-survival.html" class="mega-link"><span class="mega-link-icon">🎪</span><span class="mega-link-text"><span class="mega-link-title">Festival Survival</span><span class="mega-link-desc">Multi-day strategies</span></span></a>
+                        <a href="dj-hearing-protection.html" class="mega-link"><span class="mega-link-icon">🎛️</span><span class="mega-link-text"><span class="mega-link-title">DJ Protection</span><span class="mega-link-desc">Behind the decks</span></span></a>
+                        <a href="musician-hearing-guide.html" class="mega-link"><span class="mega-link-icon">🎵</span><span class="mega-link-text"><span class="mega-link-title">Musician's Guide</span><span class="mega-link-desc">By instrument type</span></span></a>
+                        <a href="kids-hearing-protection.html" class="mega-link"><span class="mega-link-icon">👶</span><span class="mega-link-text"><span class="mega-link-title">Kids & Parents</span><span class="mega-link-desc">Protecting young ears</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Tools <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Interactive Tools</div>
+                    <div class="mega-menu-links">
+                        <a href="exposure-calculator.html" class="mega-link"><span class="mega-link-icon">⏱️</span><span class="mega-link-text"><span class="mega-link-title">Exposure Calculator</span><span class="mega-link-desc">Daily noise dose</span></span></a>
+                        <a href="hearing-test.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Hearing Test</span><span class="mega-link-desc">Check your frequencies</span></span></a>
+                        <a href="tinnitus-simulator.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Simulator</span><span class="mega-link-desc">Hear what it's like</span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" class="header-cta">Get Unplugs →</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span id="menuIcon">☰</span></button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-section">
+        <div class="mobile-section-title">Understanding Sound</div>
+        <a href="decibel-guide.html" class="mobile-link"><span class="mobile-link-icon">📊</span> Decibel Guide</a>
+        <a href="how-hearing-works.html" class="mobile-link"><span class="mobile-link-icon">👂</span> How Hearing Works</a>
+        <a href="noise-induced-hearing-loss.html" class="mobile-link"><span class="mobile-link-icon">📉</span> NIHL Explained</a>
+        <a href="temporary-vs-permanent.html" class="mobile-link"><span class="mobile-link-icon">⚠️</span> Temporary vs Permanent</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Protection Basics</div>
+        <a href="85-decibel-rule.html" class="mobile-link"><span class="mobile-link-icon">📏</span> The 85 dB Rule</a>
+        <a href="tinnitus-prevention.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Prevention</a>
+        <a href="safe-listening-guidelines.html" class="mobile-link"><span class="mobile-link-icon">✅</span> Safe Listening</a>
+        <a href="headphone-safety.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Headphone Safety</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Situation Guides</div>
+        <a href="concert-hearing-safety.html" class="mobile-link"><span class="mobile-link-icon">🎸</span> Concerts & Shows</a>
+        <a href="festival-survival.html" class="mobile-link"><span class="mobile-link-icon">🎪</span> Festival Survival</a>
+        <a href="dj-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">🎛️</span> DJ Protection</a>
+        <a href="musician-hearing-guide.html" class="mobile-link"><span class="mobile-link-icon">🎵</span> Musician's Guide</a>
+        <a href="kids-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">👶</span> Kids & Parents</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Interactive Tools</div>
+        <a href="exposure-calculator.html" class="mobile-link"><span class="mobile-link-icon">⏱️</span> Exposure Calculator</a>
+        <a href="hearing-test.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Hearing Test</a>
+        <a href="tinnitus-simulator.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Simulator</a>
+    </div>
+    <div class="mobile-section" style="padding: 1rem;">
+        <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" style="display: block; background: var(--primary); color: white; text-align: center; padding: 1rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Get Unplugs →</a>
+    </div>
+</div>
+
+    
+    <section class="hero">
+        <h1>Noise-Induced Hearing Loss (NIHL)</h1>
+        <p class="hero-sub">The only type of hearing loss that's 100% preventable. Here's what you need to know.</p>
+        <div style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(99,102,241,0.15); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem;">
+            <span style="color: var(--success);">✓</span>
+            <span>Reviewed by <strong>Dr. Natan Bauman, Ed.D., FAAA</strong></span>
+        </div>
+    </section>
+    <main class="content">
+        <div class="highlight-box">
+            <div class="big">100%</div>
+            <div style="font-size: 1.25rem;">Preventable</div>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Unlike age-related hearing loss, NIHL is entirely within your control.</p>
+        </div>
+        <section class="section">
+            <h2>What is NIHL?</h2>
+            <p>Noise-Induced Hearing Loss occurs when loud sounds damage the delicate hair cells in your inner ear. Unlike other cells in your body, these hair cells <strong>do not regenerate</strong>. Once they're damaged, they're gone forever.</p>
+            <p>NIHL can result from a single exposure to an extremely loud sound (like an explosion) or from repeated exposure to loud sounds over time (like years of concerts without protection).</p>
+        </section>
+        <section class="section">
+            <h2>Early Warning Signs</h2>
+            <div class="warning-signs">
+                <div class="sign"><span class="sign-icon">🔔</span><div><strong>Ringing after loud events</strong> — That post-concert ringing is your hair cells screaming for help.</div></div>
+                <div class="sign"><span class="sign-icon">🗣️</span><div><strong>Difficulty hearing in noise</strong> — Struggling to follow conversations in restaurants or bars.</div></div>
+                <div class="sign"><span class="sign-icon">📺</span><div><strong>Turning up the volume</strong> — Needing TV or music louder than you used to.</div></div>
+                <div class="sign"><span class="sign-icon">🔁</span><div><strong>Asking people to repeat</strong> — Frequently saying "what?" in conversations.</div></div>
+                <div class="sign"><span class="sign-icon">😴</span><div><strong>Listening fatigue</strong> — Feeling exhausted after social situations.</div></div>
+            </div>
+        </section>
+        <div class="expert-box">
+            <blockquote style="font-style: italic; margin-bottom: 1rem;">"The tragedy of NIHL is that by the time patients notice symptoms, they've typically lost 30-50% of their hair cells. The damage accumulates silently for years. That's why prevention isn't just important—it's the only real solution."</blockquote>
+            <div style="font-weight: 600;">Dr. Natan Bauman, Ed.D., FAAA</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Former Director, Yale Hearing, Speech and Language Clinic</div>
+        </div>
+        <section class="section">
+            <h2>NIHL vs. Age-Related Hearing Loss</h2>
+            <div class="card">
+                <p><strong>Age-related (Presbycusis):</strong> Gradual loss that typically begins after 60. Affects high frequencies first. Largely genetic and unavoidable.</p>
+                <p style="margin-top: 1rem;"><strong>Noise-induced (NIHL):</strong> Can occur at any age. Caused by exposure to loud sounds. Creates a characteristic "notch" at 4000 Hz on audiograms. <strong>Entirely preventable.</strong></p>
+                <p style="margin-top: 1rem; color: var(--danger);"><strong>The compounding effect:</strong> NIHL accelerates age-related loss. If you damage your hearing in your 20s, you'll experience worse hearing loss in your 60s than you would have naturally.</p>
+            </div>
+        </section>
+        <div class="card" style="margin-top: 3rem;">
+            <h3 style="margin-bottom: 1.5rem;">Related Articles</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <a href="temporary-vs-permanent.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Temporary vs Permanent →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">When damage is reversible</span>
+                </a>
+                <a href="tinnitus-prevention.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Tinnitus Prevention →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Stop the ringing before it starts</span>
+                </a>
+                <a href="how-hearing-works.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>How Hearing Works →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Understanding your ear's mechanism</span>
+                </a>
+                <a href="85-decibel-rule.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>The 85 dB Rule →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Your hearing safety threshold</span>
+                </a>
+            </div>
+        </div>
+        <div class="cta">
+            <h2>Prevention is the Only Cure</h2>
+            <p>There's no surgery, no medication, no treatment that can restore damaged hair cells. The only solution is protecting them before damage occurs.</p>
+            <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=guide&utm_campaign=ssc" class="cta-btn">Get Unplugs →</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Safe Sound Guide</a> · Developed by audiologists with 70+ years combined experience</p>
+    </footer>
+</body>
+</html>
