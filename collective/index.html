@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safe Sound Collective | Protecting Hearing in the Modern Age</title>
-    <meta name="description" content="We're solving a major epidemic of sound. Education, artist partnerships, venue certification, and workplace hearing conservation.">
+    <meta name="description" content="We're solving a major epidemic of sound through education, artist partnerships, and venue certification. 1.1 billion people at risk. 100% preventable.">
     <link rel="canonical" href="https://safesoundcollective.org/">
+    
+    <meta property="og:title" content="Safe Sound Collective">
+    <meta property="og:description" content="We're solving a major epidemic of sound.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://safesoundcollective.org/">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,33 +27,51 @@
         }
         
         :root {
-            --bg: #222222;
+            --bg: #171717;
+            --bg-elevated: #222222;
             --bg-card: #2A2A2A;
             --text: #FFFFFF;
-            --text-muted: #909090;
+            --text-muted: #888888;
             --accent: #29EF78;
-            --border: rgba(255,255,255,0.08);
+            --border: rgba(255,255,255,0.06);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
         
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
+            overflow-x: hidden;
         }
         
         a { color: inherit; text-decoration: none; }
         
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
         /* Header */
         .header {
-            padding: 1.5rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.25rem 2rem;
+            background: rgba(23, 23, 23, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
+            z-index: 100;
         }
         
         .header-inner {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -57,28 +80,51 @@
         
         .logo {
             font-family: 'Bamboy', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
         
+        .logo span { color: var(--accent); }
+        
         .nav-links {
             display: flex;
-            gap: 2rem;
+            align-items: center;
+            gap: 2.5rem;
         }
         
         .nav-links a {
             color: var(--text-muted);
             font-size: 0.9rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
         
         .nav-links a:hover { color: var(--text); }
         
+        .nav-cta {
+            background: var(--accent) !important;
+            color: #171717 !important;
+            padding: 0.6rem 1.25rem;
+            border-radius: 100px;
+            font-family: 'Bamboy', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-cta:hover {
+            background: var(--text) !important;
+        }
+        
         /* Hero */
         .hero {
-            padding: 8rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 8rem 2rem 6rem;
             position: relative;
         }
         
@@ -86,190 +132,269 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(41, 239, 120, 0.06) 0%, transparent 60%);
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(41, 239, 120, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(41, 239, 120, 0.04) 0%, transparent 40%);
             pointer-events: none;
         }
         
         .hero-content {
             position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero-eyebrow {
-            font-family: 'Bamboy', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
+            max-width: 900px;
         }
         
         .hero h1 {
             font-family: 'Bamboy', sans-serif;
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: clamp(3rem, 9vw, 6rem);
             font-weight: 400;
             text-transform: uppercase;
-            line-height: 1.1;
+            line-height: 0.95;
             margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero h1 .line2 {
+            color: var(--accent);
         }
         
         .hero-sub {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+            font-weight: 400;
         }
         
-        /* Mission Section */
-        .section {
-            padding: 6rem 2rem;
-            max-width: 1000px;
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .stat-value {
+            font-family: 'Bamboy', sans-serif;
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+        
+        /* Manifesto */
+        .manifesto {
+            padding: 8rem 2rem;
+            background: var(--bg-elevated);
+        }
+        
+        .manifesto-inner {
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
+        }
+        
+        .manifesto h2 {
+            font-family: 'Bamboy', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+        
+        .manifesto p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Phases */
+        .phases {
+            padding: 8rem 2rem;
+        }
+        
+        .phases-header {
+            text-align: center;
+            margin-bottom: 5rem;
         }
         
         .section-label {
             font-family: 'Bamboy', sans-serif;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             color: var(--accent);
             margin-bottom: 1rem;
         }
         
-        .section h2 {
+        .phases-header h2 {
             font-family: 'Bamboy', sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
         }
         
-        .section p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-        }
-        
-        /* Phases */
-        .phases {
-            display: grid;
+        .phase-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
-            margin-top: 4rem;
         }
         
         .phase {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2.5rem;
+            border-radius: 24px;
+            padding: 3rem;
             display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 2rem;
-            align-items: start;
-            transition: border-color 0.3s;
+            grid-template-columns: 80px 1fr;
+            gap: 2.5rem;
+            transition: all 0.3s ease;
         }
         
         .phase:hover {
-            border-color: var(--accent);
+            border-color: rgba(41, 239, 120, 0.3);
+            transform: translateY(-4px);
         }
         
-        .phase.active {
+        .phase.now {
             border-color: var(--accent);
-            background: linear-gradient(135deg, rgba(41,239,120,0.05) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(41,239,120,0.08) 0%, var(--bg-card) 40%);
         }
         
-        .phase-marker {
-            width: 60px;
-            height: 60px;
+        .phase-number {
+            width: 80px;
+            height: 80px;
             background: var(--bg);
-            border: 2px solid var(--border);
-            border-radius: 12px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Bamboy', sans-serif;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            color: var(--text-muted);
         }
         
-        .phase.active .phase-marker {
+        .phase.now .phase-number {
             background: var(--accent);
             border-color: var(--accent);
-            color: #222;
+            color: #171717;
         }
         
         .phase-status {
             font-family: 'Bamboy', sans-serif;
             font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             color: var(--text-muted);
             margin-bottom: 0.5rem;
         }
         
-        .phase.active .phase-status {
+        .phase.now .phase-status {
             color: var(--accent);
         }
         
         .phase h3 {
             font-family: 'Bamboy', sans-serif;
-            font-size: 1.35rem;
+            font-size: 1.5rem;
             text-transform: uppercase;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         
         .phase p {
             color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
         
         .phase-cta {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 1.25rem;
+            margin-top: 1.5rem;
             background: var(--accent);
-            color: #222;
-            padding: 0.75rem 1.5rem;
+            color: #171717;
+            padding: 0.85rem 1.75rem;
             border-radius: 100px;
             font-family: 'Bamboy', sans-serif;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            font-weight: 500;
             transition: all 0.3s;
         }
         
         .phase-cta:hover {
             background: var(--text);
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(41, 239, 120, 0.2);
         }
         
-        /* Vision */
-        .vision {
-            text-align: center;
+        /* CTA Section */
+        .cta-section {
             padding: 6rem 2rem;
+            text-align: center;
+            background: var(--bg-elevated);
             border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            margin: 4rem 0;
         }
         
-        .vision h2 {
+        .cta-section h2 {
             font-family: 'Bamboy', sans-serif;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-size: 2rem;
             text-transform: uppercase;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.2;
+            margin-bottom: 1rem;
         }
         
-        .vision p {
+        .cta-section p {
             color: var(--text-muted);
-            font-size: 1.15rem;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-family: 'Bamboy', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: #171717;
+        }
+        
+        .btn-primary:hover {
+            background: var(--text);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--text);
         }
         
         /* Footer */
@@ -278,102 +403,166 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.85rem;
+            border-top: 1px solid var(--border);
         }
         
-        .footer a {
-            color: var(--accent);
-        }
+        .footer a { color: var(--accent); }
         
         /* Responsive */
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
             .phase {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+                padding: 2rem;
             }
             
-            .phase-marker {
-                width: 48px;
-                height: 48px;
-                font-size: 1.25rem;
+            .phase-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
-            
-            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-inner">
-            <a href="/" class="logo">Safe Sound Collective</a>
+            <a href="/" class="logo">Safe Sound <span>Collective</span></a>
             <nav class="nav-links">
-                <a href="https://safesound.guide?utm_source=ssc&utm_medium=nav&utm_campaign=collective">The Guide</a>
+                <a href="#mission">Mission</a>
                 <a href="#phases">Our Work</a>
-                <a href="artists.html">Artists</a>
+                <a href="artists.html">Artists & Venues</a>
+                <a href="https://safesound.guide?utm_source=ssc&utm_medium=nav" class="nav-cta">The Guide →</a>
             </nav>
         </div>
     </header>
     
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-eyebrow">Our Mission</div>
-            <h1>We're Solving a Major Epidemic of Sound</h1>
-            <p class="hero-sub">1.1 billion people are at risk of hearing loss. It's 100% preventable. We're building the education, tools, and partnerships to protect hearing in the modern age.</p>
+            <h1>
+                We're Solving<br>
+                <span class="line2">The Sound Epidemic</span>
+            </h1>
+            <p class="hero-sub">
+                In the modern age, sound is everywhere — concerts, headphones, cities, workplaces. 
+                And it's costing us our hearing. We're here to change that through education, 
+                artist partnerships, and venue certification.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">1.1B</div>
+                    <div class="stat-label">People at risk of hearing loss</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Preventable with awareness</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Organizations doing enough</div>
+                </div>
+            </div>
         </div>
     </section>
     
-    <section class="section" id="phases">
-        <div class="section-label">Our Approach</div>
-        <h2>Three Phases to Change the Soundscape</h2>
-        <p>We're tackling noise-induced hearing loss systematically — starting with education, expanding through partnerships, and scaling to protect everyone.</p>
+    <section class="manifesto" id="mission">
+        <div class="manifesto-inner">
+            <h2>Hearing Loss is the Only Major Health Crisis That's Completely Preventable — Yet Almost No One Prevents It</h2>
+            <p>
+                We've normalized the ringing in our ears after concerts. We've accepted that our 
+                grandparents can't hear us. We've ignored the warnings because the damage is invisible 
+                and the symptoms are delayed.
+            </p>
+            <p>
+                The Safe Sound Collective exists to change the culture of sound — starting with education, 
+                expanding through the artists and venues that shape how we experience music, and eventually 
+                reaching every workplace, transit hub, and city street where dangerous noise exists.
+            </p>
+        </div>
+    </section>
+    
+    <section class="phases" id="phases">
+        <div class="phases-header">
+            <div class="section-label">Our Approach</div>
+            <h2>Three Phases</h2>
+        </div>
         
-        <div class="phases">
-            <div class="phase active">
-                <div class="phase-marker">01</div>
+        <div class="phase-list">
+            <div class="phase now">
+                <div class="phase-number">01</div>
                 <div class="phase-content">
-                    <div class="phase-status">Now Live</div>
+                    <div class="phase-status">Live Now</div>
                     <h3>Educate Audiences</h3>
-                    <p>We built the Safe Sound Guide — a free, interactive resource teaching people about sound, hearing damage, and protection. No jargon, no fear tactics. Just clear science and practical advice for music lovers, DJs, musicians, and anyone in loud environments.</p>
-                    <a href="https://safesound.guide?utm_source=ssc&utm_medium=phase&utm_campaign=collective" class="phase-cta">Explore the Guide →</a>
+                    <p>
+                        We built the Safe Sound Guide — a free, interactive resource that teaches people 
+                        about decibels, hearing damage, and protection. No medical jargon. No fear tactics. 
+                        Just clear science and practical tools for anyone who experiences loud sound.
+                    </p>
+                    <a href="https://safesound.guide?utm_source=ssc&utm_medium=phase1" class="phase-cta">
+                        Explore the Guide →
+                    </a>
                 </div>
             </div>
             
             <div class="phase">
-                <div class="phase-marker">02</div>
+                <div class="phase-number">02</div>
                 <div class="phase-content">
                     <div class="phase-status">Coming Soon</div>
                     <h3>Artists & Venues</h3>
-                    <p>We're partnering with artists to add hearing protection requirements to their technical riders. We're certifying venues with decibel monitoring, noise limits, and available hearing protection. When the people who create the sound lead by example, fans follow.</p>
+                    <p>
+                        We're partnering with artists to put hearing protection requirements on their 
+                        technical riders. We're certifying venues with decibel monitoring, enforced 
+                        noise limits, and available hearing protection for every attendee. When the 
+                        people who create the sound lead by example, fans follow.
+                    </p>
                 </div>
             </div>
             
             <div class="phase">
-                <div class="phase-marker">03</div>
+                <div class="phase-number">03</div>
                 <div class="phase-content">
                     <div class="phase-status">Future</div>
-                    <h3>Workplaces & Beyond</h3>
-                    <p>The epidemic extends past concerts — construction sites, factories, airports, subway platforms. We'll bring the same education-first, partnership-driven approach to industrial settings, workplaces, and commuter hubs. Everywhere sound exists, protection should too.</p>
+                    <h3>Workplaces & Cities</h3>
+                    <p>
+                        The epidemic extends beyond concerts — construction sites, factories, airports, 
+                        subway platforms, open offices. We'll bring the same education-first approach 
+                        to industrial settings, workplaces, and commuter hubs. Everywhere sound exists, 
+                        protection should too.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="vision">
-        <h2>Hearing Loss is the Only Major Health Issue That's 100% Preventable — Yet Almost No One Prevents It</h2>
-        <p>We're changing that. One guide, one artist, one venue at a time.</p>
-    </section>
-    
-    <section class="section">
-        <div class="section-label">Get Involved</div>
+    <section class="cta-section">
         <h2>Join the Movement</h2>
-        <p>Whether you're an artist who wants to protect your fans, a venue looking to lead on hearing safety, or just someone who believes sound shouldn't cost us our hearing — there's a place for you here.</p>
-        <p style="margin-top: 2rem;">
-            <strong>Artists & Venues:</strong> <a href="artists.html" style="color: var(--accent);">Learn about partnerships →</a><br>
-            <strong>Everyone:</strong> <a href="https://safesound.guide?utm_source=ssc&utm_medium=cta&utm_campaign=collective" style="color: var(--accent);">Start with the Guide →</a>
+        <p>
+            Whether you're an artist, a venue, or just someone who believes sound 
+            shouldn't cost us our hearing — there's a place for you.
         </p>
+        <div class="cta-buttons">
+            <a href="https://safesound.guide?utm_source=ssc&utm_medium=cta" class="btn btn-primary">
+                Start with the Guide
+            </a>
+            <a href="artists.html" class="btn btn-secondary">
+                Artist & Venue Partnerships
+            </a>
+        </div>
     </section>
     
     <footer class="footer">
-        <p>© 2026 Safe Sound Collective. Powered by <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=footer&utm_campaign=ssc">Unplugs</a>.</p>
+        <p>
+            © 2026 Safe Sound Collective<br>
+            Powered by <a href="https://unplugshearing.com?utm_source=safesound&utm_medium=footer&utm_campaign=ssc">Unplugs</a>
+        </p>
     </footer>
 </body>
 </html>
