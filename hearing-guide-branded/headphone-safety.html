@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headphone & Earbud Safety: The 60/60 Rule | Hearing Guide</title>
+    <meta name="description" content="Your daily headphone habits might be damaging your hearing. Learn the 60/60 rule, safe listening volumes, and how to protect your ears while enjoying music.">
+    <meta name="keywords" content="headphone safety, earbud hearing damage, 60 60 rule, safe headphone volume, earbuds hearing loss, safe listening volume">
+    <link rel="canonical" href="https://learn.unplugshearing.com/headphone-safety">
+    <meta property="og:title" content="Headphone & Earbud Safety | Hearing Guide">
+    <meta property="og:description" content="Learn the 60/60 rule and safe listening volumes to protect your hearing while enjoying music.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Bamboy Font */
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root { --primary: #29EF78; --secondary: #222222; --accent: #29EF78; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #FFFFFF; --text-muted: #909090; --card: #2A2A2A; --border: rgba(255,255,255,0.08); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { padding-top: 64px; font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); }
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        .rule-box { background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 20px; padding: 3rem; text-align: center; margin-bottom: 3rem; }
+        .rule-numbers { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+        .rule-num { background: rgba(255,255,255,0.2); padding: 1.5rem 2.5rem; border-radius: 16px; }
+        .rule-val { font-size: 4rem; font-weight: 900; }
+        .rule-label { font-size: 0.9rem; opacity: 0.9; }
+        .rule-desc { font-size: 1.1rem; opacity: 0.95; }
+        
+        .volume-checker { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .volume-slider { width: 100%; max-width: 400px; height: 12px; border-radius: 6px; -webkit-appearance: none; background: linear-gradient(90deg, var(--success), var(--warning), var(--danger)); margin: 2rem 0; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; background: white; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .volume-display { font-size: 3rem; font-weight: 900; }
+        .volume-display.safe { color: var(--success); }
+        .volume-display.warning { color: var(--warning); }
+        .volume-display.danger { color: var(--danger); }
+        .volume-info { margin-top: 1rem; color: var(--text-muted); }
+        
+        .section { margin-bottom: 3rem; }
+        .section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .section p { color: var(--text-muted); margin-bottom: 1rem; }
+        .card { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+        
+        .tips-grid { display: grid; gap: 1rem; }
+        .tip { display: flex; gap: 1rem; padding: 1.5rem; background: var(--card); border-radius: 12px; }
+        .tip-icon { font-size: 2rem; }
+        .tip-content h4 { margin-bottom: 0.25rem; }
+        .tip-content p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+        
+        .cta { background: linear-gradient(135deg, var(--primary), #29EF78); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .cta h2 { color: #222222; margin-bottom: 0.75rem; }
+        .cta p { color: #333333; max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+        
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    
+/* Mega Menu Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0;
+}
+
+.header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.header-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.header-nav { display: flex; align-items: center; gap: 0.5rem; }
+.nav-item { position: relative; }
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.nav-link:hover, .nav-item:hover .nav-link { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-arrow { font-size: 0.7rem; transition: transform 0.2s; }
+.nav-item:hover .nav-arrow { transform: rotate(180deg); }
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.mega-menu-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.mega-menu-links { display: flex; flex-direction: column; gap: 0.25rem; }
+.mega-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+.mega-link:hover { background: rgba(99,102,241,0.15); color: var(--accent); }
+.mega-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+.mega-link-text { flex: 1; }
+.mega-link-title { font-weight: 600; font-size: 0.9rem; display: block; }
+.mega-link-desc { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+.header-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-left: 0.5rem;
+}
+.header-cta:hover { background: #22D969; transform: translateY(-1px); }
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary);
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section { margin-bottom: 1.5rem; }
+.mobile-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+.mobile-link:hover { background: rgba(255,255,255,0.05); }
+.mobile-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+
+@media (max-width: 900px) {
+    .header-nav { display: none; }
+    .mobile-toggle { display: block; }
+    .header-cta { display: none; }
+}
+
+.page-content { padding-top: 64px; }
+
+    </style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-main">
+        <a href="index.html" class="header-logo">
+            <span class="header-logo-icon">🔊</span>
+            Hearing Guide
+        </a>
+        
+        <nav class="header-nav">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Learn <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Understanding Sound</div>
+                    <div class="mega-menu-links">
+                        <a href="decibel-guide.html" class="mega-link"><span class="mega-link-icon">📊</span><span class="mega-link-text"><span class="mega-link-title">Decibel Guide</span><span class="mega-link-desc">Interactive sound levels</span></span></a>
+                        <a href="how-hearing-works.html" class="mega-link"><span class="mega-link-icon">👂</span><span class="mega-link-text"><span class="mega-link-title">How Hearing Works</span><span class="mega-link-desc">The journey of sound</span></span></a>
+                        <a href="noise-induced-hearing-loss.html" class="mega-link"><span class="mega-link-icon">📉</span><span class="mega-link-text"><span class="mega-link-title">NIHL Explained</span><span class="mega-link-desc">Causes & prevention</span></span></a>
+                        <a href="temporary-vs-permanent.html" class="mega-link"><span class="mega-link-icon">⚠️</span><span class="mega-link-text"><span class="mega-link-title">Temporary vs Permanent</span><span class="mega-link-desc">When damage is reversible</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Protect <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Protection Basics</div>
+                    <div class="mega-menu-links">
+                        <a href="85-decibel-rule.html" class="mega-link"><span class="mega-link-icon">📏</span><span class="mega-link-text"><span class="mega-link-title">The 85 dB Rule</span><span class="mega-link-desc">Your safety threshold</span></span></a>
+                        <a href="tinnitus-prevention.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Prevention</span><span class="mega-link-desc">Stop the ringing</span></span></a>
+                        <a href="safe-listening-guidelines.html" class="mega-link"><span class="mega-link-icon">✅</span><span class="mega-link-text"><span class="mega-link-title">Safe Listening</span><span class="mega-link-desc">WHO guidelines</span></span></a>
+                        <a href="headphone-safety.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Headphone Safety</span><span class="mega-link-desc">The 60/60 rule</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Guides <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu" style="min-width: 320px;">
+                    <div class="mega-menu-title">Situation Guides</div>
+                    <div class="mega-menu-links">
+                        <a href="concert-hearing-safety.html" class="mega-link"><span class="mega-link-icon">🎸</span><span class="mega-link-text"><span class="mega-link-title">Concerts & Shows</span><span class="mega-link-desc">Live music protection</span></span></a>
+                        <a href="festival-survival.html" class="mega-link"><span class="mega-link-icon">🎪</span><span class="mega-link-text"><span class="mega-link-title">Festival Survival</span><span class="mega-link-desc">Multi-day strategies</span></span></a>
+                        <a href="dj-hearing-protection.html" class="mega-link"><span class="mega-link-icon">🎛️</span><span class="mega-link-text"><span class="mega-link-title">DJ Protection</span><span class="mega-link-desc">Behind the decks</span></span></a>
+                        <a href="musician-hearing-guide.html" class="mega-link"><span class="mega-link-icon">🎵</span><span class="mega-link-text"><span class="mega-link-title">Musician's Guide</span><span class="mega-link-desc">By instrument type</span></span></a>
+                        <a href="kids-hearing-protection.html" class="mega-link"><span class="mega-link-icon">👶</span><span class="mega-link-text"><span class="mega-link-title">Kids & Parents</span><span class="mega-link-desc">Protecting young ears</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Tools <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Interactive Tools</div>
+                    <div class="mega-menu-links">
+                        <a href="exposure-calculator.html" class="mega-link"><span class="mega-link-icon">⏱️</span><span class="mega-link-text"><span class="mega-link-title">Exposure Calculator</span><span class="mega-link-desc">Daily noise dose</span></span></a>
+                        <a href="hearing-test.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Hearing Test</span><span class="mega-link-desc">Check your frequencies</span></span></a>
+                        <a href="tinnitus-simulator.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Simulator</span><span class="mega-link-desc">Hear what it's like</span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span id="menuIcon">☰</span></button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-section">
+        <div class="mobile-section-title">Understanding Sound</div>
+        <a href="decibel-guide.html" class="mobile-link"><span class="mobile-link-icon">📊</span> Decibel Guide</a>
+        <a href="how-hearing-works.html" class="mobile-link"><span class="mobile-link-icon">👂</span> How Hearing Works</a>
+        <a href="noise-induced-hearing-loss.html" class="mobile-link"><span class="mobile-link-icon">📉</span> NIHL Explained</a>
+        <a href="temporary-vs-permanent.html" class="mobile-link"><span class="mobile-link-icon">⚠️</span> Temporary vs Permanent</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Protection Basics</div>
+        <a href="85-decibel-rule.html" class="mobile-link"><span class="mobile-link-icon">📏</span> The 85 dB Rule</a>
+        <a href="tinnitus-prevention.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Prevention</a>
+        <a href="safe-listening-guidelines.html" class="mobile-link"><span class="mobile-link-icon">✅</span> Safe Listening</a>
+        <a href="headphone-safety.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Headphone Safety</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Situation Guides</div>
+        <a href="concert-hearing-safety.html" class="mobile-link"><span class="mobile-link-icon">🎸</span> Concerts & Shows</a>
+        <a href="festival-survival.html" class="mobile-link"><span class="mobile-link-icon">🎪</span> Festival Survival</a>
+        <a href="dj-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">🎛️</span> DJ Protection</a>
+        <a href="musician-hearing-guide.html" class="mobile-link"><span class="mobile-link-icon">🎵</span> Musician's Guide</a>
+        <a href="kids-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">👶</span> Kids & Parents</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Interactive Tools</div>
+        <a href="exposure-calculator.html" class="mobile-link"><span class="mobile-link-icon">⏱️</span> Exposure Calculator</a>
+        <a href="hearing-test.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Hearing Test</a>
+        <a href="tinnitus-simulator.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Simulator</a>
+    </div>
+    <div class="mobile-section" style="padding: 1rem;">
+        <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+    </div>
+</div>
+
+    
+
+    <section class="hero">
+        <h1>Headphone & Earbud Safety</h1>
+        <p class="hero-sub">1.1 billion young people are at risk of hearing loss from unsafe listening habits. Here's how to enjoy music without the damage.</p>
+    </section>
+
+    <main class="content">
+        <section class="rule-box">
+            <div class="rule-numbers">
+                <div class="rule-num">
+                    <div class="rule-val">60</div>
+                    <div class="rule-label">percent volume</div>
+                </div>
+                <div class="rule-num">
+                    <div class="rule-val">60</div>
+                    <div class="rule-label">minutes max</div>
+                </div>
+            </div>
+            <div class="rule-desc">The 60/60 Rule: Listen at no more than 60% volume for no more than 60 minutes, then take a break.</div>
+        </section>
+
+        <section class="volume-checker">
+            <h2>🎧 Volume Safety Checker</h2>
+            <p style="color: var(--text-muted);">Where do you usually set your volume?</p>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50" oninput="checkVolume(this.value)">
+            <div class="volume-display safe" id="volumeDisplay">50%</div>
+            <div class="volume-info" id="volumeInfo">At this volume, you can listen for about 8 hours safely.</div>
+        </section>
+
+        <section class="section">
+            <h2>Why Headphones Are Risky</h2>
+            <div class="card">
+                <p><strong>Sound goes directly into your ear canal.</strong> Unlike speakers where sound disperses, headphones deliver concentrated audio straight to your eardrum.</p>
+                <p style="margin-top: 1rem;"><strong>At max volume, many devices hit 100+ dB</strong>—equivalent to a loud concert. At that level, you have 15 minutes before damage begins.</p>
+                <p style="margin-top: 1rem;"><strong>Earbuds are especially risky</strong> because they sit closer to your eardrum than over-ear headphones.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Safe Listening Tips</h2>
+            <div class="tips-grid">
+                <div class="tip">
+                    <div class="tip-icon">📱</div>
+                    <div class="tip-content">
+                        <h4>Use Your Phone's Volume Limiter</h4>
+                        <p>iOS and Android both have settings to cap maximum volume. Set it to 75% and you won't accidentally blast your ears.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">🔇</div>
+                    <div class="tip-content">
+                        <h4>Use Noise-Canceling Headphones</h4>
+                        <p>When outside noise is blocked, you don't need to turn up the volume to hear your music. ANC can actually protect your hearing.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">💬</div>
+                    <div class="tip-content">
+                        <h4>The Conversation Test</h4>
+                        <p>If you can't hear someone talking at arm's length while wearing headphones, your volume is too high.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">⏰</div>
+                    <div class="tip-content">
+                        <h4>Set a Timer</h4>
+                        <p>After 60 minutes of listening, take a 10-minute break. Your ears need recovery time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1.5rem;">Related Articles</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <a href="safe-listening-guidelines.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Safe Listening Guidelines →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">WHO recommendations explained</span>
+                </a>
+                <a href="kids-hearing-protection.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Kids Hearing Protection →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Volume limits for children</span>
+                </a>
+                <a href="85-decibel-rule.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>The 85 dB Rule →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Your hearing safety threshold</span>
+                </a>
+                <a href="exposure-calculator.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Exposure Calculator →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Calculate your daily dose</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Protect Your Hearing Everywhere</h2>
+            <p>Safe headphone habits at home, hearing protection at concerts. Unplugs keep your ears safe without compromising sound quality.</p>
+            <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Hearing Protection Superguide</a> · Educational content by <a href="https://unplugshearing.com">Unplugs</a></p>
+    </footer>
+
+    <script>
+        function checkVolume(vol) {
+            const display = document.getElementById('volumeDisplay');
+            const info = document.getElementById('volumeInfo');
+            display.textContent = vol + '%';
+            
+            if (vol <= 60) {
+                display.className = 'volume-display safe';
+                info.textContent = 'Safe zone! You can listen for extended periods at this volume.';
+            } else if (vol <= 80) {
+                display.className = 'volume-display warning';
+                const hours = Math.max(1, Math.round(8 / Math.pow(2, (vol - 60) / 15)));
+                info.textContent = `Caution: Limit listening to about ${hours} hour${hours > 1 ? 's' : ''} at this volume.`;
+            } else {
+                display.className = 'volume-display danger';
+                info.textContent = 'Danger zone! This volume can cause hearing damage in under an hour. Turn it down.';
+            }
+        }
+    </script>
+</body>
+</html>

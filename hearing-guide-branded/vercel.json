@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://safesound.guide/$1",
+      "permanent": true
+    }
+  ]
+}

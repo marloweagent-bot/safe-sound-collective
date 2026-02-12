@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Exposure Calculator: How Much Is Too Much? | Hearing Guide</title>
+    <meta name="description" content="Calculate your daily noise exposure and see if you're at risk for hearing damage. Interactive tool based on NIOSH and WHO safety guidelines.">
+    <meta name="keywords" content="noise exposure calculator, hearing damage calculator, NIOSH noise dose, safe listening time, sound exposure limit, daily noise dose">
+    <link rel="canonical" href="https://learn.unplugshearing.com/exposure-calculator">
+    <meta property="og:title" content="Sound Exposure Calculator | Hearing Guide">
+    <meta property="og:description" content="Calculate your daily noise exposure and see if you're at risk for hearing damage.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Bamboy Font */
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root { --primary: #29EF78; --secondary: #222222; --accent: #29EF78; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #FFFFFF; --text-muted: #909090; --card: #2A2A2A; --border: rgba(255,255,255,0.08); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { padding-top: 64px; font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); }
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        /* Calculator */
+        .calculator { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; }
+        .calc-header { text-align: center; margin-bottom: 2rem; }
+        .calc-header h2 { margin-bottom: 0.5rem; }
+        .calc-header p { color: var(--text-muted); }
+
+        .exposure-list { margin-bottom: 2rem; }
+        .exposure-item { display: grid; grid-template-columns: 1fr auto auto auto; gap: 1rem; align-items: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 12px; margin-bottom: 0.75rem; }
+        .exposure-item select, .exposure-item input { background: var(--secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text); font-size: 0.9rem; }
+        .exposure-item select { min-width: 200px; }
+        .exposure-item input[type="number"] { width: 80px; text-align: center; }
+        .remove-btn { background: var(--danger); border: none; color: white; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; }
+
+        .add-btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 1rem; background: rgba(99,102,241,0.2); border: 2px dashed var(--primary); border-radius: 12px; color: var(--primary); font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .add-btn:hover { background: rgba(99,102,241,0.3); }
+
+        /* Results */
+        .results { background: rgba(0,0,0,0.3); border-radius: 16px; padding: 2rem; text-align: center; }
+        .dose-meter { height: 30px; background: linear-gradient(90deg, var(--success) 0%, var(--success) 50%, var(--warning) 75%, var(--danger) 100%); border-radius: 15px; position: relative; overflow: hidden; margin: 1.5rem 0; }
+        .dose-fill { position: absolute; top: 0; left: 0; bottom: 0; background: rgba(255,255,255,0.3); transition: width 0.5s; }
+        .dose-marker { position: absolute; top: -8px; bottom: -8px; width: 4px; background: white; border-radius: 2px; transition: left 0.5s; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        .dose-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+        .dose-display { margin: 2rem 0; }
+        .dose-value { font-size: 4rem; font-weight: 900; }
+        .dose-value.safe { color: var(--success); }
+        .dose-value.warning { color: var(--warning); }
+        .dose-value.danger { color: var(--danger); }
+        .dose-label { font-size: 1.1rem; color: var(--text-muted); }
+
+        .dose-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+        .breakdown-card { background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 10px; }
+        .breakdown-value { font-size: 1.5rem; font-weight: 700; }
+        .breakdown-label { font-size: 0.8rem; color: var(--text-muted); }
+
+        .verdict { margin-top: 2rem; padding: 1.5rem; border-radius: 12px; }
+        .verdict.safe { background: rgba(16,185,129,0.15); border: 1px solid var(--success); }
+        .verdict.warning { background: rgba(245,158,11,0.15); border: 1px solid var(--warning); }
+        .verdict.danger { background: rgba(239,68,68,0.15); border: 1px solid var(--danger); }
+        .verdict h4 { margin-bottom: 0.5rem; }
+        .verdict p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+        /* Protection comparison */
+        .protection-compare { background: var(--card); border-radius: 16px; padding: 2rem; margin: 3rem 0; }
+        .protection-compare h3 { text-align: center; margin-bottom: 1.5rem; }
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .compare-card { padding: 1.5rem; border-radius: 12px; text-align: center; }
+        .compare-card.without { background: rgba(239,68,68,0.1); border: 1px solid var(--danger); }
+        .compare-card.with { background: rgba(16,185,129,0.1); border: 1px solid var(--success); }
+        .compare-title { font-weight: 600; margin-bottom: 0.75rem; }
+        .compare-value { font-size: 2.5rem; font-weight: 800; }
+        .compare-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+        /* CTA */
+        .cta { background: linear-gradient(135deg, var(--primary), #29EF78); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .cta h2 { color: #222222; margin-bottom: 0.75rem; }
+        .cta p { color: #333333; max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+
+        .info-section { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .info-section h3 { margin-bottom: 1rem; }
+        .info-section p { color: var(--text-muted); }
+
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .exposure-item { grid-template-columns: 1fr; }
+            .dose-breakdown { grid-template-columns: 1fr; }
+            .compare-grid { grid-template-columns: 1fr; }
+        }
+    
+/* Mega Menu Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0;
+}
+
+.header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.header-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.header-nav { display: flex; align-items: center; gap: 0.5rem; }
+.nav-item { position: relative; }
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.nav-link:hover, .nav-item:hover .nav-link { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-arrow { font-size: 0.7rem; transition: transform 0.2s; }
+.nav-item:hover .nav-arrow { transform: rotate(180deg); }
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.mega-menu-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.mega-menu-links { display: flex; flex-direction: column; gap: 0.25rem; }
+.mega-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+.mega-link:hover { background: rgba(99,102,241,0.15); color: var(--accent); }
+.mega-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+.mega-link-text { flex: 1; }
+.mega-link-title { font-weight: 600; font-size: 0.9rem; display: block; }
+.mega-link-desc { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+.header-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-left: 0.5rem;
+}
+.header-cta:hover { background: #22D969; transform: translateY(-1px); }
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary);
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section { margin-bottom: 1.5rem; }
+.mobile-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+.mobile-link:hover { background: rgba(255,255,255,0.05); }
+.mobile-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+
+@media (max-width: 900px) {
+    .header-nav { display: none; }
+    .mobile-toggle { display: block; }
+    .header-cta { display: none; }
+}
+
+.page-content { padding-top: 64px; }
+
+    </style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-main">
+        <a href="index.html" class="header-logo">
+            <span class="header-logo-icon">🔊</span>
+            Hearing Guide
+        </a>
+        
+        <nav class="header-nav">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Learn <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Understanding Sound</div>
+                    <div class="mega-menu-links">
+                        <a href="decibel-guide.html" class="mega-link"><span class="mega-link-icon">📊</span><span class="mega-link-text"><span class="mega-link-title">Decibel Guide</span><span class="mega-link-desc">Interactive sound levels</span></span></a>
+                        <a href="how-hearing-works.html" class="mega-link"><span class="mega-link-icon">👂</span><span class="mega-link-text"><span class="mega-link-title">How Hearing Works</span><span class="mega-link-desc">The journey of sound</span></span></a>
+                        <a href="noise-induced-hearing-loss.html" class="mega-link"><span class="mega-link-icon">📉</span><span class="mega-link-text"><span class="mega-link-title">NIHL Explained</span><span class="mega-link-desc">Causes & prevention</span></span></a>
+                        <a href="temporary-vs-permanent.html" class="mega-link"><span class="mega-link-icon">⚠️</span><span class="mega-link-text"><span class="mega-link-title">Temporary vs Permanent</span><span class="mega-link-desc">When damage is reversible</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Protect <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Protection Basics</div>
+                    <div class="mega-menu-links">
+                        <a href="85-decibel-rule.html" class="mega-link"><span class="mega-link-icon">📏</span><span class="mega-link-text"><span class="mega-link-title">The 85 dB Rule</span><span class="mega-link-desc">Your safety threshold</span></span></a>
+                        <a href="tinnitus-prevention.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Prevention</span><span class="mega-link-desc">Stop the ringing</span></span></a>
+                        <a href="safe-listening-guidelines.html" class="mega-link"><span class="mega-link-icon">✅</span><span class="mega-link-text"><span class="mega-link-title">Safe Listening</span><span class="mega-link-desc">WHO guidelines</span></span></a>
+                        <a href="headphone-safety.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Headphone Safety</span><span class="mega-link-desc">The 60/60 rule</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Guides <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu" style="min-width: 320px;">
+                    <div class="mega-menu-title">Situation Guides</div>
+                    <div class="mega-menu-links">
+                        <a href="concert-hearing-safety.html" class="mega-link"><span class="mega-link-icon">🎸</span><span class="mega-link-text"><span class="mega-link-title">Concerts & Shows</span><span class="mega-link-desc">Live music protection</span></span></a>
+                        <a href="festival-survival.html" class="mega-link"><span class="mega-link-icon">🎪</span><span class="mega-link-text"><span class="mega-link-title">Festival Survival</span><span class="mega-link-desc">Multi-day strategies</span></span></a>
+                        <a href="dj-hearing-protection.html" class="mega-link"><span class="mega-link-icon">🎛️</span><span class="mega-link-text"><span class="mega-link-title">DJ Protection</span><span class="mega-link-desc">Behind the decks</span></span></a>
+                        <a href="musician-hearing-guide.html" class="mega-link"><span class="mega-link-icon">🎵</span><span class="mega-link-text"><span class="mega-link-title">Musician's Guide</span><span class="mega-link-desc">By instrument type</span></span></a>
+                        <a href="kids-hearing-protection.html" class="mega-link"><span class="mega-link-icon">👶</span><span class="mega-link-text"><span class="mega-link-title">Kids & Parents</span><span class="mega-link-desc">Protecting young ears</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Tools <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Interactive Tools</div>
+                    <div class="mega-menu-links">
+                        <a href="exposure-calculator.html" class="mega-link"><span class="mega-link-icon">⏱️</span><span class="mega-link-text"><span class="mega-link-title">Exposure Calculator</span><span class="mega-link-desc">Daily noise dose</span></span></a>
+                        <a href="hearing-test.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Hearing Test</span><span class="mega-link-desc">Check your frequencies</span></span></a>
+                        <a href="tinnitus-simulator.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Simulator</span><span class="mega-link-desc">Hear what it's like</span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span id="menuIcon">☰</span></button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-section">
+        <div class="mobile-section-title">Understanding Sound</div>
+        <a href="decibel-guide.html" class="mobile-link"><span class="mobile-link-icon">📊</span> Decibel Guide</a>
+        <a href="how-hearing-works.html" class="mobile-link"><span class="mobile-link-icon">👂</span> How Hearing Works</a>
+        <a href="noise-induced-hearing-loss.html" class="mobile-link"><span class="mobile-link-icon">📉</span> NIHL Explained</a>
+        <a href="temporary-vs-permanent.html" class="mobile-link"><span class="mobile-link-icon">⚠️</span> Temporary vs Permanent</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Protection Basics</div>
+        <a href="85-decibel-rule.html" class="mobile-link"><span class="mobile-link-icon">📏</span> The 85 dB Rule</a>
+        <a href="tinnitus-prevention.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Prevention</a>
+        <a href="safe-listening-guidelines.html" class="mobile-link"><span class="mobile-link-icon">✅</span> Safe Listening</a>
+        <a href="headphone-safety.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Headphone Safety</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Situation Guides</div>
+        <a href="concert-hearing-safety.html" class="mobile-link"><span class="mobile-link-icon">🎸</span> Concerts & Shows</a>
+        <a href="festival-survival.html" class="mobile-link"><span class="mobile-link-icon">🎪</span> Festival Survival</a>
+        <a href="dj-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">🎛️</span> DJ Protection</a>
+        <a href="musician-hearing-guide.html" class="mobile-link"><span class="mobile-link-icon">🎵</span> Musician's Guide</a>
+        <a href="kids-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">👶</span> Kids & Parents</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Interactive Tools</div>
+        <a href="exposure-calculator.html" class="mobile-link"><span class="mobile-link-icon">⏱️</span> Exposure Calculator</a>
+        <a href="hearing-test.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Hearing Test</a>
+        <a href="tinnitus-simulator.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Simulator</a>
+    </div>
+    <div class="mobile-section" style="padding: 1rem;">
+        <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+    </div>
+</div>
+
+    
+
+    <section class="hero">
+        <h1>Sound Exposure Calculator</h1>
+        <p class="hero-sub">Track your daily noise dose and see if you're at risk for hearing damage. Based on NIOSH safety guidelines.</p>
+    </section>
+
+    <main class="content">
+        <section class="calculator">
+            <div class="calc-header">
+                <h2>📊 Calculate Your Daily Noise Dose</h2>
+                <p>Add your noise exposures throughout the day</p>
+            </div>
+
+            <div class="exposure-list" id="exposureList">
+                <div class="exposure-item">
+                    <select onchange="calculate()">
+                        <option value="">Select activity...</option>
+                        <option value="60">Normal conversation (60 dB)</option>
+                        <option value="70">Busy restaurant (70 dB)</option>
+                        <option value="75">Vacuum cleaner (75 dB)</option>
+                        <option value="80">City traffic (80 dB)</option>
+                        <option value="85">Heavy traffic / Subway (85 dB)</option>
+                        <option value="88">Factory / Power tools (88 dB)</option>
+                        <option value="91">Motorcycle (91 dB)</option>
+                        <option value="94">Lawn mower (94 dB)</option>
+                        <option value="97">Loud headphones (97 dB)</option>
+                        <option value="100">Club / Loud bar (100 dB)</option>
+                        <option value="105">Concert (mid-crowd) (105 dB)</option>
+                        <option value="110">Concert (near speakers) (110 dB)</option>
+                        <option value="115">Festival main stage (115 dB)</option>
+                    </select>
+                    <input type="number" min="0" max="480" value="0" placeholder="Min" onchange="calculate()">
+                    <span style="color: var(--text-muted);">minutes</span>
+                    <button class="remove-btn" onclick="removeExposure(this)">×</button>
+                </div>
+            </div>
+
+            <button class="add-btn" onclick="addExposure()">+ Add Another Exposure</button>
+
+            <div class="results">
+                <div class="dose-meter">
+                    <div class="dose-fill" id="doseFill" style="width: 0%"></div>
+                    <div class="dose-marker" id="doseMarker" style="left: 0%"></div>
+                </div>
+                <div class="dose-labels">
+                    <span>0%</span>
+                    <span>50%</span>
+                    <span>100% (Limit)</span>
+                    <span>200%</span>
+                </div>
+
+                <div class="dose-display">
+                    <div class="dose-value safe" id="doseValue">0%</div>
+                    <div class="dose-label">of your daily noise dose</div>
+                </div>
+
+                <div class="dose-breakdown">
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="totalMinutes">0</div>
+                        <div class="breakdown-label">Minutes of exposure</div>
+                    </div>
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="avgDb">--</div>
+                        <div class="breakdown-label">Average dB level</div>
+                    </div>
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="remainingTime">8h</div>
+                        <div class="breakdown-label">Remaining at 85 dB</div>
+                    </div>
+                </div>
+
+                <div class="verdict safe" id="verdict">
+                    <h4>✓ Within Safe Limits</h4>
+                    <p>Your current exposure is within recommended daily limits. Keep it up!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="protection-compare" id="protectionCompare" style="display: none;">
+            <h3>🛡️ With Hearing Protection (25 dB reduction)</h3>
+            <div class="compare-grid">
+                <div class="compare-card without">
+                    <div class="compare-title">Without Protection</div>
+                    <div class="compare-value" id="withoutDose">0%</div>
+                    <div class="compare-label">of daily limit</div>
+                </div>
+                <div class="compare-card with">
+                    <div class="compare-title">With Unplugs</div>
+                    <div class="compare-value" id="withDose">0%</div>
+                    <div class="compare-label">of daily limit</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta">
+            <h2>Protection Makes All the Difference</h2>
+            <p>Unplugs reduce exposure by 25 dB—dramatically extending your safe listening time at any volume.</p>
+            <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+        </div>
+
+        <section class="info-section">
+            <h3>How This Calculator Works</h3>
+            <p>This calculator uses the NIOSH recommended exposure limit (REL) formula. The daily dose is calculated as a percentage of your safe daily exposure limit.</p>
+            <p style="margin-top: 1rem;"><strong>The formula:</strong> At 85 dB, you have 8 hours of safe exposure. Every 3 dB increase halves that time. Your dose accumulates throughout the day—multiple exposures add up.</p>
+            <p style="margin-top: 1rem;"><strong>100% = your limit.</strong> Going over 100% means you're exposed to more noise than recommended and risk hearing damage. Under 50% is ideal.</p>
+        </section>
+
+        <section class="info-section">
+            <h3>Understanding Your Results</h3>
+            <ul style="color: var(--text-muted); margin-left: 1.5rem;">
+                <li style="margin-bottom: 0.75rem;"><strong>0-50% (Green):</strong> You're well within safe limits. Great job protecting your hearing!</li>
+                <li style="margin-bottom: 0.75rem;"><strong>50-100% (Yellow):</strong> Approaching your limit. Consider reducing exposure or using protection.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Over 100% (Red):</strong> You've exceeded safe limits. Hearing damage may occur with repeated exposure at this level.</li>
+            </ul>
+        </section>
+
+        <section class="card" style="margin-top: 2rem;">
+            <h3>Related Articles</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <a href="85-decibel-rule.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>The 85 dB Rule →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Understanding the threshold</span>
+                </a>
+                <a href="decibel-guide.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Decibel Guide →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Common sound levels</span>
+                </a>
+                <a href="safe-listening-guidelines.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Safe Listening Guidelines →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">WHO recommendations</span>
+                </a>
+                <a href="headphone-safety.html" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-decoration: none; color: var(--text);">
+                    <strong>Headphone Safety →</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">The 60/60 rule</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Hearing Protection Superguide</a> · Educational content by <a href="https://unplugshearing.com">Unplugs</a></p>
+    </footer>
+
+    <script>
+        function addExposure() {
+            const list = document.getElementById('exposureList');
+            const item = document.createElement('div');
+            item.className = 'exposure-item';
+            item.innerHTML = `
+                <select onchange="calculate()">
+                    <option value="">Select activity...</option>
+                    <option value="60">Normal conversation (60 dB)</option>
+                    <option value="70">Busy restaurant (70 dB)</option>
+                    <option value="75">Vacuum cleaner (75 dB)</option>
+                    <option value="80">City traffic (80 dB)</option>
+                    <option value="85">Heavy traffic / Subway (85 dB)</option>
+                    <option value="88">Factory / Power tools (88 dB)</option>
+                    <option value="91">Motorcycle (91 dB)</option>
+                    <option value="94">Lawn mower (94 dB)</option>
+                    <option value="97">Loud headphones (97 dB)</option>
+                    <option value="100">Club / Loud bar (100 dB)</option>
+                    <option value="105">Concert (mid-crowd) (105 dB)</option>
+                    <option value="110">Concert (near speakers) (110 dB)</option>
+                    <option value="115">Festival main stage (115 dB)</option>
+                </select>
+                <input type="number" min="0" max="480" value="0" placeholder="Min" onchange="calculate()">
+                <span style="color: var(--text-muted);">minutes</span>
+                <button class="remove-btn" onclick="removeExposure(this)">×</button>
+            `;
+            list.appendChild(item);
+        }
+
+        function removeExposure(btn) {
+            const list = document.getElementById('exposureList');
+            if (list.children.length > 1) {
+                btn.parentElement.remove();
+                calculate();
+            }
+        }
+
+        function getSafeMinutes(db) {
+            if (db < 85) return Infinity;
+            return 480 / Math.pow(2, (db - 85) / 3);
+        }
+
+        function calculate() {
+            const items = document.querySelectorAll('.exposure-item');
+            let totalDose = 0;
+            let totalDoseProtected = 0;
+            let totalMinutes = 0;
+            let weightedDb = 0;
+            let exposureCount = 0;
+
+            items.forEach(item => {
+                const select = item.querySelector('select');
+                const input = item.querySelector('input');
+                const db = parseInt(select.value);
+                const minutes = parseInt(input.value) || 0;
+
+                if (db && minutes > 0) {
+                    const safeMinutes = getSafeMinutes(db);
+                    const dose = (minutes / safeMinutes) * 100;
+                    totalDose += dose;
+
+                    const protectedDb = Math.max(60, db - 25);
+                    const protectedSafeMinutes = getSafeMinutes(protectedDb);
+                    const protectedDose = (minutes / protectedSafeMinutes) * 100;
+                    totalDoseProtected += protectedDose;
+
+                    totalMinutes += minutes;
+                    weightedDb += db * minutes;
+                    exposureCount++;
+                }
+            });
+
+            const avgDb = totalMinutes > 0 ? Math.round(weightedDb / totalMinutes) : 0;
+            const remainingAtBase = Math.max(0, 480 * (1 - totalDose / 100));
+
+            // Update display
+            document.getElementById('doseValue').textContent = Math.round(totalDose) + '%';
+            document.getElementById('doseFill').style.width = Math.min(100, totalDose / 2) + '%';
+            document.getElementById('doseMarker').style.left = Math.min(98, totalDose / 2) + '%';
+            document.getElementById('totalMinutes').textContent = totalMinutes;
+            document.getElementById('avgDb').textContent = avgDb > 0 ? avgDb + ' dB' : '--';
+            
+            if (remainingAtBase >= 60) {
+                document.getElementById('remainingTime').textContent = Math.round(remainingAtBase / 60) + 'h';
+            } else {
+                document.getElementById('remainingTime').textContent = Math.round(remainingAtBase) + 'm';
+            }
+
+            const valueEl = document.getElementById('doseValue');
+            const verdict = document.getElementById('verdict');
+            
+            if (totalDose < 50) {
+                valueEl.className = 'dose-value safe';
+                verdict.className = 'verdict safe';
+                verdict.innerHTML = '<h4>✓ Well Within Safe Limits</h4><p>Your current exposure is comfortably within recommended daily limits. Great job!</p>';
+            } else if (totalDose < 100) {
+                valueEl.className = 'dose-value warning';
+                verdict.className = 'verdict warning';
+                verdict.innerHTML = '<h4>⚠️ Approaching Your Limit</h4><p>You\'re using up your daily noise budget. Consider reducing exposure or using hearing protection for remaining loud activities.</p>';
+            } else {
+                valueEl.className = 'dose-value danger';
+                verdict.className = 'verdict danger';
+                verdict.innerHTML = '<h4>🚨 Over Your Safe Limit</h4><p>You\'ve exceeded recommended daily exposure. Repeated days like this can cause permanent hearing damage. Use hearing protection!</p>';
+            }
+
+            // Show protection comparison if there's meaningful exposure
+            const compareSection = document.getElementById('protectionCompare');
+            if (totalDose > 10) {
+                compareSection.style.display = 'block';
+                document.getElementById('withoutDose').textContent = Math.round(totalDose) + '%';
+                document.getElementById('withDose').textContent = Math.round(totalDoseProtected) + '%';
+            } else {
+                compareSection.style.display = 'none';
+            }
+        }
+
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary vs Permanent Hearing Loss: Know the Difference | Hearing Guide</title>
+    <meta name="description" content="Learn the critical differences between temporary and permanent hearing loss. Understand when your hearing will recover and when damage is irreversible.">
+    <meta name="keywords" content="temporary hearing loss, permanent hearing loss, hearing damage recovery, TTS threshold shift, noise induced hearing loss">
+    <link rel="canonical" href="https://learn.unplugshearing.com/temporary-vs-permanent">
+    <meta property="og:title" content="Temporary vs Permanent Hearing Loss | Hearing Guide">
+    <meta property="og:description" content="Will your hearing come back? Understanding the difference between temporary and permanent damage.">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Bamboy Font */
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --primary: #29EF78;
+            --secondary: #222222;
+            --accent: #29EF78;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #FFFFFF;
+            --text-muted: #909090;
+            --card: #2A2A2A;
+            --border: rgba(255,255,255,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { padding-top: 64px; font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); font-size: 0.9rem; }
+
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .key-message { background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.1)); border: 1px solid rgba(239,68,68,0.3); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .key-message h3 { color: var(--danger); margin-bottom: 0.75rem; font-size: 1.5rem; }
+        .key-message p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        section { margin-bottom: 3rem; }
+        section h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; }
+        section h3 { font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: var(--accent); }
+        section p { color: var(--text-muted); margin-bottom: 1rem; }
+        section ul { color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem; }
+        section li { margin-bottom: 0.5rem; }
+
+        .comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .comparison-card { background: var(--card); border-radius: 16px; padding: 2rem; }
+        .comparison-card.temporary { border-top: 4px solid var(--warning); }
+        .comparison-card.permanent { border-top: 4px solid var(--danger); }
+        .comparison-card h3 { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .comparison-card.temporary h3 { color: var(--warning); }
+        .comparison-card.permanent h3 { color: var(--danger); }
+        .comparison-card ul { list-style: none; padding: 0; }
+        .comparison-card li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem; }
+        .comparison-card li:last-child { border-bottom: none; }
+        .comparison-card li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0; }
+        .comparison-card.temporary li::before { background: var(--warning); }
+        .comparison-card.permanent li::before { background: var(--danger); }
+
+        .timeline { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .timeline h3 { margin-bottom: 1.5rem; text-align: center; }
+        .timeline-visual { position: relative; padding: 1rem 0; }
+        .timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--success), var(--warning), var(--danger)); border-radius: 2px; }
+        .timeline-points { display: flex; justify-content: space-between; position: relative; }
+        .timeline-point { text-align: center; flex: 1; }
+        .timeline-dot { width: 20px; height: 20px; border-radius: 50%; margin: 0 auto 0.75rem; border: 3px solid var(--secondary); }
+        .timeline-point:nth-child(1) .timeline-dot { background: var(--success); }
+        .timeline-point:nth-child(2) .timeline-dot { background: var(--success); }
+        .timeline-point:nth-child(3) .timeline-dot { background: var(--warning); }
+        .timeline-point:nth-child(4) .timeline-dot { background: var(--danger); }
+        .timeline-label { font-size: 0.85rem; font-weight: 600; }
+        .timeline-desc { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+        .biology { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .hair-cell-demo { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 2rem; margin: 1.5rem 0; text-align: center; }
+        .hair-cells { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .hair-cell { width: 8px; height: 40px; background: var(--success); border-radius: 4px 4px 0 0; transition: all 0.3s; }
+        .hair-cell.bent { transform: rotate(15deg); background: var(--warning); }
+        .hair-cell.dead { height: 10px; background: var(--danger); opacity: 0.5; }
+        .demo-controls { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .demo-btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+        .demo-btn:hover { transform: scale(1.05); }
+        .demo-btn.healthy { background: var(--success); color: white; }
+        .demo-btn.temporary { background: var(--warning); color: black; }
+        .demo-btn.permanent { background: var(--danger); color: white; }
+        .demo-status { margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); }
+
+        .symptoms { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .symptom-card { background: var(--card); border-radius: 12px; padding: 1.5rem; }
+        .symptom-card h4 { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .symptom-list { font-size: 0.9rem; }
+        .symptom-list li { margin-bottom: 0.5rem; padding-left: 0; }
+
+        .action-box { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(34,211,238,0.1)); border: 1px solid rgba(16,185,129,0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .action-box h3 { color: var(--success); margin-bottom: 1rem; }
+        .action-steps { display: grid; gap: 1rem; }
+        .action-step { display: flex; gap: 1rem; align-items: flex-start; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; }
+        .step-number { background: var(--success); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+        .step-content h4 { margin-bottom: 0.25rem; font-size: 1rem; }
+        .step-content p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        .warning-signs { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .signs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .sign { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px; padding: 1rem; text-align: center; }
+        .sign-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .sign p { font-size: 0.9rem; margin: 0; }
+
+        .related-articles { background: var(--card); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .related-card { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; transition: background 0.2s; }
+        .related-card:hover { background: rgba(0,0,0,0.3); text-decoration: none; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); }
+        .related-card p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+
+        .cta-box { background: linear-gradient(135deg, var(--primary), #8B5CF6); border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+        .cta-box h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-box p { opacity: 0.9; margin-bottom: 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .content { padding: 1.5rem; }
+            .timeline-points { flex-wrap: wrap; gap: 1rem; }
+            .timeline-point { min-width: 45%; }
+            .timeline-line { display: none; }
+        }
+    
+/* Mega Menu Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0;
+}
+
+.header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.header-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.header-nav { display: flex; align-items: center; gap: 0.5rem; }
+.nav-item { position: relative; }
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.nav-link:hover, .nav-item:hover .nav-link { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-arrow { font-size: 0.7rem; transition: transform 0.2s; }
+.nav-item:hover .nav-arrow { transform: rotate(180deg); }
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.mega-menu-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.mega-menu-links { display: flex; flex-direction: column; gap: 0.25rem; }
+.mega-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+.mega-link:hover { background: rgba(99,102,241,0.15); color: var(--accent); }
+.mega-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+.mega-link-text { flex: 1; }
+.mega-link-title { font-weight: 600; font-size: 0.9rem; display: block; }
+.mega-link-desc { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+.header-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.6rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-left: 0.5rem;
+}
+.header-cta:hover { background: #22D969; transform: translateY(-1px); }
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary);
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section { margin-bottom: 1.5rem; }
+.mobile-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+.mobile-link:hover { background: rgba(255,255,255,0.05); }
+.mobile-link-icon { font-size: 1.25rem; width: 28px; text-align: center; }
+
+@media (max-width: 900px) {
+    .header-nav { display: none; }
+    .mobile-toggle { display: block; }
+    .header-cta { display: none; }
+}
+
+.page-content { padding-top: 64px; }
+
+    </style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-main">
+        <a href="index.html" class="header-logo">
+            <span class="header-logo-icon">🔊</span>
+            Hearing Guide
+        </a>
+        
+        <nav class="header-nav">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Learn <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Understanding Sound</div>
+                    <div class="mega-menu-links">
+                        <a href="decibel-guide.html" class="mega-link"><span class="mega-link-icon">📊</span><span class="mega-link-text"><span class="mega-link-title">Decibel Guide</span><span class="mega-link-desc">Interactive sound levels</span></span></a>
+                        <a href="how-hearing-works.html" class="mega-link"><span class="mega-link-icon">👂</span><span class="mega-link-text"><span class="mega-link-title">How Hearing Works</span><span class="mega-link-desc">The journey of sound</span></span></a>
+                        <a href="noise-induced-hearing-loss.html" class="mega-link"><span class="mega-link-icon">📉</span><span class="mega-link-text"><span class="mega-link-title">NIHL Explained</span><span class="mega-link-desc">Causes & prevention</span></span></a>
+                        <a href="temporary-vs-permanent.html" class="mega-link"><span class="mega-link-icon">⚠️</span><span class="mega-link-text"><span class="mega-link-title">Temporary vs Permanent</span><span class="mega-link-desc">When damage is reversible</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Protect <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Protection Basics</div>
+                    <div class="mega-menu-links">
+                        <a href="85-decibel-rule.html" class="mega-link"><span class="mega-link-icon">📏</span><span class="mega-link-text"><span class="mega-link-title">The 85 dB Rule</span><span class="mega-link-desc">Your safety threshold</span></span></a>
+                        <a href="tinnitus-prevention.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Prevention</span><span class="mega-link-desc">Stop the ringing</span></span></a>
+                        <a href="safe-listening-guidelines.html" class="mega-link"><span class="mega-link-icon">✅</span><span class="mega-link-text"><span class="mega-link-title">Safe Listening</span><span class="mega-link-desc">WHO guidelines</span></span></a>
+                        <a href="headphone-safety.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Headphone Safety</span><span class="mega-link-desc">The 60/60 rule</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Guides <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu" style="min-width: 320px;">
+                    <div class="mega-menu-title">Situation Guides</div>
+                    <div class="mega-menu-links">
+                        <a href="concert-hearing-safety.html" class="mega-link"><span class="mega-link-icon">🎸</span><span class="mega-link-text"><span class="mega-link-title">Concerts & Shows</span><span class="mega-link-desc">Live music protection</span></span></a>
+                        <a href="festival-survival.html" class="mega-link"><span class="mega-link-icon">🎪</span><span class="mega-link-text"><span class="mega-link-title">Festival Survival</span><span class="mega-link-desc">Multi-day strategies</span></span></a>
+                        <a href="dj-hearing-protection.html" class="mega-link"><span class="mega-link-icon">🎛️</span><span class="mega-link-text"><span class="mega-link-title">DJ Protection</span><span class="mega-link-desc">Behind the decks</span></span></a>
+                        <a href="musician-hearing-guide.html" class="mega-link"><span class="mega-link-icon">🎵</span><span class="mega-link-text"><span class="mega-link-title">Musician's Guide</span><span class="mega-link-desc">By instrument type</span></span></a>
+                        <a href="kids-hearing-protection.html" class="mega-link"><span class="mega-link-icon">👶</span><span class="mega-link-text"><span class="mega-link-title">Kids & Parents</span><span class="mega-link-desc">Protecting young ears</span></span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <a href="#" class="nav-link">Tools <span class="nav-arrow">▼</span></a>
+                <div class="mega-menu">
+                    <div class="mega-menu-title">Interactive Tools</div>
+                    <div class="mega-menu-links">
+                        <a href="exposure-calculator.html" class="mega-link"><span class="mega-link-icon">⏱️</span><span class="mega-link-text"><span class="mega-link-title">Exposure Calculator</span><span class="mega-link-desc">Daily noise dose</span></span></a>
+                        <a href="hearing-test.html" class="mega-link"><span class="mega-link-icon">🎧</span><span class="mega-link-text"><span class="mega-link-title">Hearing Test</span><span class="mega-link-desc">Check your frequencies</span></span></a>
+                        <a href="tinnitus-simulator.html" class="mega-link"><span class="mega-link-icon">🔔</span><span class="mega-link-text"><span class="mega-link-title">Tinnitus Simulator</span><span class="mega-link-desc">Hear what it's like</span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span id="menuIcon">☰</span></button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-section">
+        <div class="mobile-section-title">Understanding Sound</div>
+        <a href="decibel-guide.html" class="mobile-link"><span class="mobile-link-icon">📊</span> Decibel Guide</a>
+        <a href="how-hearing-works.html" class="mobile-link"><span class="mobile-link-icon">👂</span> How Hearing Works</a>
+        <a href="noise-induced-hearing-loss.html" class="mobile-link"><span class="mobile-link-icon">📉</span> NIHL Explained</a>
+        <a href="temporary-vs-permanent.html" class="mobile-link"><span class="mobile-link-icon">⚠️</span> Temporary vs Permanent</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Protection Basics</div>
+        <a href="85-decibel-rule.html" class="mobile-link"><span class="mobile-link-icon">📏</span> The 85 dB Rule</a>
+        <a href="tinnitus-prevention.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Prevention</a>
+        <a href="safe-listening-guidelines.html" class="mobile-link"><span class="mobile-link-icon">✅</span> Safe Listening</a>
+        <a href="headphone-safety.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Headphone Safety</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Situation Guides</div>
+        <a href="concert-hearing-safety.html" class="mobile-link"><span class="mobile-link-icon">🎸</span> Concerts & Shows</a>
+        <a href="festival-survival.html" class="mobile-link"><span class="mobile-link-icon">🎪</span> Festival Survival</a>
+        <a href="dj-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">🎛️</span> DJ Protection</a>
+        <a href="musician-hearing-guide.html" class="mobile-link"><span class="mobile-link-icon">🎵</span> Musician's Guide</a>
+        <a href="kids-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">👶</span> Kids & Parents</a>
+    </div>
+    <div class="mobile-section">
+        <div class="mobile-section-title">Interactive Tools</div>
+        <a href="exposure-calculator.html" class="mobile-link"><span class="mobile-link-icon">⏱️</span> Exposure Calculator</a>
+        <a href="hearing-test.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Hearing Test</a>
+        <a href="tinnitus-simulator.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Simulator</a>
+    </div>
+    <div class="mobile-section" style="padding: 1rem;">
+        <a href="https://unplugshearing.com?utm_source=learn<!-- CTA disabled for launch -->utm_medium=header<!-- CTA disabled for launch -->utm_campaign=hearing_guide" class="header-cta">Get Unplugs →</a>
+    </div>
+</div>
+
+    
+
+    <div class="hero">
+        <h1>Temporary vs Permanent Hearing Loss</h1>
+        <p class="hero-sub">Understanding when your hearing will bounce back—and when damage is forever.</p>
+    </div>
+
+    <main class="content">
+        <div class="key-message">
+            <h3>The Critical Truth</h3>
+            <p>Every episode of temporary hearing loss is a warning. Keep pushing, and temporary becomes permanent. Your ears don't get unlimited chances.</p>
+        </div>
+
+        <section>
+            <h2>🔄 The Two Types Compared</h2>
+            <p>Both can feel similar in the moment, but their outcomes are completely different:</p>
+
+            <div class="comparison">
+                <div class="comparison-card temporary">
+                    <h3>⏱️ Temporary (TTS)</h3>
+                    <ul>
+                        <li><strong>Duration:</strong> Hours to 48 hours</li>
+                        <li><strong>Recovery:</strong> Full, with adequate rest</li>
+                        <li><strong>Cause:</strong> Hair cells bent/fatigued</li>
+                        <li><strong>Feeling:</strong> Muffled, ringing, fullness</li>
+                        <li><strong>Warning:</strong> This IS damage happening</li>
+                        <li><strong>Prevention:</strong> 16+ hours quiet recovery</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card permanent">
+                    <h3>⛔ Permanent (PTS)</h3>
+                    <ul>
+                        <li><strong>Duration:</strong> Forever</li>
+                        <li><strong>Recovery:</strong> None possible</li>
+                        <li><strong>Cause:</strong> Hair cells destroyed</li>
+                        <li><strong>Feeling:</strong> Lost frequencies, chronic tinnitus</li>
+                        <li><strong>Reality:</strong> Damage is cumulative</li>
+                        <li><strong>Treatment:</strong> Hearing aids only compensate</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📈 The Progression</h2>
+            <p>Temporary damage becomes permanent through repetition. Here's how the transition happens:</p>
+
+            <div class="timeline">
+                <h3>From First Exposure to Permanent Loss</h3>
+                <div class="timeline-visual">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-points">
+                        <div class="timeline-point">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-label">First TTS</div>
+                            <div class="timeline-desc">Muffled hearing after concert. Recovers in 24h.</div>
+                        </div>
+                        <div class="timeline-point">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-label">Repeated TTS</div>
+                            <div class="timeline-desc">Same thing happens again and again. Seems fine.</div>
+                        </div>
+                        <div class="timeline-point">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-label">Slower Recovery</div>
+                            <div class="timeline-desc">Takes longer to feel normal. Mild tinnitus lingers.</div>
+                        </div>
+                        <div class="timeline-point">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-label">Permanent Loss</div>
+                            <div class="timeline-desc">Some frequencies never return. Tinnitus is constant.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔬 What's Actually Happening</h2>
+            <p>Inside your ear, tiny hair cells detect sound waves. Here's what happens to them:</p>
+
+            <div class="biology">
+                <h3>Hair Cell Damage Demonstration</h3>
+                <div class="hair-cell-demo">
+                    <div class="hair-cells" id="hairCells">
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                        <div class="hair-cell"></div>
+                    </div>
+                    <div class="demo-controls">
+                        <button class="demo-btn healthy" onclick="showState('healthy')">Healthy</button>
+                        <button class="demo-btn temporary" onclick="showState('temporary')">Temporary Damage</button>
+                        <button class="demo-btn permanent" onclick="showState('permanent')">Permanent Damage</button>
+                    </div>
+                    <div class="demo-status" id="demoStatus">Healthy hair cells standing upright, detecting all frequencies</div>
+                </div>
+                <p><strong>Key fact:</strong> You're born with about 16,000 hair cells per ear. They don't regenerate. Once they're gone, they're gone forever. Temporary damage bends them; permanent damage destroys them.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚨 Recognizing the Signs</h2>
+            <div class="symptoms">
+                <div class="symptom-card">
+                    <h4>⏱️ Signs of Temporary Loss</h4>
+                    <ul class="symptom-list">
+                        <li>Muffled hearing after exposure</li>
+                        <li>Ringing/buzzing that fades over hours</li>
+                        <li>Feeling of fullness in ears</li>
+                        <li>Difficulty hearing conversation</li>
+                        <li>Symptoms resolve within 48 hours</li>
+                    </ul>
+                </div>
+
+                <div class="symptom-card">
+                    <h4>⛔ Signs Damage May Be Permanent</h4>
+                    <ul class="symptom-list">
+                        <li>Symptoms lasting beyond 48-72 hours</li>
+                        <li>Tinnitus that never fully goes away</li>
+                        <li>Specific frequencies you can't hear</li>
+                        <li>Need to ask people to repeat themselves</li>
+                        <li>Difficulty in noisy environments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>✅ What To Do After Loud Exposure</h2>
+            <p>If you've just been exposed to damaging noise, follow these steps:</p>
+
+            <div class="action-box">
+                <h3>Recovery Protocol</h3>
+                <div class="action-steps">
+                    <div class="action-step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>Immediate Quiet</h4>
+                            <p>Get to a quiet environment as soon as possible. No headphones, no loud music, no additional exposure.</p>
+                        </div>
+                    </div>
+                    <div class="action-step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>16-Hour Minimum</h4>
+                            <p>Give your ears at least 16 hours of relative quiet (under 70 dB). This is non-negotiable for recovery.</p>
+                        </div>
+                    </div>
+                    <div class="action-step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>Sleep</h4>
+                            <p>Your ears repair during sleep. Get a full night's rest in a quiet room. This accelerates recovery.</p>
+                        </div>
+                    </div>
+                    <div class="action-step">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h4>Monitor Symptoms</h4>
+                            <p>Track how you feel over 24-48 hours. Symptoms should steadily improve. If not, see a doctor.</p>
+                        </div>
+                    </div>
+                    <div class="action-step">
+                        <span class="step-number">5</span>
+                        <div class="step-content">
+                            <h4>Seek Help If Needed</h4>
+                            <p>If symptoms persist beyond 48 hours, see an audiologist or ENT immediately. Early intervention matters.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚩 When to See a Doctor</h2>
+            <p>These signs indicate you should seek professional help immediately:</p>
+
+            <div class="warning-signs">
+                <h3>Red Flags</h3>
+                <div class="signs-grid">
+                    <div class="sign">
+                        <div class="sign-icon">⏰</div>
+                        <p>Symptoms lasting more than 48 hours</p>
+                    </div>
+                    <div class="sign">
+                        <div class="sign-icon">🔔</div>
+                        <p>Tinnitus that won't stop</p>
+                    </div>
+                    <div class="sign">
+                        <div class="sign-icon">😵</div>
+                        <p>Dizziness or balance problems</p>
+                    </div>
+                    <div class="sign">
+                        <div class="sign-icon">😣</div>
+                        <p>Pain in your ears</p>
+                    </div>
+                    <div class="sign">
+                        <div class="sign-icon">🩸</div>
+                        <p>Any discharge from ears</p>
+                    </div>
+                    <div class="sign">
+                        <div class="sign-icon">📉</div>
+                        <p>Sudden significant hearing drop</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="related-articles">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <a href="noise-induced-hearing-loss.html" class="related-card">
+                    <h4>Noise-Induced Hearing Loss →</h4>
+                    <p>Deep dive into NIHL causes and prevention</p>
+                </a>
+                <a href="tinnitus-prevention.html" class="related-card">
+                    <h4>Tinnitus Prevention →</h4>
+                    <p>Prevent and manage ringing in your ears</p>
+                </a>
+                <a href="how-hearing-works.html" class="related-card">
+                    <h4>How Hearing Works →</h4>
+                    <p>Understand your ear's delicate mechanism</p>
+                </a>
+                <a href="exposure-calculator.html" class="related-card">
+                    <h4>Exposure Calculator →</h4>
+                    <p>Calculate your safe exposure limits</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>Don't Wait for Permanent</h3>
+            <p>Protect your hearing now, before temporary becomes forever.</p>
+            <a href="https://unplugshearing.com?utm_source=learn<!-- CTA removed -->utm_medium=cta<!-- CTA removed -->utm_campaign=hearing_guide" class="cta-btn">Get Unplugs →</a>
+        </div>
+    </main>
+
+    <script>
+        function showState(state) {
+            const cells = document.querySelectorAll('.hair-cell');
+            const status = document.getElementById('demoStatus');
+            
+            cells.forEach((cell, i) => {
+                cell.className = 'hair-cell';
+                
+                if (state === 'temporary') {
+                    if (i % 3 === 0) cell.classList.add('bent');
+                    status.textContent = 'Hair cells bent from loud exposure. With rest, they can recover.';
+                } else if (state === 'permanent') {
+                    if (i % 2 === 0) cell.classList.add('dead');
+                    else if (i % 3 === 0) cell.classList.add('bent');
+                    status.textContent = 'Hair cells destroyed. These frequencies are lost forever.';
+                } else {
+                    status.textContent = 'Healthy hair cells standing upright, detecting all frequencies.';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
