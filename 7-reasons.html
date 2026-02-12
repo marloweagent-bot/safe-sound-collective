@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Reasons I'm Using Unplugs This Festival Season</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #1A1A2E;
+            --accent: #16213E;
+            --light: #F7F7F7;
+            --text: #2D2D2D;
+            --danger: #FF4757;
+            --safe: #2ED573;
+            --warning: #FFA502;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--secondary);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+
+        .hero-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        .scroll-indicator svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--primary);
+        }
+
+        /* Reason Cards */
+        .reasons-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .reason-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-number {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 8rem;
+            font-weight: 800;
+            opacity: 0.05;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .reason-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .reason-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .reason-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .reason-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .reason-content {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+        }
+
+        /* Interactive Modules */
+        .interactive-module {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .module-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Decibel Meter Module */
+        .decibel-meter {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .db-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .db-item:hover {
+            transform: translateX(5px);
+        }
+
+        .db-bar-container {
+            flex: 1;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .db-bar {
+            height: 100%;
+            border-radius: 8px;
+            transition: width 0.5s ease-out;
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+        }
+
+        .db-label {
+            width: 120px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .db-value {
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .db-safe { background: linear-gradient(90deg, var(--safe), #7BED9F); }
+        .db-warning { background: linear-gradient(90deg, var(--warning), #FFBE76); }
+        .db-danger { background: linear-gradient(90deg, var(--danger), #FF6B81); }
+
+        .damage-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255,71,87,0.1);
+            border-left: 3px solid var(--danger);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .damage-info.visible {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hair Cell Visualizer */
+        .hair-cells {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .hair-cell {
+            width: 8px;
+            height: 40px;
+            background: var(--safe);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .hair-cell.damaged {
+            height: 15px;
+            background: var(--danger);
+            opacity: 0.5;
+        }
+
+        .hair-cell.warning {
+            height: 25px;
+            background: var(--warning);
+        }
+
+        .cell-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .cell-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cell-btn.damage {
+            background: var(--danger);
+            color: white;
+        }
+
+        .cell-btn.reset {
+            background: var(--safe);
+            color: white;
+        }
+
+        .cell-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .cell-counter {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .cell-counter span {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Click Toggle Demo */
+        .click-demo {
+            text-align: center;
+        }
+
+        .plug-visual {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(145deg, #444, #222);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .plug-visual:hover {
+            transform: scale(1.05);
+        }
+
+        .plug-visual.protected {
+            box-shadow: 0 0 0 4px var(--safe), 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .plug-visual.connected {
+            box-shadow: 0 0 0 4px var(--primary), 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .plug-inner {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .plug-visual:active .plug-inner {
+            transform: scale(0.95);
+        }
+
+        .plug-status {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .plug-description {
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        .status-protected { color: var(--safe); }
+        .status-connected { color: var(--primary); }
+
+        /* Exposure Calculator */
+        .exposure-calc {
+            text-align: center;
+        }
+
+        .exposure-slider {
+            width: 100%;
+            margin: 1.5rem 0;
+            -webkit-appearance: none;
+            height: 8px;
+            background: linear-gradient(90deg, var(--safe) 0%, var(--warning) 50%, var(--danger) 100%);
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .exposure-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .exposure-result {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .exposure-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .exposure-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .exposure-box {
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .exposure-box.without {
+            background: rgba(255,71,87,0.2);
+            border: 1px solid var(--danger);
+        }
+
+        .exposure-box.with {
+            background: rgba(46,213,115,0.2);
+            border: 1px solid var(--safe);
+        }
+
+        .exposure-box h4 {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .exposure-box .time {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Frequency Response */
+        .freq-demo {
+            padding: 1rem 0;
+        }
+
+        .freq-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 8px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .freq-bar {
+            width: 30px;
+            background: var(--primary);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.3s;
+        }
+
+        .freq-labels {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .freq-labels span {
+            width: 30px;
+            text-align: center;
+        }
+
+        .freq-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .freq-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--light);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .freq-btn.active {
+            background: var(--primary);
+        }
+
+        .freq-btn:hover {
+            background: var(--primary);
+        }
+
+        /* Festival Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checklist li:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .checklist li.checked {
+            opacity: 0.6;
+        }
+
+        .checklist li.checked .check-box {
+            background: var(--safe);
+            border-color: var(--safe);
+        }
+
+        .checklist li.checked .check-box::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+        }
+
+        .check-box {
+            width: 28px;
+            height: 28px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-price {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .reason-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .reason-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .reason-number {
+                font-size: 5rem;
+                top: -10px;
+                right: 10px;
+            }
+
+            .db-item {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .db-label {
+                width: 100%;
+            }
+
+            .exposure-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <span class="hero-badge">Festival Survival Guide</span>
+        <h1>7 Reasons I'm Using <span>Unplugs</span> This Festival Season</h1>
+        <p class="hero-subtitle">Forget everything you know about earplugs. Here's why these are different—and why your ears will thank you.</p>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <div class="reasons-container">
+        <!-- Reason 1: The Decibel Reality -->
+        <article class="reason-card">
+            <span class="reason-number">1</span>
+            <div class="reason-header">
+                <div class="reason-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </div>
+                <h2 class="reason-title">Festival Sound Systems Hit Different (Literally)</h2>
+            </div>
+            <p class="reason-content">
+                That bass you feel in your chest? It's hitting your ears at 100-115 dB. For context, your phone at max volume is about 100 dB. Now imagine standing next to a jet engine for 8 hours. That's a festival.
+            </p>
+            
+            <div class="interactive-module">
+                <div class="module-title">📊 Interactive: Tap to see damage time</div>
+                <div class="decibel-meter">
+                    <div class="db-item" onclick="showDamage(this, '85 dB is the threshold where damage begins. At this level, you have about 8 hours before permanent damage starts.')">
+                        <span class="db-label">Normal Conversation</span>
+                        <div class="db-bar-container">
+                            <div class="db-bar db-safe" style="width: 45%">
+                                <span class="db-value">60 dB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="db-item" onclick="showDamage(this, 'City traffic puts you at the edge of the danger zone. Extended exposure causes fatigue and stress.')">
+                        <span class="db-label">City Traffic</span>
+                        <div class="db-bar-container">
+                            <div class="db-bar db-warning" style="width: 60%">
+                                <span class="db-value">85 dB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="db-item" onclick="showDamage(this, 'At 100 dB, you have only 15 MINUTES before permanent hearing damage begins. That\'s one set.')">
+                        <span class="db-label">Festival Main Stage</span>
+                        <div class="db-bar-container">
+                            <div class="db-bar db-danger" style="width: 80%">
+                                <span class="db-value">105 dB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="db-item" onclick="showDamage(this, 'Front of house at a festival? You have SECONDS of safe exposure. The bass alone can cause immediate damage.')">
+                        <span class="db-label">Front Row / Bass Stage</span>
+                        <div class="db-bar-container">
+                            <div class="db-bar db-danger" style="width: 95%">
+                                <span class="db-value">115 dB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="damage-info" class="damage-info"></div>
+            </div>
+        </article>
+
+        <!-- Reason 2: Hair Cells Don't Regenerate -->
+        <article class="reason-card">
+            <span class="reason-number">2</span>
+            <div class="reason-header">
+                <div class="reason-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h2 class="reason-title">Your Hearing Has a Finite Balance—And It Doesn't Refill</h2>
+            </div>
+            <p class="reason-content">
+                You're born with about 16,000 hair cells in each ear. They convert sound into signals your brain understands. When they die, they're gone forever. No surgery, no pill, no treatment can bring them back.
+            </p>
+            
+            <div class="interactive-module">
+                <div class="module-title">🔬 Interactive: Watch hair cells die</div>
+                <div class="hair-cells" id="hair-cells">
+                    <!-- Generated by JS -->
+                </div>
+                <div class="cell-counter">
+                    Hair cells remaining: <span id="cell-count">100</span>%
+                </div>
+                <div class="cell-controls">
+                    <button class="cell-btn damage" onclick="damageHairCells()">🔊 Simulate Festival Night</button>
+                    <button class="cell-btn reset" onclick="resetHairCells()">↺ Reset Demo</button>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; opacity: 0.6;">
+                    ⚠️ Unlike this demo, real hair cells don't come back
+                </p>
+            </div>
+        </article>
+
+        <!-- Reason 3: The Click -->
+        <article class="reason-card">
+            <span class="reason-number">3</span>
+            <div class="reason-header">
+                <div class="reason-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                </div>
+                <h2 class="reason-title">One Click. That's It. No Fumbling.</h2>
+            </div>
+            <p class="reason-content">
+                Traditional earplugs mean fishing them out of your pocket, finding your ear canal while your friend is trying to tell you the bathroom line is insane. Unplugs stay in all day—one click toggles between protection and connection.
+            </p>
+            
+            <div class="interactive-module">
+                <div class="module-title">👆 Interactive: Try the click</div>
+                <div class="click-demo">
+                    <div class="plug-visual protected" id="plug-demo" onclick="togglePlug()">
+                        <div class="plug-inner">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="plug-status status-protected" id="plug-status">🛡️ PROTECTED MODE</div>
+                    <div class="plug-description" id="plug-desc">25 dB reduction • Full protection • Feel the bass, save your ears</div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 4: Safe Exposure Time -->
+        <article class="reason-card">
+            <span class="reason-number">4</span>
+            <div class="reason-header">
+                <div class="reason-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h2 class="reason-title">15 Minutes vs. 8+ Hours of Safe Listening</h2>
+            </div>
+            <p class="reason-content">
+                At 105 dB (average festival volume), your safe exposure time is about 15 minutes. With Unplugs reducing that by 25 dB, you're down to 80 dB—giving you over 8 hours of safe listening. That's the entire festival day.
+            </p>
+            
+            <div class="interactive-module">
+                <div class="module-title">⏱️ Interactive: Drag to see safe exposure time</div>
+                <div class="exposure-calc">
+                    <div class="exposure-label">Festival Volume Level</div>
+                    <input type="range" class="exposure-slider" id="volume-slider" min="85" max="120" value="105" oninput="updateExposure()">
+                    <div class="exposure-result" id="volume-display">105 dB</div>
+                    
+                    <div class="exposure-comparison">
+                        <div class="exposure-box without">
+                            <h4>Without Protection</h4>
+                            <div class="time" id="time-without">15 min</div>
+                        </div>
+                        <div class="exposure-box with">
+                            <h4>With Unplugs (-25 dB)</h4>
+                            <div class="time" id="time-with">8+ hours</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 5: Sound Quality -->
+        <article class="reason-card">
+            <span class="reason-number">5</span>
+            <div class="reason-header">
+                <div class="reason-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </div>
+                <h2 class="reason-title">Music Still Sounds Like Music (Not Muffled Garbage)</h2>
+            </div>
+            <p class="reason-content">
+                Foam earplugs kill high frequencies, making everything sound like you're underwater. Unplugs use audiologist-designed acoustic filters that reduce volume evenly across all frequencies. The music stays crisp—just quieter.
+            </p>
+            
+            <div class="interactive-module">
+                <div class="module-title">🎵 Interactive: Compare frequency response</div>
+                <div class="freq-demo">
+                    <div class="freq-bars" id="freq-bars">
+                        <div class="freq-bar" style="height: 60px;"></div>
+                        <div class="freq-bar" style="height: 80px;"></div>
+                        <div class="freq-bar" style="height: 95px;"></div>
+                        <div class="freq-bar" style="height: 85px;"></div>
+                        <div class="freq-bar" style="height: 70px;"></div>
+                        <div class="freq-bar" style="height: 55px;"></div>
+                    </div>
+                    <div class="freq-labels">
+                        <span>125</span>
+                        <span>250</span>
+                        <span>500</span>
+                        <span>1k</span>
+                        <span>2k</span>
+                        <span>4k</span>
+                    </div>
+                    <div class="freq-toggle">
+                        <button class="freq-btn active" id="btn-unplugs" onclick="showUnplugsFreq()">Unplugs</button>
+                        <button class="freq-btn" id="btn-foam" onclick="showFoamFreq()">Foam Earplugs</button>
+                    </div>
+                    <p id="freq-description" style="text-align: center; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                        Flat attenuation preserves music quality while reducing volume evenly
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 6: Conversations -->
+        <article class="reason-card">
+            <span class="reason-number">6</span>
+            <div class="reason-header">
+                <div class="reason-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h2 class="reason-title">Actually Hear Your Friends (Without Taking Them Out)</h2>
+            </div>
+            <p class="reason-content">
+                The worst part of earplugs? Someone's trying to tell you something important—maybe your group is moving, maybe that's your favorite song—and you're doing the whole "WHAT?! I CAN'T HEAR YOU!" thing while fumbling to remove them. One click on Unplugs opens transparency mode. Conversation happens. Click back to protection.
+            </p>
+            
+            <div class="interactive-module">
+                <div class="module-title">💬 The festival communication problem, solved</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center;">
+                    <div style="padding: 1.5rem; background: rgba(255,71,87,0.15); border-radius: 12px;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">😫</div>
+                        <strong>Traditional Earplugs</strong>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Remove → Talk → Reinsert → Miss the drop</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: rgba(46,213,115,0.15); border-radius: 12px;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">😎</div>
+                        <strong>Unplugs</strong>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Click → Talk → Click → Catch the drop</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 7: The Long Game -->
+        <article class="reason-card">
+            <span class="reason-number">7</span>
+            <div class="reason-header">
+                <div class="reason-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h2 class="reason-title">I Want to Still Love Music at 60</h2>
+            </div>
+            <p class="reason-content">
+                Here's the unsexy truth: hearing damage is cumulative and permanent. Every festival, every concert, every loud night out adds up. Tinnitus—that constant ringing—affects 15% of adults, and it's largely preventable. I want to be front row at shows for the next 40 years. That requires playing the long game now.
+            </p>
+            
+            <div class="interactive-module">
+                <div class="module-title">✅ My festival hearing protection checklist</div>
+                <ul class="checklist" id="checklist">
+                    <li onclick="toggleCheck(this)">
+                        <div class="check-box"></div>
+                        <span>Unplugs charged and in my pocket before I leave</span>
+                    </li>
+                    <li onclick="toggleCheck(this)">
+                        <div class="check-box"></div>
+                        <span>Protection mode ON during sets (especially bass stages)</span>
+                    </li>
+                    <li onclick="toggleCheck(this)">
+                        <div class="check-box"></div>
+                        <span>Transparency mode for quick conversations</span>
+                    </li>
+                    <li onclick="toggleCheck(this)">
+                        <div class="check-box"></div>
+                        <span>Take 10-15 min quiet breaks every few hours</span>
+                    </li>
+                    <li onclick="toggleCheck(this)">
+                        <div class="check-box"></div>
+                        <span>Stay back from speakers when possible</span>
+                    </li>
+                    <li onclick="toggleCheck(this)">
+                        <div class="check-box"></div>
+                        <span>Hydrate (improves ear resilience, seriously)</span>
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Protect Your Festival Future?</h2>
+        <p>Audiologist-designed. One-click switching. Music that actually sounds like music.</p>
+        <a href="https://unplugshearing.com/products/unplugs" class="cta-btn">Pre-Order Unplugs →</a>
+        <p class="cta-price">$59 launch price • Includes case + accessories • Ships before festival season</p>
+    </section>
+
+    <script>
+        // Damage Info Display
+        function showDamage(element, text) {
+            const infoDiv = document.getElementById('damage-info');
+            infoDiv.textContent = text;
+            infoDiv.classList.add('visible');
+            
+            // Highlight selected item
+            document.querySelectorAll('.db-item').forEach(item => item.style.opacity = '0.5');
+            element.style.opacity = '1';
+        }
+
+        // Hair Cells Visualizer
+        let hairCellsRemaining = 50;
+        function initHairCells() {
+            const container = document.getElementById('hair-cells');
+            container.innerHTML = '';
+            for (let i = 0; i < 50; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'hair-cell';
+                container.appendChild(cell);
+            }
+            hairCellsRemaining = 50;
+            updateCellCount();
+        }
+
+        function damageHairCells() {
+            const cells = document.querySelectorAll('.hair-cell:not(.damaged)');
+            const toDamage = Math.min(Math.floor(Math.random() * 8) + 3, cells.length);
+            
+            for (let i = 0; i < toDamage; i++) {
+                const randomIndex = Math.floor(Math.random() * cells.length);
+                if (!cells[randomIndex].classList.contains('damaged')) {
+                    cells[randomIndex].classList.add('damaged');
+                    hairCellsRemaining--;
+                }
+            }
+            updateCellCount();
+        }
+
+        function resetHairCells() {
+            initHairCells();
+        }
+
+        function updateCellCount() {
+            document.getElementById('cell-count').textContent = (hairCellsRemaining * 2);
+        }
+
+        // Click Toggle Demo
+        let isProtected = true;
+        function togglePlug() {
+            isProtected = !isProtected;
+            const plug = document.getElementById('plug-demo');
+            const status = document.getElementById('plug-status');
+            const desc = document.getElementById('plug-desc');
+            
+            if (isProtected) {
+                plug.className = 'plug-visual protected';
+                status.className = 'plug-status status-protected';
+                status.textContent = '🛡️ PROTECTED MODE';
+                desc.textContent = '25 dB reduction • Full protection • Feel the bass, save your ears';
+            } else {
+                plug.className = 'plug-visual connected';
+                status.className = 'plug-status status-connected';
+                status.textContent = '👂 CONNECTED MODE';
+                desc.textContent = 'Full clarity • Hear conversations • Click back when ready';
+            }
+        }
+
+        // Exposure Calculator
+        function updateExposure() {
+            const slider = document.getElementById('volume-slider');
+            const db = parseInt(slider.value);
+            document.getElementById('volume-display').textContent = db + ' dB';
+            
+            // Calculate safe exposure time using NIOSH formula
+            // Safe time = 480 / 2^((dB - 85) / 3) minutes
+            const safeMinutes = 480 / Math.pow(2, (db - 85) / 3);
+            const withUnplugs = 480 / Math.pow(2, (db - 25 - 85) / 3);
+            
+            document.getElementById('time-without').textContent = formatTime(safeMinutes);
+            document.getElementById('time-with').textContent = formatTime(withUnplugs);
+        }
+
+        function formatTime(minutes) {
+            if (minutes >= 480) return '8+ hours';
+            if (minutes >= 60) return Math.round(minutes / 60) + ' hours';
+            if (minutes >= 1) return Math.round(minutes) + ' min';
+            return Math.round(minutes * 60) + ' sec';
+        }
+
+        // Frequency Response Demo
+        function showUnplugsFreq() {
+            const bars = document.querySelectorAll('.freq-bar');
+            const heights = [60, 80, 95, 85, 70, 55];
+            bars.forEach((bar, i) => bar.style.height = heights[i] + 'px');
+            
+            document.getElementById('btn-unplugs').classList.add('active');
+            document.getElementById('btn-foam').classList.remove('active');
+            document.getElementById('freq-description').textContent = 'Flat attenuation preserves music quality while reducing volume evenly';
+        }
+
+        function showFoamFreq() {
+            const bars = document.querySelectorAll('.freq-bar');
+            const heights = [70, 60, 45, 25, 15, 10]; // Foam kills highs
+            bars.forEach((bar, i) => bar.style.height = heights[i] + 'px');
+            
+            document.getElementById('btn-foam').classList.add('active');
+            document.getElementById('btn-unplugs').classList.remove('active');
+            document.getElementById('freq-description').textContent = 'Foam blocks high frequencies, making music sound muffled and underwater';
+        }
+
+        // Checklist
+        function toggleCheck(li) {
+            li.classList.toggle('checked');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initHairCells();
+            updateExposure();
+        });
+    </script>
+</body>
+</html>
