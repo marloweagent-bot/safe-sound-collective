@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Protect Your Hearing | Unplugs</title>
+    <meta name="description" content="See what happens to your hearing without protection — and why Unplugs are different. Interactive demos and real science.">
+    <meta property="og:title" content="Why Protect Your Hearing | Unplugs">
+    <meta property="og:description" content="See what happens to your hearing without protection — and why Unplugs are different.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #141414;
+            --bg-card: #0f0f0f;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --accent: #E8D5B5;
+            --accent-hover: #f0e2c7;
+            --accent-dark: #c4b08a;
+            --border: #222222;
+            --success: #22c55e;
+            --warning: #eab308;
+            --danger: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        
+        .logo img {
+            height: 28px;
+            width: auto;
+        }
+        
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.2s;
+        }
+        
+        .nav-cta:hover {
+            background: var(--accent-hover);
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: var(--bg-primary);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 400px;
+            background: linear-gradient(180deg, transparent 0%, rgba(239, 68, 68, 0.05) 100%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .hero-stat {
+            display: inline-block;
+            font-size: 6rem;
+            font-weight: 800;
+            color: var(--danger);
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 18px 48px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 120px 24px;
+        }
+        
+        .section-dark {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+        
+        .section-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        
+        /* Interactive Damage Demo */
+        .damage-demo {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            padding: 48px;
+            margin: 48px 0;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .demo-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        
+        .demo-header p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        .hair-cells-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 180px;
+            gap: 10px;
+            padding: 24px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+        
+        .hair-cell {
+            width: 10px;
+            height: 70px;
+            background: linear-gradient(180deg, var(--success), #16a34a);
+            border-radius: 5px 5px 0 0;
+            transform-origin: bottom center;
+            animation: sway 2s ease-in-out infinite;
+            transition: all 0.5s ease-out;
+        }
+        
+        .hair-cell:nth-child(2n) { animation-delay: 0.1s; }
+        .hair-cell:nth-child(3n) { animation-delay: 0.2s; }
+        .hair-cell:nth-child(4n) { animation-delay: 0.3s; }
+        .hair-cell:nth-child(5n) { animation-delay: 0.15s; }
+        
+        .hair-cell.damaged {
+            background: linear-gradient(180deg, var(--text-muted), #333);
+            height: 15px !important;
+            animation: none;
+        }
+        
+        @keyframes sway {
+            0%, 100% { transform: rotate(-6deg); }
+            50% { transform: rotate(6deg); }
+        }
+        
+        .demo-label {
+            text-align: center;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            min-height: 48px;
+        }
+        
+        .demo-label strong {
+            color: var(--text-primary);
+        }
+        
+        .demo-label.danger {
+            color: var(--danger);
+        }
+        
+        .demo-controls {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .demo-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 14px 28px;
+            font-family: inherit;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .demo-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .demo-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        /* Timeline */
+        .exposure-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .timeline-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .timeline-card:hover {
+            border-color: var(--accent);
+        }
+        
+        .timeline-db {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        
+        .timeline-db.safe { color: var(--success); }
+        .timeline-db.moderate { color: var(--warning); }
+        .timeline-db.loud { color: #f97316; }
+        .timeline-db.danger { color: var(--danger); }
+        
+        .timeline-time {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        
+        .timeline-source {
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+        
+        /* Comparison Section */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .comparison-card {
+            padding: 48px;
+            border: 1px solid var(--border);
+        }
+        
+        .comparison-card.without {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, var(--bg-tertiary) 100%);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+        
+        .comparison-card.with {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, var(--bg-tertiary) 100%);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .comparison-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+        }
+        
+        .comparison-card.without .comparison-icon {
+            background: rgba(239, 68, 68, 0.15);
+        }
+        
+        .comparison-card.with .comparison-icon {
+            background: rgba(34, 197, 94, 0.15);
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+        
+        .comparison-list {
+            list-style: none;
+        }
+        
+        .comparison-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+        
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-list .icon {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* Product Section */
+        .product-section {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+        
+        .product-image {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+        
+        .product-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .product-info h2 {
+            margin-bottom: 16px;
+        }
+        
+        .product-tagline {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+        
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        
+        .product-features li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(232, 213, 181, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.125rem;
+        }
+        
+        .feature-text h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2px;
+        }
+        
+        .feature-text p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .price-current {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .price-note {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        /* How It Works */
+        .how-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+        
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 64px;
+        }
+        
+        @media (max-width: 768px) {
+            .how-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        .how-step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        
+        .how-step h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+        
+        .how-step p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, #0a0505 100%);
+            text-align: center;
+            padding: 140px 24px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 24px;
+        }
+        
+        .cta-content p {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 18px 48px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        footer img {
+            height: 24px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <a href="https://unplugshearing.com">
+                    <img src="https://unplugshearing.com/cdn/shop/files/Logo.png?v=1723853882" alt="Unplugs">
+                </a>
+            </div>
+            <a href="https://unplugshearing.com/products/unplugs" class="nav-cta">Shop Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-stat">1.1B</div>
+            <h1>People at Risk of Hearing Loss from Loud Sound</h1>
+            <p>Your ears don't heal. The damage is permanent. But it's also completely preventable. See what's really happening — and why protection matters.</p>
+            <a href="#demo" class="btn-primary">See the Demo</a>
+        </div>
+    </section>
+
+    <!-- Interactive Damage Demo -->
+    <section class="section-dark" id="demo">
+        <div class="container">
+            <p class="section-label">Interactive Demo</p>
+            <h2>Watch Hearing Damage Happen</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin-bottom: 0;">Inside your ear are 16,000 tiny hair cells. They convert sound into signals your brain understands. When they're damaged by loud noise, they don't grow back. Ever.</p>
+            
+            <div class="damage-demo">
+                <div class="demo-header">
+                    <h3>Your Hair Cells</h3>
+                    <p>Click to simulate exposure without protection</p>
+                </div>
+                
+                <div class="hair-cells-container" id="demoContainer">
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                    <div class="hair-cell"></div>
+                </div>
+                
+                <p class="demo-label" id="demoLabel">
+                    <strong>Healthy hearing.</strong> All 16,000 hair cells responding to sound.
+                </p>
+                
+                <div class="demo-controls">
+                    <button class="demo-btn" data-stage="1">One Concert</button>
+                    <button class="demo-btn" data-stage="2">Festival Season</button>
+                    <button class="demo-btn" data-stage="3">Years of Exposure</button>
+                    <button class="demo-btn" data-stage="4">Severe Damage</button>
+                    <button class="demo-btn" data-stage="0">Reset</button>
+                </div>
+            </div>
+            
+            <div class="exposure-timeline">
+                <div class="timeline-card">
+                    <div class="timeline-db safe">85dB</div>
+                    <div class="timeline-time">8 Hours Safe</div>
+                    <div class="timeline-source">Busy restaurant</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-db moderate">94dB</div>
+                    <div class="timeline-time">1 Hour Safe</div>
+                    <div class="timeline-source">Motorcycle</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-db loud">100dB</div>
+                    <div class="timeline-time">15 Minutes Safe</div>
+                    <div class="timeline-source">Nightclub</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-db danger">110dB</div>
+                    <div class="timeline-time">2 Minutes Safe</div>
+                    <div class="timeline-source">Concert front row</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section>
+        <div class="container">
+            <p class="section-label">The Difference</p>
+            <h2>With Protection vs. Without</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card without">
+                    <div class="comparison-icon">✗</div>
+                    <h3>Without Protection</h3>
+                    <ul class="comparison-list">
+                        <li><span class="icon">❌</span> Permanent hair cell damage after one loud event</li>
+                        <li><span class="icon">❌</span> Tinnitus (constant ringing) that never stops</li>
+                        <li><span class="icon">❌</span> Progressive hearing loss over time</li>
+                        <li><span class="icon">❌</span> Difficulty understanding speech in noisy environments</li>
+                        <li><span class="icon">❌</span> Career-ending damage for musicians</li>
+                        <li><span class="icon">❌</span> No cure, no reversal, no second chances</li>
+                    </ul>
+                </div>
+                <div class="comparison-card with">
+                    <div class="comparison-icon">✓</div>
+                    <h3>With Unplugs</h3>
+                    <ul class="comparison-list">
+                        <li><span class="icon">✅</span> Safe volume levels without losing sound quality</li>
+                        <li><span class="icon">✅</span> Switch between protection and connection instantly</li>
+                        <li><span class="icon">✅</span> Enjoy every concert for life, not just this decade</li>
+                        <li><span class="icon">✅</span> Stay in the moment while staying safe</li>
+                        <li><span class="icon">✅</span> Protect the career you've built</li>
+                        <li><span class="icon">✅</span> One investment, lifetime of hearing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-image">
+                    <img src="https://unplugshearing.com/cdn/shop/files/lunchbox_productpic_-_6_1.png?v=1735683927" alt="Unplugs" onerror="this.parentElement.innerHTML='<div class=\'product-placeholder\'>🎧</div>'">
+                </div>
+                <div class="product-info">
+                    <p class="section-label">Introducing</p>
+                    <h2>Unplugs</h2>
+                    <p class="product-tagline">Not Earplugs. Unplugs.</p>
+                    <p class="product-description">Audiologist-designed hearing protection that lets you switch between connection and protection with a simple click. Hear everything. Miss nothing. Damage nothing.</p>
+                    
+                    <ul class="product-features">
+                        <li>
+                            <div class="feature-icon">🔘</div>
+                            <div class="feature-text">
+                                <h4>Click to Connect</h4>
+                                <p>Mechanical switch for instant transparency mode</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🎵</div>
+                            <div class="feature-text">
+                                <h4>Music-Optimized</h4>
+                                <p>Even frequency reduction — music sounds like music</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🛡️</div>
+                            <div class="feature-text">
+                                <h4>Audiologist Designed</h4>
+                                <p>Real protection backed by hearing science</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">✨</div>
+                            <div class="feature-text">
+                                <h4>Actually Cool</h4>
+                                <p>Designed to be seen, not hidden</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="product-price">
+                        <span class="price-current">$65</span>
+                        <span class="price-note">Free shipping</span>
+                    </div>
+                    
+                    <a href="https://unplugshearing.com/products/unplugs" class="btn-primary">Pre-Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="container">
+            <p class="section-label" style="text-align: center;">How It Works</p>
+            <h2 style="text-align: center;">Protection That Doesn't Disconnect You</h2>
+            
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="step-number">1</div>
+                    <h3>Wear</h3>
+                    <p>Insert Unplugs before you enter loud environments. They're comfortable for hours of wear.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">2</div>
+                    <h3>Click</h3>
+                    <p>Need to talk? One click opens transparency mode. Click again to protect. No phone, no app, no delay.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">3</div>
+                    <h3>Live</h3>
+                    <p>Enjoy the show knowing you're protected. Every concert. Every festival. Every year. For life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>You Get One Set of Ears</h2>
+            <p>The damage happening right now is permanent. But it's also optional. Choose to protect what matters.</p>
+            <div class="cta-buttons">
+                <a href="https://unplugshearing.com/products/unplugs" class="btn-primary">Shop Unplugs — $65</a>
+                <a href="science.html" class="btn-secondary">Learn the Science</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="https://unplugshearing.com">
+                <img src="https://unplugshearing.com/cdn/shop/files/Logo.png?v=1723853882" alt="Unplugs">
+            </a>
+            <p>© 2026 <a href="https://unplugshearing.com">Unplugs</a>. Protecting the ears that power our culture.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Damage Demo
+        const cells = document.querySelectorAll('#demoContainer .hair-cell');
+        const demoLabel = document.getElementById('demoLabel');
+        const demoBtns = document.querySelectorAll('.demo-btn');
+        
+        const stages = {
+            0: {
+                damage: [],
+                label: '<strong>Healthy hearing.</strong> All 16,000 hair cells responding to sound.'
+            },
+            1: {
+                damage: [2, 7, 12],
+                label: '<strong>After one loud concert</strong> without protection. Some cells are permanently damaged. You might not notice yet.'
+            },
+            2: {
+                damage: [2, 4, 7, 9, 12, 14],
+                label: '<strong>After a festival season.</strong> More cells gone. You start asking people to repeat themselves.'
+            },
+            3: {
+                damage: [0, 2, 3, 4, 7, 8, 9, 11, 12, 14, 15],
+                label: '<strong>After years of unprotected exposure.</strong> Significant hearing loss. Constant ringing. Conversations are exhausting.'
+            },
+            4: {
+                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+                label: '<strong class="danger">Severe hearing loss.</strong> These cells never come back. This was preventable.'
+            }
+        };
+        
+        function setStage(stage) {
+            // Reset all cells
+            cells.forEach(cell => cell.classList.remove('damaged'));
+            
+            // Apply damage
+            stages[stage].damage.forEach(index => {
+                if (cells[index]) cells[index].classList.add('damaged');
+            });
+            
+            // Update label
+            demoLabel.innerHTML = stages[stage].label;
+            demoLabel.classList.toggle('danger', stage === 4);
+            
+            // Update button states
+            demoBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.stage == stage);
+            });
+        }
+        
+        demoBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setStage(parseInt(btn.dataset.stage));
+            });
+        });
+    </script>
+</body>
+</html>
