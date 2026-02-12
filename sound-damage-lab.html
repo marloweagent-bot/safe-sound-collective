@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Damage Lab | Interactive Hearing Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-module: #1a1a25;
+            --primary: #FF6B35;
+            --accent: #6366F1;
+            --safe: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #E5E5E5;
+            --text-muted: #9CA3AF;
+            --border: rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(180deg, rgba(99,102,241,0.1) 0%, transparent 100%);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10,10,15,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            z-index: 100;
+            overflow-x: auto;
+        }
+
+        .nav-inner {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Module Cards */
+        .module {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            scroll-margin-top: 80px;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .module-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .module-content {
+            background: var(--bg-module);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Shared Controls */
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #DC2626;
+            transform: scale(1.02);
+        }
+
+        .btn-safe {
+            background: var(--safe);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--warning);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .stat-display {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: rgba(99,102,241,0.1);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background: rgba(239,68,68,0.1);
+            border-left: 3px solid var(--danger);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* ===== MODULE 1: Hair Cell Forest ===== */
+        .hair-forest {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+            gap: 4px;
+            padding: 2rem;
+            background: linear-gradient(180deg, rgba(16,185,129,0.05) 0%, transparent 100%);
+            border-radius: 12px;
+            min-height: 200px;
+        }
+
+        .hair-cell {
+            height: 50px;
+            background: linear-gradient(180deg, var(--safe) 0%, #059669 100%);
+            border-radius: 3px 3px 0 0;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .hair-cell::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 8px;
+            background: var(--safe);
+            border-radius: 3px 3px 0 0;
+            transition: all 0.3s;
+        }
+
+        .hair-cell.bent {
+            height: 35px;
+            background: linear-gradient(180deg, var(--warning) 0%, #D97706 100%);
+        }
+
+        .hair-cell.bent::before {
+            background: var(--warning);
+            transform: translateX(-50%) rotate(15deg);
+        }
+
+        .hair-cell.damaged {
+            height: 15px;
+            background: linear-gradient(180deg, var(--danger) 0%, #B91C1C 100%);
+            opacity: 0.4;
+        }
+
+        .hair-cell.damaged::before {
+            display: none;
+        }
+
+        .hair-cell.dead {
+            height: 5px;
+            background: #333;
+            opacity: 0.3;
+        }
+
+        .hair-cell.dead::before {
+            display: none;
+        }
+
+        /* ===== MODULE 2: Cumulative Meter ===== */
+        .lifetime-meter {
+            position: relative;
+            height: 60px;
+            background: var(--bg-dark);
+            border-radius: 30px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--safe) 0%, var(--warning) 50%, var(--danger) 100%);
+            border-radius: 28px;
+            transition: width 0.5s ease-out;
+            position: relative;
+        }
+
+        .meter-markers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+
+        .meter-marker {
+            width: 2px;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .meter-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .exposure-events {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .event-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .event-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ===== MODULE 3: Frequency Loss ===== */
+        .frequency-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 8px;
+        }
+
+        .freq-column {
+            text-align: center;
+        }
+
+        .freq-bar-container {
+            height: 150px;
+            background: var(--bg-dark);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .freq-bar {
+            width: 100%;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+            transition: height 0.5s;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .freq-label {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .freq-hz {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .age-slider-container {
+            margin-top: 2rem;
+        }
+
+        .age-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 8px;
+            background: linear-gradient(90deg, var(--safe), var(--warning), var(--danger));
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .age-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .age-display {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* ===== MODULE 4: Time Bomb ===== */
+        .time-bomb {
+            text-align: center;
+        }
+
+        .bomb-visual {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: conic-gradient(var(--danger) 0deg, var(--bg-dark) 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: background 0.1s;
+        }
+
+        .bomb-inner {
+            width: 160px;
+            height: 160px;
+            background: var(--bg-module);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bomb-time {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .bomb-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .db-selector {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .db-btn {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        .db-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+        }
+
+        .db-btn.safe { border-color: var(--safe); }
+        .db-btn.safe.active { background: var(--safe); }
+        .db-btn.warning { border-color: var(--warning); }
+        .db-btn.warning.active { background: var(--warning); }
+        .db-btn.danger { border-color: var(--danger); }
+        .db-btn.danger.active { background: var(--danger); }
+
+        /* ===== MODULE 5: Wave Impact ===== */
+        .wave-container {
+            position: relative;
+            height: 250px;
+            background: var(--bg-dark);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .cilia-row {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .cilium {
+            width: 6px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--safe) 0%, #059669 100%);
+            border-radius: 3px;
+            transform-origin: bottom center;
+            transition: all 0.3s;
+        }
+
+        .cilium.bending {
+            animation: bend 0.3s ease-in-out;
+        }
+
+        @keyframes bend {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+        }
+
+        .cilium.damaged {
+            height: 30px;
+            background: var(--warning);
+        }
+
+        .cilium.broken {
+            height: 10px;
+            background: var(--danger);
+            opacity: 0.4;
+        }
+
+        .sound-wave {
+            position: absolute;
+            left: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        .sound-wave.animate {
+            animation: waveMove 1s ease-out forwards;
+        }
+
+        @keyframes waveMove {
+            0% { left: -100px; opacity: 0.8; transform: translateY(-50%) scale(0.5); }
+            100% { left: 100%; opacity: 0; transform: translateY(-50%) scale(2); }
+        }
+
+        .intensity-control {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .intensity-slider {
+            width: 200px;
+            -webkit-appearance: none;
+            height: 8px;
+            background: linear-gradient(90deg, var(--safe), var(--danger));
+            border-radius: 4px;
+        }
+
+        .intensity-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* ===== MODULE 6: Damage Accumulator ===== */
+        .accumulator-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 6px;
+        }
+
+        .acc-cell {
+            aspect-ratio: 1;
+            background: var(--safe);
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .acc-cell.stressed {
+            background: var(--warning);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .acc-cell.damaged {
+            background: var(--danger);
+            animation: none;
+        }
+
+        .acc-cell.dead {
+            background: #333;
+        }
+
+        .acc-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .timeline-event {
+            text-align: center;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--border);
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+        }
+
+        .timeline-dot.active {
+            background: var(--primary);
+        }
+
+        .timeline-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== MODULE 7: Threshold Visualizer ===== */
+        .threshold-chart {
+            position: relative;
+            height: 200px;
+            background: var(--bg-dark);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .threshold-line {
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: var(--danger);
+            top: 30%;
+        }
+
+        .threshold-label {
+            position: absolute;
+            right: 1rem;
+            top: calc(30% - 24px);
+            font-size: 0.75rem;
+            color: var(--danger);
+            background: var(--bg-dark);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .hearing-bars {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 140px;
+        }
+
+        .hearing-bar {
+            width: 30px;
+            background: var(--accent);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.3s, background 0.3s;
+        }
+
+        .hearing-bar.over-threshold {
+            background: var(--danger);
+        }
+
+        /* ===== MODULE 8: Recovery Myth ===== */
+        .recovery-demo {
+            text-align: center;
+        }
+
+        .recovery-cells {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 2rem 0;
+        }
+
+        .recovery-cell {
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cell-body {
+            width: 40px;
+            height: 60px;
+            background: var(--safe);
+            border-radius: 8px 8px 20px 20px;
+            transition: all 0.5s;
+            position: relative;
+        }
+
+        .cell-body::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 20px;
+            background: var(--safe);
+            border-radius: 4px;
+            transition: all 0.5s;
+        }
+
+        .cell-body.damaged {
+            height: 30px;
+            background: var(--danger);
+        }
+
+        .cell-body.damaged::before {
+            height: 5px;
+            background: var(--danger);
+            opacity: 0.5;
+        }
+
+        .cell-label {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .myth-message {
+            padding: 1.5rem;
+            background: rgba(239,68,68,0.1);
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .myth-message.revealed {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* ===== MODULE 9: The Cochlea ===== */
+        .cochlea-container {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .cochlea-svg {
+            width: 100%;
+        }
+
+        .cochlea-region {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .cochlea-region:hover {
+            filter: brightness(1.2);
+        }
+
+        .cochlea-region.damaged {
+            fill: var(--danger) !important;
+            opacity: 0.6;
+        }
+
+        .region-info {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            min-height: 80px;
+        }
+
+        /* ===== MODULE 10: One-Way Door ===== */
+        .door-demo {
+            text-align: center;
+        }
+
+        .door-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .door-side {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            min-width: 150px;
+        }
+
+        .door-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .door-element {
+            width: 80px;
+            height: 120px;
+            background: linear-gradient(180deg, #444 0%, #222 100%);
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+        }
+
+        .door-element.open {
+            transform: perspective(500px) rotateY(-70deg);
+        }
+
+        .door-element::after {
+            content: '→';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .door-arrow {
+            font-size: 2rem;
+            color: var(--primary);
+            animation: arrowPulse 1s infinite;
+        }
+
+        @keyframes arrowPulse {
+            0%, 100% { opacity: 1; transform: translateX(0); }
+            50% { opacity: 0.5; transform: translateX(5px); }
+        }
+
+        .cells-lost-counter {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--danger);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(99,102,241,0.1) 100%);
+        }
+
+        .footer h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .module {
+                padding: 1.5rem;
+            }
+
+            .module-content {
+                padding: 1.5rem;
+            }
+
+            .frequency-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .accumulator-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <span class="header-badge">Interactive Science</span>
+        <h1>Sound Damage Lab</h1>
+        <p>Explore how noise damages your hearing through interactive visualizations. Every demonstration shows the same truth: hearing damage is cumulative, permanent, and preventable.</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <button class="nav-btn" onclick="scrollToModule('forest')">Hair Cell Forest</button>
+            <button class="nav-btn" onclick="scrollToModule('lifetime')">Lifetime Meter</button>
+            <button class="nav-btn" onclick="scrollToModule('frequency')">Frequency Loss</button>
+            <button class="nav-btn" onclick="scrollToModule('timebomb')">Time Bomb</button>
+            <button class="nav-btn" onclick="scrollToModule('wave')">Wave Impact</button>
+            <button class="nav-btn" onclick="scrollToModule('accumulator')">Accumulator</button>
+            <button class="nav-btn" onclick="scrollToModule('threshold')">Threshold</button>
+            <button class="nav-btn" onclick="scrollToModule('recovery')">Recovery Myth</button>
+            <button class="nav-btn" onclick="scrollToModule('cochlea')">The Cochlea</button>
+            <button class="nav-btn" onclick="scrollToModule('door')">One-Way Door</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- MODULE 1: Hair Cell Forest -->
+        <section class="module" id="forest">
+            <div class="module-header">
+                <div class="module-number">1</div>
+                <div>
+                    <h2 class="module-title">The Hair Cell Forest</h2>
+                    <p class="module-subtitle">Watch 16,000 irreplaceable sensory cells get destroyed</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="hair-forest" id="hairForest"></div>
+                <div class="stat-display">
+                    <div class="stat-value" id="forestCount">100%</div>
+                    <div class="stat-label">Healthy Hair Cells Remaining</div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-warning" onclick="exposureEvent('concert')">🎸 Concert (2 hrs)</button>
+                    <button class="btn btn-danger" onclick="exposureEvent('festival')">🎪 Festival Day (8 hrs)</button>
+                    <button class="btn btn-danger" onclick="exposureEvent('front')">📢 Front Row (1 hr)</button>
+                    <button class="btn btn-secondary" onclick="resetForest()">↺ Reset Demo</button>
+                </div>
+                <div class="warning-box">
+                    ⚠️ Unlike this demo, real hair cells never grow back. Each exposure permanently reduces your hearing capacity.
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 2: Lifetime Exposure Meter -->
+        <section class="module" id="lifetime">
+            <div class="module-header">
+                <div class="module-number">2</div>
+                <div>
+                    <h2 class="module-title">Lifetime Exposure Meter</h2>
+                    <p class="module-subtitle">Your ears have a noise budget—spend it wisely</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="lifetime-meter">
+                    <div class="meter-fill" id="lifetimeFill" style="width: 0%"></div>
+                    <div class="meter-markers">
+                        <div class="meter-marker"></div>
+                        <div class="meter-marker"></div>
+                        <div class="meter-marker"></div>
+                        <div class="meter-marker"></div>
+                    </div>
+                </div>
+                <div class="meter-labels">
+                    <span>Safe Zone</span>
+                    <span>Early Warning</span>
+                    <span>Damage Zone</span>
+                    <span>Severe Loss</span>
+                </div>
+                <div class="stat-display">
+                    <div class="stat-value" id="lifetimePercent">0%</div>
+                    <div class="stat-label">Lifetime Hearing Budget Used</div>
+                </div>
+                <div class="exposure-events">
+                    <button class="event-btn" onclick="addLifetimeExposure(0.5)">☕ Loud café (1hr) +0.5%</button>
+                    <button class="event-btn" onclick="addLifetimeExposure(2)">🎧 Loud headphones (2hr) +2%</button>
+                    <button class="event-btn" onclick="addLifetimeExposure(5)">🎤 Concert +5%</button>
+                    <button class="event-btn" onclick="addLifetimeExposure(8)">🎪 Festival day +8%</button>
+                    <button class="event-btn" onclick="addLifetimeExposure(15)">🔊 No protection season +15%</button>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-secondary" onclick="resetLifetime()">↺ Reset Meter</button>
+                </div>
+                <div class="info-box">
+                    💡 With hearing protection reducing exposure by 25dB, each event costs ~10x less of your hearing budget.
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 3: Frequency Loss by Age -->
+        <section class="module" id="frequency">
+            <div class="module-header">
+                <div class="module-number">3</div>
+                <div>
+                    <h2 class="module-title">Frequency Loss Simulator</h2>
+                    <p class="module-subtitle">High frequencies go first—and they go fast</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="frequency-grid" id="freqGrid">
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="250" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">250</div>Hz</div>
+                    </div>
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="500" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">500</div>Hz</div>
+                    </div>
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="1000" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">1k</div>Hz</div>
+                    </div>
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="2000" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">2k</div>Hz</div>
+                    </div>
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="4000" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">4k</div>Hz</div>
+                    </div>
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="6000" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">6k</div>Hz</div>
+                    </div>
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="8000" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">8k</div>Hz</div>
+                    </div>
+                    <div class="freq-column">
+                        <div class="freq-bar-container"><div class="freq-bar" data-freq="12000" style="height: 100%"></div></div>
+                        <div class="freq-label"><div class="freq-hz">12k</div>Hz</div>
+                    </div>
+                </div>
+                <div class="age-slider-container">
+                    <input type="range" class="age-slider" id="ageSlider" min="20" max="70" value="20" oninput="updateFrequencyLoss()">
+                    <div class="age-display">
+                        <div class="stat-value" id="ageDisplay">20</div>
+                        <div class="stat-label">Simulated Age (frequent concert-goer without protection)</div>
+                    </div>
+                </div>
+                <div class="info-box">
+                    💡 This simulates accelerated hearing loss from regular unprotected loud noise exposure. With protection, you can maintain near-baseline hearing into your 60s.
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 4: Time Bomb -->
+        <section class="module" id="timebomb">
+            <div class="module-header">
+                <div class="module-number">4</div>
+                <div>
+                    <h2 class="module-title">The Damage Clock</h2>
+                    <p class="module-subtitle">How fast does hearing damage happen at different volumes?</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="time-bomb">
+                    <div class="bomb-visual" id="bombVisual">
+                        <div class="bomb-inner">
+                            <div class="bomb-time" id="bombTime">8:00:00</div>
+                            <div class="bomb-label">until permanent damage</div>
+                        </div>
+                    </div>
+                    <div class="db-selector">
+                        <button class="db-btn safe" onclick="setDbLevel(85)">85 dB<br><small>Busy traffic</small></button>
+                        <button class="db-btn warning" onclick="setDbLevel(95)">95 dB<br><small>Motorcycle</small></button>
+                        <button class="db-btn danger" onclick="setDbLevel(100)">100 dB<br><small>Club/Concert</small></button>
+                        <button class="db-btn danger active" onclick="setDbLevel(110)">110 dB<br><small>Front row</small></button>
+                        <button class="db-btn danger" onclick="setDbLevel(120)">120 dB<br><small>Jet takeoff</small></button>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-danger" id="startTimer" onclick="startDamageTimer()">▶ Start Timer</button>
+                        <button class="btn btn-secondary" onclick="resetTimer()">↺ Reset</button>
+                    </div>
+                </div>
+                <div class="warning-box">
+                    ⚠️ At 110 dB (typical front-of-stage), you have less than 2 minutes before permanent damage begins.
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 5: Wave Impact -->
+        <section class="module" id="wave">
+            <div class="module-header">
+                <div class="module-number">5</div>
+                <div>
+                    <h2 class="module-title">Sound Wave Impact</h2>
+                    <p class="module-subtitle">Watch sound waves physically bend and break hair cells</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="wave-container" id="waveContainer">
+                    <div class="cilia-row" id="ciliaRow"></div>
+                </div>
+                <div class="intensity-control">
+                    <span>Gentle</span>
+                    <input type="range" class="intensity-slider" id="intensitySlider" min="1" max="10" value="3">
+                    <span>Extreme</span>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-warning" onclick="sendWave()">🔊 Send Sound Wave</button>
+                    <button class="btn btn-danger" onclick="sendMultipleWaves()">💥 Sustained Exposure</button>
+                    <button class="btn btn-secondary" onclick="resetCilia()">↺ Reset Cilia</button>
+                </div>
+                <div class="stat-display">
+                    <div class="stat-value" id="ciliaHealth">100%</div>
+                    <div class="stat-label">Cilia Health</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 6: Damage Accumulator -->
+        <section class="module" id="accumulator">
+            <div class="module-header">
+                <div class="module-number">6</div>
+                <div>
+                    <h2 class="module-title">The Accumulator</h2>
+                    <p class="module-subtitle">Each exposure adds stress—watch cells progress through damage states</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="accumulator-grid" id="accGrid"></div>
+                <div class="acc-timeline">
+                    <div class="timeline-event">
+                        <div class="timeline-dot active" id="dot1"></div>
+                        <div class="timeline-label">Healthy</div>
+                    </div>
+                    <div class="timeline-event">
+                        <div class="timeline-dot" id="dot2"></div>
+                        <div class="timeline-label">Stressed</div>
+                    </div>
+                    <div class="timeline-event">
+                        <div class="timeline-dot" id="dot3"></div>
+                        <div class="timeline-label">Damaged</div>
+                    </div>
+                    <div class="timeline-event">
+                        <div class="timeline-dot" id="dot4"></div>
+                        <div class="timeline-label">Dead</div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-warning" onclick="accumulateOnce()">🔊 Single Exposure</button>
+                    <button class="btn btn-danger" onclick="accumulateMany()">💥 Heavy Exposure</button>
+                    <button class="btn btn-secondary" onclick="resetAccumulator()">↺ Reset</button>
+                </div>
+                <div class="info-box">
+                    💡 Notice how cells go through stages: healthy → stressed → damaged → dead. There's no reverse.
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 7: Threshold Visualizer -->
+        <section class="module" id="threshold">
+            <div class="module-header">
+                <div class="module-number">7</div>
+                <div>
+                    <h2 class="module-title">The Threshold</h2>
+                    <p class="module-subtitle">85 dB is the line—cross it and the clock starts ticking</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="threshold-chart">
+                    <div class="threshold-line"></div>
+                    <div class="threshold-label">85 dB DANGER THRESHOLD</div>
+                    <div class="hearing-bars" id="thresholdBars"></div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-secondary" onclick="randomizeThreshold()">🎲 Randomize Scenarios</button>
+                </div>
+                <div class="stat-display">
+                    <div class="stat-value" id="thresholdDanger">0</div>
+                    <div class="stat-label">Sources Currently Causing Damage</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 8: Recovery Myth -->
+        <section class="module" id="recovery">
+            <div class="module-header">
+                <div class="module-number">8</div>
+                <div>
+                    <h2 class="module-title">The Recovery Myth</h2>
+                    <p class="module-subtitle">"My hearing always comes back the next day"—does it really?</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="recovery-demo">
+                    <div class="recovery-cells" id="recoveryCells">
+                        <div class="recovery-cell"><div class="cell-body"></div><div class="cell-label">Before</div></div>
+                        <div class="recovery-cell"><div class="cell-body"></div><div class="cell-label">Concert</div></div>
+                        <div class="recovery-cell"><div class="cell-body"></div><div class="cell-label">Next Day</div></div>
+                        <div class="recovery-cell"><div class="cell-body"></div><div class="cell-label">Week Later</div></div>
+                        <div class="recovery-cell"><div class="cell-body"></div><div class="cell-label">Reality</div></div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-warning" onclick="simulateRecovery()">▶ Simulate "Recovery"</button>
+                        <button class="btn btn-secondary" onclick="resetRecovery()">↺ Reset</button>
+                    </div>
+                    <div class="myth-message" id="mythMessage">
+                        <strong>The truth:</strong> That "recovered" feeling is your brain adapting to reduced input, not your ears healing. The damage is done—you just stop noticing it.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 9: The Cochlea -->
+        <section class="module" id="cochlea">
+            <div class="module-header">
+                <div class="module-number">9</div>
+                <div>
+                    <h2 class="module-title">Inside the Cochlea</h2>
+                    <p class="module-subtitle">Different frequencies damage different regions</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="cochlea-container">
+                    <svg class="cochlea-svg" viewBox="0 0 300 200">
+                        <!-- Simplified cochlea spiral -->
+                        <path class="cochlea-region" id="cochlea-high" d="M150,100 Q180,60 200,80 Q220,100 200,130 Q180,160 150,140" fill="#6366F1" onclick="highlightRegion('high')" />
+                        <path class="cochlea-region" id="cochlea-mid" d="M150,100 Q120,70 100,90 Q80,110 100,140 Q120,170 150,140" fill="#8B5CF6" onclick="highlightRegion('mid')" />
+                        <path class="cochlea-region" id="cochlea-low" d="M150,100 Q150,50 120,40 Q80,30 60,60 Q40,100 60,140 Q80,180 130,180 Q150,180 150,140" fill="#A78BFA" onclick="highlightRegion('low')" />
+                        <!-- Labels -->
+                        <text x="200" y="105" fill="white" font-size="10">High (4k+)</text>
+                        <text x="70" y="120" fill="white" font-size="10">Mid (1-4k)</text>
+                        <text x="60" y="80" fill="white" font-size="10">Low (&lt;1k)</text>
+                    </svg>
+                </div>
+                <div class="region-info" id="regionInfo">
+                    Click a region to learn how noise damages it
+                </div>
+                <div class="controls">
+                    <button class="btn btn-danger" onclick="damageCochlea('high')">💥 Damage High Frequencies</button>
+                    <button class="btn btn-warning" onclick="damageCochlea('mid')">💥 Damage Mid</button>
+                    <button class="btn btn-secondary" onclick="resetCochlea()">↺ Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 10: One-Way Door -->
+        <section class="module" id="door">
+            <div class="module-header">
+                <div class="module-number">10</div>
+                <div>
+                    <h2 class="module-title">The One-Way Door</h2>
+                    <p class="module-subtitle">Hair cells can only go one direction</p>
+                </div>
+            </div>
+            <div class="module-content">
+                <div class="door-demo">
+                    <div class="door-container">
+                        <div class="door-side">
+                            <div class="door-icon">👂</div>
+                            <div>Healthy Cells</div>
+                            <div class="stat-value" id="healthyCount" style="color: var(--safe);">16,000</div>
+                        </div>
+                        <div>
+                            <div class="door-element" id="doorElement" onclick="pushThroughDoor()"></div>
+                            <div class="door-arrow">→</div>
+                            <small style="color: var(--text-muted);">Click to damage</small>
+                        </div>
+                        <div class="door-side">
+                            <div class="door-icon">💀</div>
+                            <div>Lost Forever</div>
+                            <div class="cells-lost-counter" id="lostCount">0</div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-danger" onclick="pushManyThrough()">💥 Festival Night</button>
+                        <button class="btn btn-secondary" onclick="resetDoor()">↺ Reset Demo</button>
+                    </div>
+                    <div class="warning-box">
+                        ⚠️ Notice there's no button to move cells back. That's because it's impossible.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <h2>Protect What You Can't Replace</h2>
+        <p>Every interactive demo above shows the same truth: hearing damage is permanent. The good news? It's also preventable.</p>
+        <a href="https://unplugshearing.com/products/unplugs" class="cta-btn">Get Unplugs →</a>
+    </footer>
+
+    <script>
+        // ===== NAVIGATION =====
+        function scrollToModule(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ===== MODULE 1: Hair Cell Forest =====
+        let forestCells = [];
+        function initForest() {
+            const container = document.getElementById('hairForest');
+            container.innerHTML = '';
+            forestCells = [];
+            for (let i = 0; i < 100; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'hair-cell';
+                cell.dataset.state = 'healthy';
+                container.appendChild(cell);
+                forestCells.push(cell);
+            }
+            updateForestCount();
+        }
+
+        function exposureEvent(type) {
+            const damageMap = { concert: 8, festival: 20, front: 15 };
+            const damage = damageMap[type] || 5;
+            
+            const healthyCells = forestCells.filter(c => c.dataset.state === 'healthy');
+            const bentCells = forestCells.filter(c => c.dataset.state === 'bent');
+            const damagedCells = forestCells.filter(c => c.dataset.state === 'damaged');
+            
+            // Progress existing damaged cells
+            for (let i = 0; i < Math.min(damage / 2, damagedCells.length); i++) {
+                const cell = damagedCells[Math.floor(Math.random() * damagedCells.length)];
+                if (cell && cell.dataset.state === 'damaged') {
+                    cell.className = 'hair-cell dead';
+                    cell.dataset.state = 'dead';
+                }
+            }
+            
+            // Progress bent cells to damaged
+            for (let i = 0; i < Math.min(damage, bentCells.length); i++) {
+                const cell = bentCells[Math.floor(Math.random() * bentCells.length)];
+                if (cell && cell.dataset.state === 'bent') {
+                    cell.className = 'hair-cell damaged';
+                    cell.dataset.state = 'damaged';
+                }
+            }
+            
+            // Bend healthy cells
+            for (let i = 0; i < Math.min(damage, healthyCells.length); i++) {
+                const randomIndex = Math.floor(Math.random() * healthyCells.length);
+                const cell = healthyCells[randomIndex];
+                if (cell && cell.dataset.state === 'healthy') {
+                    cell.className = 'hair-cell bent';
+                    cell.dataset.state = 'bent';
+                }
+            }
+            
+            updateForestCount();
+        }
+
+        function updateForestCount() {
+            const healthy = forestCells.filter(c => c.dataset.state === 'healthy').length;
+            const bent = forestCells.filter(c => c.dataset.state === 'bent').length;
+            document.getElementById('forestCount').textContent = (healthy + bent * 0.7).toFixed(0) + '%';
+        }
+
+        function resetForest() {
+            initForest();
+        }
+
+        // ===== MODULE 2: Lifetime Meter =====
+        let lifetimeExposure = 0;
+        function addLifetimeExposure(amount) {
+            lifetimeExposure = Math.min(100, lifetimeExposure + amount);
+            document.getElementById('lifetimeFill').style.width = lifetimeExposure + '%';
+            document.getElementById('lifetimePercent').textContent = lifetimeExposure.toFixed(1) + '%';
+        }
+
+        function resetLifetime() {
+            lifetimeExposure = 0;
+            document.getElementById('lifetimeFill').style.width = '0%';
+            document.getElementById('lifetimePercent').textContent = '0%';
+        }
+
+        // ===== MODULE 3: Frequency Loss =====
+        function updateFrequencyLoss() {
+            const age = parseInt(document.getElementById('ageSlider').value);
+            document.getElementById('ageDisplay').textContent = age;
+            
+            const bars = document.querySelectorAll('.freq-bar');
+            const freqs = [250, 500, 1000, 2000, 4000, 6000, 8000, 12000];
+            
+            bars.forEach((bar, i) => {
+                const freq = freqs[i];
+                // Higher frequencies degrade faster with age
+                const ageFactor = (age - 20) / 50;
+                const freqFactor = freq / 12000;
+                const loss = Math.min(95, ageFactor * freqFactor * 100 * 1.5);
+                bar.style.height = (100 - loss) + '%';
+            });
+        }
+
+        // ===== MODULE 4: Time Bomb =====
+        let currentDb = 110;
+        let timerInterval = null;
+        let timeRemaining = 0;
+
+        function setDbLevel(db) {
+            currentDb = db;
+            document.querySelectorAll('.db-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.db-btn').classList.add('active');
+            resetTimer();
+        }
+
+        function getSafeTime(db) {
+            // NIOSH formula: safe time in minutes = 480 / 2^((dB-85)/3)
+            return 480 / Math.pow(2, (db - 85) / 3);
+        }
+
+        function formatTimerTime(minutes) {
+            if (minutes >= 60) {
+                const hrs = Math.floor(minutes / 60);
+                const mins = Math.floor(minutes % 60);
+                const secs = Math.floor((minutes * 60) % 60);
+                return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
+            const mins = Math.floor(minutes);
+            const secs = Math.floor((minutes - mins) * 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function startDamageTimer() {
+            if (timerInterval) return;
+            
+            timeRemaining = getSafeTime(currentDb);
+            const totalTime = timeRemaining;
+            
+            timerInterval = setInterval(() => {
+                timeRemaining -= 0.0167; // 1 second in minutes
+                if (timeRemaining <= 0) {
+                    timeRemaining = 0;
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    document.getElementById('bombTime').textContent = 'DAMAGE!';
+                }
+                
+                document.getElementById('bombTime').textContent = formatTimerTime(timeRemaining);
+                const progress = ((totalTime - timeRemaining) / totalTime) * 360;
+                document.getElementById('bombVisual').style.background = 
+                    `conic-gradient(var(--danger) ${progress}deg, var(--bg-dark) ${progress}deg)`;
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            const safeTime = getSafeTime(currentDb);
+            document.getElementById('bombTime').textContent = formatTimerTime(safeTime);
+            document.getElementById('bombVisual').style.background = 
+                'conic-gradient(var(--danger) 0deg, var(--bg-dark) 0deg)';
+        }
+
+        // ===== MODULE 5: Wave Impact =====
+        let ciliaStates = [];
+        function initCilia() {
+            const container = document.getElementById('ciliaRow');
+            container.innerHTML = '';
+            ciliaStates = [];
+            for (let i = 0; i < 30; i++) {
+                const c = document.createElement('div');
+                c.className = 'cilium';
+                c.dataset.health = '3';
+                container.appendChild(c);
+                ciliaStates.push(c);
+            }
+            updateCiliaHealth();
+        }
+
+        function sendWave() {
+            const intensity = parseInt(document.getElementById('intensitySlider').value);
+            const container = document.getElementById('waveContainer');
+            
+            // Create wave visual
+            const wave = document.createElement('div');
+            wave.className = 'sound-wave animate';
+            wave.style.width = (40 + intensity * 10) + 'px';
+            wave.style.height = (40 + intensity * 10) + 'px';
+            container.appendChild(wave);
+            setTimeout(() => wave.remove(), 1000);
+            
+            // Damage cilia
+            const damageCount = Math.floor(intensity / 2) + 1;
+            for (let i = 0; i < damageCount; i++) {
+                const validCilia = ciliaStates.filter(c => parseInt(c.dataset.health) > 0);
+                if (validCilia.length === 0) break;
+                
+                const target = validCilia[Math.floor(Math.random() * validCilia.length)];
+                const health = parseInt(target.dataset.health) - 1;
+                target.dataset.health = health;
+                
+                if (health === 2) {
+                    target.classList.add('bending');
+                    setTimeout(() => target.classList.remove('bending'), 300);
+                } else if (health === 1) {
+                    target.className = 'cilium damaged';
+                } else if (health === 0) {
+                    target.className = 'cilium broken';
+                }
+            }
+            updateCiliaHealth();
+        }
+
+        function sendMultipleWaves() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => sendWave(), i * 200);
+            }
+        }
+
+        function updateCiliaHealth() {
+            const total = ciliaStates.length * 3;
+            const current = ciliaStates.reduce((sum, c) => sum + parseInt(c.dataset.health), 0);
+            document.getElementById('ciliaHealth').textContent = Math.round((current / total) * 100) + '%';
+        }
+
+        function resetCilia() {
+            initCilia();
+        }
+
+        // ===== MODULE 6: Accumulator =====
+        let accCells = [];
+        function initAccumulator() {
+            const container = document.getElementById('accGrid');
+            container.innerHTML = '';
+            accCells = [];
+            for (let i = 0; i < 50; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'acc-cell';
+                cell.dataset.state = '0'; // 0=healthy, 1=stressed, 2=damaged, 3=dead
+                container.appendChild(cell);
+                accCells.push(cell);
+            }
+            updateTimelineDots();
+        }
+
+        function accumulateOnce() {
+            accCells.forEach(cell => {
+                if (Math.random() < 0.15) {
+                    const state = parseInt(cell.dataset.state);
+                    if (state < 3) {
+                        cell.dataset.state = state + 1;
+                        updateCellClass(cell);
+                    }
+                }
+            });
+            updateTimelineDots();
+        }
+
+        function accumulateMany() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => accumulateOnce(), i * 100);
+            }
+        }
+
+        function updateCellClass(cell) {
+            const state = parseInt(cell.dataset.state);
+            cell.className = 'acc-cell';
+            if (state === 1) cell.classList.add('stressed');
+            else if (state === 2) cell.classList.add('damaged');
+            else if (state === 3) cell.classList.add('dead');
+        }
+
+        function updateTimelineDots() {
+            const states = accCells.map(c => parseInt(c.dataset.state));
+            const hasStressed = states.some(s => s >= 1);
+            const hasDamaged = states.some(s => s >= 2);
+            const hasDead = states.some(s => s >= 3);
+            
+            document.getElementById('dot2').classList.toggle('active', hasStressed);
+            document.getElementById('dot3').classList.toggle('active', hasDamaged);
+            document.getElementById('dot4').classList.toggle('active', hasDead);
+        }
+
+        function resetAccumulator() {
+            initAccumulator();
+        }
+
+        // ===== MODULE 7: Threshold =====
+        function initThreshold() {
+            const container = document.getElementById('thresholdBars');
+            container.innerHTML = '';
+            const sources = ['Traffic', 'Music', 'Phone', 'Work', 'Gym', 'TV'];
+            sources.forEach(() => {
+                const bar = document.createElement('div');
+                bar.className = 'hearing-bar';
+                bar.style.height = '30px';
+                container.appendChild(bar);
+            });
+            randomizeThreshold();
+        }
+
+        function randomizeThreshold() {
+            const bars = document.querySelectorAll('.hearing-bar');
+            let dangerCount = 0;
+            bars.forEach(bar => {
+                const height = 20 + Math.random() * 120;
+                bar.style.height = height + 'px';
+                const isOver = height > 98; // 70% of container height = 85dB threshold
+                bar.classList.toggle('over-threshold', isOver);
+                if (isOver) dangerCount++;
+            });
+            document.getElementById('thresholdDanger').textContent = dangerCount;
+        }
+
+        // ===== MODULE 8: Recovery Myth =====
+        function simulateRecovery() {
+            const cells = document.querySelectorAll('.recovery-cell .cell-body');
+            
+            // Animate through stages
+            setTimeout(() => cells[1].classList.add('damaged'), 500);
+            setTimeout(() => {
+                cells[2].classList.add('damaged');
+                cells[2].classList.remove('damaged');
+            }, 1500);
+            setTimeout(() => {
+                cells[3].classList.add('damaged');
+                cells[3].classList.remove('damaged');
+            }, 2500);
+            setTimeout(() => {
+                cells[4].classList.add('damaged');
+                document.getElementById('mythMessage').classList.add('revealed');
+            }, 3500);
+        }
+
+        function resetRecovery() {
+            document.querySelectorAll('.recovery-cell .cell-body').forEach(c => c.classList.remove('damaged'));
+            document.getElementById('mythMessage').classList.remove('revealed');
+        }
+
+        // ===== MODULE 9: Cochlea =====
+        const regionInfo = {
+            high: '<strong>High Frequencies (4,000+ Hz):</strong> First to go. You lose the sparkle in music, clarity in speech. This region is most vulnerable to noise damage.',
+            mid: '<strong>Mid Frequencies (1,000-4,000 Hz):</strong> Critical for understanding speech. Damage here makes conversations in noisy environments nearly impossible.',
+            low: '<strong>Low Frequencies (<1,000 Hz):</strong> Bass and rumble. Usually the last to go, but when they do, music loses all its body and warmth.'
+        };
+
+        function highlightRegion(region) {
+            document.getElementById('regionInfo').innerHTML = regionInfo[region];
+        }
+
+        function damageCochlea(region) {
+            document.getElementById('cochlea-' + region).classList.add('damaged');
+            highlightRegion(region);
+        }
+
+        function resetCochlea() {
+            document.querySelectorAll('.cochlea-region').forEach(r => r.classList.remove('damaged'));
+            document.getElementById('regionInfo').textContent = 'Click a region to learn how noise damages it';
+        }
+
+        // ===== MODULE 10: One-Way Door =====
+        let healthyCells = 16000;
+        let lostCells = 0;
+
+        function pushThroughDoor() {
+            const door = document.getElementById('doorElement');
+            door.classList.add('open');
+            
+            const damage = Math.floor(Math.random() * 50) + 10;
+            if (healthyCells > 0) {
+                const actualDamage = Math.min(damage, healthyCells);
+                healthyCells -= actualDamage;
+                lostCells += actualDamage;
+                
+                document.getElementById('healthyCount').textContent = healthyCells.toLocaleString();
+                document.getElementById('lostCount').textContent = lostCells.toLocaleString();
+            }
+            
+            setTimeout(() => door.classList.remove('open'), 500);
+        }
+
+        function pushManyThrough() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => pushThroughDoor(), i * 150);
+            }
+        }
+
+        function resetDoor() {
+            healthyCells = 16000;
+            lostCells = 0;
+            document.getElementById('healthyCount').textContent = '16,000';
+            document.getElementById('lostCount').textContent = '0';
+        }
+
+        // ===== INITIALIZE ALL =====
+        document.addEventListener('DOMContentLoaded', function() {
+            initForest();
+            initCilia();
+            initAccumulator();
+            initThreshold();
+            resetTimer();
+        });
+    </script>
+</body>
+</html>
