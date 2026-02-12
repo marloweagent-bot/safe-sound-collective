@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Sound Collective | Protecting Hearing in Music</title>
+    <meta name="description" content="The first artist-led movement for hearing health in music. Join the collective of artists, venues, and brands redefining hearing protection.">
+    <meta property="og:title" content="Safe Sound Collective | Protecting Hearing in Music">
+    <meta property="og:description" content="The first artist-led movement for hearing health in music.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #c9a227;
+            --accent-hover: #dbb635;
+            --border: #2a2a2a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .hero-badge span {
+            color: var(--accent);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        h1 span {
+            color: var(--accent);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            border: 2px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 48px 24px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 120px 24px;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+        
+        /* Founding Artists */
+        .artists-section {
+            background: var(--bg-secondary);
+        }
+        
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .artist-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .artist-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        
+        .artist-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, #8b6914 100%);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .artist-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .artist-role {
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .artist-bio {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .founding-badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.15);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            background: var(--bg-primary);
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+        }
+        
+        .mission-item {
+            padding: 32px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .mission-item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .mission-item p {
+            color: var(--text-secondary);
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            text-align: center;
+        }
+        
+        .quote-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        blockquote {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+        
+        blockquote span {
+            color: var(--accent);
+        }
+        
+        .quote-attribution {
+            color: var(--text-secondary);
+        }
+        
+        .quote-attribution strong {
+            color: var(--text-primary);
+        }
+        
+        /* Join Section */
+        .join-section {
+            background: var(--bg-primary);
+        }
+        
+        .join-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .join-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 48px;
+            transition: all 0.3s;
+        }
+        
+        .join-card:hover {
+            border-color: var(--accent);
+        }
+        
+        .join-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .join-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .join-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .join-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .join-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .check-icon {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        /* Form Styling */
+        .join-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .form-input {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .form-input::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        /* Venue Certification */
+        .venue-section {
+            background: var(--bg-secondary);
+        }
+        
+        .venue-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 64px;
+            align-items: center;
+        }
+        
+        .venue-text h2 {
+            margin-bottom: 24px;
+        }
+        
+        .venue-text p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .venue-benefits {
+            list-style: none;
+        }
+        
+        .venue-benefits li {
+            padding: 16px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .venue-benefits li:last-child {
+            border-bottom: none;
+        }
+        
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(201, 162, 39, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .benefit-text h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .benefit-text p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0;
+        }
+        
+        .certification-badge {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+        }
+        
+        .badge-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--accent) 0%, #8b6914 100%);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .certification-badge h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .certification-badge p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            background: var(--bg-primary);
+            text-align: center;
+        }
+        
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 64px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+        
+        .partner-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1506 0%, var(--bg-primary) 100%);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            margin-bottom: 24px;
+        }
+        
+        .cta-content p {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            margin-bottom: 48px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 48px 24px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-brand {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .footer-brand a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                height: 64px;
+            }
+            
+            .hero {
+                padding: 100px 24px 60px;
+            }
+            
+            section {
+                padding: 80px 24px;
+            }
+            
+            .venue-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .join-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">SAFE SOUND <span>COLLECTIVE</span></div>
+            <a href="#join" class="nav-cta">Join the Movement</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Powered by <span>Unplugs</span></div>
+            <h1>The Future of Music is <span>Hearing It</span></h1>
+            <p class="hero-subtitle">The first artist-led movement for hearing health in music. We're uniting artists, venues, and brands to protect the ears that power our culture.</p>
+            <div class="hero-ctas">
+                <a href="#join" class="btn-primary">Join as an Artist</a>
+                <a href="#venues" class="btn-secondary">Certify Your Venue</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1.1B+</h3>
+                    <p>People at risk of hearing loss</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50%</h3>
+                    <p>Of concert-goers experience ringing</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Artists in the Collective</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0</h3>
+                    <p>Excuses left</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Founding Artists Section -->
+    <section class="artists-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Founding Members</p>
+                <h2>The Artists Leading the Movement</h2>
+                <p class="section-subtitle">These artists aren't just wearing Unplugs — they're building the future of hearing health in music.</p>
+            </div>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <div class="founding-badge">Founding Artist</div>
+                    <div class="artist-avatar">B</div>
+                    <h3>Blondish</h3>
+                    <p class="artist-role">DJ / Producer</p>
+                    <p class="artist-bio">Global electronic artist bringing hearing health to the festival stage.</p>
+                </div>
+                <div class="artist-card">
+                    <div class="founding-badge">Founding Artist</div>
+                    <div class="artist-avatar">C</div>
+                    <h3>Charlotte de Witte</h3>
+                    <p class="artist-role">DJ / Producer</p>
+                    <p class="artist-bio">Techno icon championing hearing protection in underground culture.</p>
+                </div>
+                <div class="artist-card">
+                    <div class="founding-badge">Founding Creator</div>
+                    <div class="artist-avatar">A</div>
+                    <h3>Andrea Botez</h3>
+                    <p class="artist-role">Creator / DJ</p>
+                    <p class="artist-bio">Bridging gaming, streaming, and music with a message that matters.</p>
+                </div>
+                <div class="artist-card">
+                    <div class="founding-badge">Founding Artist</div>
+                    <div class="artist-avatar">F</div>
+                    <h3>Fisher</h3>
+                    <p class="artist-role">DJ / Producer</p>
+                    <p class="artist-bio">Making hearing protection as fun as the party itself.</p>
+                </div>
+                <div class="artist-card">
+                    <div class="founding-badge">Founding Artist</div>
+                    <div class="artist-avatar">J</div>
+                    <h3>John Summit</h3>
+                    <p class="artist-role">DJ / Producer</p>
+                    <p class="artist-bio">Leading the house revival with a commitment to longevity.</p>
+                </div>
+                <div class="artist-card">
+                    <div class="founding-badge">Founding Artist</div>
+                    <div class="artist-avatar">D</div>
+                    <h3>Dom Dolla</h3>
+                    <p class="artist-role">DJ / Producer</p>
+                    <p class="artist-bio">Style, sound, and sustainability — protecting what matters most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Our Mission</p>
+                <h2>Why We Exist</h2>
+                <p class="section-subtitle">Hearing loss in music isn't inevitable. It's preventable. We're here to make protection the norm, not the exception.</p>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-item">
+                    <h3>Normalize Protection</h3>
+                    <p>Earplugs have been uncool for too long. We're changing that by making hearing protection something artists and fans are proud to wear.</p>
+                </div>
+                <div class="mission-item">
+                    <h3>Protect Longevity</h3>
+                    <p>Careers shouldn't end because of preventable damage. We're helping artists protect the ears that create the music we love.</p>
+                </div>
+                <div class="mission-item">
+                    <h3>Shift the Culture</h3>
+                    <p>When the artists fans admire wear protection, fans follow. The Collective is the cultural engine driving that change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-content">
+                <blockquote>"I've seen too many friends lose their hearing. The Safe Sound Collective is about making sure the next generation <span>doesn't have to choose</span> between the music and their health."</blockquote>
+                <p class="quote-attribution">— <strong>Blondish</strong>, Founding Member</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join-section" id="join">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Join Us</p>
+                <h2>Become Part of the Movement</h2>
+                <p class="section-subtitle">Whether you're an artist, creator, or venue — there's a place for you in the Collective.</p>
+            </div>
+            <div class="join-grid">
+                <div class="join-card">
+                    <h3>For Artists & Creators</h3>
+                    <p>Join the collective of artists redefining what it means to protect your craft.</p>
+                    <ul class="join-features">
+                        <li><span class="check-icon">✓</span> Free Unplugs product</li>
+                        <li><span class="check-icon">✓</span> Collective branding & visibility</li>
+                        <li><span class="check-icon">✓</span> Partnership opportunities</li>
+                        <li><span class="check-icon">✓</span> Early access to new products</li>
+                        <li><span class="check-icon">✓</span> Equity opportunities for founding members</li>
+                    </ul>
+                    <form class="join-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                        <input type="email" name="email" placeholder="Email Address" class="form-input" required>
+                        <input type="text" name="artist_name" placeholder="Artist / Creator Name" class="form-input" required>
+                        <input type="text" name="socials" placeholder="Instagram or Spotify Link" class="form-input">
+                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Apply to Join</button>
+                    </form>
+                </div>
+                <div class="join-card">
+                    <h3>For Brands & Partners</h3>
+                    <p>Align your brand with the future of hearing health in music and entertainment.</p>
+                    <ul class="join-features">
+                        <li><span class="check-icon">✓</span> Co-branded initiatives</li>
+                        <li><span class="check-icon">✓</span> Event presence & activations</li>
+                        <li><span class="check-icon">✓</span> Artist network access</li>
+                        <li><span class="check-icon">✓</span> Cause marketing alignment</li>
+                        <li><span class="check-icon">✓</span> Custom partnership structures</li>
+                    </ul>
+                    <form class="join-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                        <input type="email" name="email" placeholder="Email Address" class="form-input" required>
+                        <input type="text" name="company" placeholder="Company / Brand" class="form-input" required>
+                        <input type="text" name="website" placeholder="Website" class="form-input">
+                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Get in Touch</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Certification Section -->
+    <section class="venue-section" id="venues">
+        <div class="container">
+            <div class="venue-content">
+                <div class="venue-text">
+                    <p class="section-label">For Venues</p>
+                    <h2>Safe Sound Certified</h2>
+                    <p>Join the growing network of venues committed to protecting their patrons' hearing. Certification signals that you care about your community's long-term health.</p>
+                    <ul class="venue-benefits">
+                        <li>
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">
+                                <h4>Certification Badge</h4>
+                                <p>Display your commitment to hearing health with official Safe Sound Collective certification.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">
+                                <h4>Unplugs Distribution</h4>
+                                <p>Offer premium hearing protection to your patrons through on-site availability.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">
+                                <h4>Marketing Support</h4>
+                                <p>Co-branded marketing assets and inclusion in Collective communications.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">
+                                <h4>Artist Network</h4>
+                                <p>Priority consideration from Collective artists for bookings.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="mailto:venues@unplugshearing.com" class="btn-primary" style="display: inline-block; margin-top: 24px;">Certify Your Venue</a>
+                </div>
+                <div class="certification-badge">
+                    <div class="badge-icon">🛡️</div>
+                    <h3>Safe Sound Certified</h3>
+                    <p>Official certification for venues committed to hearing health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Backed By</p>
+                <h2>Industry Leaders</h2>
+            </div>
+            <div class="partners-logos">
+                <div class="partner-logo">LIVE NATION</div>
+                <div class="partner-logo">UNPLUGS</div>
+                <div class="partner-logo">INSOMNIAC</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>The Movement Starts Now</h2>
+                <p>Join the artists, venues, and brands building a future where no one has to sacrifice their hearing for the music they love.</p>
+                <div class="hero-ctas">
+                    <a href="#join" class="btn-primary">Join the Collective</a>
+                    <a href="https://unplugshearing.com" class="btn-secondary" target="_blank">Shop Unplugs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://unplugshearing.com" target="_blank">Unplugs</a>
+                    <a href="mailto:collective@unplugshearing.com">Contact</a>
+                    <a href="https://instagram.com/unplugshearing" target="_blank">Instagram</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-brand">
+                    © 2026 Safe Sound Collective. Powered by <a href="https://unplugshearing.com" target="_blank">Unplugs</a>.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll for anchor links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
