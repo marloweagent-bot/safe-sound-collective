@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "safesoundcollective.org" }],
+      "destination": "/collective-index.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.safesoundcollective.org" }],
+      "destination": "/collective-index.html"
+    }
+  ]
+}
