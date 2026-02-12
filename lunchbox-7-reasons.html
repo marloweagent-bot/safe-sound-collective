@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Reasons Lunchbox is the Only Festival Pack I Use</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF3366;
+            --primary-dark: #E6194B;
+            --secondary: #0F0F1A;
+            --accent: #00D4FF;
+            --accent-green: #00FF88;
+            --warning: #FFB800;
+            --danger: #FF4757;
+            --text: #FFFFFF;
+            --text-muted: #A0A0B0;
+            --card-bg: #1A1A2E;
+            --module-bg: #12121F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(255,51,102,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.1) 0%, transparent 50%),
+                linear-gradient(180deg, var(--secondary) 0%, #0a0a12 100%);
+            position: relative;
+        }
+
+        .hero-badge {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .scroll-hint svg {
+            width: 36px;
+            height: 36px;
+            stroke: var(--primary);
+        }
+
+        /* Reason Cards */
+        .reasons {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .reason {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason::before {
+            content: attr(data-num);
+            position: absolute;
+            top: -30px;
+            right: 20px;
+            font-size: 10rem;
+            font-weight: 900;
+            opacity: 0.03;
+            color: var(--primary);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .reason-header {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .reason-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        .reason-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
+        .reason-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* Interactive Modules */
+        .interactive {
+            background: var(--module-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .interactive-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Module 1: Water Line Simulator */
+        .water-line-sim {
+            position: relative;
+        }
+
+        .festival-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .festival-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+        }
+
+        .timeline-slot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slot-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .slot-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .slot-icon.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0,212,255,0.4);
+        }
+
+        .slot-icon.missed {
+            border-color: var(--danger);
+            background: rgba(255,71,87,0.2);
+        }
+
+        .slot-icon.water-line {
+            border-color: var(--warning);
+            background: rgba(255,184,0,0.2);
+        }
+
+        .slot-label {
+            font-size: 0.7rem;
+            text-align: center;
+            max-width: 60px;
+        }
+
+        .water-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .water-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+        }
+
+        .water-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .water-stat-value.bad { color: var(--danger); }
+        .water-stat-value.good { color: var(--accent-green); }
+
+        .water-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .sim-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .sim-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .sim-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .sim-btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .sim-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .comparison-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .toggle-btn {
+            padding: 0.6rem 1.25rem;
+            border: 2px solid rgba(255,255,255,0.15);
+            background: transparent;
+            color: var(--text-muted);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .toggle-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Module 2: Security Gauntlet */
+        .security-sim {
+            text-align: center;
+        }
+
+        .security-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 2rem 0;
+            overflow: hidden;
+        }
+
+        .person {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .person.you {
+            background: var(--primary);
+            box-shadow: 0 0 15px rgba(255,51,102,0.5);
+        }
+
+        .person.cleared {
+            background: var(--accent-green);
+            opacity: 0.5;
+        }
+
+        .person.searching {
+            background: var(--warning);
+            animation: pulse 0.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .security-booth {
+            width: 60px;
+            height: 80px;
+            background: linear-gradient(180deg, #333 0%, #222 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .time-display {
+            font-size: 3.5rem;
+            font-weight: 900;
+            font-family: monospace;
+            margin: 1rem 0;
+        }
+
+        .time-display.fast { color: var(--accent-green); }
+        .time-display.slow { color: var(--danger); }
+
+        .bag-type-display {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Module 3: Pickpocket Risk */
+        .pickpocket-sim {
+            position: relative;
+        }
+
+        .crowd-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 8px;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .crowd-person {
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .crowd-person:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .crowd-person.you {
+            background: var(--primary);
+            box-shadow: 0 0 15px rgba(255,51,102,0.5);
+        }
+
+        .crowd-person.thief {
+            background: var(--danger);
+            animation: sneaky 2s infinite;
+        }
+
+        @keyframes sneaky {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .crowd-person.protected .shield {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 0.7rem;
+        }
+
+        .theft-alert {
+            padding: 1rem;
+            background: rgba(255,71,87,0.2);
+            border: 1px solid var(--danger);
+            border-radius: 10px;
+            text-align: center;
+            animation: shake 0.5s;
+            display: none;
+        }
+
+        .theft-alert.show {
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .protected-alert {
+            padding: 1rem;
+            background: rgba(0,255,136,0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .protected-alert.show {
+            display: block;
+        }
+
+        .risk-meter {
+            height: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .risk-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--warning), var(--danger));
+            border-radius: 6px;
+            transition: width 0.5s;
+        }
+
+        .risk-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Module 4: Dehydration Effects */
+        .dehydration-sim {
+            text-align: center;
+        }
+
+        .body-visual {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .body-state {
+            text-align: center;
+        }
+
+        .body-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .body-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .symptoms {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hydration-bar {
+            position: relative;
+            height: 200px;
+            width: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .hydration-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, var(--accent), #0066FF);
+            border-radius: 30px;
+            transition: height 0.5s;
+        }
+
+        .hydration-level {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+
+        .effect-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .effect-card {
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            text-align: left;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .effect-card.active {
+            border-color: var(--danger);
+            background: rgba(255,71,87,0.1);
+        }
+
+        .effect-card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .effect-card-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .effect-card-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Module 5: Temperature */
+        .temp-sim {
+            text-align: center;
+        }
+
+        .thermometer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .temp-display {
+            font-size: 4rem;
+            font-weight: 900;
+        }
+
+        .temp-icon {
+            font-size: 4rem;
+        }
+
+        .temp-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .temp-box {
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .temp-box.regular {
+            background: rgba(255,71,87,0.15);
+            border: 1px solid var(--danger);
+        }
+
+        .temp-box.insulated {
+            background: rgba(0,212,255,0.15);
+            border: 1px solid var(--accent);
+        }
+
+        .temp-box-title {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .temp-box-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .temp-box-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Module 6: Storage Tetris */
+        .storage-sim {
+            position: relative;
+        }
+
+        .pack-visual {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .pack-container {
+            text-align: center;
+        }
+
+        .pack-grid {
+            width: 180px;
+            height: 240px;
+            background: rgba(0,0,0,0.4);
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pack-item {
+            position: absolute;
+            background: rgba(255,255,255,0.15);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: grab;
+            transition: all 0.2s;
+        }
+
+        .pack-item:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .pack-item.dedicated {
+            background: rgba(0,212,255,0.2);
+            border-color: var(--accent);
+        }
+
+        .pack-label {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .items-checklist {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .item-tag {
+            padding: 0.4rem 0.75rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .item-tag.checked {
+            background: var(--accent-green);
+            color: black;
+        }
+
+        /* Module 7: Comfort Score */
+        .comfort-sim {
+            text-align: center;
+        }
+
+        .hour-slider-container {
+            padding: 1rem 0;
+        }
+
+        .hour-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent-green), var(--warning), var(--danger));
+            border-radius: 4px;
+        }
+
+        .hour-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hour-display {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+
+        .comfort-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .comfort-card {
+            padding: 1.25rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .comfort-card.bad {
+            background: rgba(255,71,87,0.15);
+        }
+
+        .comfort-card.good {
+            background: rgba(0,255,136,0.15);
+        }
+
+        .comfort-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comfort-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .comfort-issues {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #8B1538 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1.1rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-feature {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .reason {
+                padding: 1.75rem;
+            }
+
+            .interactive {
+                padding: 1.5rem;
+            }
+
+            .water-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .body-visual {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .temp-comparison, .comfort-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .crowd-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .pack-visual {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <span class="hero-badge">Festival Essentials</span>
+        <h1>7 Reasons <span class="highlight">Lunchbox</span> is the Only Festival Pack I Use</h1>
+        <p class="hero-sub">After 50+ festivals with the wrong gear, I finally found the one. Here's why I'll never go back.</p>
+        <div class="scroll-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <div class="reasons">
+
+        <!-- Reason 1: Water Lines -->
+        <article class="reason" data-num="1">
+            <div class="reason-header">
+                <div class="reason-icon">💧</div>
+                <h2 class="reason-title">I Never Wait in Water Lines Anymore</h2>
+            </div>
+            <p class="reason-text">
+                Water stations at festivals are a 20-minute commitment. That's 20 minutes you're not at the stage. That's potentially missing your favorite artist's best song. With a 2L hydration bladder, I fill up once and I'm good for hours.
+            </p>
+            
+            <div class="interactive">
+                <div class="interactive-label">🎮 Interactive: Compare Your Festival Experience</div>
+                
+                <div class="comparison-toggle">
+                    <button class="toggle-btn active" onclick="setWaterMode('bottle')">Water Bottle</button>
+                    <button class="toggle-btn" onclick="setWaterMode('lunchbox')">Lunchbox 2L</button>
+                </div>
+
+                <div class="festival-timeline" id="timeline">
+                    <!-- Generated by JS -->
+                </div>
+
+                <div class="water-stats">
+                    <div class="water-stat">
+                        <div class="water-stat-value bad" id="waterTrips">4</div>
+                        <div class="water-stat-label">Water Line Trips</div>
+                    </div>
+                    <div class="water-stat">
+                        <div class="water-stat-value bad" id="timeLost">80 min</div>
+                        <div class="water-stat-label">Time Lost</div>
+                    </div>
+                    <div class="water-stat">
+                        <div class="water-stat-value bad" id="setsMissed">2</div>
+                        <div class="water-stat-label">Sets Partially Missed</div>
+                    </div>
+                </div>
+
+                <div class="sim-controls">
+                    <button class="sim-btn sim-btn-primary" onclick="simulateFestivalDay()">▶ Simulate Festival Day</button>
+                    <button class="sim-btn sim-btn-secondary" onclick="resetWaterSim()">↺ Reset</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 2: Security Lines -->
+        <article class="reason" data-num="2">
+            <div class="reason-header">
+                <div class="reason-icon">🔒</div>
+                <h2 class="reason-title">Security Takes Me 30 Seconds, Not 10 Minutes</h2>
+            </div>
+            <p class="reason-text">
+                Lunchbox packs are designed for festival security policies. Open compartments, clear organization, nothing weird to explain. While everyone else is getting their bags torn apart, I'm already inside watching the first set.
+            </p>
+            
+            <div class="interactive">
+                <div class="interactive-label">🎮 Interactive: Security Line Simulator</div>
+                
+                <div class="bag-type-display" id="bagTypeDisplay">🎒 Regular Backpack</div>
+                
+                <div class="security-line" id="securityLine">
+                    <!-- Generated by JS -->
+                </div>
+                
+                <div class="time-display slow" id="securityTime">00:00</div>
+                <div class="water-stat-label">Time to Clear Security</div>
+                
+                <div class="sim-controls">
+                    <button class="sim-btn sim-btn-secondary" onclick="simulateSecurity('regular')">🎒 Regular Bag</button>
+                    <button class="sim-btn sim-btn-primary" onclick="simulateSecurity('lunchbox')">🍱 Lunchbox Pack</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 3: Pickpockets -->
+        <article class="reason" data-num="3">
+            <div class="reason-header">
+                <div class="reason-icon">🛡️</div>
+                <h2 class="reason-title">Pickpockets Can't Touch Me</h2>
+            </div>
+            <p class="reason-text">
+                Festival theft is real. Crowded stages, everyone bumping into each other—it's paradise for pickpockets. The anti-theft zipper clips and dedicated secure phone pocket mean my stuff stays mine. I've literally watched someone try to open my bag and fail.
+            </p>
+            
+            <div class="interactive">
+                <div class="interactive-label">🎮 Interactive: Spot the Pickpocket</div>
+                
+                <p style="text-align: center; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+                    Click on the crowd. In a regular bag, every contact is a risk.
+                </p>
+                
+                <div class="crowd-grid" id="crowdGrid">
+                    <!-- Generated by JS -->
+                </div>
+                
+                <div class="risk-meter">
+                    <div class="risk-fill" id="riskFill" style="width: 70%"></div>
+                </div>
+                <div class="risk-labels">
+                    <span>Low Risk</span>
+                    <span>Your Current Risk</span>
+                    <span>High Risk</span>
+                </div>
+                
+                <div class="theft-alert" id="theftAlert">
+                    ⚠️ Your phone was stolen! Average loss: $800-1200 + ruined festival
+                </div>
+                <div class="protected-alert" id="protectedAlert">
+                    🛡️ Anti-theft zipper blocked the attempt. Your stuff is safe.
+                </div>
+                
+                <div class="sim-controls">
+                    <button class="sim-btn sim-btn-secondary" onclick="setProtection(false)">🎒 Regular Bag (70% risk)</button>
+                    <button class="sim-btn sim-btn-primary" onclick="setProtection(true)">🛡️ Lunchbox (Protected)</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 4: Hydration -->
+        <article class="reason" data-num="4">
+            <div class="reason-header">
+                <div class="reason-icon">🌡️</div>
+                <h2 class="reason-title">I Actually Stay Hydrated (And Feel the Difference)</h2>
+            </div>
+            <p class="reason-text">
+                Here's the thing about hydration: by the time you feel thirsty, you're already dehydrated. With a bite valve always accessible, I sip throughout the day without even thinking about it. No headaches, no fatigue, no leaving early because I feel like garbage.
+            </p>
+            
+            <div class="interactive">
+                <div class="interactive-label">🎮 Interactive: Dehydration Effects by Hour</div>
+                
+                <div class="hydration-bar">
+                    <div class="hydration-fill" id="hydrationFill" style="height: 100%"></div>
+                </div>
+                <div class="hydration-level" id="hydrationLevel">100%</div>
+                <div class="water-stat-label">Hydration Level</div>
+                
+                <input type="range" class="hour-slider" id="hydrationSlider" min="0" max="8" value="0" 
+                    oninput="updateHydration(this.value)" style="margin: 1.5rem 0;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
+                    <span>Festival Start</span>
+                    <span>8 Hours Later</span>
+                </div>
+                
+                <div class="effect-cards" id="effectCards">
+                    <div class="effect-card" data-threshold="2">
+                        <div class="effect-card-icon">🥵</div>
+                        <div class="effect-card-title">Reduced Energy</div>
+                        <div class="effect-card-desc">Feeling sluggish, dancing less</div>
+                    </div>
+                    <div class="effect-card" data-threshold="4">
+                        <div class="effect-card-icon">🤕</div>
+                        <div class="effect-card-title">Headache</div>
+                        <div class="effect-card-desc">Throbbing pain, sensitivity to lights</div>
+                    </div>
+                    <div class="effect-card" data-threshold="5">
+                        <div class="effect-card-icon">😵‍💫</div>
+                        <div class="effect-card-title">Dizziness</div>
+                        <div class="effect-card-desc">Can't focus, need to sit down</div>
+                    </div>
+                    <div class="effect-card" data-threshold="7">
+                        <div class="effect-card-icon">🏥</div>
+                        <div class="effect-card-title">Medical Tent</div>
+                        <div class="effect-card-desc">Festival over. IV fluids time.</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 5: Cold Water -->
+        <article class="reason" data-num="5">
+            <div class="reason-header">
+                <div class="reason-icon">🧊</div>
+                <h2 class="reason-title">My Water is Actually Cold at 2 AM</h2>
+            </div>
+            <p class="reason-text">
+                The insulated bladder compartment and hose aren't gimmicks. When it's 95°F at noon and you filled up with cold water, that water is still cool 6 hours later. Regular bottles turn into lukewarm soup within an hour.
+            </p>
+            
+            <div class="interactive">
+                <div class="interactive-label">🎮 Interactive: Water Temperature Over Time</div>
+                
+                <div class="thermometer">
+                    <div class="temp-icon">☀️</div>
+                    <div>
+                        <div class="temp-display" id="ambientTemp">95°F</div>
+                        <div class="water-stat-label">Ambient Temperature</div>
+                    </div>
+                </div>
+                
+                <input type="range" class="hour-slider" id="tempSlider" min="0" max="8" value="0" 
+                    oninput="updateTemp(this.value)" style="margin: 1.5rem 0;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
+                    <span>Just Filled</span>
+                    <span>8 Hours Later</span>
+                </div>
+                
+                <div class="temp-comparison">
+                    <div class="temp-box regular">
+                        <div class="temp-box-title">Regular Bottle</div>
+                        <div class="temp-box-value" id="regularTemp">45°F</div>
+                        <div class="temp-box-label" id="regularLabel">Refreshing</div>
+                    </div>
+                    <div class="temp-box insulated">
+                        <div class="temp-box-title">Lunchbox Insulated</div>
+                        <div class="temp-box-value" id="insulatedTemp">45°F</div>
+                        <div class="temp-box-label" id="insulatedLabel">Refreshing</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 6: Organization -->
+        <article class="reason" data-num="6">
+            <div class="reason-header">
+                <div class="reason-icon">📦</div>
+                <h2 class="reason-title">Everything Has a Place (Including My Sanity)</h2>
+            </div>
+            <p class="reason-text">
+                Dedicated phone pocket. Card slots. Key clip. Mesh organizers. I'm not digging through a black hole trying to find my ID while the bouncer stares me down. Everything is exactly where I put it.
+            </p>
+            
+            <div class="interactive">
+                <div class="interactive-label">🎮 Interactive: Festival Carry Checklist</div>
+                
+                <div class="pack-visual">
+                    <div class="pack-container">
+                        <div class="pack-grid" id="packGrid">
+                            <div class="pack-item dedicated" style="width: 50px; height: 80px; left: 10px; top: 10px;">📱</div>
+                            <div class="pack-item dedicated" style="width: 70px; height: 40px; left: 70px; top: 10px;">💳</div>
+                            <div class="pack-item" style="width: 60px; height: 60px; left: 10px; top: 100px;">🔑</div>
+                            <div class="pack-item" style="width: 50px; height: 50px; left: 80px; top: 60px;">🕶️</div>
+                            <div class="pack-item" style="width: 100px; height: 60px; left: 40px; top: 120px;">💊</div>
+                            <div class="pack-item" style="width: 60px; height: 50px; left: 10px; top: 180px;">🎟️</div>
+                            <div class="pack-item" style="width: 50px; height: 40px; left: 80px; top: 190px;">🔋</div>
+                        </div>
+                        <div class="pack-label">Lunchbox Pack</div>
+                    </div>
+                </div>
+                
+                <div class="items-checklist" id="itemsChecklist">
+                    <div class="item-tag" onclick="toggleItem(this)"><span>📱</span> Phone</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>💳</span> ID/Cards</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>🔑</span> Keys</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>🕶️</span> Sunglasses</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>💊</span> Essentials</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>🎟️</span> Ticket</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>🔋</span> Charger</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>👂</span> Earplugs</div>
+                    <div class="item-tag" onclick="toggleItem(this)"><span>💄</span> Touch-ups</div>
+                </div>
+                
+                <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--accent);">
+                    ✓ Anti-theft phone pocket • ✓ Built-in card slots • ✓ Secure key ring
+                </p>
+            </div>
+        </article>
+
+        <!-- Reason 7: All Day Comfort -->
+        <article class="reason" data-num="7">
+            <div class="reason-header">
+                <div class="reason-icon">⏰</div>
+                <h2 class="reason-title">I'm Still Comfortable at Hour 12</h2>
+            </div>
+            <p class="reason-text">
+                A 12-hour festival day with the wrong pack is actual torture. Shoulder strain, back sweat, constant adjusting. The flex wear system means I can switch between backpack, crossbody, and shoulder depending on what feels right. No hot spots, no pain.
+            </p>
+            
+            <div class="interactive">
+                <div class="interactive-label">🎮 Interactive: Comfort Over Time</div>
+                
+                <div class="hour-slider-container">
+                    <input type="range" class="hour-slider" id="comfortSlider" min="0" max="12" value="0" 
+                        oninput="updateComfort(this.value)">
+                </div>
+                <div class="hour-display" id="hourDisplay">Hour 0</div>
+                
+                <div class="comfort-comparison">
+                    <div class="comfort-card bad">
+                        <div class="comfort-emoji" id="badEmoji">😊</div>
+                        <div class="comfort-label">Regular Pack</div>
+                        <div class="comfort-issues" id="badIssues">Starting fresh!</div>
+                    </div>
+                    <div class="comfort-card good">
+                        <div class="comfort-emoji" id="goodEmoji">😊</div>
+                        <div class="comfort-label">Lunchbox Pack</div>
+                        <div class="comfort-issues" id="goodIssues">Starting fresh!</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <section class="cta-section">
+        <h2>Ready to Upgrade Your Festival Experience?</h2>
+        <p>Anti-theft protection. 2L hydration. Security-approved. 12-hour comfort. This is the last pack you'll need.</p>
+        <a href="https://www.lunchboxpacks.com" class="cta-btn">Shop Lunchbox Packs →</a>
+        <div class="cta-features">
+            <span class="cta-feature">✓ 2L Insulated Hydration</span>
+            <span class="cta-feature">✓ Anti-Theft Design</span>
+            <span class="cta-feature">✓ Security Approved</span>
+            <span class="cta-feature">✓ 2 Year Warranty</span>
+        </div>
+    </section>
+
+    <script>
+        // ===== MODULE 1: Water Line Simulator =====
+        let waterMode = 'bottle';
+        
+        function setWaterMode(mode) {
+            waterMode = mode;
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            resetWaterSim();
+        }
+
+        function generateTimeline() {
+            const timeline = document.getElementById('timeline');
+            const slots = waterMode === 'bottle' ? 
+                ['🎵', '💧', '🎵', '💧', '🎵', '💧', '🎵', '💧', '🎵'] :
+                ['🎵', '🎵', '🎵', '🎵', '💧', '🎵', '🎵', '🎵', '🎵'];
+            const times = ['2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM'];
+            
+            timeline.innerHTML = slots.map((slot, i) => `
+                <div class="timeline-slot">
+                    <span class="slot-time">${times[i]}</span>
+                    <div class="slot-icon" data-type="${slot === '💧' ? 'water' : 'music'}">${slot}</div>
+                    <span class="slot-label">${slot === '💧' ? 'Water Line' : 'Stage'}</span>
+                </div>
+            `).join('');
+        }
+
+        function simulateFestivalDay() {
+            const slots = document.querySelectorAll('.slot-icon');
+            let delay = 0;
+            let missed = 0;
+            
+            slots.forEach((slot, i) => {
+                setTimeout(() => {
+                    slot.classList.add('active');
+                    if (slot.dataset.type === 'water') {
+                        slot.classList.add('water-line');
+                        if (i > 0 && slots[i-1].dataset.type === 'music') {
+                            slots[i-1].classList.add('missed');
+                            missed++;
+                        }
+                    }
+                    setTimeout(() => slot.classList.remove('active'), 400);
+                }, delay);
+                delay += 500;
+            });
+
+            setTimeout(() => {
+                if (waterMode === 'bottle') {
+                    document.getElementById('waterTrips').textContent = '4';
+                    document.getElementById('timeLost').textContent = '80 min';
+                    document.getElementById('setsMissed').textContent = '2';
+                    document.querySelectorAll('.water-stat-value').forEach(v => v.classList.remove('good'));
+                    document.querySelectorAll('.water-stat-value').forEach(v => v.classList.add('bad'));
+                } else {
+                    document.getElementById('waterTrips').textContent = '1';
+                    document.getElementById('timeLost').textContent = '5 min';
+                    document.getElementById('setsMissed').textContent = '0';
+                    document.querySelectorAll('.water-stat-value').forEach(v => v.classList.remove('bad'));
+                    document.querySelectorAll('.water-stat-value').forEach(v => v.classList.add('good'));
+                }
+            }, delay + 500);
+        }
+
+        function resetWaterSim() {
+            generateTimeline();
+            document.getElementById('waterTrips').textContent = waterMode === 'bottle' ? '4' : '1';
+            document.getElementById('timeLost').textContent = waterMode === 'bottle' ? '80 min' : '5 min';
+            document.getElementById('setsMissed').textContent = waterMode === 'bottle' ? '2' : '0';
+            
+            if (waterMode === 'bottle') {
+                document.querySelectorAll('.water-stat-value').forEach(v => v.classList.remove('good'));
+                document.querySelectorAll('.water-stat-value').forEach(v => v.classList.add('bad'));
+            } else {
+                document.querySelectorAll('.water-stat-value').forEach(v => v.classList.remove('bad'));
+                document.querySelectorAll('.water-stat-value').forEach(v => v.classList.add('good'));
+            }
+        }
+
+        // ===== MODULE 2: Security Simulator =====
+        function generateSecurityLine() {
+            const line = document.getElementById('securityLine');
+            line.innerHTML = '';
+            for (let i = 0; i < 8; i++) {
+                const person = document.createElement('div');
+                person.className = 'person' + (i === 5 ? ' you' : '');
+                person.textContent = i === 5 ? '😎' : '👤';
+                line.appendChild(person);
+            }
+            const booth = document.createElement('div');
+            booth.className = 'security-booth';
+            booth.textContent = '🔍';
+            line.appendChild(booth);
+        }
+
+        function simulateSecurity(bagType) {
+            document.getElementById('bagTypeDisplay').textContent = 
+                bagType === 'lunchbox' ? '🍱 Lunchbox Pack' : '🎒 Regular Backpack';
+            
+            const timeEl = document.getElementById('securityTime');
+            const people = document.querySelectorAll('.person');
+            const searchTime = bagType === 'lunchbox' ? 5 : 30;
+            const personDelay = bagType === 'lunchbox' ? 300 : 800;
+            
+            let time = 0;
+            let currentPerson = 0;
+            
+            generateSecurityLine();
+            
+            const interval = setInterval(() => {
+                time++;
+                const mins = Math.floor(time / 60);
+                const secs = time % 60;
+                timeEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                timeEl.className = 'time-display ' + (time > 120 ? 'slow' : 'fast');
+            }, 1000);
+
+            let delay = 0;
+            document.querySelectorAll('.person').forEach((person, i) => {
+                setTimeout(() => {
+                    person.classList.add('searching');
+                    setTimeout(() => {
+                        person.classList.remove('searching');
+                        person.classList.add('cleared');
+                    }, personDelay);
+                }, delay);
+                delay += personDelay + (bagType === 'lunchbox' ? 100 : 400);
+            });
+
+            setTimeout(() => {
+                clearInterval(interval);
+                const finalTime = bagType === 'lunchbox' ? 35 : 240;
+                const mins = Math.floor(finalTime / 60);
+                const secs = finalTime % 60;
+                timeEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                timeEl.className = 'time-display ' + (bagType === 'lunchbox' ? 'fast' : 'slow');
+            }, delay);
+        }
+
+        // ===== MODULE 3: Pickpocket Simulator =====
+        let isProtected = false;
+        
+        function generateCrowd() {
+            const grid = document.getElementById('crowdGrid');
+            grid.innerHTML = '';
+            const thiefIndex = Math.floor(Math.random() * 24);
+            const youIndex = 12;
+            
+            for (let i = 0; i < 24; i++) {
+                const person = document.createElement('div');
+                person.className = 'crowd-person';
+                if (i === youIndex) {
+                    person.classList.add('you');
+                    person.innerHTML = '😎' + (isProtected ? '<span class="shield">🛡️</span>' : '');
+                } else if (i === thiefIndex) {
+                    person.dataset.thief = 'true';
+                    person.textContent = '👤';
+                } else {
+                    person.textContent = '👤';
+                }
+                person.onclick = () => checkTheft(person);
+                grid.appendChild(person);
+            }
+        }
+
+        function checkTheft(person) {
+            if (person.dataset.thief === 'true') {
+                person.classList.add('thief');
+                if (isProtected) {
+                    document.getElementById('protectedAlert').classList.add('show');
+                    document.getElementById('theftAlert').classList.remove('show');
+                } else {
+                    document.getElementById('theftAlert').classList.add('show');
+                    document.getElementById('protectedAlert').classList.remove('show');
+                }
+            }
+        }
+
+        function setProtection(protected) {
+            isProtected = protected;
+            document.getElementById('riskFill').style.width = protected ? '15%' : '70%';
+            document.getElementById('theftAlert').classList.remove('show');
+            document.getElementById('protectedAlert').classList.remove('show');
+            generateCrowd();
+        }
+
+        // ===== MODULE 4: Hydration Effects =====
+        function updateHydration(hours) {
+            const hydration = Math.max(15, 100 - (hours * 11));
+            document.getElementById('hydrationFill').style.height = hydration + '%';
+            document.getElementById('hydrationLevel').textContent = Math.round(hydration) + '%';
+            document.getElementById('hydrationLevel').style.color = 
+                hydration > 70 ? 'var(--accent)' : hydration > 40 ? 'var(--warning)' : 'var(--danger)';
+            
+            document.querySelectorAll('.effect-card').forEach(card => {
+                const threshold = parseInt(card.dataset.threshold);
+                card.classList.toggle('active', hours >= threshold);
+            });
+        }
+
+        // ===== MODULE 5: Temperature =====
+        function updateTemp(hours) {
+            const ambient = 95;
+            const regularTemp = Math.min(95, 45 + (hours * 7));
+            const insulatedTemp = Math.min(75, 45 + (hours * 3.5));
+            
+            document.getElementById('regularTemp').textContent = Math.round(regularTemp) + '°F';
+            document.getElementById('insulatedTemp').textContent = Math.round(insulatedTemp) + '°F';
+            
+            document.getElementById('regularLabel').textContent = 
+                regularTemp > 80 ? '🤢 Gross & warm' : regularTemp > 60 ? '😐 Room temp' : '😊 Refreshing';
+            document.getElementById('insulatedLabel').textContent = 
+                insulatedTemp > 70 ? '😐 Cool enough' : insulatedTemp > 55 ? '😊 Still cold' : '❄️ Ice cold';
+        }
+
+        // ===== MODULE 6: Storage =====
+        function toggleItem(el) {
+            el.classList.toggle('checked');
+        }
+
+        // ===== MODULE 7: Comfort =====
+        function updateComfort(hours) {
+            document.getElementById('hourDisplay').textContent = `Hour ${hours}`;
+            
+            const badEmojis = ['😊', '😊', '😐', '😐', '😣', '😣', '😫', '😫', '😭', '😭', '💀', '💀', '🏥'];
+            const goodEmojis = ['😊', '😊', '😊', '😊', '😊', '😎', '😎', '😎', '😌', '😌', '😌', '😊', '😊'];
+            
+            const badIssues = [
+                'Starting fresh!',
+                'Feeling good',
+                'Shoulders getting tight',
+                'Back sweat starting',
+                'Need to adjust straps',
+                'Shoulders aching',
+                'Back is soaked',
+                'Constant readjusting',
+                'Everything hurts',
+                'Want to leave pack somewhere',
+                'Seriously considering abandoning it',
+                'Pure suffering',
+                'Why did I bring this'
+            ];
+            
+            const goodIssues = [
+                'Starting fresh!',
+                'Feeling great',
+                'Still comfortable',
+                'Switched to crossbody',
+                'No issues',
+                'Back to backpack mode',
+                'Still going strong',
+                'Zero discomfort',
+                'Forgot I\'m wearing it',
+                'Could do 4 more hours',
+                'Peak festival mode',
+                'Still dancing',
+                'Ready for after party'
+            ];
+            
+            document.getElementById('badEmoji').textContent = badEmojis[hours];
+            document.getElementById('goodEmoji').textContent = goodEmojis[hours];
+            document.getElementById('badIssues').textContent = badIssues[hours];
+            document.getElementById('goodIssues').textContent = goodIssues[hours];
+        }
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTimeline();
+            generateSecurityLine();
+            generateCrowd();
+        });
+    </script>
+</body>
+</html>
