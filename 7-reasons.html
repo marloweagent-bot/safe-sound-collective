@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 Reasons I'm Using Unplugs This Festival Season</title>
+    <title>7 Reasons I'm Using Unplugs This Festival Season | Safe Sound Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('hearing-guide/fonts/Bamboy-Regular.woff2') format('woff2'),
+                 url('hearing-guide/fonts/Bamboy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Bamboy';
+            src: url('hearing-guide/fonts/Bamboy-Condensed.woff2') format('woff2'),
+                 url('hearing-guide/fonts/Bamboy-Condensed.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
-            --primary: #FF6B35;
-            --primary-dark: #E55A2B;
-            --secondary: #1A1A2E;
-            --accent: #16213E;
-            --light: #F7F7F7;
-            --text: #2D2D2D;
-            --danger: #FF4757;
-            --safe: #2ED573;
-            --warning: #FFA502;
+            --primary: #29EF78;
+            --primary-dark: #22D969;
+            --secondary: #222222;
+            --accent: #29EF78;
+            --success: #29EF78;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #FFFFFF;
+            --text-muted: #909090;
+            --card: #2A2A2A;
+            --card-hover: #333333;
+            --border: rgba(255,255,255,0.08);
         }
 
         * {
@@ -29,7 +49,7 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--secondary);
-            color: var(--light);
+            color: var(--text);
             line-height: 1.6;
         }
 
@@ -42,7 +62,7 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            background: var(--secondary);
             position: relative;
             overflow: hidden;
         }
@@ -54,13 +74,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.03;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(41,239,120,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(41,239,120,0.08) 0%, transparent 50%);
         }
 
         .hero-badge {
             background: var(--primary);
-            color: #222222;
+            color: var(--secondary);
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
             font-size: 0.85rem;
@@ -72,8 +93,9 @@
         }
 
         .hero h1 {
+            font-family: 'Bamboy', 'Inter', sans-serif;
             font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
+            font-weight: 600;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             position: relative;
@@ -85,7 +107,7 @@
 
         .hero-subtitle {
             font-size: 1.25rem;
-            opacity: 0.8;
+            color: var(--text-muted);
             max-width: 600px;
             margin-bottom: 2rem;
             position: relative;
@@ -117,8 +139,8 @@
         }
 
         .reason-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 3rem;
             margin-bottom: 3rem;
@@ -130,9 +152,10 @@
             position: absolute;
             top: -20px;
             right: 20px;
+            font-family: 'Bamboy', 'Inter', sans-serif;
             font-size: 8rem;
-            font-weight: 800;
-            opacity: 0.05;
+            font-weight: 600;
+            opacity: 0.08;
             color: var(--primary);
             line-height: 1;
         }
@@ -158,20 +181,21 @@
         .reason-icon svg {
             width: 32px;
             height: 32px;
-            stroke: white;
+            stroke: var(--secondary);
             fill: none;
             stroke-width: 2;
         }
 
         .reason-title {
+            font-family: 'Bamboy', 'Inter', sans-serif;
             font-size: 1.75rem;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 1.2;
         }
 
         .reason-content {
             font-size: 1.1rem;
-            opacity: 0.85;
+            color: var(--text-muted);
             margin-bottom: 2rem;
         }
 
@@ -214,7 +238,7 @@
         .db-bar-container {
             flex: 1;
             height: 40px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
             border-radius: 8px;
             overflow: hidden;
             position: relative;
@@ -239,16 +263,17 @@
             font-weight: 700;
             font-size: 0.85rem;
             white-space: nowrap;
+            color: var(--secondary);
         }
 
-        .db-safe { background: linear-gradient(90deg, var(--safe), #7BED9F); }
+        .db-safe { background: linear-gradient(90deg, var(--success), #5FF598); }
         .db-warning { background: linear-gradient(90deg, var(--warning), #FFBE76); }
         .db-danger { background: linear-gradient(90deg, var(--danger), #FF6B81); }
 
         .damage-info {
             margin-top: 1rem;
             padding: 1rem;
-            background: rgba(255,71,87,0.1);
+            background: rgba(239,68,68,0.1);
             border-left: 3px solid var(--danger);
             border-radius: 0 8px 8px 0;
             font-size: 0.9rem;
@@ -277,7 +302,7 @@
         .hair-cell {
             width: 8px;
             height: 40px;
-            background: var(--safe);
+            background: var(--success);
             border-radius: 4px;
             transition: all 0.3s;
         }
@@ -311,12 +336,12 @@
 
         .cell-btn.damage {
             background: var(--danger);
-            color: #222222;
+            color: white;
         }
 
         .cell-btn.reset {
-            background: var(--safe);
-            color: #222222;
+            background: var(--success);
+            color: var(--secondary);
         }
 
         .cell-btn:hover {
@@ -359,7 +384,7 @@
         }
 
         .plug-visual.protected {
-            box-shadow: 0 0 0 4px var(--safe), 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 0 0 4px var(--success), 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .plug-visual.connected {
@@ -389,10 +414,10 @@
 
         .plug-description {
             font-size: 0.95rem;
-            opacity: 0.7;
+            color: var(--text-muted);
         }
 
-        .status-protected { color: var(--safe); }
+        .status-protected { color: var(--success); }
         .status-connected { color: var(--primary); }
 
         /* Exposure Calculator */
@@ -405,7 +430,7 @@
             margin: 1.5rem 0;
             -webkit-appearance: none;
             height: 8px;
-            background: linear-gradient(90deg, var(--safe) 0%, var(--warning) 50%, var(--danger) 100%);
+            background: linear-gradient(90deg, var(--success) 0%, var(--warning) 50%, var(--danger) 100%);
             border-radius: 4px;
             outline: none;
         }
@@ -421,14 +446,15 @@
         }
 
         .exposure-result {
+            font-family: 'Bamboy', 'Inter', sans-serif;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600;
             margin: 1rem 0;
         }
 
         .exposure-label {
             font-size: 0.9rem;
-            opacity: 0.7;
+            color: var(--text-muted);
         }
 
         .exposure-comparison {
@@ -445,24 +471,25 @@
         }
 
         .exposure-box.without {
-            background: rgba(255,71,87,0.2);
+            background: rgba(239,68,68,0.15);
             border: 1px solid var(--danger);
         }
 
         .exposure-box.with {
-            background: rgba(46,213,115,0.2);
-            border: 1px solid var(--safe);
+            background: rgba(41,239,120,0.15);
+            border: 1px solid var(--success);
         }
 
         .exposure-box h4 {
             font-size: 0.85rem;
             margin-bottom: 0.5rem;
-            opacity: 0.8;
+            color: var(--text-muted);
         }
 
         .exposure-box .time {
+            font-family: 'Bamboy', 'Inter', sans-serif;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         /* Frequency Response */
@@ -491,7 +518,7 @@
             justify-content: center;
             gap: 8px;
             font-size: 0.75rem;
-            opacity: 0.6;
+            color: var(--text-muted);
         }
 
         .freq-labels span {
@@ -510,7 +537,7 @@
             padding: 0.75rem 1.5rem;
             border: 2px solid var(--primary);
             background: transparent;
-            color: var(--light);
+            color: var(--text);
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
@@ -519,10 +546,12 @@
 
         .freq-btn.active {
             background: var(--primary);
+            color: var(--secondary);
         }
 
         .freq-btn:hover {
             background: var(--primary);
+            color: var(--secondary);
         }
 
         /* Festival Checklist */
@@ -535,7 +564,7 @@
             align-items: center;
             gap: 1rem;
             padding: 1rem;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
             border-radius: 12px;
             margin-bottom: 0.75rem;
             cursor: pointer;
@@ -543,7 +572,7 @@
         }
 
         .checklist li:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.06);
         }
 
         .checklist li.checked {
@@ -551,20 +580,20 @@
         }
 
         .checklist li.checked .check-box {
-            background: var(--safe);
-            border-color: var(--safe);
+            background: var(--success);
+            border-color: var(--success);
         }
 
         .checklist li.checked .check-box::after {
             content: '✓';
-            color: #222222;
+            color: var(--secondary);
             font-weight: bold;
         }
 
         .check-box {
             width: 28px;
             height: 28px;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -573,29 +602,70 @@
             transition: all 0.2s;
         }
 
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .comparison-box {
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .comparison-box.bad {
+            background: rgba(239,68,68,0.1);
+        }
+
+        .comparison-box.good {
+            background: rgba(41,239,120,0.1);
+        }
+
+        .comparison-box .emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: var(--primary);
             padding: 5rem 2rem;
             text-align: center;
         }
 
         .cta-section h2 {
+            font-family: 'Bamboy', 'Inter', sans-serif;
             font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
             margin-bottom: 1rem;
+            color: var(--secondary);
         }
 
         .cta-section p {
             font-size: 1.2rem;
-            opacity: 0.9;
+            color: var(--secondary);
+            opacity: 0.8;
             max-width: 600px;
             margin: 0 auto 2rem;
         }
 
         .cta-btn {
             display: inline-block;
-            background: white;
-            color: var(--primary);
+            background: var(--secondary);
+            color: var(--text);
             padding: 1rem 3rem;
             border-radius: 50px;
             font-size: 1.1rem;
@@ -612,7 +682,8 @@
         .cta-price {
             margin-top: 1rem;
             font-size: 0.95rem;
-            opacity: 0.85;
+            color: var(--secondary);
+            opacity: 0.7;
         }
 
         /* Responsive */
@@ -641,7 +712,8 @@
                 width: 100%;
             }
 
-            .exposure-comparison {
+            .exposure-comparison,
+            .comparison-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -738,7 +810,7 @@
                     <button class="cell-btn damage" onclick="damageHairCells()">🔊 Simulate Festival Night</button>
                     <button class="cell-btn reset" onclick="resetHairCells()">↺ Reset Demo</button>
                 </div>
-                <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; opacity: 0.6;">
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
                     ⚠️ Unlike this demo, real hair cells don't come back
                 </p>
             </div>
@@ -843,7 +915,7 @@
                         <button class="freq-btn active" id="btn-unplugs" onclick="showUnplugsFreq()">Unplugs</button>
                         <button class="freq-btn" id="btn-foam" onclick="showFoamFreq()">Foam Earplugs</button>
                     </div>
-                    <p id="freq-description" style="text-align: center; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                    <p id="freq-description" style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
                         Flat attenuation preserves music quality while reducing volume evenly
                     </p>
                 </div>
@@ -865,16 +937,16 @@
             
             <div class="interactive-module">
                 <div class="module-title">💬 The festival communication problem, solved</div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center;">
-                    <div style="padding: 1.5rem; background: rgba(255,71,87,0.15); border-radius: 12px;">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">😫</div>
+                <div class="comparison-grid">
+                    <div class="comparison-box bad">
+                        <div class="emoji">😫</div>
                         <strong>Traditional Earplugs</strong>
-                        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Remove → Talk → Reinsert → Miss the drop</p>
+                        <p>Remove → Talk → Reinsert → Miss the drop</p>
                     </div>
-                    <div style="padding: 1.5rem; background: rgba(46,213,115,0.15); border-radius: 12px;">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">😎</div>
+                    <div class="comparison-box good">
+                        <div class="emoji">😎</div>
                         <strong>Unplugs</strong>
-                        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Click → Talk → Click → Catch the drop</p>
+                        <p>Click → Talk → Click → Catch the drop</p>
                     </div>
                 </div>
             </div>
@@ -1009,7 +1081,6 @@
             document.getElementById('volume-display').textContent = db + ' dB';
             
             // Calculate safe exposure time using NIOSH formula
-            // Safe time = 480 / 2^((dB - 85) / 3) minutes
             const safeMinutes = 480 / Math.pow(2, (db - 85) / 3);
             const withUnplugs = 480 / Math.pow(2, (db - 25 - 85) / 3);
             
@@ -1037,7 +1108,7 @@
 
         function showFoamFreq() {
             const bars = document.querySelectorAll('.freq-bar');
-            const heights = [70, 60, 45, 25, 15, 10]; // Foam kills highs
+            const heights = [70, 60, 45, 25, 15, 10];
             bars.forEach((bar, i) => bar.style.height = heights[i] + 'px');
             
             document.getElementById('btn-foam').classList.add('active');
