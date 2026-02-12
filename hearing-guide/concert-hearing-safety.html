@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert & Festival Hearing Safety Guide | Hearing Guide</title>
+    <meta name="description" content="Learn how to protect your hearing at concerts and festivals. Understand venue sound levels, positioning, and why hearing protection lets you enjoy more shows for longer.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366F1; --secondary: #0F172A; --accent: #22D3EE; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #F8FAFC; --text-muted: #94A3B8; --card: #1E293B; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); }
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .section { margin-bottom: 3rem; }
+        .section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .section p { color: var(--text-muted); margin-bottom: 1rem; }
+        .card { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+
+        /* Venue Map */
+        .venue-sim { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; }
+        .venue-sim h2 { text-align: center; margin-bottom: 0.5rem; }
+        .venue-sim-sub { text-align: center; color: var(--text-muted); margin-bottom: 2rem; }
+        
+        .venue-map { position: relative; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%); border-radius: 16px; padding: 2rem; min-height: 400px; }
+        .stage { background: linear-gradient(180deg, var(--primary), var(--danger)); padding: 1rem; text-align: center; font-weight: 700; border-radius: 8px 8px 0 0; }
+        .speakers { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+        .speaker { font-size: 2rem; animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        
+        .crowd-zones { display: grid; grid-template-rows: repeat(4, 1fr); gap: 0.5rem; margin-top: 1rem; }
+        .zone { padding: 1.5rem; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; justify-content: space-between; align-items: center; }
+        .zone:hover { transform: scale(1.02); }
+        .zone-1 { background: rgba(239,68,68,0.3); border: 2px solid var(--danger); }
+        .zone-2 { background: rgba(245,158,11,0.2); border: 2px solid var(--warning); }
+        .zone-3 { background: rgba(34,211,238,0.15); border: 2px solid var(--accent); }
+        .zone-4 { background: rgba(16,185,129,0.15); border: 2px solid var(--success); }
+        .zone-name { font-weight: 600; }
+        .zone-db { font-weight: 700; }
+        .zone.active { box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+        
+        .zone-info { background: rgba(0,0,0,0.4); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
+        .zone-info-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .zone-info-db { font-size: 2.5rem; font-weight: 900; }
+        .zone-info-time { margin-top: 0.5rem; }
+        .zone-info-time span { padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
+        .zone-info-time span.danger { background: var(--danger); }
+        .zone-info-time span.warning { background: var(--warning); color: black; }
+        .zone-info-time span.safe { background: var(--success); }
+
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+        .stat-card { background: var(--card); padding: 1.5rem; border-radius: 12px; text-align: center; }
+        .stat-value { font-size: 2.5rem; font-weight: 900; color: var(--primary); }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Tips */
+        .tips-grid { display: grid; gap: 1rem; }
+        .tip { display: flex; gap: 1rem; padding: 1.5rem; background: var(--card); border-radius: 12px; }
+        .tip-icon { font-size: 2rem; }
+        .tip-content h4 { margin-bottom: 0.25rem; }
+        .tip-content p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        /* Checklist */
+        .checklist { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; }
+        .checklist h3 { margin-bottom: 1.5rem; }
+        .check-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; margin-bottom: 0.75rem; cursor: pointer; transition: all 0.2s; }
+        .check-item:hover { background: rgba(0,0,0,0.3); }
+        .check-item.checked { opacity: 0.6; }
+        .check-box { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .check-item.checked .check-box { background: var(--success); border-color: var(--success); }
+        .check-item.checked .check-box::after { content: '✓'; color: white; font-weight: bold; }
+
+        /* CTA */
+        .cta { background: linear-gradient(135deg, var(--primary), #7C3AED); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .cta h2 { margin-bottom: 0.75rem; }
+        .cta p { opacity: 0.9; max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Hearing Guide</a>
+            <a href="https://unplugshearing.com" style="color: var(--primary); font-weight: 600; text-decoration: none;">Get Unplugs →</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Concert & Festival Hearing Safety</h1>
+        <p class="hero-sub">Live music is incredible. But at 100-120 dB, concerts can cause permanent hearing damage in minutes. Here's how to enjoy shows safely.</p>
+    </section>
+
+    <main class="content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">115 dB</div>
+                <div class="stat-label">Average near main stage</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">28 sec</div>
+                <div class="stat-label">Safe time at 115 dB</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">8+ hrs</div>
+                <div class="stat-label">With proper protection</div>
+            </div>
+        </div>
+
+        <section class="venue-sim">
+            <h2>🎸 Interactive Venue Map</h2>
+            <p class="venue-sim-sub">Click different zones to see sound levels and safe exposure times</p>
+            
+            <div class="venue-map">
+                <div class="stage">
+                    <div class="speakers">
+                        <span class="speaker">🔊</span>
+                        <span>STAGE</span>
+                        <span class="speaker">🔊</span>
+                    </div>
+                </div>
+                <div class="crowd-zones">
+                    <div class="zone zone-1 active" onclick="selectZone(this, 1)">
+                        <span class="zone-name">🔥 Front Row / Pit</span>
+                        <span class="zone-db">115-120 dB</span>
+                    </div>
+                    <div class="zone zone-2" onclick="selectZone(this, 2)">
+                        <span class="zone-name">🎵 Near Stage</span>
+                        <span class="zone-db">105-115 dB</span>
+                    </div>
+                    <div class="zone zone-3" onclick="selectZone(this, 3)">
+                        <span class="zone-name">👥 Mid-Crowd</span>
+                        <span class="zone-db">100-105 dB</span>
+                    </div>
+                    <div class="zone zone-4" onclick="selectZone(this, 4)">
+                        <span class="zone-name">🧘 Back / Sides</span>
+                        <span class="zone-db">90-100 dB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="zone-info" id="zoneInfo">
+                <div class="zone-info-title" id="zoneName">Front Row / Pit</div>
+                <div class="zone-info-db" id="zoneDb">115-120 dB</div>
+                <div class="zone-info-time">
+                    Safe time without protection: <span class="danger" id="zoneTime">< 30 seconds</span>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;" id="zoneDesc">
+                    Maximum intensity. Bass physically impacts your body. Without protection, permanent hearing damage can occur within seconds.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why Concerts Are So Dangerous</h2>
+            <p>Modern concert sound systems can produce sound levels comparable to jet engines. The difference? You're exposed for hours, not seconds.</p>
+            
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">The Math That Matters</h3>
+                <ul style="color: var(--text-muted); margin-left: 1.5rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>85 dB</strong> = 8 hours safe exposure</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>100 dB</strong> (typical concert) = 15 minutes safe</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>110 dB</strong> (near speakers) = 90 seconds safe</li>
+                    <li><strong>A 3-hour show at 105 dB</strong> = 36x your daily recommended noise dose</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Concert Hearing Protection Tips</h2>
+            <div class="tips-grid">
+                <div class="tip">
+                    <div class="tip-icon">🛡️</div>
+                    <div class="tip-content">
+                        <h4>Wear High-Fidelity Earplugs</h4>
+                        <p>Unlike foam plugs that muffle sound, musician's earplugs reduce volume evenly across frequencies. Music still sounds like music—just quieter and safer.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">📍</div>
+                    <div class="tip-content">
+                        <h4>Position Yourself Wisely</h4>
+                        <p>Sound levels drop significantly away from speakers. Mid-crowd often has the best sound quality anyway—balanced mix, less harsh peaks.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">⏸️</div>
+                    <div class="tip-content">
+                        <h4>Take Sound Breaks</h4>
+                        <p>Step outside or to a quiet area for 10-15 minutes every hour. This gives your hair cells time to recover from overstimulation.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">📱</div>
+                    <div class="tip-content">
+                        <h4>Use a Decibel Meter App</h4>
+                        <p>Apps like NIOSH SLM can give you a rough idea of sound levels. If it's consistently over 100 dB, protection is essential.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">⚠️</div>
+                    <div class="tip-content">
+                        <h4>Know the Warning Signs</h4>
+                        <p>If you experience ringing, muffled hearing, or ear pain during the show, your ears are being damaged. Get to a quieter area or insert protection immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta">
+            <h2>Hear Every Show for the Rest of Your Life</h2>
+            <p>Unplugs let you click between full protection and transparency mode when you need to talk. Never miss a moment, never damage your ears.</p>
+            <a href="https://unplugshearing.com" class="cta-btn">Get Unplugs →</a>
+        </div>
+
+        <section class="checklist">
+            <h3>📋 Concert Day Checklist</h3>
+            <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <span>Earplugs packed and easily accessible</span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <span>Extra pair of earplugs (in case of loss)</span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <span>Insert earplugs BEFORE entering venue</span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <span>Identify quieter zones for breaks</span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <span>Plan to position away from speaker stacks</span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <span>Set reminder for sound breaks every hour</span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <span>Stay hydrated (helps ear health)</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>The Morning After</h3>
+            <p style="color: var(--text-muted);">If you wake up with ringing ears or muffled hearing after a concert, you've experienced Temporary Threshold Shift (TTS). While hearing typically returns within 24-48 hours, <strong>this is a warning sign</strong>. Each occurrence causes cumulative damage that doesn't fully heal.</p>
+            <p style="margin-top: 1rem;"><a href="temporary-vs-permanent.html">Learn more about temporary vs. permanent hearing damage →</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Hearing Protection Superguide</a> · Educational content by <a href="https://unplugshearing.com">Unplugs</a></p>
+    </footer>
+
+    <script>
+        const zoneData = {
+            1: {
+                name: "Front Row / Pit",
+                db: "115-120 dB",
+                time: "< 30 seconds",
+                timeClass: "danger",
+                desc: "Maximum intensity. Bass physically impacts your body. Without protection, permanent hearing damage can occur within seconds."
+            },
+            2: {
+                name: "Near Stage",
+                db: "105-115 dB",
+                time: "1-5 minutes",
+                timeClass: "danger",
+                desc: "Still extremely loud. Great energy, but your ears are under serious stress. Protection is essential."
+            },
+            3: {
+                name: "Mid-Crowd",
+                db: "100-105 dB",
+                time: "5-15 minutes",
+                timeClass: "warning",
+                desc: "Often the sweet spot for sound quality—the mix is balanced here. Still too loud for extended exposure without protection."
+            },
+            4: {
+                name: "Back / Sides",
+                db: "90-100 dB",
+                time: "15-60 minutes",
+                timeClass: "warning",
+                desc: "Lower intensity, but still above safe levels for a full show. Good for taking breaks, but don't skip protection for long sets."
+            }
+        };
+
+        function selectZone(el, zone) {
+            document.querySelectorAll('.zone').forEach(z => z.classList.remove('active'));
+            el.classList.add('active');
+            
+            const data = zoneData[zone];
+            document.getElementById('zoneName').textContent = data.name;
+            document.getElementById('zoneDb').textContent = data.db;
+            document.getElementById('zoneTime').textContent = data.time;
+            document.getElementById('zoneTime').className = data.timeClass;
+            document.getElementById('zoneDesc').textContent = data.desc;
+        }
+
+        function toggleCheck(el) {
+            el.classList.toggle('checked');
+        }
+    </script>
+</body>
+</html>

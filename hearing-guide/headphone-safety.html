@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headphone & Earbud Safety: The 60/60 Rule | Hearing Guide</title>
+    <meta name="description" content="Your daily headphone habits might be damaging your hearing. Learn the 60/60 rule, safe listening volumes, and how to protect your ears while enjoying music.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366F1; --secondary: #0F172A; --accent: #22D3EE; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #F8FAFC; --text-muted: #94A3B8; --card: #1E293B; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); }
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        .rule-box { background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 20px; padding: 3rem; text-align: center; margin-bottom: 3rem; }
+        .rule-numbers { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+        .rule-num { background: rgba(255,255,255,0.2); padding: 1.5rem 2.5rem; border-radius: 16px; }
+        .rule-val { font-size: 4rem; font-weight: 900; }
+        .rule-label { font-size: 0.9rem; opacity: 0.9; }
+        .rule-desc { font-size: 1.1rem; opacity: 0.95; }
+        
+        .volume-checker { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .volume-slider { width: 100%; max-width: 400px; height: 12px; border-radius: 6px; -webkit-appearance: none; background: linear-gradient(90deg, var(--success), var(--warning), var(--danger)); margin: 2rem 0; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; background: white; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .volume-display { font-size: 3rem; font-weight: 900; }
+        .volume-display.safe { color: var(--success); }
+        .volume-display.warning { color: var(--warning); }
+        .volume-display.danger { color: var(--danger); }
+        .volume-info { margin-top: 1rem; color: var(--text-muted); }
+        
+        .section { margin-bottom: 3rem; }
+        .section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .section p { color: var(--text-muted); margin-bottom: 1rem; }
+        .card { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+        
+        .tips-grid { display: grid; gap: 1rem; }
+        .tip { display: flex; gap: 1rem; padding: 1.5rem; background: var(--card); border-radius: 12px; }
+        .tip-icon { font-size: 2rem; }
+        .tip-content h4 { margin-bottom: 0.25rem; }
+        .tip-content p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+        
+        .cta { background: linear-gradient(135deg, var(--primary), #7C3AED); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .cta h2 { margin-bottom: 0.75rem; }
+        .cta p { opacity: 0.9; max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+        
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Hearing Guide</a>
+            <a href="https://unplugshearing.com" style="color: var(--primary); font-weight: 600; text-decoration: none;">Get Unplugs →</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Headphone & Earbud Safety</h1>
+        <p class="hero-sub">1.1 billion young people are at risk of hearing loss from unsafe listening habits. Here's how to enjoy music without the damage.</p>
+    </section>
+
+    <main class="content">
+        <section class="rule-box">
+            <div class="rule-numbers">
+                <div class="rule-num">
+                    <div class="rule-val">60</div>
+                    <div class="rule-label">percent volume</div>
+                </div>
+                <div class="rule-num">
+                    <div class="rule-val">60</div>
+                    <div class="rule-label">minutes max</div>
+                </div>
+            </div>
+            <div class="rule-desc">The 60/60 Rule: Listen at no more than 60% volume for no more than 60 minutes, then take a break.</div>
+        </section>
+
+        <section class="volume-checker">
+            <h2>🎧 Volume Safety Checker</h2>
+            <p style="color: var(--text-muted);">Where do you usually set your volume?</p>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50" oninput="checkVolume(this.value)">
+            <div class="volume-display safe" id="volumeDisplay">50%</div>
+            <div class="volume-info" id="volumeInfo">At this volume, you can listen for about 8 hours safely.</div>
+        </section>
+
+        <section class="section">
+            <h2>Why Headphones Are Risky</h2>
+            <div class="card">
+                <p><strong>Sound goes directly into your ear canal.</strong> Unlike speakers where sound disperses, headphones deliver concentrated audio straight to your eardrum.</p>
+                <p style="margin-top: 1rem;"><strong>At max volume, many devices hit 100+ dB</strong>—equivalent to a loud concert. At that level, you have 15 minutes before damage begins.</p>
+                <p style="margin-top: 1rem;"><strong>Earbuds are especially risky</strong> because they sit closer to your eardrum than over-ear headphones.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Safe Listening Tips</h2>
+            <div class="tips-grid">
+                <div class="tip">
+                    <div class="tip-icon">📱</div>
+                    <div class="tip-content">
+                        <h4>Use Your Phone's Volume Limiter</h4>
+                        <p>iOS and Android both have settings to cap maximum volume. Set it to 75% and you won't accidentally blast your ears.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">🔇</div>
+                    <div class="tip-content">
+                        <h4>Use Noise-Canceling Headphones</h4>
+                        <p>When outside noise is blocked, you don't need to turn up the volume to hear your music. ANC can actually protect your hearing.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">💬</div>
+                    <div class="tip-content">
+                        <h4>The Conversation Test</h4>
+                        <p>If you can't hear someone talking at arm's length while wearing headphones, your volume is too high.</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">⏰</div>
+                    <div class="tip-content">
+                        <h4>Set a Timer</h4>
+                        <p>After 60 minutes of listening, take a 10-minute break. Your ears need recovery time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta">
+            <h2>Protect Your Hearing Everywhere</h2>
+            <p>Safe headphone habits at home, hearing protection at concerts. Unplugs keep your ears safe without compromising sound quality.</p>
+            <a href="https://unplugshearing.com" class="cta-btn">Get Unplugs →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Hearing Protection Superguide</a> · Educational content by <a href="https://unplugshearing.com">Unplugs</a></p>
+    </footer>
+
+    <script>
+        function checkVolume(vol) {
+            const display = document.getElementById('volumeDisplay');
+            const info = document.getElementById('volumeInfo');
+            display.textContent = vol + '%';
+            
+            if (vol <= 60) {
+                display.className = 'volume-display safe';
+                info.textContent = 'Safe zone! You can listen for extended periods at this volume.';
+            } else if (vol <= 80) {
+                display.className = 'volume-display warning';
+                const hours = Math.max(1, Math.round(8 / Math.pow(2, (vol - 60) / 15)));
+                info.textContent = `Caution: Limit listening to about ${hours} hour${hours > 1 ? 's' : ''} at this volume.`;
+            } else {
+                display.className = 'volume-display danger';
+                info.textContent = 'Danger zone! This volume can cause hearing damage in under an hour. Turn it down.';
+            }
+        }
+    </script>
+</body>
+</html>

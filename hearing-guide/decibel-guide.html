@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decibel Levels Chart: How Loud is Too Loud? | Hearing Guide</title>
+    <meta name="description" content="Interactive decibel chart showing common sound levels from whispers to jet engines. Learn exactly how long you can safely listen at each volume before hearing damage occurs.">
+    <link rel="canonical" href="https://unplugshearing.com/learn/decibel-guide">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --secondary: #0F172A;
+            --accent: #22D3EE;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --card: #1E293B;
+            --border: rgba(255,255,255,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent); }
+        
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { color: var(--text); }
+        
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        .intro-box { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--primary); }
+        .intro-box h2 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .intro-box p { color: var(--text-muted); }
+        
+        /* Interactive Decibel Chart */
+        .db-explorer { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; }
+        .db-explorer h2 { text-align: center; margin-bottom: 0.5rem; }
+        .db-explorer-sub { text-align: center; color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+        
+        .db-slider-container { padding: 1rem 0 2rem; }
+        .db-slider { width: 100%; height: 16px; border-radius: 8px; -webkit-appearance: none; background: linear-gradient(90deg, var(--success) 0%, var(--success) 30%, var(--warning) 50%, var(--danger) 75%, #7f1d1d 100%); cursor: pointer; }
+        .db-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 32px; height: 32px; background: white; border-radius: 50%; cursor: grab; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        
+        .db-display { text-align: center; margin: 2rem 0; }
+        .db-value { font-size: 5rem; font-weight: 900; line-height: 1; }
+        .db-value.safe { color: var(--success); }
+        .db-value.caution { color: var(--warning); }
+        .db-value.danger { color: var(--danger); }
+        .db-label { font-size: 1.25rem; margin-top: 0.5rem; }
+        
+        .db-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+        .db-info-card { background: rgba(0,0,0,0.2); padding: 1.25rem; border-radius: 12px; text-align: center; }
+        .db-info-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .db-info-value { font-size: 1.5rem; font-weight: 700; }
+        .db-info-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+        
+        .db-comparison { margin-top: 2rem; padding: 1.5rem; background: rgba(0,0,0,0.2); border-radius: 12px; }
+        .db-comparison h4 { font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; letter-spacing: 0.05em; }
+        .comparison-example { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+        .comparison-example:last-child { border-bottom: none; }
+        .comparison-icon { font-size: 1.5rem; width: 40px; }
+        .comparison-name { flex: 1; }
+        .comparison-db { font-weight: 700; }
+        
+        /* Common Sounds Table */
+        .sounds-section { margin-bottom: 3rem; }
+        .sounds-section h2 { font-size: 1.75rem; margin-bottom: 1.5rem; }
+        
+        .sound-category { margin-bottom: 2rem; }
+        .category-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; padding: 0.75rem 1rem; border-radius: 8px; }
+        .category-header.safe { background: rgba(16,185,129,0.15); color: var(--success); }
+        .category-header.caution { background: rgba(245,158,11,0.15); color: var(--warning); }
+        .category-header.danger { background: rgba(239,68,68,0.15); color: var(--danger); }
+        .category-header h3 { font-size: 1rem; margin: 0; }
+        
+        .sound-list { display: grid; gap: 0.75rem; }
+        .sound-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--card); border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+        .sound-item:hover { background: rgba(99,102,241,0.1); transform: translateX(4px); }
+        .sound-icon { font-size: 1.5rem; width: 40px; text-align: center; }
+        .sound-info { flex: 1; }
+        .sound-name { font-weight: 600; }
+        .sound-context { font-size: 0.85rem; color: var(--text-muted); }
+        .sound-db { font-weight: 700; font-size: 1.1rem; }
+        .sound-time { font-size: 0.8rem; color: var(--text-muted); }
+        
+        /* The Math Section */
+        .math-section { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; }
+        .math-section h2 { margin-bottom: 1rem; }
+        .formula-box { background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px; text-align: center; margin: 1.5rem 0; }
+        .formula { font-size: 1.25rem; font-family: monospace; color: var(--accent); }
+        .formula-explain { margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); }
+        
+        .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .example-card { padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 10px; text-align: center; }
+        .example-db { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .example-time { font-size: 1.1rem; font-weight: 600; margin-top: 0.25rem; }
+        .example-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+        
+        /* Protection CTA */
+        .protection-cta { background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%); border-radius: 16px; padding: 2.5rem; text-align: center; margin-bottom: 3rem; }
+        .protection-cta h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .protection-cta p { opacity: 0.9; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        
+        /* Key Takeaways */
+        .takeaways { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; }
+        .takeaways h2 { margin-bottom: 1.5rem; }
+        .takeaway-list { list-style: none; }
+        .takeaway-list li { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+        .takeaway-list li:last-child { border-bottom: none; }
+        .takeaway-check { color: var(--success); font-size: 1.25rem; }
+        
+        /* Related Articles */
+        .related { margin-bottom: 3rem; }
+        .related h2 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .related-card { background: var(--card); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: var(--text); transition: all 0.2s; border: 1px solid var(--border); }
+        .related-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .related-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+        .related-card p { font-size: 0.85rem; color: var(--text-muted); }
+        
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
+        
+        @media (max-width: 768px) {
+            .db-info-grid { grid-template-columns: 1fr; }
+            .db-value { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Hearing Guide</a>
+            <a href="https://unplugshearing.com" style="color: var(--primary); font-weight: 600; text-decoration: none;">Get Unplugs →</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Decibel Levels: How Loud is Too Loud?</h1>
+        <p class="hero-sub">The complete interactive guide to understanding sound levels, safe exposure times, and when you need hearing protection.</p>
+        <div style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(99,102,241,0.15); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem;">
+            <span style="color: var(--success);">✓</span>
+            <span>Reviewed by <strong>Dr. Natan Bauman, Ed.D., FAAA</strong> · 50+ years in audiology</span>
+        </div>
+    </section>
+
+    <main class="content">
+        <div class="intro-box">
+            <h2>The 30-Second Version</h2>
+            <p><strong>85 decibels is the threshold where hearing damage begins.</strong> At 85 dB, you have 8 hours of safe exposure. Every 3 dB increase cuts that time in half. At 100 dB (a typical concert), you have just 15 minutes before permanent damage can occur.</p>
+        </div>
+
+        <section class="db-explorer">
+            <h2>🎚️ Interactive Decibel Explorer</h2>
+            <p class="db-explorer-sub">Drag the slider to explore different sound levels</p>
+            
+            <div class="db-slider-container">
+                <input type="range" class="db-slider" id="dbSlider" min="30" max="140" value="85">
+            </div>
+            
+            <div class="db-display">
+                <div class="db-value safe" id="dbValue">85</div>
+                <div class="db-label" id="dbLabel">dB - City Traffic</div>
+            </div>
+            
+            <div class="db-info-grid">
+                <div class="db-info-card">
+                    <div class="db-info-icon" id="riskIcon">⚠️</div>
+                    <div class="db-info-value" id="riskLevel">Moderate</div>
+                    <div class="db-info-label">Risk Level</div>
+                </div>
+                <div class="db-info-card">
+                    <div class="db-info-icon">⏱️</div>
+                    <div class="db-info-value" id="safeTime">8 hours</div>
+                    <div class="db-info-label">Safe Exposure Time</div>
+                </div>
+                <div class="db-info-card">
+                    <div class="db-info-icon" id="protectionIcon">🛡️</div>
+                    <div class="db-info-value" id="protectionNeed">Recommended</div>
+                    <div class="db-info-label">Protection Needed</div>
+                </div>
+            </div>
+            
+            <div class="db-comparison">
+                <h4>At this volume, it's like...</h4>
+                <div id="comparisonList"></div>
+            </div>
+        </section>
+
+        <section class="sounds-section">
+            <h2>Common Sound Levels Reference</h2>
+            
+            <div class="sound-category">
+                <div class="category-header safe">
+                    <span>✓</span>
+                    <h3>Safe Zone (Under 85 dB) - No time limit</h3>
+                </div>
+                <div class="sound-list">
+                    <div class="sound-item" onclick="setDb(30)">
+                        <span class="sound-icon">🌙</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Whisper</div>
+                            <div class="sound-context">Quiet library</div>
+                        </div>
+                        <div><div class="sound-db">30 dB</div><div class="sound-time">No limit</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(50)">
+                        <span class="sound-icon">🏠</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Quiet Home</div>
+                            <div class="sound-context">Normal conversation at home</div>
+                        </div>
+                        <div><div class="sound-db">50 dB</div><div class="sound-time">No limit</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(60)">
+                        <span class="sound-icon">💬</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Normal Conversation</div>
+                            <div class="sound-context">Face-to-face talking</div>
+                        </div>
+                        <div><div class="sound-db">60 dB</div><div class="sound-time">No limit</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(70)">
+                        <span class="sound-icon">🍽️</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Busy Restaurant</div>
+                            <div class="sound-context">Background chatter, music</div>
+                        </div>
+                        <div><div class="sound-db">70 dB</div><div class="sound-time">No limit</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(80)">
+                        <span class="sound-icon">🚗</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Heavy Traffic</div>
+                            <div class="sound-context">City street, inside car on highway</div>
+                        </div>
+                        <div><div class="sound-db">80 dB</div><div class="sound-time">No limit</div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sound-category">
+                <div class="category-header caution">
+                    <span>⚠️</span>
+                    <h3>Caution Zone (85-100 dB) - Time limits apply</h3>
+                </div>
+                <div class="sound-list">
+                    <div class="sound-item" onclick="setDb(85)">
+                        <span class="sound-icon">🚌</span>
+                        <div class="sound-info">
+                            <div class="sound-name">City Bus / Subway</div>
+                            <div class="sound-context">Daily commute exposure</div>
+                        </div>
+                        <div><div class="sound-db">85 dB</div><div class="sound-time">8 hours</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(88)">
+                        <span class="sound-icon">🏭</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Factory / Workshop</div>
+                            <div class="sound-context">Industrial machinery</div>
+                        </div>
+                        <div><div class="sound-db">88 dB</div><div class="sound-time">4 hours</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(91)">
+                        <span class="sound-icon">🏍️</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Motorcycle</div>
+                            <div class="sound-context">Riding without earplugs</div>
+                        </div>
+                        <div><div class="sound-db">91 dB</div><div class="sound-time">2 hours</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(94)">
+                        <span class="sound-icon">🌿</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Lawn Mower</div>
+                            <div class="sound-context">Gas-powered yard work</div>
+                        </div>
+                        <div><div class="sound-db">94 dB</div><div class="sound-time">1 hour</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(97)">
+                        <span class="sound-icon">🎧</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Headphones at Max</div>
+                            <div class="sound-context">Phone volume at 100%</div>
+                        </div>
+                        <div><div class="sound-db">97 dB</div><div class="sound-time">30 min</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(100)">
+                        <span class="sound-icon">🎵</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Loud Bar / Club</div>
+                            <div class="sound-context">Typical nightlife venue</div>
+                        </div>
+                        <div><div class="sound-db">100 dB</div><div class="sound-time">15 min</div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sound-category">
+                <div class="category-header danger">
+                    <span>🚨</span>
+                    <h3>Danger Zone (Over 100 dB) - Immediate risk</h3>
+                </div>
+                <div class="sound-list">
+                    <div class="sound-item" onclick="setDb(105)">
+                        <span class="sound-icon">🎸</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Concert (Mid-Crowd)</div>
+                            <div class="sound-context">Average live show level</div>
+                        </div>
+                        <div><div class="sound-db">105 dB</div><div class="sound-time">5 min</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(110)">
+                        <span class="sound-icon">🎤</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Concert (Near Speakers)</div>
+                            <div class="sound-context">Front row, near stage</div>
+                        </div>
+                        <div><div class="sound-db">110 dB</div><div class="sound-time">1.5 min</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(115)">
+                        <span class="sound-icon">🔊</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Festival Main Stage</div>
+                            <div class="sound-context">EDM bass drops, peak moments</div>
+                        </div>
+                        <div><div class="sound-db">115 dB</div><div class="sound-time">28 sec</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(120)">
+                        <span class="sound-icon">🚨</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Ambulance Siren</div>
+                            <div class="sound-context">Emergency vehicle passing</div>
+                        </div>
+                        <div><div class="sound-db">120 dB</div><div class="sound-time">9 sec</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(130)">
+                        <span class="sound-icon">✈️</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Jet Engine</div>
+                            <div class="sound-context">Standing near aircraft</div>
+                        </div>
+                        <div><div class="sound-db">130 dB</div><div class="sound-time">< 1 sec</div></div>
+                    </div>
+                    <div class="sound-item" onclick="setDb(140)">
+                        <span class="sound-icon">💥</span>
+                        <div class="sound-info">
+                            <div class="sound-name">Gunshot / Fireworks</div>
+                            <div class="sound-context">Immediate acoustic trauma risk</div>
+                        </div>
+                        <div><div class="sound-db">140 dB</div><div class="sound-time">Instant damage</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="math-section">
+            <h2>The Math: Understanding the 3 dB Rule</h2>
+            <p>Decibels use a logarithmic scale. That means the numbers work differently than you might expect:</p>
+            
+            <div class="formula-box">
+                <div class="formula">Every 3 dB increase = 2x the sound energy = ½ the safe time</div>
+                <div class="formula-explain">This is called the "3 dB exchange rate" and it's the foundation of hearing safety</div>
+            </div>
+            
+            <p>Starting from 85 dB (8 hours safe exposure):</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-db">85 dB</div>
+                    <div class="example-time">8 hours</div>
+                    <div class="example-note">Baseline threshold</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-db">88 dB</div>
+                    <div class="example-time">4 hours</div>
+                    <div class="example-note">+3 dB, half the time</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-db">91 dB</div>
+                    <div class="example-time">2 hours</div>
+                    <div class="example-note">+6 dB total</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-db">94 dB</div>
+                    <div class="example-time">1 hour</div>
+                    <div class="example-note">+9 dB total</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-db">100 dB</div>
+                    <div class="example-time">15 min</div>
+                    <div class="example-note">Typical loud venue</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-db">110 dB</div>
+                    <div class="example-time">~90 sec</div>
+                    <div class="example-note">Concert front row</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="protection-cta">
+            <h2>Protection Adds Hours to Your Safe Time</h2>
+            <p>Unplugs reduce sound by 25 dB. At a 110 dB concert, that brings you down to 85 dB—giving you 8 hours of safe listening instead of 90 seconds.</p>
+            <a href="https://unplugshearing.com" class="cta-btn">Get Unplugs →</a>
+        </div>
+
+        <!-- Expert Insight -->
+        <div style="background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--primary);">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">👨‍⚕️</div>
+                <div>
+                    <blockquote style="font-size: 1.1rem; font-style: italic; margin-bottom: 1rem; line-height: 1.6;">
+                        "The auditory system is remarkably sensitive — and remarkably fragile. What we've learned in 50 years of clinical practice is that prevention is infinitely more effective than treatment. Once hair cells are damaged, they don't regenerate. The numbers on this page aren't just theory — they're the threshold between hearing clearly for life and needing hearing aids at 40."
+                    </blockquote>
+                    <div style="font-weight: 600;">Dr. Natan Bauman, Ed.D., FAAA</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Former Director, Yale Hearing Clinic · Inventor of the RIC hearing aid</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="takeaways">
+            <h2>Key Takeaways</h2>
+            <ul class="takeaway-list">
+                <li>
+                    <span class="takeaway-check">✓</span>
+                    <div><strong>85 dB is the danger threshold.</strong> Below this, you can listen indefinitely. Above it, the clock starts ticking.</div>
+                </li>
+                <li>
+                    <span class="takeaway-check">✓</span>
+                    <div><strong>Every 3 dB doubles the damage rate.</strong> A 100 dB concert is 32x more damaging than 85 dB traffic.</div>
+                </li>
+                <li>
+                    <span class="takeaway-check">✓</span>
+                    <div><strong>Time matters as much as volume.</strong> 8 hours at 85 dB equals 15 minutes at 100 dB in terms of hearing damage.</div>
+                </li>
+                <li>
+                    <span class="takeaway-check">✓</span>
+                    <div><strong>Protection works mathematically.</strong> 25 dB reduction at a 110 dB concert gives you 8+ hours instead of 90 seconds.</div>
+                </li>
+                <li>
+                    <span class="takeaway-check">✓</span>
+                    <div><strong>Damage is cumulative and permanent.</strong> Your ears don't "recover" from noise damage—hair cells that die stay dead.</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="related">
+            <h2>Continue Learning</h2>
+            <div class="related-grid">
+                <a href="how-hearing-works.html" class="related-card">
+                    <h3>👂 How Hearing Works</h3>
+                    <p>Understand the delicate system that makes hearing possible</p>
+                </a>
+                <a href="85-decibel-rule.html" class="related-card">
+                    <h3>📏 The 85 Decibel Rule</h3>
+                    <p>Deep dive into the safety threshold and exposure limits</p>
+                </a>
+                <a href="concert-hearing-safety.html" class="related-card">
+                    <h3>🎸 Concert Hearing Safety</h3>
+                    <p>How to enjoy live music without damaging your ears</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Hearing Protection Superguide</a> · Educational content by <a href="https://unplugshearing.com">Unplugs</a></p>
+        <p style="margin-top: 0.5rem;">Not medical advice. Consult an audiologist for hearing concerns.</p>
+    </footer>
+
+    <script>
+        const soundData = {
+            30: { name: "Whisper", examples: ["Quiet library", "Leaves rustling"], risk: "None", protection: "Not needed", icon: "✓" },
+            40: { name: "Quiet Room", examples: ["Home at night", "Birds chirping"], risk: "None", protection: "Not needed", icon: "✓" },
+            50: { name: "Light Rain", examples: ["Refrigerator hum", "Quiet suburb"], risk: "None", protection: "Not needed", icon: "✓" },
+            60: { name: "Normal Conversation", examples: ["Office environment", "Background music"], risk: "None", protection: "Not needed", icon: "✓" },
+            70: { name: "Shower / Vacuum", examples: ["Busy restaurant", "TV at normal volume"], risk: "None", protection: "Not needed", icon: "✓" },
+            80: { name: "City Traffic", examples: ["Alarm clock", "Garbage disposal"], risk: "Low", protection: "Not needed", icon: "✓" },
+            85: { name: "Heavy Traffic", examples: ["Blender", "Busy city street"], risk: "Moderate", protection: "Recommended for extended exposure", icon: "⚠️" },
+            88: { name: "Subway Train", examples: ["Power tools", "Factory floor"], risk: "Moderate", protection: "Recommended", icon: "⚠️" },
+            91: { name: "Motorcycle", examples: ["Belt sander", "Loud restaurant"], risk: "High", protection: "Recommended", icon: "⚠️" },
+            94: { name: "Lawn Mower", examples: ["Chainsaw", "Snowmobile"], risk: "High", protection: "Required", icon: "⚠️" },
+            97: { name: "Loud Headphones", examples: ["Approaching subway", "Motorcycle at speed"], risk: "High", protection: "Required", icon: "🚨" },
+            100: { name: "Club / Loud Bar", examples: ["Jackhammer nearby", "Snowmobile"], risk: "Very High", protection: "Required", icon: "🚨" },
+            105: { name: "Concert (Mid-Crowd)", examples: ["Helicopter nearby", "Loud sporting event"], risk: "Very High", protection: "Required", icon: "🚨" },
+            110: { name: "Concert (Front Row)", examples: ["Chainsaw at close range", "Car horn close up"], risk: "Severe", protection: "Essential", icon: "🚨" },
+            115: { name: "Festival Bass Drop", examples: ["Emergency siren close", "Rock concert peak"], risk: "Severe", protection: "Essential", icon: "🚨" },
+            120: { name: "Ambulance Siren", examples: ["Thunder nearby", "Jet ski at close range"], risk: "Extreme", protection: "Essential", icon: "🚨" },
+            125: { name: "Air Raid Siren", examples: ["Balloon popping at ear", "Firecracker"], risk: "Extreme", protection: "Essential", icon: "💀" },
+            130: { name: "Jet Engine", examples: ["Stock car race", "Threshold of pain"], risk: "Extreme", protection: "Double protection", icon: "💀" },
+            140: { name: "Gunshot / Fireworks", examples: ["Immediate damage zone", "Acoustic trauma risk"], risk: "Instant Damage", protection: "Essential - immediate harm", icon: "💀" }
+        };
+
+        function getSafeTime(db) {
+            if (db < 85) return "No limit";
+            const minutes = 480 / Math.pow(2, (db - 85) / 3);
+            if (minutes >= 60) return Math.round(minutes / 60) + " hours";
+            if (minutes >= 1) return Math.round(minutes) + " min";
+            if (minutes * 60 >= 1) return Math.round(minutes * 60) + " sec";
+            return "Instant damage";
+        }
+
+        function getClosestData(db) {
+            const keys = Object.keys(soundData).map(Number).sort((a, b) => a - b);
+            let closest = keys[0];
+            for (let key of keys) {
+                if (Math.abs(key - db) < Math.abs(closest - db)) closest = key;
+            }
+            return soundData[closest];
+        }
+
+        function updateDisplay(db) {
+            const data = getClosestData(db);
+            const valueEl = document.getElementById('dbValue');
+            const labelEl = document.getElementById('dbLabel');
+            
+            valueEl.textContent = db;
+            labelEl.textContent = `dB - ${data.name}`;
+            
+            valueEl.className = 'db-value ' + (db < 85 ? 'safe' : db < 100 ? 'caution' : 'danger');
+            
+            document.getElementById('riskIcon').textContent = data.icon;
+            document.getElementById('riskLevel').textContent = data.risk;
+            document.getElementById('safeTime').textContent = getSafeTime(db);
+            document.getElementById('protectionNeed').textContent = data.protection;
+            document.getElementById('protectionIcon').textContent = db < 85 ? '✓' : '🛡️';
+            
+            const compList = document.getElementById('comparisonList');
+            compList.innerHTML = data.examples.map(ex => `
+                <div class="comparison-example">
+                    <span class="comparison-icon">${data.icon}</span>
+                    <span class="comparison-name">${ex}</span>
+                </div>
+            `).join('');
+        }
+
+        function setDb(db) {
+            document.getElementById('dbSlider').value = db;
+            updateDisplay(db);
+        }
+
+        document.getElementById('dbSlider').addEventListener('input', (e) => {
+            updateDisplay(parseInt(e.target.value));
+        });
+
+        // Initialize
+        updateDisplay(85);
+    </script>
+</body>
+</html>

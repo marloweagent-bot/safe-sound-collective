@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Hearing Works: The Journey of Sound | Hearing Guide</title>
+    <meta name="description" content="Follow a sound wave from your ear canal to your brain. Understand the delicate system that makes hearing possible—and why protecting it matters.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366F1; --secondary: #0F172A; --accent: #22D3EE; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #F8FAFC; --text-muted: #94A3B8; --card: #1E293B; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); }
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(34,211,238,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        .journey { margin-bottom: 3rem; }
+        .journey-step { display: flex; gap: 2rem; margin-bottom: 2rem; padding: 2rem; background: var(--card); border-radius: 16px; align-items: flex-start; }
+        .step-number { width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; flex-shrink: 0; }
+        .step-content h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .step-content p { color: var(--text-muted); }
+        .step-icon { font-size: 3rem; margin-bottom: 1rem; }
+        
+        .hair-cell-demo { background: var(--card); border-radius: 20px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .hair-cells { display: flex; justify-content: center; gap: 8px; margin: 2rem 0; }
+        .hair-cell { width: 12px; height: 60px; background: linear-gradient(180deg, var(--success), #059669); border-radius: 6px 6px 0 0; transition: all 0.3s; position: relative; }
+        .hair-cell::before { content: ''; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: 8px; height: 15px; background: var(--success); border-radius: 4px; transition: all 0.3s; }
+        .hair-cell.damaged { height: 25px; background: linear-gradient(180deg, var(--danger), #B91C1C); opacity: 0.5; }
+        .hair-cell.damaged::before { display: none; }
+        .demo-controls { display: flex; gap: 1rem; justify-content: center; }
+        .demo-btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .demo-btn.damage { background: var(--danger); color: white; }
+        .demo-btn.reset { background: var(--success); color: white; }
+        .cell-count { margin-top: 1rem; font-size: 1.25rem; font-weight: 700; }
+        
+        .fact-box { background: rgba(99,102,241,0.1); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
+        .warning-box { background: rgba(239,68,68,0.1); border-left: 4px solid var(--danger); padding: 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
+        
+        .cta { background: linear-gradient(135deg, var(--primary), #7C3AED); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .cta h2 { margin-bottom: 0.75rem; }
+        .cta p { opacity: 0.9; max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+        
+        .footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+        
+        @media (max-width: 600px) { .journey-step { flex-direction: column; gap: 1rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Hearing Guide</a>
+            <a href="https://unplugshearing.com" style="color: var(--primary); font-weight: 600; text-decoration: none;">Get Unplugs →</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>How Hearing Works: The Journey of Sound</h1>
+        <p class="hero-sub">From sound wave to brain signal in milliseconds. Understanding this system is the first step to protecting it.</p>
+    </section>
+
+    <main class="content">
+        <section class="journey">
+            <div class="journey-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-icon">🔊</div>
+                    <h3>Sound Enters Your Ear Canal</h3>
+                    <p>Sound waves—vibrations in the air—are collected by your outer ear (the visible part) and funneled down the ear canal toward your eardrum. The shape of your ear actually helps you locate where sounds come from.</p>
+                </div>
+            </div>
+            
+            <div class="journey-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-icon">🥁</div>
+                    <h3>The Eardrum Vibrates</h3>
+                    <p>When sound waves hit your eardrum (tympanic membrane), it vibrates like a drum. These tiny vibrations are the beginning of converting sound into something your brain can understand.</p>
+                </div>
+            </div>
+            
+            <div class="journey-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-icon">🦴</div>
+                    <h3>Three Tiny Bones Amplify Sound</h3>
+                    <p>The hammer, anvil, and stirrup (the smallest bones in your body) amplify the eardrum's vibrations by about 20x. They transmit this amplified signal to the cochlea—your inner ear.</p>
+                </div>
+            </div>
+            
+            <div class="journey-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-icon">🐚</div>
+                    <h3>The Cochlea Converts to Electrical Signals</h3>
+                    <p>The snail-shaped cochlea is filled with fluid and lined with thousands of microscopic hair cells. When the fluid moves, these hair cells bend and create electrical signals. Different frequencies bend different parts of the cochlea—this is how we distinguish pitch.</p>
+                </div>
+            </div>
+            
+            <div class="journey-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <div class="step-icon">🧠</div>
+                    <h3>Your Brain Interprets the Sound</h3>
+                    <p>The electrical signals travel via the auditory nerve to your brain, which interprets them as music, speech, alarms, or whatever you're hearing. This entire process takes milliseconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hair-cell-demo">
+            <h2>🔬 Hair Cell Damage Demonstration</h2>
+            <p style="color: var(--text-muted);">You're born with about 16,000 hair cells per ear. Click to see what happens with noise damage.</p>
+            
+            <div class="hair-cells" id="hairCells"></div>
+            
+            <div class="cell-count">Hair Cells Remaining: <span id="cellCount">100</span>%</div>
+            
+            <div class="demo-controls">
+                <button class="demo-btn damage" onclick="damageHairCells()">💥 Loud Concert</button>
+                <button class="demo-btn reset" onclick="resetHairCells()">↺ Reset Demo</button>
+            </div>
+            
+            <div class="warning-box" style="margin-top: 2rem; text-align: left;">
+                <strong>⚠️ Critical:</strong> Unlike this demo, real hair cells NEVER regenerate. Once they're damaged, they're gone forever. This is why hearing loss from noise is permanent.
+            </div>
+        </section>
+
+        <div class="fact-box">
+            <strong>💡 Did You Know?</strong> By the time you notice hearing loss, you've already lost 30-50% of your hair cells. The damage accumulates silently before symptoms appear.
+        </div>
+
+        <div class="cta">
+            <h2>Protect the System</h2>
+            <p>Understanding how hearing works makes one thing clear: prevention is everything. Unplugs reduce harmful sound levels while preserving audio quality.</p>
+            <a href="https://unplugshearing.com" class="cta-btn">Get Unplugs →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Part of the <a href="index.html">Hearing Protection Superguide</a> · Educational content by <a href="https://unplugshearing.com">Unplugs</a></p>
+    </footer>
+
+    <script>
+        let cellHealth = [];
+        const totalCells = 50;
+        
+        function initHairCells() {
+            const container = document.getElementById('hairCells');
+            container.innerHTML = '';
+            cellHealth = [];
+            for (let i = 0; i < totalCells; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'hair-cell';
+                container.appendChild(cell);
+                cellHealth.push(true);
+            }
+            updateCount();
+        }
+        
+        function damageHairCells() {
+            const cells = document.querySelectorAll('.hair-cell');
+            const healthyIndices = cellHealth.map((h, i) => h ? i : -1).filter(i => i >= 0);
+            const damageCount = Math.min(Math.floor(Math.random() * 8) + 3, healthyIndices.length);
+            
+            for (let i = 0; i < damageCount; i++) {
+                const randIdx = Math.floor(Math.random() * healthyIndices.length);
+                const cellIdx = healthyIndices[randIdx];
+                cells[cellIdx].classList.add('damaged');
+                cellHealth[cellIdx] = false;
+                healthyIndices.splice(randIdx, 1);
+            }
+            updateCount();
+        }
+        
+        function resetHairCells() {
+            initHairCells();
+        }
+        
+        function updateCount() {
+            const healthy = cellHealth.filter(h => h).length;
+            document.getElementById('cellCount').textContent = Math.round((healthy / totalCells) * 100);
+        }
+        
+        initHairCells();
+    </script>
+</body>
+</html>
