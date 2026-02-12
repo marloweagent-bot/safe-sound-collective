@@ -3,20 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kids-hearing-protection | Hearing Guide</title>
+    <title>Children's Hearing Protection Guide: Keep Kids' Ears Safe | Hearing Guide</title>
+    <meta name="description" content="Complete guide to protecting children's hearing. Learn safe headphone volumes, when kids need ear protection, and how to teach hearing health habits early.">
+    <meta name="keywords" content="children hearing protection, kids earplugs, safe headphone volume children, protect kids hearing, child hearing damage">
+    <link rel="canonical" href="https://unplugshearing.com/learn/kids-hearing-protection">
+    <meta property="og:title" content="Children's Hearing Protection Guide | Hearing Guide">
+    <meta property="og:description" content="Protect your child's hearing from day one. Age-appropriate guidance for parents.">
+    <meta property="og:type" content="article">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #6366F1; --secondary: #0F172A; --accent: #22D3EE; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #F8FAFC; --text-muted: #94A3B8; --card: #1E293B; --border: rgba(255,255,255,0.1); }
+        :root {
+            --primary: #6366F1;
+            --secondary: #0F172A;
+            --accent: #22D3EE;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --card: #1E293B;
+            --border: rgba(255,255,255,0.1);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; text-align: center; padding: 4rem 2rem; }
-        h1 { margin-bottom: 1rem; }
-        p { color: var(--text-muted); margin-bottom: 2rem; }
-        a { color: var(--primary); }
+        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); font-size: 0.9rem; }
+
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .alert-box { background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(239,68,68,0.1)); border: 1px solid rgba(245,158,11,0.3); border-radius: 16px; padding: 1.5rem; margin-bottom: 3rem; }
+        .alert-box h3 { color: var(--warning); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .alert-box p { color: var(--text-muted); margin: 0; }
+        .alert-box strong { color: var(--text); }
+
+        section { margin-bottom: 3rem; }
+        section h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; }
+        section h3 { font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: var(--accent); }
+        section p { color: var(--text-muted); margin-bottom: 1rem; }
+        section ul { color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem; }
+        section li { margin-bottom: 0.5rem; }
+
+        .age-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .age-card { background: var(--card); border-radius: 16px; padding: 1.5rem; border-top: 4px solid var(--primary); }
+        .age-card h4 { font-size: 1.1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .age-card .age-range { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem; }
+        .age-card ul { font-size: 0.9rem; padding-left: 1.25rem; margin: 0; }
+        .age-card li { margin-bottom: 0.5rem; }
+
+        .volume-guide { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .volume-visual { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; }
+        .volume-meter { height: 40px; background: linear-gradient(90deg, var(--success) 0%, var(--success) 50%, var(--warning) 70%, var(--danger) 100%); border-radius: 20px; position: relative; margin-bottom: 1rem; }
+        .volume-marker { position: absolute; top: -30px; font-size: 0.8rem; font-weight: 600; }
+        .volume-marker.safe { left: 25%; color: var(--success); }
+        .volume-marker.limit { left: 50%; color: var(--warning); }
+        .volume-marker.danger { left: 75%; color: var(--danger); }
+        .volume-labels { display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.85rem; }
+        .volume-rule { background: rgba(16,185,129,0.2); border-left: 4px solid var(--success); padding: 1rem; border-radius: 0 8px 8px 0; }
+        .volume-rule strong { color: var(--success); }
+
+        .situations { display: grid; gap: 1rem; margin: 2rem 0; }
+        .situation { background: var(--card); border-radius: 12px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .situation-icon { font-size: 2rem; flex-shrink: 0; }
+        .situation-content h4 { margin-bottom: 0.25rem; }
+        .situation-content p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+        .situation-db { background: var(--warning); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-top: 0.5rem; display: inline-block; }
+        .situation.danger .situation-db { background: var(--danger); }
+        .situation.safe .situation-db { background: var(--success); }
+
+        .teaching-tips { background: linear-gradient(135deg, var(--card), rgba(99,102,241,0.1)); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .tip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .teaching-tip { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; }
+        .teaching-tip h4 { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .teaching-tip p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        .product-guide { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .product-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .product-type { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; text-align: center; }
+        .product-type h4 { margin-bottom: 0.5rem; }
+        .product-type p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+        .product-type .best-for { color: var(--success); font-size: 0.8rem; }
+
+        .warning-signs { background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.1)); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .signs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .sign-item { display: flex; align-items: center; gap: 0.75rem; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; }
+        .sign-item span { font-size: 1.5rem; }
+        .sign-item p { font-size: 0.9rem; margin: 0; }
+
+        .related-articles { background: var(--card); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .related-card { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; transition: background 0.2s; }
+        .related-card:hover { background: rgba(0,0,0,0.3); text-decoration: none; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); }
+        .related-card p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+
+        .cta-box { background: linear-gradient(135deg, var(--primary), #8B5CF6); border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+        .cta-box h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-box p { opacity: 0.9; margin-bottom: 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; transition: transform 0.2s; }
+        .cta-btn:hover { transform: scale(1.05); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .content { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>🚧 kids-hearing-protection</h1>
-    <p>This page is under development. Check back soon!</p>
-    <a href="index.html">← Back to Hearing Guide</a>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Hearing Guide</a>
+            <span>Guide / Kids Protection</span>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Children's Hearing Protection Guide</h1>
+        <p class="hero-sub">Kids' ears are more vulnerable to damage than adults'. Here's how to protect their hearing for life.</p>
+    </div>
+
+    <main class="content">
+        <div class="alert-box">
+            <h3>⚠️ Why Kids Are at Higher Risk</h3>
+            <p>Children's ear canals are smaller and more sensitive. The same noise that's uncomfortable for an adult can cause <strong>permanent damage</strong> in a child. Plus, kids are less likely to recognize or report warning signs.</p>
+        </div>
+
+        <section>
+            <h2>👶 Age-Appropriate Guidance</h2>
+            <p>Protection needs change as children grow. Here's what to know at each stage:</p>
+
+            <div class="age-cards">
+                <div class="age-card">
+                    <h4>👶 Infants (0-2 years)</h4>
+                    <div class="age-range">Most Vulnerable Stage</div>
+                    <ul>
+                        <li>Avoid loud environments entirely</li>
+                        <li>No concerts, fireworks, or loud events</li>
+                        <li>Use infant earmuffs (NRR 22+) if exposure unavoidable</li>
+                        <li>Keep toys under 80 dB at arm's length</li>
+                        <li>TV/music at conversation level only</li>
+                    </ul>
+                </div>
+
+                <div class="age-card">
+                    <h4>🧒 Toddlers (2-5 years)</h4>
+                    <div class="age-range">Building Awareness</div>
+                    <ul>
+                        <li>Child-sized earmuffs for loud activities</li>
+                        <li>Limit headphone use; choose volume-limited models</li>
+                        <li>Teach "too loud" awareness</li>
+                        <li>Protection at movies, parades, sporting events</li>
+                        <li>Watch for covering ears = too loud</li>
+                    </ul>
+                </div>
+
+                <div class="age-card">
+                    <h4>👦 School Age (6-12 years)</h4>
+                    <div class="age-range">Habit Formation</div>
+                    <ul>
+                        <li>Volume-limited headphones mandatory</li>
+                        <li>60/60 rule: 60% volume, 60 min max</li>
+                        <li>Earplugs for concerts, games, band practice</li>
+                        <li>Teach the "arm's length" test</li>
+                        <li>Make hearing protection normal, not punishment</li>
+                    </ul>
+                </div>
+
+                <div class="age-card">
+                    <h4>🧑 Teens (13-18 years)</h4>
+                    <div class="age-range">Independence & Risk</div>
+                    <ul>
+                        <li>Highest risk age for hearing damage</li>
+                        <li>Earbuds + loud music = danger zone</li>
+                        <li>Concerts, clubs, festivals need plugs</li>
+                        <li>Cool earplugs matter—they won't wear ugly ones</li>
+                        <li>Lead by example; don't lecture</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔊 Safe Volume Guidelines</h2>
+            <p>The WHO recommends children limit exposure to 75 dB to protect developing ears.</p>
+
+            <div class="volume-guide">
+                <h3>The Volume Scale for Kids</h3>
+                <div class="volume-visual">
+                    <div class="volume-meter">
+                        <span class="volume-marker safe">Safe<br>✓</span>
+                        <span class="volume-marker limit">Limit<br>⚠️</span>
+                        <span class="volume-marker danger">Danger<br>⛔</span>
+                    </div>
+                    <div class="volume-labels">
+                        <span>0%</span>
+                        <span>50%</span>
+                        <span>75%</span>
+                        <span>100%</span>
+                    </div>
+                </div>
+                <div class="volume-rule">
+                    <strong>The 60/60 Rule:</strong> No more than 60% volume for no more than 60 minutes at a time. Take breaks, then resume if needed.
+                </div>
+            </div>
+
+            <h3>Headphone & Earbud Safety</h3>
+            <ul>
+                <li><strong>Volume-limited headphones:</strong> Capped at 85 dB—essential for kids under 12</li>
+                <li><strong>Over-ear vs. earbuds:</strong> Over-ear allows lower volumes due to passive isolation</li>
+                <li><strong>Never max volume:</strong> If you can hear their music from arm's length, it's too loud</li>
+                <li><strong>Built-in phone limits:</strong> iOS/Android have parental volume controls—use them</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📍 When Kids Need Ear Protection</h2>
+            <p>These common situations require hearing protection for children:</p>
+
+            <div class="situations">
+                <div class="situation danger">
+                    <span class="situation-icon">🎆</span>
+                    <div class="situation-content">
+                        <h4>Fireworks</h4>
+                        <p>Peak levels can exceed 150 dB—enough for instant damage. Earmuffs mandatory for kids of all ages.</p>
+                        <span class="situation-db">140-170 dB peak</span>
+                    </div>
+                </div>
+                <div class="situation danger">
+                    <span class="situation-icon">🎸</span>
+                    <div class="situation-content">
+                        <h4>Concerts & Festivals</h4>
+                        <p>Even "family" events often exceed safe levels. Earmuffs or hi-fi earplugs required.</p>
+                        <span class="situation-db">95-120 dB</span>
+                    </div>
+                </div>
+                <div class="situation">
+                    <span class="situation-icon">🏟️</span>
+                    <div class="situation-content">
+                        <h4>Sporting Events</h4>
+                        <p>Stadium noise, especially indoors, can hit damaging levels during exciting moments.</p>
+                        <span class="situation-db">90-110 dB</span>
+                    </div>
+                </div>
+                <div class="situation">
+                    <span class="situation-icon">🎬</span>
+                    <div class="situation-content">
+                        <h4>Movie Theaters</h4>
+                        <p>Action movies regularly exceed 90 dB. Bring earplugs for loud films, especially for young kids.</p>
+                        <span class="situation-db">85-100 dB</span>
+                    </div>
+                </div>
+                <div class="situation">
+                    <span class="situation-icon">🎺</span>
+                    <div class="situation-content">
+                        <h4>School Band/Music</h4>
+                        <p>Practice rooms and performances can be surprisingly loud. Musicians' earplugs recommended.</p>
+                        <span class="situation-db">85-110 dB</span>
+                    </div>
+                </div>
+                <div class="situation safe">
+                    <span class="situation-icon">🏠</span>
+                    <div class="situation-content">
+                        <h4>Normal Home Sounds</h4>
+                        <p>Conversation, TV at reasonable volumes, background music—these are fine.</p>
+                        <span class="situation-db">Under 75 dB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎯 Teaching Hearing Health</h2>
+            <p>Build habits early that will protect them for life:</p>
+
+            <div class="teaching-tips">
+                <h3>Tips for Parents</h3>
+                <div class="tip-grid">
+                    <div class="teaching-tip">
+                        <h4>👂 The "Arm's Length" Test</h4>
+                        <p>If someone can hear their headphones from an arm's length away, it's too loud. Make it a game to check.</p>
+                    </div>
+                    <div class="teaching-tip">
+                        <h4>🤫 The "Whisper" Test</h4>
+                        <p>If they can't hear you whisper from 3 feet while wearing headphones, the volume is dangerous.</p>
+                    </div>
+                    <div class="teaching-tip">
+                        <h4>😎 Make Protection Cool</h4>
+                        <p>Let them choose their own earplugs or earmuffs. Ownership increases use. Astronauts wear hearing protection!</p>
+                    </div>
+                    <div class="teaching-tip">
+                        <h4>📱 Use Visual Tools</h4>
+                        <p>Show them a dB meter app. Let them see how loud things are. Numbers make it real.</p>
+                    </div>
+                    <div class="teaching-tip">
+                        <h4>🎬 Model the Behavior</h4>
+                        <p>Wear your own earplugs at concerts. Kids copy what they see, not what they're told.</p>
+                    </div>
+                    <div class="teaching-tip">
+                        <h4>💬 Explain Why</h4>
+                        <p>Age-appropriate truth: "Loud sounds can hurt your ears forever, and then you can't hear your favorite music as well."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🛒 Choosing Kids' Hearing Protection</h2>
+            <p>The right product depends on age and situation:</p>
+
+            <div class="product-guide">
+                <h3>Product Types for Children</h3>
+                <div class="product-types">
+                    <div class="product-type">
+                        <h4>🎧 Baby Earmuffs</h4>
+                        <p>Soft headband design that stays on wiggly babies</p>
+                        <div class="best-for">Ages 0-2, NRR 22+</div>
+                    </div>
+                    <div class="product-type">
+                        <h4>🎧 Kids' Earmuffs</h4>
+                        <p>Adjustable bands, fun colors, comfortable padding</p>
+                        <div class="best-for">Ages 2-10, NRR 20-27</div>
+                    </div>
+                    <div class="product-type">
+                        <h4>🔇 Kids' Earplugs</h4>
+                        <p>Smaller size for kid-sized ear canals</p>
+                        <div class="best-for">Ages 6+, NRR 15-25</div>
+                    </div>
+                    <div class="product-type">
+                        <h4>🎵 Volume-Limited Headphones</h4>
+                        <p>Capped at 85 dB, prevents dangerous volumes</p>
+                        <div class="best-for">Daily listening, all ages</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚨 Warning Signs of Hearing Damage</h2>
+            <p>Watch for these signs that your child may have hearing issues:</p>
+
+            <div class="warning-signs">
+                <h3>Signs to Watch For</h3>
+                <div class="signs-grid">
+                    <div class="sign-item">
+                        <span>🔊</span>
+                        <p>Turns TV/music up louder than before</p>
+                    </div>
+                    <div class="sign-item">
+                        <span>❓</span>
+                        <p>Frequently asks "what?" or needs repetition</p>
+                    </div>
+                    <div class="sign-item">
+                        <span>👀</span>
+                        <p>Watches your face intently when speaking</p>
+                    </div>
+                    <div class="sign-item">
+                        <span>😣</span>
+                        <p>Complains of ringing or buzzing in ears</p>
+                    </div>
+                    <div class="sign-item">
+                        <span>📚</span>
+                        <p>Declining school performance</p>
+                    </div>
+                    <div class="sign-item">
+                        <span>😶</span>
+                        <p>Speaks unusually loudly</p>
+                    </div>
+                    <div class="sign-item">
+                        <span>🎯</span>
+                        <p>Difficulty following multi-step instructions</p>
+                    </div>
+                    <div class="sign-item">
+                        <span>👂</span>
+                        <p>Favors one ear over the other</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; text-align: center; color: var(--text-muted);">
+                    If you notice any of these signs, schedule a hearing evaluation with an audiologist.
+                </p>
+            </div>
+        </section>
+
+        <div class="related-articles">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <a href="headphone-safety.html" class="related-card">
+                    <h4>Headphone Safety Guide →</h4>
+                    <p>Safe listening practices for all ages</p>
+                </a>
+                <a href="safe-listening-guidelines.html" class="related-card">
+                    <h4>Safe Listening Guidelines →</h4>
+                    <p>WHO recommendations for healthy hearing</p>
+                </a>
+                <a href="decibel-guide.html" class="related-card">
+                    <h4>Decibel Guide →</h4>
+                    <p>Understanding sound levels</p>
+                </a>
+                <a href="concert-hearing-safety.html" class="related-card">
+                    <h4>Concert Safety →</h4>
+                    <p>Family event hearing protection</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>Protect Their Future</h3>
+            <p>Quality hearing protection designed to fit kids comfortably and actually get worn.</p>
+            <a href="https://unplugshearing.com" class="cta-btn">Explore Unplugs →</a>
+        </div>
+    </main>
 </body>
 </html>

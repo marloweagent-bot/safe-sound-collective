@@ -3,20 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>safe-listening-guidelines | Hearing Guide</title>
+    <title>Safe Listening Guidelines: WHO Recommendations for Hearing Health | Hearing Guide</title>
+    <meta name="description" content="World Health Organization safe listening guidelines explained. Learn the 60/60 rule, daily noise allowances, and evidence-based practices to protect your hearing for life.">
+    <meta name="keywords" content="safe listening guidelines, WHO hearing recommendations, 60/60 rule, safe volume levels, hearing health guidelines">
+    <link rel="canonical" href="https://unplugshearing.com/learn/safe-listening-guidelines">
+    <meta property="og:title" content="Safe Listening Guidelines | Hearing Guide">
+    <meta property="og:description" content="Evidence-based guidelines for protecting your hearing. WHO recommendations made practical.">
+    <meta property="og:type" content="article">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #6366F1; --secondary: #0F172A; --accent: #22D3EE; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #F8FAFC; --text-muted: #94A3B8; --card: #1E293B; --border: rgba(255,255,255,0.1); }
+        :root {
+            --primary: #6366F1;
+            --secondary: #0F172A;
+            --accent: #22D3EE;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --card: #1E293B;
+            --border: rgba(255,255,255,0.1);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; text-align: center; padding: 4rem 2rem; }
-        h1 { margin-bottom: 1rem; }
-        p { color: var(--text-muted); margin-bottom: 2rem; }
-        a { color: var(--primary); }
+        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--text-muted); font-size: 0.9rem; }
+
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .who-box { background: linear-gradient(135deg, rgba(34,211,238,0.15), rgba(99,102,241,0.1)); border: 1px solid rgba(34,211,238,0.3); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .who-box .source { color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+        .who-box h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .who-box p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        section { margin-bottom: 3rem; }
+        section h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; }
+        section h3 { font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: var(--accent); }
+        section p { color: var(--text-muted); margin-bottom: 1rem; }
+        section ul { color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem; }
+        section li { margin-bottom: 0.5rem; }
+
+        .rule-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .rule-card { background: var(--card); border-radius: 16px; padding: 2rem; text-align: center; border-top: 4px solid var(--success); }
+        .rule-card h3 { font-size: 3rem; font-weight: 900; color: var(--success); margin-bottom: 0.5rem; }
+        .rule-card h4 { margin-bottom: 1rem; }
+        .rule-card p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+
+        .time-table { background: var(--card); border-radius: 16px; overflow: hidden; margin: 2rem 0; }
+        .time-table-header { background: var(--primary); padding: 1rem 1.5rem; }
+        .time-table-header h3 { margin: 0; color: white; }
+        .time-table table { width: 100%; border-collapse: collapse; }
+        .time-table th, .time-table td { padding: 1rem 1.5rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .time-table th { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+        .time-table tr:last-child td { border-bottom: none; }
+        .time-table .db { font-weight: 700; }
+        .time-table .time { font-weight: 700; }
+        .time-table .safe .time { color: var(--success); }
+        .time-table .caution .time { color: var(--warning); }
+        .time-table .danger .time { color: var(--danger); }
+
+        .device-guide { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .device-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+        .device-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; }
+        .device-icon { font-size: 2rem; flex-shrink: 0; }
+        .device-info { flex: 1; }
+        .device-info h4 { margin-bottom: 0.25rem; }
+        .device-info p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+        .device-volume { background: var(--success); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; }
+
+        .habits { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .habit { background: var(--card); border-radius: 12px; padding: 1.5rem; }
+        .habit h4 { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+        .habit p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        .volume-checker { background: linear-gradient(135deg, var(--card), rgba(16,185,129,0.1)); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .checker-question { font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .checker-options { display: grid; gap: 0.75rem; }
+        .checker-option { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+        .checker-option:hover { background: rgba(0,0,0,0.3); }
+        .checker-option input { display: none; }
+        .checker-radio { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 50%; flex-shrink: 0; }
+        .checker-option input:checked + .checker-radio { background: var(--success); border-color: var(--success); }
+        .checker-result { margin-top: 1.5rem; padding: 1.5rem; background: rgba(0,0,0,0.2); border-radius: 12px; display: none; }
+        .checker-result.show { display: block; }
+        .checker-result.safe { border-left: 4px solid var(--success); }
+        .checker-result.warning { border-left: 4px solid var(--warning); }
+        .checker-result.danger { border-left: 4px solid var(--danger); }
+
+        .myths { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .myth-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+        .myth-item { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; }
+        .myth-item .myth { color: var(--danger); font-weight: 600; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .myth-item .fact { color: var(--success); font-size: 0.95rem; }
+
+        .related-articles { background: var(--card); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .related-card { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; transition: background 0.2s; }
+        .related-card:hover { background: rgba(0,0,0,0.3); text-decoration: none; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); }
+        .related-card p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+
+        .cta-box { background: linear-gradient(135deg, var(--primary), #8B5CF6); border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+        .cta-box h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-box p { opacity: 0.9; margin-bottom: 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .content { padding: 1.5rem; }
+            .time-table th, .time-table td { padding: 0.75rem 1rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>🚧 safe-listening-guidelines</h1>
-    <p>This page is under development. Check back soon!</p>
-    <a href="index.html">← Back to Hearing Guide</a>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Hearing Guide</a>
+            <span>Guide / Safe Listening</span>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Safe Listening Guidelines</h1>
+        <p class="hero-sub">Evidence-based recommendations to protect your hearing for life. Simple rules, massive impact.</p>
+    </div>
+
+    <main class="content">
+        <div class="who-box">
+            <div class="source">World Health Organization</div>
+            <h3>1.1 billion young people at risk</h3>
+            <p>Unsafe listening practices could cause hearing loss in over a billion 12-35 year olds worldwide. These guidelines can prevent it.</p>
+        </div>
+
+        <section>
+            <h2>📏 The Core Rules</h2>
+            <p>Three simple guidelines that cover most daily listening situations:</p>
+
+            <div class="rule-cards">
+                <div class="rule-card">
+                    <h3>60%</h3>
+                    <h4>Maximum Volume</h4>
+                    <p>Never exceed 60% of your device's maximum volume when using headphones or earbuds. Most devices reach unsafe levels above this.</p>
+                </div>
+                <div class="rule-card">
+                    <h3>60 min</h3>
+                    <h4>Maximum Duration</h4>
+                    <p>Take a break after 60 minutes of continuous listening. Your ears need rest to prevent fatigue and cumulative damage.</p>
+                </div>
+                <div class="rule-card">
+                    <h3>85 dB</h3>
+                    <h4>Maximum Level</h4>
+                    <p>Keep all sustained exposure below 85 dB. Above this, damage becomes time-dependent—louder means less time is safe.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>⏱️ Time Limits by Volume</h2>
+            <p>Louder sounds require shorter exposure times. This table shows safe daily limits based on NIOSH standards:</p>
+
+            <div class="time-table">
+                <div class="time-table-header">
+                    <h3>Maximum Safe Exposure Times</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sound Level</th>
+                            <th>Example</th>
+                            <th>Safe Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="safe">
+                            <td class="db">70 dB</td>
+                            <td>Normal conversation</td>
+                            <td class="time">Unlimited</td>
+                        </tr>
+                        <tr class="safe">
+                            <td class="db">80 dB</td>
+                            <td>Busy restaurant</td>
+                            <td class="time">25 hours</td>
+                        </tr>
+                        <tr class="safe">
+                            <td class="db">85 dB</td>
+                            <td>Heavy traffic</td>
+                            <td class="time">8 hours</td>
+                        </tr>
+                        <tr class="caution">
+                            <td class="db">88 dB</td>
+                            <td>Headphones at 70%</td>
+                            <td class="time">4 hours</td>
+                        </tr>
+                        <tr class="caution">
+                            <td class="db">91 dB</td>
+                            <td>Motorcycle</td>
+                            <td class="time">2 hours</td>
+                        </tr>
+                        <tr class="caution">
+                            <td class="db">94 dB</td>
+                            <td>Hair dryer at ear</td>
+                            <td class="time">1 hour</td>
+                        </tr>
+                        <tr class="danger">
+                            <td class="db">100 dB</td>
+                            <td>Concert mid-crowd</td>
+                            <td class="time">15 minutes</td>
+                        </tr>
+                        <tr class="danger">
+                            <td class="db">105 dB</td>
+                            <td>Concert front row</td>
+                            <td class="time">5 minutes</td>
+                        </tr>
+                        <tr class="danger">
+                            <td class="db">110 dB</td>
+                            <td>Rock concert peak</td>
+                            <td class="time">1.5 minutes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>📱 Device-Specific Guidelines</h2>
+            <p>Different devices have different output capabilities. Here are safe settings for common devices:</p>
+
+            <div class="device-guide">
+                <h3>Safe Volume Settings by Device</h3>
+                <div class="device-list">
+                    <div class="device-item">
+                        <span class="device-icon">📱</span>
+                        <div class="device-info">
+                            <h4>iPhone / iPad</h4>
+                            <p>Enable "Reduce Loud Sounds" in Settings > Sounds & Haptics</p>
+                        </div>
+                        <span class="device-volume">50-60%</span>
+                    </div>
+                    <div class="device-item">
+                        <span class="device-icon">🤖</span>
+                        <div class="device-info">
+                            <h4>Android Phones</h4>
+                            <p>Enable volume limiter in Settings > Sound > Volume</p>
+                        </div>
+                        <span class="device-volume">50-60%</span>
+                    </div>
+                    <div class="device-item">
+                        <span class="device-icon">💻</span>
+                        <div class="device-info">
+                            <h4>Laptop / Computer</h4>
+                            <p>System volume at 50%, app volumes at 70% max</p>
+                        </div>
+                        <span class="device-volume">35-50%</span>
+                    </div>
+                    <div class="device-item">
+                        <span class="device-icon">🎧</span>
+                        <div class="device-info">
+                            <h4>Dedicated Music Players</h4>
+                            <p>Varies by device—use dB meter app to calibrate</p>
+                        </div>
+                        <span class="device-volume">Check dB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>✅ Healthy Listening Habits</h2>
+            <p>Build these practices into your daily routine:</p>
+
+            <div class="habits">
+                <div class="habit">
+                    <h4>🔄 Regular Breaks</h4>
+                    <p>Every hour, take at least 5-10 minutes of quiet. Your ears need recovery time just like your eyes need screen breaks.</p>
+                </div>
+                <div class="habit">
+                    <h4>🎧 Choose Over-Ear</h4>
+                    <p>Over-ear headphones with good isolation let you hear clearly at lower volumes. Less leakage = less volume needed.</p>
+                </div>
+                <div class="habit">
+                    <h4>📉 Start Low</h4>
+                    <p>Always start at low volume and increase only as needed. Never start at your "usual" level—it's probably too high.</p>
+                </div>
+                <div class="habit">
+                    <h4>🌙 Quiet Before Sleep</h4>
+                    <p>Give your ears at least 30 minutes of quiet before bed. Ears repair during sleep—don't damage them right before.</p>
+                </div>
+                <div class="habit">
+                    <h4>📏 The Arm Test</h4>
+                    <p>If others can hear your headphones from an arm's length away, you're listening too loud. Simple check, easy to remember.</p>
+                </div>
+                <div class="habit">
+                    <h4>🏠 Environment Matters</h4>
+                    <p>In noisy environments, use noise-canceling headphones instead of turning up volume to compete with background noise.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🧪 Quick Volume Check</h2>
+            <p>Answer honestly to assess your listening habits:</p>
+
+            <div class="volume-checker">
+                <h3>Are Your Listening Habits Safe?</h3>
+                <div class="checker-question">When wearing headphones, can people nearby hear what you're listening to?</div>
+                <div class="checker-options">
+                    <label class="checker-option">
+                        <input type="radio" name="volume-check" value="never">
+                        <span class="checker-radio"></span>
+                        <span>Never—they'd have to get really close</span>
+                    </label>
+                    <label class="checker-option">
+                        <input type="radio" name="volume-check" value="sometimes">
+                        <span class="checker-radio"></span>
+                        <span>Sometimes, in quiet rooms</span>
+                    </label>
+                    <label class="checker-option">
+                        <input type="radio" name="volume-check" value="often">
+                        <span class="checker-radio"></span>
+                        <span>Yes, people comment on it</span>
+                    </label>
+                </div>
+                <div class="checker-result safe" id="result-safe">
+                    ✅ <strong>Good habits!</strong> Keep it up. Your listening levels appear to be in the safe zone.
+                </div>
+                <div class="checker-result warning" id="result-warning">
+                    ⚠️ <strong>Borderline</strong>—You might be pushing safe limits occasionally. Consider turning down a notch.
+                </div>
+                <div class="checker-result danger" id="result-danger">
+                    ⛔ <strong>Too loud!</strong> You're likely causing gradual hearing damage. Reduce volume by at least 20% immediately.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚫 Common Myths</h2>
+            <div class="myths">
+                <h3>Facts vs. Fiction</h3>
+                <div class="myth-list">
+                    <div class="myth-item">
+                        <div class="myth">❌ "My ears would hurt if it was too loud"</div>
+                        <div class="fact">✓ Hearing damage often occurs without pain. You won't feel it happening.</div>
+                    </div>
+                    <div class="myth-item">
+                        <div class="myth">❌ "I've always listened this loud with no problems"</div>
+                        <div class="fact">✓ Damage is cumulative and gradual. It may take years before you notice—then it's too late.</div>
+                    </div>
+                    <div class="myth-item">
+                        <div class="myth">❌ "Expensive headphones are safer"</div>
+                        <div class="fact">✓ Price doesn't correlate with safety. Volume is volume regardless of equipment quality.</div>
+                    </div>
+                    <div class="myth-item">
+                        <div class="myth">❌ "Young people don't need to worry about hearing"</div>
+                        <div class="fact">✓ Young people are actually at highest risk due to headphone use. Damage in your 20s shows up in your 40s.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="related-articles">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <a href="headphone-safety.html" class="related-card">
+                    <h4>Headphone Safety →</h4>
+                    <p>Deep dive into safe personal audio use</p>
+                </a>
+                <a href="85-decibel-rule.html" class="related-card">
+                    <h4>The 85 dB Rule →</h4>
+                    <p>Why this number matters so much</p>
+                </a>
+                <a href="exposure-calculator.html" class="related-card">
+                    <h4>Exposure Calculator →</h4>
+                    <p>Calculate your daily noise dose</p>
+                </a>
+                <a href="kids-hearing-protection.html" class="related-card">
+                    <h4>Kids Protection →</h4>
+                    <p>Guidelines for children's hearing</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>Make Safe Listening Easy</h3>
+            <p>High-fidelity earplugs that reduce volume without muffling the music.</p>
+            <a href="https://unplugshearing.com" class="cta-btn">Explore Unplugs →</a>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('input[name="volume-check"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.checker-result').forEach(r => r.classList.remove('show'));
+                if (this.value === 'never') {
+                    document.getElementById('result-safe').classList.add('show');
+                } else if (this.value === 'sometimes') {
+                    document.getElementById('result-warning').classList.add('show');
+                } else {
+                    document.getElementById('result-danger').classList.add('show');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

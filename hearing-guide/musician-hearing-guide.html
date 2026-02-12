@@ -3,20 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>musician-hearing-guide | Hearing Guide</title>
+    <title>Musician's Hearing Protection Guide: Save Your Ears, Save Your Career | Hearing Guide</title>
+    <meta name="description" content="Complete hearing protection guide for musicians. Learn about in-ear monitors, musician earplugs, stage volume management, and protecting your hearing through a long music career.">
+    <meta name="keywords" content="musician hearing protection, musician earplugs, in-ear monitors, stage volume, hearing loss musicians, protect hearing music">
+    <link rel="canonical" href="https://unplugshearing.com/learn/musician-hearing-guide">
+    <meta property="og:title" content="Musician's Hearing Protection Guide | Hearing Guide">
+    <meta property="og:description" content="Your ears are your instrument. Protect them with these proven strategies for musicians.">
+    <meta property="og:type" content="article">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #6366F1; --secondary: #0F172A; --accent: #22D3EE; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --text: #F8FAFC; --text-muted: #94A3B8; --card: #1E293B; --border: rgba(255,255,255,0.1); }
+        :root {
+            --primary: #6366F1;
+            --secondary: #0F172A;
+            --accent: #22D3EE;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --card: #1E293B;
+            --border: rgba(255,255,255,0.1);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; text-align: center; padding: 4rem 2rem; }
-        h1 { margin-bottom: 1rem; }
-        p { color: var(--text-muted); margin-bottom: 2rem; }
-        a { color: var(--primary); }
+        body { font-family: 'Inter', sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .back-link { color: var(--text-muted); font-size: 0.9rem; }
+        .back-link:hover { color: var(--text); text-decoration: none; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.85rem; }
+
+        .hero { padding: 4rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.15), transparent 70%); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+        .content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+        .stat-card { background: var(--card); border-radius: 16px; padding: 1.5rem; text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--danger); }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; }
+
+        .toc { background: var(--card); border-radius: 16px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+        .toc h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 1rem; }
+        .toc ul { list-style: none; columns: 2; column-gap: 2rem; }
+        .toc li { padding: 0.4rem 0; }
+        .toc a { color: var(--text); }
+        .toc a:hover { color: var(--accent); text-decoration: none; }
+
+        section { margin-bottom: 3rem; }
+        section h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; }
+        section h3 { font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: var(--accent); }
+        section p { color: var(--text-muted); margin-bottom: 1rem; }
+        section ul, section ol { color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem; }
+        section li { margin-bottom: 0.5rem; }
+
+        .instrument-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .instrument-card { background: var(--card); border-radius: 16px; padding: 1.5rem; border-top: 4px solid var(--primary); }
+        .instrument-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .instrument-card .db-range { color: var(--warning); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .instrument-card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .instrument-card ul { font-size: 0.85rem; padding-left: 1.25rem; margin: 0; }
+
+        .protection-comparison { background: var(--card); border-radius: 16px; overflow: hidden; margin: 2rem 0; }
+        .comparison-header { background: var(--primary); padding: 1rem 1.5rem; }
+        .comparison-header h3 { color: white; margin: 0; font-size: 1.1rem; }
+        .comparison-table { width: 100%; border-collapse: collapse; }
+        .comparison-table th, .comparison-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table th { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .comparison-table td { font-size: 0.9rem; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .check { color: var(--success); }
+        .comparison-table .partial { color: var(--warning); }
+        .comparison-table .cross { color: var(--text-muted); }
+
+        .stage-diagram { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .stage-visual { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 2rem; position: relative; min-height: 280px; margin-bottom: 1.5rem; }
+        .stage-element { position: absolute; padding: 0.6rem 0.8rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600; text-align: center; }
+        .stage-element.drum { background: var(--danger); top: 20%; left: 50%; transform: translateX(-50%); }
+        .stage-element.amp-l { background: var(--warning); top: 40%; left: 10%; }
+        .stage-element.amp-r { background: var(--warning); top: 40%; right: 10%; }
+        .stage-element.monitor { background: var(--primary); bottom: 25%; left: 20%; }
+        .stage-element.monitor-r { background: var(--primary); bottom: 25%; right: 20%; }
+        .stage-element.pa { background: var(--danger); bottom: 5%; left: 50%; transform: translateX(-50%); width: 70%; }
+        .db-legend { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+        .tip-box { background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.1)); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.5rem; margin: 1.5rem 0; }
+        .tip-box h4 { color: var(--accent); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .tip-box p { margin: 0; font-size: 0.95rem; }
+
+        .practice-tips { display: grid; gap: 1rem; margin: 2rem 0; }
+        .practice-tip { background: var(--card); border-radius: 12px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .tip-number { background: var(--primary); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .tip-content h4 { margin-bottom: 0.25rem; }
+        .tip-content p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        .famous-musicians { background: var(--card); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .musician-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .musician-card { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; }
+        .musician-card h4 { margin-bottom: 0.25rem; }
+        .musician-card .genre { color: var(--accent); font-size: 0.85rem; margin-bottom: 0.75rem; }
+        .musician-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+        .related-articles { background: var(--card); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
+        .related-articles h3 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .related-card { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; transition: background 0.2s; }
+        .related-card:hover { background: rgba(0,0,0,0.3); text-decoration: none; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); }
+        .related-card p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+
+        .cta-box { background: linear-gradient(135deg, var(--primary), #8B5CF6); border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+        .cta-box h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-box p { opacity: 0.9; margin-bottom: 1.5rem; }
+        .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; transition: transform 0.2s; }
+        .cta-btn:hover { transform: scale(1.05); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .content { padding: 1.5rem; }
+            .toc ul { columns: 1; }
+            .stage-visual { min-height: 200px; padding: 1rem; }
+            .stage-element { padding: 0.4rem 0.6rem; font-size: 0.7rem; }
+            .comparison-table { font-size: 0.8rem; }
+            .comparison-table th, .comparison-table td { padding: 0.75rem 0.5rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>🚧 musician-hearing-guide</h1>
-    <p>This page is under development. Check back soon!</p>
-    <a href="index.html">← Back to Hearing Guide</a>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Hearing Guide</a>
+            <span class="breadcrumb">Guide / Musician's Guide</span>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Musician's Hearing Protection Guide</h1>
+        <p class="hero-sub">Your ears are your most valuable instrument. Learn how to protect them through decades of playing without sacrificing sound quality.</p>
+    </div>
+
+    <main class="content">
+        <div class="stat-row">
+            <div class="stat-card">
+                <div class="stat-number">4x</div>
+                <div class="stat-label">Musicians are 4x more likely to develop hearing loss</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">57%</div>
+                <div class="stat-label">of musicians report tinnitus symptoms</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$300</div>
+                <div class="stat-label">Average cost of custom musician earplugs that last years</div>
+            </div>
+        </div>
+
+        <nav class="toc">
+            <h2>In This Guide</h2>
+            <ul>
+                <li><a href="#by-instrument">Risk by Instrument</a></li>
+                <li><a href="#protection-options">Protection Options</a></li>
+                <li><a href="#stage-sound">Stage Sound Management</a></li>
+                <li><a href="#practice-room">Practice Room Safety</a></li>
+                <li><a href="#in-ear-monitors">In-Ear Monitors Guide</a></li>
+                <li><a href="#career-longevity">Career Longevity</a></li>
+            </ul>
+        </nav>
+
+        <section id="by-instrument">
+            <h2>🎸 Hearing Risk by Instrument</h2>
+            <p>Different instruments present different challenges. Understanding your specific risk helps you choose the right protection.</p>
+
+            <div class="instrument-grid">
+                <div class="instrument-card">
+                    <h4>🥁 Drums & Percussion</h4>
+                    <div class="db-range">Peak levels: 100-130 dB</div>
+                    <p>Highest risk category. Sudden peaks from cymbals and snare can cause immediate damage.</p>
+                    <ul>
+                        <li>Cymbals: 110-125 dB at ear level</li>
+                        <li>Snare rim shots: 115-130 dB</li>
+                        <li>Always wear protection, even at practice</li>
+                    </ul>
+                </div>
+
+                <div class="instrument-card">
+                    <h4>🎸 Electric Guitar/Bass</h4>
+                    <div class="db-range">Typical levels: 90-110 dB</div>
+                    <p>Amp proximity is the main danger. Stage volume wars make it worse.</p>
+                    <ul>
+                        <li>Half-stack at stage volume: 100-110 dB</li>
+                        <li>Position matters enormously</li>
+                        <li>In-ears eliminate amp dependency</li>
+                    </ul>
+                </div>
+
+                <div class="instrument-card">
+                    <h4>🎷 Brass & Woodwinds</h4>
+                    <div class="db-range">Typical levels: 85-110 dB</div>
+                    <p>Your own instrument is the main exposure source. Orchestra pits amplify risk.</p>
+                    <ul>
+                        <li>Trumpet bell: 95-110 dB</li>
+                        <li>Proximity to other brass matters</li>
+                        <li>Pit acoustics can trap sound</li>
+                    </ul>
+                </div>
+
+                <div class="instrument-card">
+                    <h4>🎤 Vocals</h4>
+                    <div class="db-range">Monitor levels: 95-110 dB</div>
+                    <p>Wedge monitors blasting at your face are the primary hazard.</p>
+                    <ul>
+                        <li>Monitor wedges point right at you</li>
+                        <li>IEMs transform vocal monitoring</li>
+                        <li>Side-fill can be just as dangerous</li>
+                    </ul>
+                </div>
+
+                <div class="instrument-card">
+                    <h4>🎹 Keys & Piano</h4>
+                    <div class="db-range">Varies: 75-100 dB</div>
+                    <p>Lowest direct risk, but stage position often puts you near drums or amps.</p>
+                    <ul>
+                        <li>Grand piano: 85-100 dB</li>
+                        <li>Often positioned near drums</li>
+                        <li>Monitor exposure is main risk</li>
+                    </ul>
+                </div>
+
+                <div class="instrument-card">
+                    <h4>🎻 Strings (Orchestra)</h4>
+                    <div class="db-range">Typical levels: 80-95 dB</div>
+                    <p>Lower than rock, but cumulative hours matter. Brass section proximity is key.</p>
+                    <ul>
+                        <li>Violin at ear: 85-95 dB</li>
+                        <li>Sitting near brass: +10-15 dB</li>
+                        <li>3-4 hour rehearsals add up</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="protection-options">
+            <h2>🛡️ Protection Options Compared</h2>
+            <p>The right protection lets you hear the music accurately while reducing harmful levels.</p>
+
+            <div class="protection-comparison">
+                <div class="comparison-header">
+                    <h3>Musician Hearing Protection Comparison</h3>
+                </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Reduction</th>
+                            <th>Sound Quality</th>
+                            <th>Cost</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Foam Earplugs</strong></td>
+                            <td>25-33 dB</td>
+                            <td><span class="cross">✗ Muffled</span></td>
+                            <td>$1</td>
+                            <td>Emergencies only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hi-Fi Earplugs</strong></td>
+                            <td>12-20 dB</td>
+                            <td><span class="check">✓ Good</span></td>
+                            <td>$20-50</td>
+                            <td>Casual playing, fans</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Musician Earplugs</strong></td>
+                            <td>9-25 dB</td>
+                            <td><span class="check">✓ Excellent</span></td>
+                            <td>$150-300</td>
+                            <td>Pro musicians</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Custom Molded</strong></td>
+                            <td>9-25 dB</td>
+                            <td><span class="check">✓ Excellent</span></td>
+                            <td>$150-300</td>
+                            <td>Daily professionals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>In-Ear Monitors</strong></td>
+                            <td>26-36 dB</td>
+                            <td><span class="check">✓ Perfect mix</span></td>
+                            <td>$300-2000+</td>
+                            <td>Touring musicians</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Filter Tip</h4>
+                <p>Custom musician earplugs often come with interchangeable filters (9dB, 15dB, 25dB). Use lower reduction for practice, higher for shows. This one set covers all situations.</p>
+            </div>
+        </section>
+
+        <section id="stage-sound">
+            <h2>🎤 Stage Sound Management</h2>
+            <p>Smart stage setup can dramatically reduce your exposure without changing your sound.</p>
+
+            <div class="stage-diagram">
+                <h3>Typical Stage Volume Zones</h3>
+                <div class="stage-visual">
+                    <div class="stage-element drum">🥁 Drums<br>100-120 dB</div>
+                    <div class="stage-element amp-l">🔊 Amp<br>95-110 dB</div>
+                    <div class="stage-element amp-r">🔊 Amp<br>95-110 dB</div>
+                    <div class="stage-element monitor">📢 Monitor</div>
+                    <div class="stage-element monitor-r">📢 Monitor</div>
+                    <div class="stage-element pa">🔈 Main PA / Audience (Don't stand here!) 🔈</div>
+                </div>
+                <div class="db-legend">
+                    <div class="legend-item"><span class="legend-dot" style="background: var(--danger)"></span> Dangerous (&gt;100 dB)</div>
+                    <div class="legend-item"><span class="legend-dot" style="background: var(--warning)"></span> Caution (90-100 dB)</div>
+                    <div class="legend-item"><span class="legend-dot" style="background: var(--primary)"></span> Monitor zones</div>
+                </div>
+            </div>
+
+            <h3>Stage Volume Reduction Strategies</h3>
+            <ul>
+                <li><strong>Drum shields:</strong> Plexiglass panels reduce drum bleed to other musicians by 10-15 dB</li>
+                <li><strong>Amp tilting:</strong> Tilt amps up to point at your ears, not your knees—you'll turn down naturally</li>
+                <li><strong>Iso cabs:</strong> Isolate guitar amps offstage and mic them—total stage volume control</li>
+                <li><strong>Monitor positioning:</strong> Angle wedges to your ears, not your shins. You need less volume.</li>
+                <li><strong>In-ear adoption:</strong> Eliminates wedges entirely. Each person controls their own mix.</li>
+            </ul>
+        </section>
+
+        <section id="practice-room">
+            <h2>🏠 Practice Room Safety</h2>
+            <p>Most hearing damage happens in practice, not performance. Here's how to protect yourself daily.</p>
+
+            <div class="practice-tips">
+                <div class="practice-tip">
+                    <span class="tip-number">1</span>
+                    <div class="tip-content">
+                        <h4>Acoustic Treatment</h4>
+                        <p>Untreated rooms reflect sound back at you, effectively doubling exposure. Basic absorption panels reduce this significantly.</p>
+                    </div>
+                </div>
+                <div class="practice-tip">
+                    <span class="tip-number">2</span>
+                    <div class="tip-content">
+                        <h4>Volume Discipline</h4>
+                        <p>Practice at the lowest volume that lets you hear what you need. Save full volume for soundcheck and performance only.</p>
+                    </div>
+                </div>
+                <div class="practice-tip">
+                    <span class="tip-number">3</span>
+                    <div class="tip-content">
+                        <h4>Break Protocol</h4>
+                        <p>Take 5-10 minute quiet breaks every hour. Your ears need recovery time even at moderate volumes.</p>
+                    </div>
+                </div>
+                <div class="practice-tip">
+                    <span class="tip-number">4</span>
+                    <div class="tip-content">
+                        <h4>Rehearsal Protection</h4>
+                        <p>If you won't wear earplugs in rehearsal, you won't wear them at the gig. Build the habit early.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="in-ear-monitors">
+            <h2>🎧 In-Ear Monitors: The Game Changer</h2>
+            <p>IEMs aren't just about hearing protection—they transform your monitoring experience entirely.</p>
+
+            <h3>Benefits Beyond Hearing Protection</h3>
+            <ul>
+                <li><strong>Perfect mix control:</strong> You hear exactly what you need, at the volume you choose</li>
+                <li><strong>Stage freedom:</strong> Move anywhere without losing your monitor mix</li>
+                <li><strong>Consistency:</strong> Same mix every night, regardless of venue acoustics</li>
+                <li><strong>Less vocal strain:</strong> Singers don't compete with wedges, protect their voice</li>
+            </ul>
+
+            <h3>Getting Started with IEMs</h3>
+            <ol>
+                <li><strong>Start with universal fits:</strong> $100-300 IEMs let you try the workflow before investing in customs</li>
+                <li><strong>Get impressions made:</strong> Audiologist takes molds of your ear canals (30 min, ~$50)</li>
+                <li><strong>Choose your drivers:</strong> More drivers = more frequency precision, but diminishing returns above 4-6</li>
+                <li><strong>Consider ambient mics:</strong> Blend in crowd/room sound so you don't feel isolated</li>
+            </ol>
+
+            <div class="tip-box">
+                <h4>⚠️ IEM Warning</h4>
+                <p>IEMs seal so well that you can damage your hearing at lower volumes than you'd expect. Use a limiter in your signal chain, and start quieter than you think you need.</p>
+            </div>
+        </section>
+
+        <section id="career-longevity">
+            <h2>🎯 Career Longevity</h2>
+            <p>The musicians who play the longest are the ones who protected their hearing early.</p>
+
+            <div class="famous-musicians">
+                <h3>Musicians Who've Spoken About Hearing Loss</h3>
+                <div class="musician-grid">
+                    <div class="musician-card">
+                        <h4>Pete Townshend</h4>
+                        <div class="genre">The Who</div>
+                        <p>"I have severe hearing damage. It's manifested itself as tinnitus. It's a terrible thing."</p>
+                    </div>
+                    <div class="musician-card">
+                        <h4>Phil Collins</h4>
+                        <div class="genre">Genesis</div>
+                        <p>Retired partially due to hearing damage from decades of drumming and performing.</p>
+                    </div>
+                    <div class="musician-card">
+                        <h4>Chris Martin</h4>
+                        <div class="genre">Coldplay</div>
+                        <p>Developed tinnitus at 25, now advocates strongly for hearing protection at concerts.</p>
+                    </div>
+                    <div class="musician-card">
+                        <h4>will.i.am</h4>
+                        <div class="genre">Black Eyed Peas</div>
+                        <p>"I can't be in silence because the ringing is so loud. Music is the only thing that eases it."</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>The Longevity Protocol</h3>
+            <ul>
+                <li><strong>Annual hearing tests:</strong> Catch small changes before they become big problems</li>
+                <li><strong>No exceptions:</strong> Wear protection at every rehearsal, every show, every loud situation</li>
+                <li><strong>16-hour recovery:</strong> After intense exposure, give your ears 16+ hours of quiet</li>
+                <li><strong>Volume budgeting:</strong> If you have a show tonight, avoid loud environments during the day</li>
+                <li><strong>Take it seriously:</strong> Hearing loss is permanent. There's no coming back from it.</li>
+            </ul>
+        </section>
+
+        <div class="related-articles">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <a href="dj-hearing-protection.html" class="related-card">
+                    <h4>DJ Hearing Protection →</h4>
+                    <p>Specific strategies for DJs and electronic musicians</p>
+                </a>
+                <a href="tinnitus-prevention.html" class="related-card">
+                    <h4>Tinnitus Prevention →</h4>
+                    <p>Understanding and preventing ringing in your ears</p>
+                </a>
+                <a href="concert-hearing-safety.html" class="related-card">
+                    <h4>Concert Safety →</h4>
+                    <p>Protection tips for fans at live events</p>
+                </a>
+                <a href="exposure-calculator.html" class="related-card">
+                    <h4>Exposure Calculator →</h4>
+                    <p>Calculate your daily noise dose</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>Protect Your Career</h3>
+            <p>Professional-grade hearing protection designed for musicians who take their craft seriously.</p>
+            <a href="https://unplugshearing.com" class="cta-btn">Explore Unplugs →</a>
+        </div>
+    </main>
 </body>
 </html>
