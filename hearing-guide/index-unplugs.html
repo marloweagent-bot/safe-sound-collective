@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearing Protection Superguide | Unplugs</title>
+    <meta name="description" content="The complete guide to understanding sound, protecting your hearing, and preventing noise-induced hearing loss. Interactive tools, science-backed education.">
+    <link rel="canonical" href="https://unplugshearing.com/learn/">
+    
+    <!-- Unplugs Typography - Using Oswald as Bamboy approximation -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           UNPLUGS DESIGN SYSTEM
+           Electric Midnight - Dark + Neon Green
+           ============================================ */
+        
+        :root {
+            /* Core Palette */
+            --bg-primary: #222222;
+            --bg-secondary: #1A1A1A;
+            --bg-card: #2A2A2A;
+            --bg-card-hover: #333333;
+            
+            /* Text */
+            --text-primary: #FFFFFF;
+            --text-secondary: #909090;
+            --text-muted: #666666;
+            
+            /* Accent - Electric Green */
+            --accent: #29EF78;
+            --accent-hover: #FFFFFF;
+            --accent-glow: rgba(41, 239, 120, 0.3);
+            
+            /* Functional */
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            
+            /* Typography */
+            --font-display: 'Oswald', sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ============================================
+           ANIMATIONS - Scroll Triggered
+           ============================================ */
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(48px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger children */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.175s; }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.25s; }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.325s; }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.4s; }
+
+        .stagger-children.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           HEADER - Fixed Dark with Blur
+           ============================================ */
+        
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(34, 34, 34, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-item:hover .nav-link {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-arrow {
+            font-size: 0.65rem;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item:hover .nav-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Mega Menu */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-item:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-menu-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mega-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .mega-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .mega-link:hover {
+            background: rgba(41, 239, 120, 0.1);
+        }
+
+        .mega-link:hover .mega-link-title {
+            color: var(--accent);
+        }
+
+        .mega-link-icon {
+            font-size: 1.25rem;
+            width: 28px;
+            text-align: center;
+        }
+
+        .mega-link-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            transition: color 0.15s ease;
+        }
+
+        .mega-link-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Button - Pill Style */
+        .btn-primary {
+            background: var(--accent);
+            color: #222222;
+            padding: 0.65rem 1.5rem;
+            border-radius: 100px;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .header-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .btn-primary.header-cta { display: none; }
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        
+        .hero {
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(41, 239, 120, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(41, 239, 120, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.0;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* Stats Row */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================
+           QUICK TOOLS GRID
+           ============================================ */
+        
+        .quick-tools {
+            max-width: 1100px;
+            margin: -2rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        @media (max-width: 800px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .tool-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           CONTENT SECTIONS
+           ============================================ */
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-eyebrow {
+            font-family: var(--font-display);
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 550px;
+        }
+
+        /* ============================================
+           FEATURED ARTICLE
+           ============================================ */
+        
+        .featured-article {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .featured-article:hover {
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 800px) {
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .featured-visual {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+
+        @media (max-width: 800px) {
+            .featured-visual {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+
+        .featured-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-stat {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .featured-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #222;
+            padding: 0.35rem 0.75rem;
+            border-radius: 100px;
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .featured-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .featured-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .featured-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+        }
+
+        .featured-cta:hover {
+            gap: 0.75rem;
+        }
+
+        /* ============================================
+           ARTICLE CARDS
+           ============================================ */
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .article-thumb {
+            height: 140px;
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(41, 239, 120, 0.15);
+            color: var(--accent);
+            padding: 0.25rem 0.6rem;
+            border-radius: 100px;
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        .article-excerpt {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           CTA BANNER
+           ============================================ */
+        
+        .cta-banner {
+            background: var(--accent);
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .cta-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .cta-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-content p {
+            color: #333;
+            max-width: 450px;
+        }
+
+        .cta-button {
+            background: #222;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #000;
+            transform: scale(1.05);
+        }
+
+        /* ============================================
+           TOPICS GRID
+           ============================================ */
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .topic-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .topic-link:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .topic-link:hover .topic-title {
+            color: var(--accent);
+        }
+
+        .topic-icon {
+            font-size: 1.5rem;
+        }
+
+        .topic-text {
+            flex: 1;
+        }
+
+        .topic-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .topic-category {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .topic-arrow {
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .topic-link:hover .topic-arrow {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 800px) {
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-brand .logo-text {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            max-width: 280px;
+        }
+
+        .footer-links h4 {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 500px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* ============================================
+           MOBILE MENU
+           ============================================ */
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-section {
+            margin-bottom: 2rem;
+        }
+
+        .mobile-section-title {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1rem;
+            color: var(--text-primary);
+            border-radius: 8px;
+            transition: background 0.15s ease;
+        }
+
+        .mobile-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-link-icon {
+            font-size: 1.25rem;
+            width: 28px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="https://unplugshearing.com" class="header-logo">
+                <span class="logo-mark">🔊</span>
+                <span class="logo-text">Unplugs Learn</span>
+            </a>
+            
+            <nav class="header-nav">
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Learn <span class="nav-arrow">▼</span></a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-title">Understanding Sound</div>
+                        <div class="mega-menu-links">
+                            <a href="decibel-guide.html" class="mega-link">
+                                <span class="mega-link-icon">📊</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Decibel Guide</span>
+                                    <span class="mega-link-desc">Interactive sound levels</span>
+                                </span>
+                            </a>
+                            <a href="how-hearing-works.html" class="mega-link">
+                                <span class="mega-link-icon">👂</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">How Hearing Works</span>
+                                    <span class="mega-link-desc">The journey of sound</span>
+                                </span>
+                            </a>
+                            <a href="noise-induced-hearing-loss.html" class="mega-link">
+                                <span class="mega-link-icon">📉</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">NIHL Explained</span>
+                                    <span class="mega-link-desc">Causes & prevention</span>
+                                </span>
+                            </a>
+                            <a href="temporary-vs-permanent.html" class="mega-link">
+                                <span class="mega-link-icon">⚠️</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Temporary vs Permanent</span>
+                                    <span class="mega-link-desc">When damage is reversible</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Protect <span class="nav-arrow">▼</span></a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-title">Protection Basics</div>
+                        <div class="mega-menu-links">
+                            <a href="85-decibel-rule.html" class="mega-link">
+                                <span class="mega-link-icon">📏</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">The 85 dB Rule</span>
+                                    <span class="mega-link-desc">Your safety threshold</span>
+                                </span>
+                            </a>
+                            <a href="tinnitus-prevention.html" class="mega-link">
+                                <span class="mega-link-icon">🔔</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Tinnitus Prevention</span>
+                                    <span class="mega-link-desc">Stop the ringing</span>
+                                </span>
+                            </a>
+                            <a href="safe-listening-guidelines.html" class="mega-link">
+                                <span class="mega-link-icon">✅</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Safe Listening</span>
+                                    <span class="mega-link-desc">WHO guidelines</span>
+                                </span>
+                            </a>
+                            <a href="headphone-safety.html" class="mega-link">
+                                <span class="mega-link-icon">🎧</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Headphone Safety</span>
+                                    <span class="mega-link-desc">The 60/60 rule</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Guides <span class="nav-arrow">▼</span></a>
+                    <div class="mega-menu" style="min-width: 300px;">
+                        <div class="mega-menu-title">Situation Guides</div>
+                        <div class="mega-menu-links">
+                            <a href="concert-hearing-safety.html" class="mega-link">
+                                <span class="mega-link-icon">🎸</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Concerts & Shows</span>
+                                    <span class="mega-link-desc">Live music protection</span>
+                                </span>
+                            </a>
+                            <a href="festival-survival.html" class="mega-link">
+                                <span class="mega-link-icon">🎪</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Festival Survival</span>
+                                    <span class="mega-link-desc">Multi-day strategies</span>
+                                </span>
+                            </a>
+                            <a href="dj-hearing-protection.html" class="mega-link">
+                                <span class="mega-link-icon">🎛️</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">DJ Protection</span>
+                                    <span class="mega-link-desc">Behind the decks</span>
+                                </span>
+                            </a>
+                            <a href="musician-hearing-guide.html" class="mega-link">
+                                <span class="mega-link-icon">🎵</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Musician's Guide</span>
+                                    <span class="mega-link-desc">By instrument type</span>
+                                </span>
+                            </a>
+                            <a href="kids-hearing-protection.html" class="mega-link">
+                                <span class="mega-link-icon">👶</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Kids & Parents</span>
+                                    <span class="mega-link-desc">Protecting young ears</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Tools <span class="nav-arrow">▼</span></a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-title">Interactive Tools</div>
+                        <div class="mega-menu-links">
+                            <a href="exposure-calculator.html" class="mega-link">
+                                <span class="mega-link-icon">⏱️</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Exposure Calculator</span>
+                                    <span class="mega-link-desc">Daily noise dose</span>
+                                </span>
+                            </a>
+                            <a href="hearing-test.html" class="mega-link">
+                                <span class="mega-link-icon">🎧</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Hearing Test</span>
+                                    <span class="mega-link-desc">Check your frequencies</span>
+                                </span>
+                            </a>
+                            <a href="tinnitus-simulator.html" class="mega-link">
+                                <span class="mega-link-icon">🔔</span>
+                                <span class="mega-link-text">
+                                    <span class="mega-link-title">Tinnitus Simulator</span>
+                                    <span class="mega-link-desc">Hear what it's like</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <a href="https://unplugshearing.com/products/unplugs" class="btn-primary header-cta">Get Unplugs →</a>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+                <span id="menuIcon">☰</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-section">
+            <div class="mobile-section-title">Understanding Sound</div>
+            <a href="decibel-guide.html" class="mobile-link"><span class="mobile-link-icon">📊</span> Decibel Guide</a>
+            <a href="how-hearing-works.html" class="mobile-link"><span class="mobile-link-icon">👂</span> How Hearing Works</a>
+            <a href="noise-induced-hearing-loss.html" class="mobile-link"><span class="mobile-link-icon">📉</span> NIHL Explained</a>
+            <a href="temporary-vs-permanent.html" class="mobile-link"><span class="mobile-link-icon">⚠️</span> Temporary vs Permanent</a>
+        </div>
+        <div class="mobile-section">
+            <div class="mobile-section-title">Protection Basics</div>
+            <a href="85-decibel-rule.html" class="mobile-link"><span class="mobile-link-icon">📏</span> The 85 dB Rule</a>
+            <a href="tinnitus-prevention.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Prevention</a>
+            <a href="safe-listening-guidelines.html" class="mobile-link"><span class="mobile-link-icon">✅</span> Safe Listening</a>
+            <a href="headphone-safety.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Headphone Safety</a>
+        </div>
+        <div class="mobile-section">
+            <div class="mobile-section-title">Situation Guides</div>
+            <a href="concert-hearing-safety.html" class="mobile-link"><span class="mobile-link-icon">🎸</span> Concerts & Shows</a>
+            <a href="festival-survival.html" class="mobile-link"><span class="mobile-link-icon">🎪</span> Festival Survival</a>
+            <a href="dj-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">🎛️</span> DJ Protection</a>
+            <a href="musician-hearing-guide.html" class="mobile-link"><span class="mobile-link-icon">🎵</span> Musician's Guide</a>
+            <a href="kids-hearing-protection.html" class="mobile-link"><span class="mobile-link-icon">👶</span> Kids & Parents</a>
+        </div>
+        <div class="mobile-section">
+            <div class="mobile-section-title">Interactive Tools</div>
+            <a href="exposure-calculator.html" class="mobile-link"><span class="mobile-link-icon">⏱️</span> Exposure Calculator</a>
+            <a href="hearing-test.html" class="mobile-link"><span class="mobile-link-icon">🎧</span> Hearing Test</a>
+            <a href="tinnitus-simulator.html" class="mobile-link"><span class="mobile-link-icon">🔔</span> Tinnitus Simulator</a>
+        </div>
+        <div class="mobile-section" style="padding: 1rem;">
+            <a href="https://unplugshearing.com/products/unplugs" class="btn-primary" style="width: 100%; justify-content: center;">Get Unplugs →</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content animate-on-scroll">
+                <span class="hero-eyebrow">The Complete Resource</span>
+                <h1>Hearing Protection <span class="accent">Superguide</span></h1>
+                <p class="hero-sub">Everything you need to understand sound, protect your hearing, and prevent noise-induced damage. Interactive tools, science-backed education, no medical jargon.</p>
+                
+                <div class="hero-stats stagger-children">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">1.1B</div>
+                        <div class="hero-stat-label">People at risk of hearing loss</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">100%</div>
+                        <div class="hero-stat-label">Preventable with protection</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">15+</div>
+                        <div class="hero-stat-label">Interactive guides</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK TOOLS -->
+        <section class="quick-tools">
+            <div class="tools-grid stagger-children">
+                <a href="decibel-guide.html" class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <div class="tool-title">Decibel Explorer</div>
+                    <div class="tool-desc">Interactive sound level guide</div>
+                </a>
+                <a href="exposure-calculator.html" class="tool-card">
+                    <div class="tool-icon">⏱️</div>
+                    <div class="tool-title">Exposure Calculator</div>
+                    <div class="tool-desc">Check your safe listening time</div>
+                </a>
+                <a href="hearing-test.html" class="tool-card">
+                    <div class="tool-icon">🎧</div>
+                    <div class="tool-title">Frequency Test</div>
+                    <div class="tool-desc">Test your hearing range</div>
+                </a>
+                <a href="tinnitus-simulator.html" class="tool-card">
+                    <div class="tool-icon">🔔</div>
+                    <div class="tool-title">Tinnitus Simulator</div>
+                    <div class="tool-desc">Hear what tinnitus sounds like</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- UNDERSTANDING SOUND SECTION -->
+        <section class="section animate-on-scroll" id="understanding">
+            <div class="section-header">
+                <span class="section-eyebrow">Foundation</span>
+                <h2 class="section-title">Understanding Sound & Hearing</h2>
+                <p class="section-desc">The science of how we hear, what damages hearing, and why it matters—explained simply.</p>
+            </div>
+
+            <a href="decibel-guide.html" class="featured-article">
+                <div class="featured-visual">
+                    <div class="featured-icon">📊</div>
+                    <div class="featured-stat">85 dB</div>
+                    <div class="featured-stat-label">The threshold where damage begins</div>
+                </div>
+                <div class="featured-content">
+                    <span class="featured-badge">Most Popular</span>
+                    <h3 class="featured-title">The Complete Guide to Decibel Levels & Hearing Damage</h3>
+                    <p class="featured-excerpt">Understanding decibels is the first step to protecting your hearing. This interactive guide shows you exactly how loud common sounds are, how long you can safely listen, and when you need protection.</p>
+                    <span class="featured-cta">Explore the Guide →</span>
+                </div>
+            </a>
+
+            <div class="articles-grid stagger-children">
+                <a href="how-hearing-works.html" class="article-card">
+                    <div class="article-thumb">👂</div>
+                    <div class="article-content">
+                        <span class="article-tag">Interactive</span>
+                        <h3 class="article-title">How Hearing Works: The Journey of Sound</h3>
+                        <p class="article-excerpt">Follow a sound wave from your ear canal to your brain. Understand the delicate system that makes hearing possible.</p>
+                        <div class="article-meta">🕐 5 min read</div>
+                    </div>
+                </a>
+                <a href="noise-induced-hearing-loss.html" class="article-card">
+                    <div class="article-thumb">📉</div>
+                    <div class="article-content">
+                        <span class="article-tag">Essential</span>
+                        <h3 class="article-title">Noise-Induced Hearing Loss (NIHL)</h3>
+                        <p class="article-excerpt">The only type of hearing loss that's 100% preventable. Learn what causes it, how to spot it early, and how to stop it.</p>
+                        <div class="article-meta">🕐 7 min read</div>
+                    </div>
+                </a>
+                <a href="temporary-vs-permanent.html" class="article-card">
+                    <div class="article-thumb">⚠️</div>
+                    <div class="article-content">
+                        <span class="article-tag">Interactive</span>
+                        <h3 class="article-title">Temporary vs. Permanent Damage</h3>
+                        <p class="article-excerpt">Your ears are ringing after a concert. Will it go away? Learn the difference between temporary and permanent damage.</p>
+                        <div class="article-meta">🕐 4 min read</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- PROTECTION SECTION -->
+        <section class="section animate-on-scroll" id="protecting">
+            <div class="section-header">
+                <span class="section-eyebrow">Prevention</span>
+                <h2 class="section-title">Protecting Your Hearing</h2>
+                <p class="section-desc">Practical guides to prevention, safe listening, and choosing the right protection.</p>
+            </div>
+
+            <div class="articles-grid stagger-children">
+                <a href="85-decibel-rule.html" class="article-card">
+                    <div class="article-thumb">📏</div>
+                    <div class="article-content">
+                        <span class="article-tag">Essential</span>
+                        <h3 class="article-title">The 85 Decibel Rule</h3>
+                        <p class="article-excerpt">Why 85 dB is the magic number, and how to use the 3 dB exchange rate to calculate your safe exposure time.</p>
+                        <div class="article-meta">🕐 5 min read</div>
+                    </div>
+                </a>
+                <a href="tinnitus-prevention.html" class="article-card">
+                    <div class="article-thumb">🔔</div>
+                    <div class="article-content">
+                        <span class="article-tag">Interactive</span>
+                        <h3 class="article-title">Tinnitus Prevention</h3>
+                        <p class="article-excerpt">15% of adults have tinnitus. Most cases are preventable. Learn what causes it and how to protect yourself.</p>
+                        <div class="article-meta">🕐 6 min read</div>
+                    </div>
+                </a>
+                <a href="safe-listening-guidelines.html" class="article-card">
+                    <div class="article-thumb">✅</div>
+                    <div class="article-content">
+                        <span class="article-tag">Guide</span>
+                        <h3 class="article-title">Safe Listening Guidelines</h3>
+                        <p class="article-excerpt">The World Health Organization's guidelines for safe listening, translated into practical everyday advice.</p>
+                        <div class="article-meta">🕐 5 min read</div>
+                    </div>
+                </a>
+                <a href="headphone-safety.html" class="article-card">
+                    <div class="article-thumb">🎧</div>
+                    <div class="article-content">
+                        <span class="article-tag">Interactive</span>
+                        <h3 class="article-title">Headphone & Earbud Safety</h3>
+                        <p class="article-excerpt">Your daily listening habits might be damaging your hearing. Learn how to enjoy music safely through headphones.</p>
+                        <div class="article-meta">🕐 5 min read</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <div class="section">
+            <div class="cta-banner animate-on-scroll">
+                <div class="cta-content">
+                    <h3>Ready to Protect Your Hearing?</h3>
+                    <p>Unplugs are audiologist-designed hearing protection that lets you switch between protection and connection with one click.</p>
+                </div>
+                <a href="https://unplugshearing.com/products/unplugs" class="cta-button">Shop Unplugs →</a>
+            </div>
+        </div>
+
+        <!-- USE CASES SECTION -->
+        <section class="section animate-on-scroll" id="use-cases">
+            <div class="section-header">
+                <span class="section-eyebrow">Scenarios</span>
+                <h2 class="section-title">Use Case Guides</h2>
+                <p class="section-desc">Specific guidance for concerts, DJs, musicians, and more.</p>
+            </div>
+
+            <div class="articles-grid stagger-children">
+                <a href="concert-hearing-safety.html" class="article-card">
+                    <div class="article-thumb">🎸</div>
+                    <div class="article-content">
+                        <span class="article-tag">Interactive</span>
+                        <h3 class="article-title">Concert & Festival Safety</h3>
+                        <p class="article-excerpt">Concerts can hit 120 dB. Learn how to enjoy live music without sacrificing your hearing.</p>
+                        <div class="article-meta">🕐 6 min read</div>
+                    </div>
+                </a>
+                <a href="dj-hearing-protection.html" class="article-card">
+                    <div class="article-thumb">🎛️</div>
+                    <div class="article-content">
+                        <span class="article-tag">Pro Guide</span>
+                        <h3 class="article-title">DJ Hearing Protection</h3>
+                        <p class="article-excerpt">Your ears are your career. Learn how to protect them without compromising your mix.</p>
+                        <div class="article-meta">🕐 7 min read</div>
+                    </div>
+                </a>
+                <a href="musician-hearing-guide.html" class="article-card">
+                    <div class="article-thumb">🎵</div>
+                    <div class="article-content">
+                        <span class="article-tag">Interactive</span>
+                        <h3 class="article-title">Musician's Guide</h3>
+                        <p class="article-excerpt">From drummers to guitarists: instrument-specific risks and protection strategies.</p>
+                        <div class="article-meta">🕐 8 min read</div>
+                    </div>
+                </a>
+                <a href="festival-survival.html" class="article-card">
+                    <div class="article-thumb">🎪</div>
+                    <div class="article-content">
+                        <span class="article-tag">Guide</span>
+                        <h3 class="article-title">Festival Survival Guide</h3>
+                        <p class="article-excerpt">Multi-day festivals are especially dangerous. Here's how to make it through with your hearing intact.</p>
+                        <div class="article-meta">🕐 5 min read</div>
+                    </div>
+                </a>
+                <a href="kids-hearing-protection.html" class="article-card">
+                    <div class="article-thumb">👶</div>
+                    <div class="article-content">
+                        <span class="article-tag">Parents</span>
+                        <h3 class="article-title">Kids & Hearing Protection</h3>
+                        <p class="article-excerpt">Children's ears are more vulnerable. Learn when and how to protect your kids' hearing.</p>
+                        <div class="article-meta">🕐 5 min read</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- TOOLS SECTION -->
+        <section class="section animate-on-scroll" id="tools">
+            <div class="section-header">
+                <span class="section-eyebrow">Interactive</span>
+                <h2 class="section-title">Tools & Calculators</h2>
+                <p class="section-desc">Interactive tools to understand your exposure and test your hearing.</p>
+            </div>
+
+            <div class="articles-grid stagger-children">
+                <a href="exposure-calculator.html" class="article-card">
+                    <div class="article-thumb">⏱️</div>
+                    <div class="article-content">
+                        <span class="article-tag">Tool</span>
+                        <h3 class="article-title">Sound Exposure Calculator</h3>
+                        <p class="article-excerpt">Enter your sound level and duration to calculate your cumulative exposure and risk.</p>
+                        <div class="article-meta">🕐 Interactive</div>
+                    </div>
+                </a>
+                <a href="hearing-test.html" class="article-card">
+                    <div class="article-thumb">🎧</div>
+                    <div class="article-content">
+                        <span class="article-tag">Tool</span>
+                        <h3 class="article-title">Online Hearing Test</h3>
+                        <p class="article-excerpt">Test which frequencies you can hear. High frequencies are often the first to go.</p>
+                        <div class="article-meta">🕐 Interactive</div>
+                    </div>
+                </a>
+                <a href="tinnitus-simulator.html" class="article-card">
+                    <div class="article-thumb">🔔</div>
+                    <div class="article-content">
+                        <span class="article-tag">Tool</span>
+                        <h3 class="article-title">Tinnitus Simulator</h3>
+                        <p class="article-excerpt">Experience what tinnitus sounds like—and understand why you want to prevent it.</p>
+                        <div class="article-meta">🕐 Interactive</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ALL TOPICS -->
+        <section class="section animate-on-scroll">
+            <div class="section-header">
+                <span class="section-eyebrow">Complete Library</span>
+                <h2 class="section-title">All Topics</h2>
+                <p class="section-desc">Browse every guide in our hearing health library.</p>
+            </div>
+
+            <div class="topics-grid stagger-children">
+                <a href="decibel-guide.html" class="topic-link">
+                    <span class="topic-icon">📊</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Decibel Levels Guide</div>
+                        <div class="topic-category">Understanding Sound</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="how-hearing-works.html" class="topic-link">
+                    <span class="topic-icon">👂</span>
+                    <div class="topic-text">
+                        <div class="topic-title">How Hearing Works</div>
+                        <div class="topic-category">Understanding Sound</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="noise-induced-hearing-loss.html" class="topic-link">
+                    <span class="topic-icon">📉</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Noise-Induced Hearing Loss</div>
+                        <div class="topic-category">Understanding Sound</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="temporary-vs-permanent.html" class="topic-link">
+                    <span class="topic-icon">⚠️</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Temporary vs Permanent</div>
+                        <div class="topic-category">Understanding Sound</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="85-decibel-rule.html" class="topic-link">
+                    <span class="topic-icon">📏</span>
+                    <div class="topic-text">
+                        <div class="topic-title">The 85 Decibel Rule</div>
+                        <div class="topic-category">Protection</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="tinnitus-prevention.html" class="topic-link">
+                    <span class="topic-icon">🔔</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Tinnitus Prevention</div>
+                        <div class="topic-category">Protection</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="safe-listening-guidelines.html" class="topic-link">
+                    <span class="topic-icon">✅</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Safe Listening Guidelines</div>
+                        <div class="topic-category">Protection</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="headphone-safety.html" class="topic-link">
+                    <span class="topic-icon">🎧</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Headphone Safety</div>
+                        <div class="topic-category">Protection</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="concert-hearing-safety.html" class="topic-link">
+                    <span class="topic-icon">🎸</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Concert Safety</div>
+                        <div class="topic-category">Use Cases</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="dj-hearing-protection.html" class="topic-link">
+                    <span class="topic-icon">🎛️</span>
+                    <div class="topic-text">
+                        <div class="topic-title">DJ Hearing Protection</div>
+                        <div class="topic-category">Use Cases</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="musician-hearing-guide.html" class="topic-link">
+                    <span class="topic-icon">🎵</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Musician's Guide</div>
+                        <div class="topic-category">Use Cases</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="festival-survival.html" class="topic-link">
+                    <span class="topic-icon">🎪</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Festival Survival</div>
+                        <div class="topic-category">Use Cases</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="kids-hearing-protection.html" class="topic-link">
+                    <span class="topic-icon">👶</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Kids Hearing Protection</div>
+                        <div class="topic-category">Use Cases</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="exposure-calculator.html" class="topic-link">
+                    <span class="topic-icon">⏱️</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Exposure Calculator</div>
+                        <div class="topic-category">Tools</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="hearing-test.html" class="topic-link">
+                    <span class="topic-icon">🎧</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Hearing Test</div>
+                        <div class="topic-category">Tools</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+                <a href="tinnitus-simulator.html" class="topic-link">
+                    <span class="topic-icon">🔔</span>
+                    <div class="topic-text">
+                        <div class="topic-title">Tinnitus Simulator</div>
+                        <div class="topic-category">Tools</div>
+                    </div>
+                    <span class="topic-arrow">→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-text">UNPLUGS LEARN</div>
+                <p>Audiologist-designed hearing protection and education. Understanding sound is the first step to protecting it.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="decibel-guide.html">Decibel Guide</a></li>
+                    <li><a href="how-hearing-works.html">How Hearing Works</a></li>
+                    <li><a href="noise-induced-hearing-loss.html">NIHL</a></li>
+                    <li><a href="tinnitus-prevention.html">Tinnitus</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="concert-hearing-safety.html">Concerts</a></li>
+                    <li><a href="dj-hearing-protection.html">DJs</a></li>
+                    <li><a href="musician-hearing-guide.html">Musicians</a></li>
+                    <li><a href="festival-survival.html">Festivals</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Unplugs</h4>
+                <ul>
+                    <li><a href="https://unplugshearing.com">Home</a></li>
+                    <li><a href="https://unplugshearing.com/products/unplugs">Shop</a></li>
+                    <li><a href="https://unplugshearing.com/pages/our-science">Our Science</a></li>
+                    <li><a href="https://unplugshearing.com/pages/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Unplugs Hearing. All rights reserved.</span>
+            <span>Built by audiologists, for everyone.</span>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('open');
+            icon.textContent = menu.classList.contains('open') ? '✕' : '☰';
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll, .stagger-children').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Close mobile menu on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const menu = document.getElementById('mobileMenu');
+                const icon = document.getElementById('menuIcon');
+                menu.classList.remove('open');
+                icon.textContent = '☰';
+            }
+        });
+    </script>
+</body>
+</html>
