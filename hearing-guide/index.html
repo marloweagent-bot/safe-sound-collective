@@ -700,9 +700,130 @@
             }
         }
 
+        @media (max-width: 768px) {
+            /* Fix section spacing */
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .section-header {
+                margin-bottom: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            /* Fix article cards grid - single column on mobile */
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            /* Make article cards more touch-friendly */
+            .article-card {
+                border-radius: 12px;
+            }
+            
+            .article-thumbnail {
+                height: 120px;
+                font-size: 3rem;
+            }
+            
+            .article-content {
+                padding: 1.25rem;
+            }
+            
+            .article-title {
+                font-size: 1.1rem;
+            }
+            
+            .article-excerpt {
+                font-size: 0.85rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Fix tools grid */
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                padding: 0 1rem;
+            }
+            
+            .tool-card {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+            
+            .tool-icon {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .tool-title {
+                font-size: 0.85rem;
+            }
+            
+            .tool-desc {
+                font-size: 0.75rem;
+            }
+            
+            /* Fix topics grid */
+            .topics-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .topic-link {
+                padding: 1rem;
+            }
+            
+            /* Fix CTA banner */
+            .cta-banner {
+                margin: 1.5rem 1rem;
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+            
+            .cta-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .cta-button {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Fix featured article */
+            .featured-visual {
+                padding: 1.5rem;
+            }
+            
+            .featured-icon {
+                font-size: 3rem;
+            }
+            
+            .featured-stat {
+                font-size: 2rem;
+            }
+            
+            .featured-content {
+                padding: 1.5rem;
+            }
+            
+            .featured-title {
+                font-size: 1.25rem;
+            }
+        }
+
         @media (max-width: 600px) {
             .hero-stats {
                 gap: 2rem;
+            }
+            
+            /* Single column tools grid on small phones */
+            .tools-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-inner {
