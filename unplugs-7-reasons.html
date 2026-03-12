@@ -8,180 +8,171 @@
     <title>I Finally Found Earplugs I Actually Keep In | Safe Sound Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #29EF78;
-            --primary-dark: #22D969;
             --secondary: #222222;
-            --accent: #29EF78;
             --danger: #EF4444;
             --text: #FFFFFF;
-            --text-muted: #909090;
+            --text-muted: #a0a0a0;
             --card: #2A2A2A;
             --border: rgba(255,255,255,0.08);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
-        a { color: inherit; text-decoration: none; }
-        .unplugs-link { color: var(--primary); font-weight: 600; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-        .unplugs-link:hover { border-bottom-color: var(--primary); }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--secondary); color: var(--text); line-height: 1.8; }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        .hero {
-            padding: 4rem 2rem 3rem;
-            text-align: center;
-            background: radial-gradient(ellipse at 30% 20%, rgba(41,239,120,0.12) 0%, transparent 50%), var(--secondary);
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
         }
-        @media (max-width: 768px) { .hero { padding: 3rem 1.5rem 2rem; } }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(41, 239, 120, 0.15);
-            color: var(--primary);
-            padding: 0.4rem 0.9rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            border: 1px solid rgba(41, 239, 120, 0.3);
-        }
-        .hero h1 { font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
-        .hero h1 .highlight { background: linear-gradient(135deg, var(--primary), #22D969); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 550px; margin: 0 auto; }
-        @media (max-width: 768px) { .hero h1 { font-size: 1.6rem; } .hero-sub { font-size: 1rem; } }
+        @media (max-width: 768px) { article { padding: 2.5rem 1.25rem; } }
 
-        .reasons { max-width: 700px; margin: 0 auto; padding: 3rem 1.5rem; }
-        @media (max-width: 768px) { .reasons { padding: 2rem 1.25rem; } }
-        .reason {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2rem;
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.25;
             margin-bottom: 1.5rem;
         }
-        @media (max-width: 768px) { .reason { padding: 1.5rem; border-radius: 16px; } }
-        .reason-header { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
-        .reason-icon {
-            width: 44px; height: 44px; min-width: 44px;
-            background: rgba(41,239,120,0.15);
-            border: 1px solid rgba(41,239,120,0.3);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem;
+        .meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
         }
-        .reason-title { font-size: 1.15rem; font-weight: 700; line-height: 1.3; }
-        .reason-body { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
-        .reason-body strong { color: var(--text); }
-        .reason-body .hl { color: var(--primary); font-weight: 600; }
+        p { margin-bottom: 1.5rem; color: var(--text-muted); }
+        p strong { color: var(--text); }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--text);
+        }
+        blockquote {
+            border-left: 3px solid var(--primary);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
 
-        .interactive-module {
-            background: var(--secondary);
+        .demo-box {
+            background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.25rem;
-            margin-top: 1.25rem;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
         }
-        .module-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.75rem; font-weight: 600; text-align: center; }
+        .demo-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 1rem; font-weight: 600; }
 
-        .plug-visual { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; margin: 0 auto 0.75rem; }
-        .plug-visual.protected { background: linear-gradient(135deg, var(--primary), #22D969); box-shadow: 0 0 25px rgba(41, 239, 120, 0.4); }
-        .plug-visual.connected { background: linear-gradient(135deg, #22D4FF, #0EA5E9); box-shadow: 0 0 25px rgba(34, 212, 255, 0.4); }
+        .plug-visual { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; margin: 0 auto 0.75rem; }
+        .plug-visual.protected { background: linear-gradient(135deg, var(--primary), #22D969); box-shadow: 0 0 20px rgba(41, 239, 120, 0.35); }
+        .plug-visual.connected { background: linear-gradient(135deg, #22D4FF, #0EA5E9); box-shadow: 0 0 20px rgba(34, 212, 255, 0.35); }
         .plug-visual:hover { transform: scale(1.05); }
-        .plug-status { font-size: 0.9rem; font-weight: 700; text-align: center; margin-bottom: 0.3rem; }
+        .plug-status { font-weight: 600; margin-bottom: 0.25rem; }
         .status-protected { color: var(--primary); }
         .status-connected { color: #22D4FF; }
-        .plug-description { font-size: 0.8rem; color: var(--text-muted); text-align: center; }
+        .plug-desc { font-size: 0.85rem; color: var(--text-muted); }
 
         .hair-cells { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; margin-bottom: 0.75rem; }
-        .hair-cell { width: 10px; height: 24px; background: linear-gradient(to top, var(--primary), #66ff99); border-radius: 5px 5px 2px 2px; transition: all 0.4s; }
+        .hair-cell { width: 10px; height: 22px; background: linear-gradient(to top, var(--primary), #66ff99); border-radius: 4px 4px 2px 2px; transition: all 0.4s; }
         .hair-cell.damaged { background: #444; height: 6px; opacity: 0.4; transform: rotate(45deg); }
-        .cell-counter { text-align: center; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .cell-counter span { color: var(--primary); font-size: 1.1rem; }
-        .cell-controls { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-        .cell-btn { padding: 0.5rem 1rem; border: none; border-radius: 8px; font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+        .cell-counter { font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .cell-counter span { color: var(--primary); font-weight: 700; }
+        .cell-btn { padding: 0.5rem 1rem; border: none; border-radius: 6px; font-weight: 600; font-size: 0.8rem; cursor: pointer; margin: 0 0.25rem; }
         .cell-btn.damage { background: var(--danger); color: white; }
         .cell-btn.reset { background: var(--card); color: var(--text); border: 1px solid var(--border); }
 
-        .cta-section { background: var(--card); padding: 3rem 1.5rem; text-align: center; }
-        .cta-section h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; margin-bottom: 0.75rem; }
-        .cta-section h2 .highlight { background: linear-gradient(135deg, var(--primary), #22D969); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .cta-section p { font-size: 1rem; color: var(--text-muted); max-width: 400px; margin: 0 auto 1.5rem; }
-        .cta-button { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary); color: #222; font-size: 1rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 100px; transition: all 0.2s; }
-        .cta-button:hover { background: var(--primary-dark); transform: translateY(-2px); }
-        .cta-button svg { width: 16px; height: 16px; }
+        .cta-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0 2rem;
+            text-align: center;
+        }
+        .cta-box h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .cta-box p { margin-bottom: 1.25rem; font-size: 0.95rem; }
+        .cta-button { display: inline-block; background: var(--primary); color: #222; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 100px; }
+        .cta-button:hover { text-decoration: none; opacity: 0.9; }
 
-        footer { background: var(--secondary); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
-        footer p { font-size: 0.85rem; color: var(--text-muted); }
-        footer a { color: var(--primary); }
+        footer { text-align: center; padding: 2rem; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <span class="hero-badge">From Someone Who Finally Gets It</span>
-        <h1>Earplugs I <span class="highlight">Actually Keep In</span></h1>
-        <p class="hero-sub">After years of losing earplugs by the second set, I found the design fix I didn't know I needed.</p>
-    </section>
+    <article>
+        <h1>I Finally Found Earplugs I Actually Keep In</h1>
+        <div class="meta">5 min read · Safe Sound Guide</div>
 
-    <section class="reasons">
-        <!-- Reason 1: The Click -->
-        <article class="reason">
-            <div class="reason-header">
-                <div class="reason-icon">👆</div>
-                <h3 class="reason-title">I Never Take Them Out Anymore</h3>
-            </div>
-            <div class="reason-body">
-                <p><strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> have a button.</strong> One click = protected. Another click = full clarity for conversations. No removing, no losing.</p>
-                <div class="interactive-module">
-                    <div class="module-title">👆 Try it</div>
-                    <div class="plug-visual protected" id="plug-demo" onclick="togglePlug()">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
-                    </div>
-                    <div class="plug-status status-protected" id="plug-status">🛡️ PROTECTED</div>
-                    <div class="plug-description" id="plug-desc">20dB reduction • Click to switch</div>
-                </div>
-            </div>
-        </article>
+        <p>I've been buying earplugs for years. Nice ones. The $30-40 "musician grade" kind that promise high-fidelity sound. And every single time, by the second set of the night, they're gone.</p>
 
-        <!-- Reason 2: Irreversible Damage -->
-        <article class="reason">
-            <div class="reason-header">
-                <div class="reason-icon">💀</div>
-                <h3 class="reason-title">The Damage Doesn't Come Back</h3>
-            </div>
-            <div class="reason-body">
-                <p><span class="hl">Hearing damage is cumulative and irreversible.</span> Tinnitus doesn't warn you — it just shows up one night and never leaves. With Unplugs, I stopped negotiating.</p>
-                <div class="interactive-module">
-                    <div class="module-title">🔬 Watch hair cells die</div>
-                    <div class="hair-cells" id="hair-cells"></div>
-                    <div class="cell-counter">Remaining: <span id="cell-count">100</span>%</div>
-                    <div class="cell-controls">
-                        <button class="cell-btn damage" onclick="damageHairCells()">🔊 Festival Night</button>
-                        <button class="cell-btn reset" onclick="resetHairCells()">↺ Reset</button>
-                    </div>
-                </div>
-            </div>
-        </article>
+        <p>Not because I'm careless. Because <strong>the design forces me to take them out constantly</strong>. Friend wants to tell me something? Out they come. Favorite part of a song? Out. Bartender asking what I want? Out. And once they're out, they end up in my pocket, my hand, the grass, wherever.</p>
 
-        <!-- Reason 3: Pure Mechanical -->
-        <article class="reason">
-            <div class="reason-header">
-                <div class="reason-icon">⚡</div>
-                <h3 class="reason-title">No Batteries. No App. No BS.</h3>
-            </div>
-            <div class="reason-body">
-                <p>When AirPods die at 2am, you're back to foam plugs. <strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> are pure mechanical.</strong> A physical button that works every time, forever.</p>
-            </div>
-        </article>
-    </section>
+        <p>I'd accepted this as normal. The cost of protecting my hearing was losing $30 earplugs every few festivals.</p>
 
-    <section class="cta-section">
-        <h2>Stop Losing Earplugs.<br/><span class="highlight">Start Keeping Your Hearing.</span></h2>
-        <p>One click to protect. One click to connect.</p>
-        <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="cta-button">
-            Get Unplugs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-    </section>
+        <p>Then I found <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585">Unplugs</a>, and my brain kind of broke.</p>
 
-    <footer><p>Published on <a href="https://safesound.guide">Safe Sound Guide</a></p></footer>
+        <h2>They have a button.</h2>
+
+        <p>I know that sounds stupidly simple. But stay with me.</p>
+
+        <p><strong>One click and you're protected</strong> — 20dB reduction, high-fidelity sound, exactly what you'd expect from premium earplugs. But then <strong>another click and you're open</strong> — full clarity, hear your friend, hear the bartender, hear that breakdown you didn't want to miss.</p>
+
+        <p>No removing. No fumbling. No losing.</p>
+
+        <div class="demo-box">
+            <div class="demo-label">Try it yourself</div>
+            <div class="plug-visual protected" id="plug-demo" onclick="togglePlug()">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+            </div>
+            <div class="plug-status status-protected" id="plug-status">🛡️ Protected</div>
+            <div class="plug-desc" id="plug-desc">Click to switch modes</div>
+        </div>
+
+        <p>I wore them for an entire festival last month. Never took them out once. That's never happened to me before.</p>
+
+        <h2>The stakes are higher than I realized.</h2>
+
+        <p>Here's the thing I didn't fully understand until recently: <strong>hearing damage is cumulative and irreversible.</strong></p>
+
+        <p>You're born with about 16,000 hair cells in each ear. They convert sound into the signals your brain understands. And when they die — from loud music, from concerts, from standing too close to the speakers — they don't come back. No surgery, no pill, no cure.</p>
+
+        <p>Every loud set without protection adds up. Tinnitus doesn't give you a warning. It just shows up one night and never leaves.</p>
+
+        <div class="demo-box">
+            <div class="demo-label">Watch what happens to hair cells</div>
+            <div class="hair-cells" id="hair-cells"></div>
+            <div class="cell-counter">Hair cells remaining: <span id="cell-count">100</span>%</div>
+            <div>
+                <button class="cell-btn damage" onclick="damageHairCells()">🔊 Festival night</button>
+                <button class="cell-btn reset" onclick="resetHairCells()">↺ Reset</button>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 1rem; margin-bottom: 0;">Unlike this demo, real hair cells don't reset.</p>
+        </div>
+
+        <p>With Unplugs, I stopped playing the "maybe I'll be fine" game. They stay in because I never have a reason to take them out.</p>
+
+        <h2>No batteries, no apps, no BS.</h2>
+
+        <p>I looked at the electronic options — AirPods Pro, Loop Engage, all that. Cool tech. But you know what happens when the battery dies at 2am? You're back to foam plugs or nothing.</p>
+
+        <p><strong>Unplugs are pure mechanical.</strong> A physical button that physically opens or closes the sound channel. Nothing to charge. Nothing to pair. Nothing to update. It just works, every time, forever.</p>
+
+        <blockquote>The best gear is the gear you'll actually use. Everything else is just expensive good intentions.</blockquote>
+
+        <div class="cta-box">
+            <h3>Stop losing earplugs. Start keeping your hearing.</h3>
+            <p>One click to protect. One click to connect.</p>
+            <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="cta-button">Get Unplugs →</a>
+        </div>
+    </article>
+
+    <footer>Published on <a href="https://safesound.guide">Safe Sound Guide</a> — Independent hearing health education.</footer>
 
     <script>
         let hairCellsRemaining = 50;
@@ -204,8 +195,8 @@
         function togglePlug() {
             isProtected = !isProtected;
             const plug = document.getElementById('plug-demo'), status = document.getElementById('plug-status'), desc = document.getElementById('plug-desc');
-            if (isProtected) { plug.className = 'plug-visual protected'; status.className = 'plug-status status-protected'; status.textContent = '🛡️ PROTECTED'; desc.textContent = '20dB reduction • Click to switch'; }
-            else { plug.className = 'plug-visual connected'; status.className = 'plug-status status-connected'; status.textContent = '👂 OPEN'; desc.textContent = 'Full clarity • Click to protect'; }
+            if (isProtected) { plug.className = 'plug-visual protected'; status.className = 'plug-status status-protected'; status.textContent = '🛡️ Protected'; }
+            else { plug.className = 'plug-visual connected'; status.className = 'plug-status status-connected'; status.textContent = '👂 Open'; }
         }
         document.addEventListener('DOMContentLoaded', initHairCells);
     </script>
