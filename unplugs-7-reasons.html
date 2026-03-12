@@ -531,6 +531,235 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Interactive Module Styling */
+        .interactive-module {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .module-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Hair Cells Demo */
+        .hair-cells {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .hair-cell {
+            width: 12px;
+            height: 28px;
+            background: linear-gradient(to top, var(--primary), #66ff99);
+            border-radius: 6px 6px 2px 2px;
+            transition: all 0.4s ease;
+        }
+
+        .hair-cell.damaged {
+            background: #444;
+            height: 8px;
+            opacity: 0.4;
+            transform: rotate(45deg);
+        }
+
+        .cell-counter {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cell-counter span {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .cell-controls {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cell-btn {
+            padding: 0.6rem 1.25rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cell-btn.damage {
+            background: var(--danger);
+            color: white;
+        }
+
+        .cell-btn.damage:hover {
+            background: #dc2626;
+        }
+
+        .cell-btn.reset {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .cell-btn.reset:hover {
+            background: var(--card-hover);
+        }
+
+        /* Interactive Click Demo */
+        .plug-visual {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto 1rem;
+        }
+
+        .plug-visual.protected {
+            background: linear-gradient(135deg, var(--primary), #22D969);
+            box-shadow: 0 0 30px rgba(41, 239, 120, 0.4);
+        }
+
+        .plug-visual.connected {
+            background: linear-gradient(135deg, #22D4FF, #0EA5E9);
+            box-shadow: 0 0 30px rgba(34, 212, 255, 0.4);
+        }
+
+        .plug-visual:hover {
+            transform: scale(1.05);
+        }
+
+        .plug-visual:active {
+            transform: scale(0.95);
+        }
+
+        .plug-status {
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-protected {
+            color: var(--primary);
+        }
+
+        .status-connected {
+            color: #22D4FF;
+        }
+
+        .plug-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Exposure Calculator */
+        .exposure-calc {
+            text-align: center;
+        }
+
+        .exposure-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .exposure-slider {
+            width: 100%;
+            max-width: 300px;
+            height: 8px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--card);
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .exposure-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .exposure-result {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--danger);
+            margin: 0.75rem 0;
+        }
+
+        .exposure-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 450px) {
+            .exposure-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exposure-box {
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .exposure-box.without {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.2);
+        }
+
+        .exposure-box.with {
+            background: rgba(41,239,120,0.1);
+            border: 1px solid rgba(41,239,120,0.2);
+        }
+
+        .exposure-box h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .exposure-box.without h4 { color: var(--danger); }
+        .exposure-box.with h4 { color: var(--primary); }
+
+        .exposure-box .time {
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .exposure-box.without .time { color: var(--danger); }
+        .exposure-box.with .time { color: var(--primary); }
     </style>
 </head>
 <body>
@@ -587,19 +816,15 @@
                 
                 <p style="margin-top: 1rem;">I used to think I needed to remove my earplugs to have a conversation. Turns out I just needed earplugs that weren't designed in 1975.</p>
 
-                <div class="click-demo">
-                    <div class="click-demo-visual">
-                        <div class="earplug-state state-protected">
-                            <div class="icon">🛡️</div>
-                            <div class="label">Protected</div>
-                        </div>
-                        <div class="click-arrow">⟷</div>
-                        <div class="earplug-state state-open">
-                            <div class="icon">👂</div>
-                            <div class="label">Open</div>
-                        </div>
+                <div class="interactive-module">
+                    <div class="module-title">👆 Try the click</div>
+                    <div class="plug-visual protected" id="plug-demo" onclick="togglePlug()">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        </svg>
                     </div>
-                    <p><strong>One click.</strong> That's it. No fumbling. No losing them.</p>
+                    <div class="plug-status status-protected" id="plug-status">🛡️ PROTECTED MODE</div>
+                    <div class="plug-description" id="plug-desc">20dB reduction • Full protection • Feel the bass, save your ears</div>
                 </div>
             </div>
         </article>
@@ -641,18 +866,32 @@
 
                 <p style="margin-top: 1rem;">With <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a>, I stopped negotiating. They stay in because I never have a reason to take them out. The game is over.</p>
 
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <div class="number">15</div>
-                        <div class="unit">minutes at 100dB</div>
+                <div class="interactive-module">
+                    <div class="module-title">🔬 Watch hair cells die (they don't come back)</div>
+                    <div class="hair-cells" id="hair-cells"></div>
+                    <div class="cell-counter">Hair cells remaining: <span id="cell-count">100</span>%</div>
+                    <div class="cell-controls">
+                        <button class="cell-btn damage" onclick="damageHairCells()">🔊 Simulate Festival Night</button>
+                        <button class="cell-btn reset" onclick="resetHairCells()">↺ Reset Demo</button>
                     </div>
-                    <div class="stat-item">
-                        <div class="number">1B+</div>
-                        <div class="unit">people at risk globally</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="number">0</div>
-                        <div class="unit">cures for hearing loss</div>
+                </div>
+
+                <div class="interactive-module" style="margin-top: 1rem;">
+                    <div class="module-title">⏱️ Safe exposure time calculator</div>
+                    <div class="exposure-calc">
+                        <div class="exposure-label">Festival Volume Level</div>
+                        <input type="range" class="exposure-slider" id="volume-slider" min="85" max="120" value="105" oninput="updateExposure()">
+                        <div class="exposure-result" id="volume-display">105 dB</div>
+                        <div class="exposure-comparison">
+                            <div class="exposure-box without">
+                                <h4>Without Protection</h4>
+                                <div class="time" id="time-without">15 min</div>
+                            </div>
+                            <div class="exposure-box with">
+                                <h4>With Unplugs (-20 dB)</h4>
+                                <div class="time" id="time-with">8+ hours</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -744,5 +983,96 @@
     <footer>
         <p>Published on <a href="https://safesound.guide">Safe Sound Guide</a> — Independent hearing health resources for music lovers.</p>
     </footer>
+
+    <script>
+        // Hair Cells Visualizer
+        let hairCellsRemaining = 50;
+        
+        function initHairCells() {
+            const container = document.getElementById('hair-cells');
+            if (!container) return;
+            container.innerHTML = '';
+            for (let i = 0; i < 50; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'hair-cell';
+                container.appendChild(cell);
+            }
+            hairCellsRemaining = 50;
+            updateCellCount();
+        }
+
+        function damageHairCells() {
+            const cells = document.querySelectorAll('.hair-cell:not(.damaged)');
+            const toDamage = Math.min(Math.floor(Math.random() * 8) + 3, cells.length);
+            
+            for (let i = 0; i < toDamage; i++) {
+                const randomIndex = Math.floor(Math.random() * cells.length);
+                if (cells[randomIndex] && !cells[randomIndex].classList.contains('damaged')) {
+                    cells[randomIndex].classList.add('damaged');
+                    hairCellsRemaining--;
+                }
+            }
+            updateCellCount();
+        }
+
+        function resetHairCells() {
+            initHairCells();
+        }
+
+        function updateCellCount() {
+            const el = document.getElementById('cell-count');
+            if (el) el.textContent = (hairCellsRemaining * 2);
+        }
+
+        // Click Toggle Demo
+        let isProtected = true;
+        
+        function togglePlug() {
+            isProtected = !isProtected;
+            const plug = document.getElementById('plug-demo');
+            const status = document.getElementById('plug-status');
+            const desc = document.getElementById('plug-desc');
+            
+            if (isProtected) {
+                plug.className = 'plug-visual protected';
+                status.className = 'plug-status status-protected';
+                status.textContent = '🛡️ PROTECTED MODE';
+                desc.textContent = '20dB reduction • Full protection • Feel the bass, save your ears';
+            } else {
+                plug.className = 'plug-visual connected';
+                status.className = 'plug-status status-connected';
+                status.textContent = '👂 CONNECTED MODE';
+                desc.textContent = 'Full clarity • Hear conversations • Click back when ready';
+            }
+        }
+
+        // Exposure Calculator
+        function updateExposure() {
+            const slider = document.getElementById('volume-slider');
+            if (!slider) return;
+            const db = parseInt(slider.value);
+            document.getElementById('volume-display').textContent = db + ' dB';
+            
+            // Calculate safe exposure time using NIOSH formula
+            const safeMinutes = 480 / Math.pow(2, (db - 85) / 3);
+            const withUnplugs = 480 / Math.pow(2, (db - 20 - 85) / 3);
+            
+            document.getElementById('time-without').textContent = formatTime(safeMinutes);
+            document.getElementById('time-with').textContent = formatTime(withUnplugs);
+        }
+
+        function formatTime(minutes) {
+            if (minutes >= 480) return '8+ hours';
+            if (minutes >= 60) return Math.round(minutes / 60) + ' hours';
+            if (minutes >= 1) return Math.round(minutes) + ' min';
+            return Math.round(minutes * 60) + ' sec';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initHairCells();
+            updateExposure();
+        });
+    </script>
 </body>
 </html>

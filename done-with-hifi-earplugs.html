@@ -607,6 +607,127 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Interactive Module Styling */
+        .interactive-module {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .module-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Interactive Click Demo */
+        .plug-visual {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto 1rem;
+        }
+
+        .plug-visual.protected {
+            background: linear-gradient(135deg, var(--primary), #22D969);
+            box-shadow: 0 0 30px rgba(41, 239, 120, 0.4);
+        }
+
+        .plug-visual.connected {
+            background: linear-gradient(135deg, #22D4FF, #0EA5E9);
+            box-shadow: 0 0 30px rgba(34, 212, 255, 0.4);
+        }
+
+        .plug-visual:hover {
+            transform: scale(1.05);
+        }
+
+        .plug-visual:active {
+            transform: scale(0.95);
+        }
+
+        .plug-status {
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-protected { color: var(--primary); }
+        .status-connected { color: #22D4FF; }
+
+        .plug-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Usage Counter */
+        .usage-counter {
+            text-align: center;
+        }
+
+        .usage-visual {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .usage-block {
+            width: 20px;
+            height: 30px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .usage-block.protected {
+            background: var(--primary);
+        }
+
+        .usage-block.exposed {
+            background: var(--danger);
+            opacity: 0.8;
+        }
+
+        .usage-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .usage-stat {
+            text-align: center;
+        }
+
+        .usage-stat .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .usage-stat .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .usage-stat.good .value { color: var(--primary); }
+        .usage-stat.bad .value { color: var(--danger); }
     </style>
 </head>
 <body>
@@ -694,6 +815,23 @@
                 </ul>
 
                 <p style="margin-top: 1rem;"><strong>The best earplugs in the world don't protect you if they're not in your ears.</strong> High-fidelity solved the sound quality problem. It didn't solve the <span class="inline-problem">"I keep taking them out"</span> problem.</p>
+
+                <div class="interactive-module">
+                    <div class="module-title">📊 My actual usage rate at a typical event</div>
+                    <div class="usage-counter">
+                        <div class="usage-visual" id="usage-visual"></div>
+                        <div class="usage-stats">
+                            <div class="usage-stat good">
+                                <div class="value" id="protected-pct">40%</div>
+                                <div class="label">Protected</div>
+                            </div>
+                            <div class="usage-stat bad">
+                                <div class="value" id="exposed-pct">60%</div>
+                                <div class="label">Exposed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </article>
 
@@ -786,6 +924,17 @@
                 <p>For the first time, I've actually kept earplugs in for an entire festival. Not because I had superhuman discipline. Because the design finally made sense.</p>
             </div>
 
+            <div class="interactive-module" style="margin-bottom: 2rem;">
+                <div class="module-title">👆 Try the click</div>
+                <div class="plug-visual protected" id="plug-demo" onclick="togglePlug()">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    </svg>
+                </div>
+                <div class="plug-status status-protected" id="plug-status">🛡️ PROTECTED MODE</div>
+                <div class="plug-description" id="plug-desc">20dB reduction • Full protection • Feel the bass, save your ears</div>
+            </div>
+
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="icon">👆</div>
@@ -827,5 +976,48 @@
     <footer>
         <p>Published on <a href="https://safesound.guide">Safe Sound Guide</a> — Independent hearing health resources for music lovers.</p>
     </footer>
+
+    <script>
+        // Usage Visualization
+        function initUsageVisual() {
+            const container = document.getElementById('usage-visual');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            // 40% protected, 60% exposed
+            for (let i = 0; i < 10; i++) {
+                const block = document.createElement('div');
+                block.className = 'usage-block ' + (i < 4 ? 'protected' : 'exposed');
+                container.appendChild(block);
+            }
+        }
+
+        // Click Toggle Demo
+        let isProtected = true;
+        
+        function togglePlug() {
+            isProtected = !isProtected;
+            const plug = document.getElementById('plug-demo');
+            const status = document.getElementById('plug-status');
+            const desc = document.getElementById('plug-desc');
+            
+            if (isProtected) {
+                plug.className = 'plug-visual protected';
+                status.className = 'plug-status status-protected';
+                status.textContent = '🛡️ PROTECTED MODE';
+                desc.textContent = '20dB reduction • Full protection • Feel the bass, save your ears';
+            } else {
+                plug.className = 'plug-visual connected';
+                status.className = 'plug-status status-connected';
+                status.textContent = '👂 CONNECTED MODE';
+                desc.textContent = 'Full clarity • Hear conversations • Click back when ready';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initUsageVisual();
+        });
+    </script>
 </body>
 </html>
