@@ -57,16 +57,34 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem 3rem;
             background: var(--secondary);
             position: relative;
             overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 3rem 1.5rem 2rem;
+            }
+        }
+
+        .unplugs-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .unplugs-link:hover {
+            border-bottom-color: var(--primary);
         }
 
         .hero::before {
@@ -90,8 +108,27 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .hero-badge {
+                margin-bottom: 1rem;
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .scroll-indicator {
+                display: none;
+            }
         }
 
         .hero h1 {
@@ -724,7 +761,7 @@
 <body>
     <section class="hero">
         <span class="hero-badge">Festival Survival Guide</span>
-        <h1>7 Reasons I'm Using <span>Unplugs</span> This Festival Season</h1>
+        <h1>7 Reasons I'm Using <span><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a></span> This Festival Season</h1>
         <p class="hero-subtitle">Forget everything you know about earplugs. Here's why these are different—and why your ears will thank you.</p>
         <div class="scroll-indicator">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1003,7 +1040,7 @@
     <section class="cta-section">
         <h2>Ready to Protect Your Festival Future?</h2>
         <p>Audiologist-designed. One-click switching. Music that actually sounds like music.</p>
-        <a href="https://unplugshearing.com/products/unplugs" class="cta-btn">Pre-Order Unplugs →</a>
+        <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="cta-btn">Pre-Order Unplugs →</a>
         <p class="cta-price">$59 launch price • Includes case + accessories • Ships before festival season</p>
     </section>
 

@@ -41,18 +41,36 @@
 
         /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem 3rem;
             background: 
                 radial-gradient(ellipse at 30% 70%, rgba(255,107,53,0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 70% 30%, rgba(41,239,120,0.08) 0%, transparent 50%),
                 linear-gradient(180deg, var(--secondary) 0%, #0a0a12 100%);
             position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 3rem 1.5rem 2rem;
+            }
+        }
+
+        .unplugs-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .unplugs-link:hover {
+            border-bottom-color: var(--primary);
         }
 
         .hero-badge {
@@ -64,7 +82,23 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-badge {
+                margin-bottom: 1rem;
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
         }
 
         .hero h1 {
@@ -98,6 +132,12 @@
 
         .scroll-hint {
             position: absolute;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-hint {
+                display: none;
+            }
             bottom: 2rem;
             animation: float 2s ease-in-out infinite;
         }
@@ -610,7 +650,7 @@
                         </div>
                         <div class="evolution-arrow">→</div>
                         <div class="evolution-new">
-                            <div class="evolution-label">Unplugs</div>
+                            <div class="evolution-label"><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a></div>
                             <div class="evolution-text">Click to open. Talk without removing.</div>
                         </div>
                     </div>
@@ -676,7 +716,7 @@
                 <p style="margin-top: 1rem;">And here's the thing — I didn't lose them because I'm careless. I lost them because <span class="inline-problem">the design forces you to remove them constantly</span>. Every removal is a chance to lose. It's a numbers game, and the numbers aren't in your favor.</p>
 
                 <div class="solution-block">
-                    <h4>The Unplugs Difference</h4>
+                    <h4>The <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> Difference</h4>
                     <p><strong>Never remove = never lose.</strong> One click opens them for conversation. They stay in your ears the entire night. The loss cycle is broken.</p>
                 </div>
             </div>
@@ -693,7 +733,7 @@
                 
                 <p style="margin-top: 1rem;">But it was still just an improvement to the <em>filter</em>. The fundamental design was unchanged: a thing you stick in your ear that blocks sound. Passive. Static. Dumb.</p>
 
-                <p style="margin-top: 1rem;"><span class="inline-highlight">Unplugs is a different category.</span> It's not a better filter — it's active control. A mechanical switch that gives you real-time choice over your listening experience. Protected when you want it. Open when you need it.</p>
+                <p style="margin-top: 1rem;"><span class="inline-highlight"><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> is a different category.</span> It's not a better filter — it's active control. A mechanical switch that gives you real-time choice over your listening experience. Protected when you want it. Open when you need it.</p>
 
                 <p style="margin-top: 1rem;">Looking back, I realize I was optimizing within the wrong paradigm. I kept trying to find the "best" passive earplug when what I actually needed was something that wasn't passive at all.</p>
 
@@ -705,7 +745,7 @@
                         </div>
                         <div class="evolution-arrow">→</div>
                         <div class="evolution-new">
-                            <div class="evolution-label">Unplugs Era</div>
+                            <div class="evolution-label"><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> Era</div>
                             <div class="evolution-text">Active control, new paradigm</div>
                         </div>
                     </div>
@@ -720,7 +760,7 @@
             <h2>Why I Finally <span class="highlight">Made the Switch</span></h2>
             
             <div class="switch-text">
-                <p>Unplugs solved the one problem no hi-fi earplug could: <strong>they gave me a reason to never take them out.</strong></p>
+                <p><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> solved the one problem no hi-fi earplug could: <strong>they gave me a reason to never take them out.</strong></p>
                 
                 <p>One click and I'm protected — 20dB reduction with the same high-fidelity sound I was used to. Another click and I can hear everything — conversations, the bartender, that announcement I was trying to catch.</p>
 
@@ -757,8 +797,8 @@
     <!-- CTA -->
     <section class="cta-section">
         <h2>Ready to <span class="highlight">Upgrade the Paradigm?</span></h2>
-        <p>High-fidelity was a step forward. Unplugs is the leap.</p>
-        <a href="https://unplugshearing.com" class="cta-button">
+        <p>High-fidelity was a step forward. <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> is the leap.</p>
+        <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="cta-button">
             Get Unplugs
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>

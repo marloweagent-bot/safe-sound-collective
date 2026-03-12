@@ -40,18 +40,36 @@
 
         /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem 3rem;
             background: 
                 radial-gradient(ellipse at 20% 80%, rgba(41,239,120,0.12) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.08) 0%, transparent 50%),
                 linear-gradient(180deg, var(--secondary) 0%, #0a0a12 100%);
             position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 3rem 1.5rem 2rem;
+            }
+        }
+
+        .unplugs-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .unplugs-link:hover {
+            border-bottom-color: var(--primary);
         }
 
         .hero-badge {
@@ -63,7 +81,23 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-badge {
+                margin-bottom: 1rem;
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
         }
 
         .hero h1 {
@@ -93,6 +127,12 @@
             position: absolute;
             bottom: 2rem;
             animation: float 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-hint {
+                display: none;
+            }
         }
 
         @keyframes float {
@@ -532,7 +572,7 @@
     <!-- Reasons -->
     <section class="reasons">
         <div class="section-intro">
-            <h2>Why Unplugs <span class="highlight">Actually Work</span></h2>
+            <h2>Why <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> <span class="highlight">Actually Work</span></h2>
         </div>
 
         <!-- Reason 1 -->
@@ -542,7 +582,7 @@
                 <h3 class="reason-title">I Never Take Them Out Anymore. Literally Never.</h3>
             </div>
             <div class="reason-body">
-                <p>This was the thing that broke my brain. <strong>Unplugs have a button.</strong> One click and you're protected. Another click and you can hear everything — conversations, the bartender, your friend screaming about the bathroom line.</p>
+                <p>This was the thing that broke my brain. <strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> have a button.</strong> One click and you're protected. Another click and you can hear everything — conversations, the bartender, your friend screaming about the bathroom line.</p>
                 
                 <p style="margin-top: 1rem;">I used to think I needed to remove my earplugs to have a conversation. Turns out I just needed earplugs that weren't designed in 1975.</p>
 
@@ -598,7 +638,7 @@
                 
                 <p style="margin-top: 1rem;">The thing is, <span class="inline-highlight">hearing damage is cumulative and irreversible</span>. Every loud set without protection adds up. Tinnitus doesn't give you a warning — it just shows up one night and never leaves.</p>
 
-                <p style="margin-top: 1rem;">With Unplugs, I stopped negotiating. They stay in because I never have a reason to take them out. The game is over.</p>
+                <p style="margin-top: 1rem;">With <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a>, I stopped negotiating. They stay in because I never have a reason to take them out. The game is over.</p>
 
                 <div class="stats-row">
                     <div class="stat-item">
@@ -628,7 +668,7 @@
                 
                 <p style="margin-top: 1rem;"><strong>The pattern was always the same:</strong> take them out to talk, hold them in my hand, get distracted, gone forever.</p>
 
-                <p style="margin-top: 1rem;">Unplugs broke the cycle because <span class="inline-highlight">I never take them out</span>. They stay in my ears the entire time. Revolutionary? No. Obvious? In hindsight, yes. But nobody made earplugs that actually solved this until now.</p>
+                <p style="margin-top: 1rem;"><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> broke the cycle because <span class="inline-highlight">I never take them out</span>. They stay in my ears the entire time. Revolutionary? No. Obvious? In hindsight, yes. But nobody made earplugs that actually solved this until now.</p>
             </div>
         </article>
 
@@ -641,7 +681,7 @@
             <div class="reason-body">
                 <p>I looked at AirPods Pro and those fancy electronic earplugs. Cool tech. But you know what happens when the battery dies at 2am? You're back to foam plugs or nothing.</p>
                 
-                <p style="margin-top: 1rem;"><strong>Unplugs are pure mechanical.</strong> A physical button that physically opens or closes the sound channel. Nothing to charge. Nothing to pair. Nothing to update. It just works, every time, forever.</p>
+                <p style="margin-top: 1rem;"><strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> are pure mechanical.</strong> A physical button that physically opens or closes the sound channel. Nothing to charge. Nothing to pair. Nothing to update. It just works, every time, forever.</p>
 
                 <div class="quote-block">
                     <p>"The best gear is the gear you'll actually use. Everything else is just expensive good intentions."</p>
@@ -658,7 +698,7 @@
             <div class="reason-body">
                 <p>Let's be honest — part of why we don't wear earplugs is vanity. Neon foam sticking out of your ears? Industrial-looking plugs? It screams "I'm concerned about OSHA compliance at this rave."</p>
                 
-                <p style="margin-top: 1rem;">Unplugs look like something you'd actually want to wear. Low profile, clean design. More "considered accessory" than "hearing protection device." That matters, because <span class="inline-highlight">the coolest earplugs are the ones you'll actually put in</span>.</p>
+                <p style="margin-top: 1rem;"><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> look like something you'd actually want to wear. Low profile, clean design. More "considered accessory" than "hearing protection device." That matters, because <span class="inline-highlight">the coolest earplugs are the ones you'll actually put in</span>.</p>
             </div>
         </article>
 
@@ -691,7 +731,7 @@
     <section class="cta-section">
         <h2>Stop Losing Earplugs.<br/><span class="highlight">Start Keeping Your Hearing.</span></h2>
         <p>One click to protect. One click to connect. The earplugs you'll actually use.</p>
-        <a href="https://unplugshearing.com" class="cta-button">
+        <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="cta-button">
             Get Unplugs
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
