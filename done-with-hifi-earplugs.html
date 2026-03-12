@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://safesound.guide/done-with-hifi-earplugs.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👂</text></svg>">
+    <title>5 Reasons I'm Done With High-Fidelity Earplugs | Switching to Unplugs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #29EF78;
+            --primary-dark: #22D969;
+            --secondary: #0F0F1A;
+            --accent: #00D4FF;
+            --accent-orange: #FF6B35;
+            --warning: #FFB800;
+            --danger: #FF4757;
+            --text: #FFFFFF;
+            --text-muted: #A0A0B0;
+            --card-bg: #1A1A2E;
+            --module-bg: #12121F;
+            --old-tech: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: 
+                radial-gradient(ellipse at 30% 70%, rgba(255,107,53,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(41,239,120,0.08) 0%, transparent 50%),
+                linear-gradient(180deg, var(--secondary) 0%, #0a0a12 100%);
+            position: relative;
+        }
+
+        .hero-badge {
+            background: var(--accent-orange);
+            color: #0F0F1A;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5.5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            max-width: 850px;
+        }
+
+        .hero h1 .strikethrough {
+            text-decoration: line-through;
+            color: var(--old-tech);
+            opacity: 0.6;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            line-height: 1.65;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .scroll-hint svg {
+            width: 36px;
+            height: 36px;
+            stroke: var(--primary);
+        }
+
+        /* Premise Section */
+        .premise {
+            background: var(--module-bg);
+            padding: 5rem 1.5rem;
+        }
+
+        .premise-inner {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .premise h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .premise-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .premise-text p {
+            margin-bottom: 1.25rem;
+        }
+
+        .premise-text strong {
+            color: var(--text);
+        }
+
+        .premise-text .callout {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        /* The Brands I've Tried */
+        .brands-tried {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+        }
+
+        .brand-tag {
+            background: rgba(107,114,128,0.2);
+            border: 1px solid rgba(107,114,128,0.3);
+            color: var(--old-tech);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Reasons Section */
+        .reasons {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-intro h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro h2 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-intro p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .reason {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason::before {
+            content: attr(data-num);
+            position: absolute;
+            top: -40px;
+            right: 10px;
+            font-size: 12rem;
+            font-weight: 900;
+            opacity: 0.025;
+            color: var(--accent-orange);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .reason-header {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .reason-icon {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--warning));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .reason-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .reason-body {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .reason-body strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .reason-body .inline-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .reason-body .inline-problem {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        /* Evolution Block */
+        .evolution {
+            background: var(--module-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .evolution-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .evolution-old, .evolution-new {
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .evolution-old {
+            background: rgba(107,114,128,0.15);
+            border: 1px solid rgba(107,114,128,0.2);
+        }
+
+        .evolution-new {
+            background: rgba(41,239,120,0.1);
+            border: 1px solid rgba(41,239,120,0.2);
+        }
+
+        .evolution-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .evolution-old .evolution-label { color: var(--old-tech); }
+        .evolution-new .evolution-label { color: var(--primary); }
+
+        .evolution-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .evolution-arrow {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            .evolution-row {
+                grid-template-columns: 1fr;
+            }
+            .evolution-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Problem List */
+        .problem-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .problem-list li::before {
+            content: "✗";
+            color: var(--accent-orange);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Solution Block */
+        .solution-block {
+            background: linear-gradient(135deg, rgba(41,239,120,0.1), rgba(0,212,255,0.05));
+            border: 1px solid rgba(41,239,120,0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .solution-block h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .solution-block p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .solution-block strong {
+            color: var(--text);
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,184,0,0.05));
+            border-left: 4px solid var(--accent-orange);
+            border-radius: 0 16px 16px 0;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .quote-block p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text);
+            margin: 0;
+        }
+
+        /* The Switch Section */
+        .the-switch {
+            background: var(--module-bg);
+            padding: 5rem 1.5rem;
+        }
+
+        .switch-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .switch-inner h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .switch-inner h2 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .switch-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .switch-text p {
+            margin-bottom: 1.25rem;
+        }
+
+        .switch-text strong {
+            color: var(--text);
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(41,239,120,0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section h2 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #0F0F1A;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 24px rgba(41,239,120,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(41,239,120,0.4);
+        }
+
+        .cta-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--module-bg);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero-badge">An Honest Reassessment</span>
+        <h1>I'm Done With <span class="strikethrough">High-Fidelity Earplugs</span></h1>
+        <p class="hero-sub">I've been the "earplug guy" in my friend group for years. I've tried every premium option. And I've finally realized: <strong>high-fidelity was never the whole solution.</strong></p>
+        <div class="scroll-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Premise -->
+    <section class="premise">
+        <div class="premise-inner">
+            <h2>Let Me Be Clear: I'm Not Anti-Earplug</h2>
+            <div class="premise-text">
+                <p>I've been wearing earplugs at shows for almost a decade. I own multiple pairs. I've preached hearing protection to anyone who would listen. <strong>I'm a true believer.</strong></p>
+                <p>But after all that time, I've had to admit something uncomfortable: <span class="callout">I still end up with ringing ears more often than I should.</span> Not because I don't have earplugs. Because the earplugs I have don't solve the actual problem.</p>
+                <p>Here's my journey through the "premium" earplug world — and why I finally switched to something that actually works.</p>
+            </div>
+
+            <div class="brands-tried">
+                <span class="brand-tag">Loop</span>
+                <span class="brand-tag">Eargasm</span>
+                <span class="brand-tag">Etymotic</span>
+                <span class="brand-tag">Vibes</span>
+                <span class="brand-tag">Earpeace</span>
+                <span class="brand-tag">Alpine</span>
+                <span class="brand-tag">Custom Molds</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons -->
+    <section class="reasons">
+        <div class="section-intro">
+            <h2>5 Reasons <span class="highlight">Hi-Fi Wasn't Enough</span></h2>
+            <p>These aren't hypotheticals. These are patterns I noticed over years of trying to do the right thing.</p>
+        </div>
+
+        <!-- Reason 1 -->
+        <article class="reason" data-num="1">
+            <div class="reason-header">
+                <div class="reason-icon">🗣️</div>
+                <h3 class="reason-title">I Still Had to Remove Them for Every Conversation</h3>
+            </div>
+            <div class="reason-body">
+                <p>"High-fidelity" means the music sounds great. It doesn't mean I can hear my friend screaming "WHERE'S THE BATHROOM" without pulling them out.</p>
+                
+                <p style="margin-top: 1rem;">Every single hi-fi earplug I've used has the same fundamental problem: <span class="inline-problem">they're a fixed filter</span>. Sound comes through at a reduced level, always. There's no "conversation mode." There's no "let me just hear this one thing."</p>
+
+                <p style="margin-top: 1rem;">So what happens? I pull them out. Then I hold them. Then I lose them. The cycle continues.</p>
+
+                <div class="evolution">
+                    <div class="evolution-row">
+                        <div class="evolution-old">
+                            <div class="evolution-label">Hi-Fi Plugs</div>
+                            <div class="evolution-text">One fixed setting. Remove to talk.</div>
+                        </div>
+                        <div class="evolution-arrow">→</div>
+                        <div class="evolution-new">
+                            <div class="evolution-label">Unplugs</div>
+                            <div class="evolution-text">Click to open. Talk without removing.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 2 -->
+        <article class="reason" data-num="2">
+            <div class="reason-header">
+                <div class="reason-icon">📉</div>
+                <h3 class="reason-title">My Actual Usage Rate Was Embarrassingly Low</h3>
+            </div>
+            <div class="reason-body">
+                <p>Here's the honest truth I didn't want to admit: I probably only had my hi-fi earplugs <em>actually in my ears</em> for about 40% of any given event.</p>
+                
+                <p style="margin-top: 1rem;">The other 60%? They were:</p>
+                
+                <ul class="problem-list">
+                    <li>In my pocket because I took them out to talk</li>
+                    <li>In my hand while I "figured out" what my friend was saying</li>
+                    <li>In the case because I wanted to "feel" a specific part of the set</li>
+                    <li>Lost somewhere between the bar and the stage</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>The best earplugs in the world don't protect you if they're not in your ears.</strong> High-fidelity solved the sound quality problem. It didn't solve the <span class="inline-problem">"I keep taking them out"</span> problem.</p>
+            </div>
+        </article>
+
+        <!-- Reason 3 -->
+        <article class="reason" data-num="3">
+            <div class="reason-header">
+                <div class="reason-icon">🎚️</div>
+                <h3 class="reason-title">I Wanted Control, Not Just Reduction</h3>
+            </div>
+            <div class="reason-body">
+                <p>A DJ set isn't static. There are moments you want full protection — the peak-time drops, the speaker stack zones. And there are moments you want to open up — the breakdown, the conversation between songs, the walk to the bar.</p>
+                
+                <p style="margin-top: 1rem;">Hi-fi earplugs give you one setting. That's it. Want more attenuation? Swap filters. Want less? Take them out.</p>
+
+                <p style="margin-top: 1rem;">I realized I didn't just want <em>protection</em>. I wanted <span class="inline-highlight">control over my listening experience</span>. The ability to adjust in the moment, instantly, without fumbling.</p>
+
+                <div class="quote-block">
+                    <p>"I don't want my earplugs to make decisions for me. I want to make the decision myself — and change it whenever I want."</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 4 -->
+        <article class="reason" data-num="4">
+            <div class="reason-header">
+                <div class="reason-icon">💸</div>
+                <h3 class="reason-title">I've Spent Hundreds Replacing "Nice" Earplugs</h3>
+            </div>
+            <div class="reason-body">
+                <p>Loop: $35. Lost at EDC 2022.</p>
+                <p>Eargasm: $40. Lost at a warehouse party.</p>
+                <p>Etymotic: $20. Crushed in my pocket.</p>
+                <p>Custom molds: $200. Left at an Airbnb in Denver.</p>
+                
+                <p style="margin-top: 1rem;"><strong>Total damage: Probably $400+ over the years.</strong></p>
+
+                <p style="margin-top: 1rem;">And here's the thing — I didn't lose them because I'm careless. I lost them because <span class="inline-problem">the design forces you to remove them constantly</span>. Every removal is a chance to lose. It's a numbers game, and the numbers aren't in your favor.</p>
+
+                <div class="solution-block">
+                    <h4>The Unplugs Difference</h4>
+                    <p><strong>Never remove = never lose.</strong> One click opens them for conversation. They stay in your ears the entire night. The loss cycle is broken.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Reason 5 -->
+        <article class="reason" data-num="5">
+            <div class="reason-header">
+                <div class="reason-icon">🔧</div>
+                <h3 class="reason-title">Hi-Fi Was a Better Filter, Not a Better System</h3>
+            </div>
+            <div class="reason-body">
+                <p>When hi-fi earplugs came out, they were revolutionary. Finally, sound reduction that didn't turn everything to mud. That was genuinely important progress.</p>
+                
+                <p style="margin-top: 1rem;">But it was still just an improvement to the <em>filter</em>. The fundamental design was unchanged: a thing you stick in your ear that blocks sound. Passive. Static. Dumb.</p>
+
+                <p style="margin-top: 1rem;"><span class="inline-highlight">Unplugs is a different category.</span> It's not a better filter — it's active control. A mechanical switch that gives you real-time choice over your listening experience. Protected when you want it. Open when you need it.</p>
+
+                <p style="margin-top: 1rem;">Looking back, I realize I was optimizing within the wrong paradigm. I kept trying to find the "best" passive earplug when what I actually needed was something that wasn't passive at all.</p>
+
+                <div class="evolution">
+                    <div class="evolution-row">
+                        <div class="evolution-old">
+                            <div class="evolution-label">Hi-Fi Era</div>
+                            <div class="evolution-text">Better filters, same limitations</div>
+                        </div>
+                        <div class="evolution-arrow">→</div>
+                        <div class="evolution-new">
+                            <div class="evolution-label">Unplugs Era</div>
+                            <div class="evolution-text">Active control, new paradigm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- The Switch -->
+    <section class="the-switch">
+        <div class="switch-inner">
+            <h2>Why I Finally <span class="highlight">Made the Switch</span></h2>
+            
+            <div class="switch-text">
+                <p>Unplugs solved the one problem no hi-fi earplug could: <strong>they gave me a reason to never take them out.</strong></p>
+                
+                <p>One click and I'm protected — 20dB reduction with the same high-fidelity sound I was used to. Another click and I can hear everything — conversations, the bartender, that announcement I was trying to catch.</p>
+
+                <p>No batteries to die at 2am. No Bluetooth to disconnect. No app to crash. Just a mechanical button that works every single time.</p>
+
+                <p>For the first time, I've actually kept earplugs in for an entire festival. Not because I had superhuman discipline. Because the design finally made sense.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">👆</div>
+                    <h4>Click In</h4>
+                    <p>Instant switch between protected and open modes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎵</div>
+                    <h4>Hi-Fi Sound</h4>
+                    <p>20dB reduction without the mud</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h4>Pure Mechanical</h4>
+                    <p>No batteries, no apps, no BS</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h4>Never Remove</h4>
+                    <p>Stays in = never lost</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready to <span class="highlight">Upgrade the Paradigm?</span></h2>
+        <p>High-fidelity was a step forward. Unplugs is the leap.</p>
+        <a href="https://unplugshearing.com" class="cta-button">
+            Get Unplugs
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Published on <a href="https://safesound.guide">Safe Sound Guide</a> — Independent hearing health resources for music lovers.</p>
+    </footer>
+</body>
+</html>
