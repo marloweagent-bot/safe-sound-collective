@@ -15,1064 +15,199 @@
             --primary-dark: #22D969;
             --secondary: #222222;
             --accent: #29EF78;
-            --success: #10B981;
-            --warning: #F59E0B;
             --danger: #EF4444;
             --text: #FFFFFF;
             --text-muted: #909090;
             --card: #2A2A2A;
-            --card-hover: #333333;
             --border: rgba(255,255,255,0.08);
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--secondary); color: var(--text); line-height: 1.7; }
+        a { color: inherit; text-decoration: none; }
+        .unplugs-link { color: var(--primary); font-weight: 600; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+        .unplugs-link:hover { border-bottom-color: var(--primary); }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--secondary);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .unplugs-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-        .unplugs-link:hover {
-            border-bottom-color: var(--primary);
-        }
-
-        /* Hero */
         .hero {
-            padding: 5rem 2rem 4rem;
+            padding: 4rem 2rem 3rem;
             text-align: center;
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(41,239,120,0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(34,211,238,0.08) 0%, transparent 50%),
-                var(--secondary);
+            background: radial-gradient(ellipse at 30% 20%, rgba(41,239,120,0.12) 0%, transparent 50%), var(--secondary);
         }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 1.5rem 2.5rem;
-            }
-        }
-
+        @media (max-width: 768px) { .hero { padding: 3rem 1.5rem 2rem; } }
         .hero-badge {
             display: inline-block;
             background: rgba(41, 239, 120, 0.15);
             color: var(--primary);
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             border: 1px solid rgba(41, 239, 120, 0.3);
         }
+        .hero h1 { font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+        .hero h1 .highlight { background: linear-gradient(135deg, var(--primary), #22D969); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 550px; margin: 0 auto; }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.6rem; } .hero-sub { font-size: 1rem; } }
 
-        @media (max-width: 768px) {
-            .hero-badge {
-                margin-bottom: 1rem;
-                font-size: 0.75rem;
-                padding: 0.4rem 0.85rem;
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), #22D969);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.75rem;
-                margin-bottom: 1rem;
-            }
-        }
-
-        .hero-sub {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .hero-sub {
-                font-size: 1rem;
-            }
-        }
-
-        /* Pain Point Intro */
-        .pain-intro {
-            background: var(--card);
-            padding: 4rem 1.5rem;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .pain-intro {
-                padding: 3rem 1.25rem;
-            }
-        }
-
-        .pain-intro h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .pain-intro > p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .pain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.25rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .pain-card {
-            background: rgba(239,68,68,0.08);
-            border: 1px solid rgba(239,68,68,0.2);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: left;
-        }
-
-        .pain-card .emoji {
-            font-size: 1.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .pain-card h3 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--danger);
-            margin-bottom: 0.5rem;
-        }
-
-        .pain-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* Reasons Section */
-        .reasons {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .reasons {
-                padding: 3rem 1.25rem;
-            }
-        }
-
-        .section-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-intro h2 {
-            font-size: clamp(1.5rem, 4vw, 2.25rem);
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-intro h2 .highlight {
-            background: linear-gradient(135deg, var(--primary), #22D969);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
+        .reasons { max-width: 700px; margin: 0 auto; padding: 3rem 1.5rem; }
+        @media (max-width: 768px) { .reasons { padding: 2rem 1.25rem; } }
         .reason {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 1.5rem;
         }
-
-        @media (max-width: 768px) {
-            .reason {
-                padding: 1.5rem;
-                border-radius: 16px;
-            }
-        }
-
-        .reason::before {
-            content: attr(data-num);
-            position: absolute;
-            top: -30px;
-            right: 10px;
-            font-size: 10rem;
-            font-weight: 900;
-            opacity: 0.03;
-            color: var(--primary);
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .reason-header {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            align-items: flex-start;
-        }
-
+        @media (max-width: 768px) { .reason { padding: 1.5rem; border-radius: 16px; } }
+        .reason-header { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
         .reason-icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
+            width: 44px; height: 44px; min-width: 44px;
             background: rgba(41,239,120,0.15);
             border: 1px solid rgba(41,239,120,0.3);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
         }
+        .reason-title { font-size: 1.15rem; font-weight: 700; line-height: 1.3; }
+        .reason-body { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .reason-body strong { color: var(--text); }
+        .reason-body .hl { color: var(--primary); font-weight: 600; }
 
-        .reason-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        @media (max-width: 768px) {
-            .reason-title {
-                font-size: 1.1rem;
-            }
-        }
-
-        .reason-body {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .reason-body strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .reason-body .inline-highlight {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Comparison boxes */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        @media (max-width: 550px) {
-            .comparison {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .comparison-bad {
-            background: rgba(239,68,68,0.08);
-            border: 1px solid rgba(239,68,68,0.2);
-            border-radius: 12px;
-            padding: 1rem;
-        }
-
-        .comparison-good {
-            background: rgba(41,239,120,0.08);
-            border: 1px solid rgba(41,239,120,0.2);
-            border-radius: 12px;
-            padding: 1rem;
-        }
-
-        .comparison h4 {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        .comparison-bad h4 { color: var(--danger); }
-        .comparison-good h4 { color: var(--primary); }
-
-        .comparison p {
-            font-size: 0.9rem;
-            margin: 0;
-            color: var(--text-muted);
-        }
-
-        /* Click Demo */
-        .click-demo {
-            background: var(--secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-
-        .click-demo-visual {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.25rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .earplug-state {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            text-align: center;
-            min-width: 100px;
-        }
-
-        .earplug-state .icon {
-            font-size: 1.75rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .earplug-state .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 700;
-        }
-
-        .state-protected .label { color: var(--primary); }
-        .state-open .label { color: #22D4FF; }
-
-        .click-arrow {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-        }
-
-        .click-demo > p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        .click-demo strong {
-            color: var(--primary);
-        }
-
-        /* Stats Row */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        @media (max-width: 500px) {
-            .stats-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .stat-item {
-            background: var(--secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .stat-item .number {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .stat-item .unit {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        /* Quote Block */
-        .quote-block {
-            background: rgba(41,239,120,0.08);
-            border-left: 3px solid var(--primary);
-            border-radius: 0 12px 12px 0;
-            padding: 1.25rem 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .quote-block p {
-            font-size: 1rem;
-            font-style: italic;
-            color: var(--text);
-            margin: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--card);
-            padding: 4rem 1.5rem;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .cta-section {
-                padding: 3rem 1.25rem;
-            }
-        }
-
-        .cta-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2.25rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section h2 .highlight {
-            background: linear-gradient(135deg, var(--primary), #22D969);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cta-section > p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 450px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: var(--primary);
-            color: #222222;
-            font-size: 1rem;
-            font-weight: 700;
-            padding: 0.9rem 2rem;
-            border-radius: 100px;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .cta-button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .cta-button svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            border-top: 1px solid var(--border);
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Interactive Module Styling */
         .interactive-module {
             background: var(--secondary);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
+            border-radius: 14px;
+            padding: 1.25rem;
+            margin-top: 1.25rem;
         }
+        .module-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.75rem; font-weight: 600; text-align: center; }
 
-        .module-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            text-align: center;
-        }
+        .plug-visual { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; margin: 0 auto 0.75rem; }
+        .plug-visual.protected { background: linear-gradient(135deg, var(--primary), #22D969); box-shadow: 0 0 25px rgba(41, 239, 120, 0.4); }
+        .plug-visual.connected { background: linear-gradient(135deg, #22D4FF, #0EA5E9); box-shadow: 0 0 25px rgba(34, 212, 255, 0.4); }
+        .plug-visual:hover { transform: scale(1.05); }
+        .plug-status { font-size: 0.9rem; font-weight: 700; text-align: center; margin-bottom: 0.3rem; }
+        .status-protected { color: var(--primary); }
+        .status-connected { color: #22D4FF; }
+        .plug-description { font-size: 0.8rem; color: var(--text-muted); text-align: center; }
 
-        /* Hair Cells Demo */
-        .hair-cells {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
+        .hair-cells { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; margin-bottom: 0.75rem; }
+        .hair-cell { width: 10px; height: 24px; background: linear-gradient(to top, var(--primary), #66ff99); border-radius: 5px 5px 2px 2px; transition: all 0.4s; }
+        .hair-cell.damaged { background: #444; height: 6px; opacity: 0.4; transform: rotate(45deg); }
+        .cell-counter { text-align: center; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .cell-counter span { color: var(--primary); font-size: 1.1rem; }
+        .cell-controls { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+        .cell-btn { padding: 0.5rem 1rem; border: none; border-radius: 8px; font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+        .cell-btn.damage { background: var(--danger); color: white; }
+        .cell-btn.reset { background: var(--card); color: var(--text); border: 1px solid var(--border); }
 
-        .hair-cell {
-            width: 12px;
-            height: 28px;
-            background: linear-gradient(to top, var(--primary), #66ff99);
-            border-radius: 6px 6px 2px 2px;
-            transition: all 0.4s ease;
-        }
+        .cta-section { background: var(--card); padding: 3rem 1.5rem; text-align: center; }
+        .cta-section h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; margin-bottom: 0.75rem; }
+        .cta-section h2 .highlight { background: linear-gradient(135deg, var(--primary), #22D969); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .cta-section p { font-size: 1rem; color: var(--text-muted); max-width: 400px; margin: 0 auto 1.5rem; }
+        .cta-button { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary); color: #222; font-size: 1rem; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 100px; transition: all 0.2s; }
+        .cta-button:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .cta-button svg { width: 16px; height: 16px; }
 
-        .hair-cell.damaged {
-            background: #444;
-            height: 8px;
-            opacity: 0.4;
-            transform: rotate(45deg);
-        }
-
-        .cell-counter {
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .cell-counter span {
-            color: var(--primary);
-            font-size: 1.3rem;
-        }
-
-        .cell-controls {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cell-btn {
-            padding: 0.6rem 1.25rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .cell-btn.damage {
-            background: var(--danger);
-            color: white;
-        }
-
-        .cell-btn.damage:hover {
-            background: #dc2626;
-        }
-
-        .cell-btn.reset {
-            background: var(--card);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .cell-btn.reset:hover {
-            background: var(--card-hover);
-        }
-
-        /* Interactive Click Demo */
-        .plug-visual {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0 auto 1rem;
-        }
-
-        .plug-visual.protected {
-            background: linear-gradient(135deg, var(--primary), #22D969);
-            box-shadow: 0 0 30px rgba(41, 239, 120, 0.4);
-        }
-
-        .plug-visual.connected {
-            background: linear-gradient(135deg, #22D4FF, #0EA5E9);
-            box-shadow: 0 0 30px rgba(34, 212, 255, 0.4);
-        }
-
-        .plug-visual:hover {
-            transform: scale(1.05);
-        }
-
-        .plug-visual:active {
-            transform: scale(0.95);
-        }
-
-        .plug-status {
-            font-size: 1rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .status-protected {
-            color: var(--primary);
-        }
-
-        .status-connected {
-            color: #22D4FF;
-        }
-
-        .plug-description {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
-        /* Exposure Calculator */
-        .exposure-calc {
-            text-align: center;
-        }
-
-        .exposure-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
-        }
-
-        .exposure-slider {
-            width: 100%;
-            max-width: 300px;
-            height: 8px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: var(--card);
-            border-radius: 4px;
-            outline: none;
-        }
-
-        .exposure-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .exposure-result {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--danger);
-            margin: 0.75rem 0;
-        }
-
-        .exposure-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        @media (max-width: 450px) {
-            .exposure-comparison {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .exposure-box {
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .exposure-box.without {
-            background: rgba(239,68,68,0.1);
-            border: 1px solid rgba(239,68,68,0.2);
-        }
-
-        .exposure-box.with {
-            background: rgba(41,239,120,0.1);
-            border: 1px solid rgba(41,239,120,0.2);
-        }
-
-        .exposure-box h4 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        .exposure-box.without h4 { color: var(--danger); }
-        .exposure-box.with h4 { color: var(--primary); }
-
-        .exposure-box .time {
-            font-size: 1.25rem;
-            font-weight: 800;
-        }
-
-        .exposure-box.without .time { color: var(--danger); }
-        .exposure-box.with .time { color: var(--primary); }
+        footer { background: var(--secondary); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+        footer p { font-size: 0.85rem; color: var(--text-muted); }
+        footer a { color: var(--primary); }
     </style>
 </head>
 <body>
-    <!-- Hero -->
     <section class="hero">
         <span class="hero-badge">From Someone Who Finally Gets It</span>
-        <h1>I Finally Found Earplugs I <span class="highlight">Actually Keep In</span></h1>
-        <p class="hero-sub">After years of buying earplugs "for my hearing" and losing them by the second set, I discovered why the problem was never me — it was the design.</p>
+        <h1>Earplugs I <span class="highlight">Actually Keep In</span></h1>
+        <p class="hero-sub">After years of losing earplugs by the second set, I found the design fix I didn't know I needed.</p>
     </section>
 
-    <!-- Pain Point Grid -->
-    <section class="pain-intro">
-        <h2>Sound Familiar?</h2>
-        <p>Every festival, every show, the same cycle. You start with good intentions and end up with ringing ears anyway.</p>
-        
-        <div class="pain-grid">
-            <div class="pain-card">
-                <div class="emoji">🗣️</div>
-                <h3>"Hold on, let me take these out"</h3>
-                <p>Friend wants to tell you something. You pull them out. They disappear into the void.</p>
-            </div>
-            <div class="pain-card">
-                <div class="emoji">👖</div>
-                <h3>"They're in my pocket somewhere"</h3>
-                <p>You took them out "just for a second" and now they're mixed with lint, gum wrappers, and regret.</p>
-            </div>
-            <div class="pain-card">
-                <div class="emoji">🎵</div>
-                <h3>"Wait, this is my favorite part"</h3>
-                <p>The drop is coming. You want to FEEL it. Out they come. In goes the damage.</p>
-            </div>
-            <div class="pain-card">
-                <div class="emoji">🔇</div>
-                <h3>"Everything sounds muffled"</h3>
-                <p>Foam plugs turn crystal-clear production into underwater radio. Why even bother?</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reasons -->
     <section class="reasons">
-        <div class="section-intro">
-            <h2>Why <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> <span class="highlight">Actually Work</span></h2>
-        </div>
-
-        <!-- Reason 1 -->
-        <article class="reason" data-num="1">
+        <!-- Reason 1: The Click -->
+        <article class="reason">
             <div class="reason-header">
                 <div class="reason-icon">👆</div>
-                <h3 class="reason-title">I Never Take Them Out Anymore. Literally Never.</h3>
+                <h3 class="reason-title">I Never Take Them Out Anymore</h3>
             </div>
             <div class="reason-body">
-                <p>This was the thing that broke my brain. <strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> have a button.</strong> One click and you're protected. Another click and you can hear everything — conversations, the bartender, your friend screaming about the bathroom line.</p>
-                
-                <p style="margin-top: 1rem;">I used to think I needed to remove my earplugs to have a conversation. Turns out I just needed earplugs that weren't designed in 1975.</p>
-
+                <p><strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> have a button.</strong> One click = protected. Another click = full clarity for conversations. No removing, no losing.</p>
                 <div class="interactive-module">
-                    <div class="module-title">👆 Try the click</div>
+                    <div class="module-title">👆 Try it</div>
                     <div class="plug-visual protected" id="plug-demo" onclick="togglePlug()">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                        </svg>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
                     </div>
-                    <div class="plug-status status-protected" id="plug-status">🛡️ PROTECTED MODE</div>
-                    <div class="plug-description" id="plug-desc">20dB reduction • Full protection • Feel the bass, save your ears</div>
+                    <div class="plug-status status-protected" id="plug-status">🛡️ PROTECTED</div>
+                    <div class="plug-description" id="plug-desc">20dB reduction • Click to switch</div>
                 </div>
             </div>
         </article>
 
-        <!-- Reason 2 -->
-        <article class="reason" data-num="2">
-            <div class="reason-header">
-                <div class="reason-icon">🎵</div>
-                <h3 class="reason-title">I Can Finally Hear the Music — Not a Muffled Version of It</h3>
-            </div>
-            <div class="reason-body">
-                <p>Foam earplugs cut all frequencies equally. That means bass, mids, treble — everything gets the same mud treatment. You paid $400 for that ticket and you're hearing it through a pillow.</p>
-                
-                <p style="margin-top: 1rem;"><strong>High-fidelity filters are different.</strong> They reduce volume evenly across the spectrum. The music sounds like music, just... safer. I stopped feeling like I was missing the experience.</p>
-
-                <div class="comparison">
-                    <div class="comparison-bad">
-                        <h4>❌ Foam Plugs</h4>
-                        <p>Cuts highs, boosts muddiness. Everything sounds underwater.</p>
-                    </div>
-                    <div class="comparison-good">
-                        <h4>✓ Unplugs</h4>
-                        <p>Even reduction. Music stays clear, just at safe levels.</p>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Reason 3 -->
-        <article class="reason" data-num="3">
+        <!-- Reason 2: Irreversible Damage -->
+        <article class="reason">
             <div class="reason-header">
                 <div class="reason-icon">💀</div>
-                <h3 class="reason-title">I Stopped Playing the "Maybe I'll Be Fine" Game</h3>
+                <h3 class="reason-title">The Damage Doesn't Come Back</h3>
             </div>
             <div class="reason-body">
-                <p>You know the game. Standing in front of the speaker stack, earplugs in your pocket, telling yourself <em>"it's not that loud"</em> while your ears are literally being damaged in real-time.</p>
-                
-                <p style="margin-top: 1rem;">The thing is, <span class="inline-highlight">hearing damage is cumulative and irreversible</span>. Every loud set without protection adds up. Tinnitus doesn't give you a warning — it just shows up one night and never leaves.</p>
-
-                <p style="margin-top: 1rem;">With <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a>, I stopped negotiating. They stay in because I never have a reason to take them out. The game is over.</p>
-
+                <p><span class="hl">Hearing damage is cumulative and irreversible.</span> Tinnitus doesn't warn you — it just shows up one night and never leaves. With Unplugs, I stopped negotiating.</p>
                 <div class="interactive-module">
-                    <div class="module-title">🔬 Watch hair cells die (they don't come back)</div>
+                    <div class="module-title">🔬 Watch hair cells die</div>
                     <div class="hair-cells" id="hair-cells"></div>
-                    <div class="cell-counter">Hair cells remaining: <span id="cell-count">100</span>%</div>
+                    <div class="cell-counter">Remaining: <span id="cell-count">100</span>%</div>
                     <div class="cell-controls">
-                        <button class="cell-btn damage" onclick="damageHairCells()">🔊 Simulate Festival Night</button>
-                        <button class="cell-btn reset" onclick="resetHairCells()">↺ Reset Demo</button>
-                    </div>
-                </div>
-
-                <div class="interactive-module" style="margin-top: 1rem;">
-                    <div class="module-title">⏱️ Safe exposure time calculator</div>
-                    <div class="exposure-calc">
-                        <div class="exposure-label">Festival Volume Level</div>
-                        <input type="range" class="exposure-slider" id="volume-slider" min="85" max="120" value="105" oninput="updateExposure()">
-                        <div class="exposure-result" id="volume-display">105 dB</div>
-                        <div class="exposure-comparison">
-                            <div class="exposure-box without">
-                                <h4>Without Protection</h4>
-                                <div class="time" id="time-without">15 min</div>
-                            </div>
-                            <div class="exposure-box with">
-                                <h4>With Unplugs (-20 dB)</h4>
-                                <div class="time" id="time-with">8+ hours</div>
-                            </div>
-                        </div>
+                        <button class="cell-btn damage" onclick="damageHairCells()">🔊 Festival Night</button>
+                        <button class="cell-btn reset" onclick="resetHairCells()">↺ Reset</button>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- Reason 4 -->
-        <article class="reason" data-num="4">
-            <div class="reason-header">
-                <div class="reason-icon">🔍</div>
-                <h3 class="reason-title">I Stopped Losing $30 Earplugs Every Festival</h3>
-            </div>
-            <div class="reason-body">
-                <p>I've probably spent $200+ on "nice" earplugs over the years. You know what happened to all of them? Gone. Pockets, grass, porta-potties (don't ask), random corners of my backpack where they get crushed.</p>
-                
-                <p style="margin-top: 1rem;"><strong>The pattern was always the same:</strong> take them out to talk, hold them in my hand, get distracted, gone forever.</p>
-
-                <p style="margin-top: 1rem;"><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> broke the cycle because <span class="inline-highlight">I never take them out</span>. They stay in my ears the entire time. Revolutionary? No. Obvious? In hindsight, yes. But nobody made earplugs that actually solved this until now.</p>
-            </div>
-        </article>
-
-        <!-- Reason 5 -->
-        <article class="reason" data-num="5">
+        <!-- Reason 3: Pure Mechanical -->
+        <article class="reason">
             <div class="reason-header">
                 <div class="reason-icon">⚡</div>
-                <h3 class="reason-title">No Batteries. No App. No Bluetooth Pairing BS.</h3>
+                <h3 class="reason-title">No Batteries. No App. No BS.</h3>
             </div>
             <div class="reason-body">
-                <p>I looked at AirPods Pro and those fancy electronic earplugs. Cool tech. But you know what happens when the battery dies at 2am? You're back to foam plugs or nothing.</p>
-                
-                <p style="margin-top: 1rem;"><strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> are pure mechanical.</strong> A physical button that physically opens or closes the sound channel. Nothing to charge. Nothing to pair. Nothing to update. It just works, every time, forever.</p>
-
-                <div class="quote-block">
-                    <p>"The best gear is the gear you'll actually use. Everything else is just expensive good intentions."</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Reason 6 -->
-        <article class="reason" data-num="6">
-            <div class="reason-header">
-                <div class="reason-icon">😎</div>
-                <h3 class="reason-title">I Don't Look Like I'm Wearing Safety Equipment</h3>
-            </div>
-            <div class="reason-body">
-                <p>Let's be honest — part of why we don't wear earplugs is vanity. Neon foam sticking out of your ears? Industrial-looking plugs? It screams "I'm concerned about OSHA compliance at this rave."</p>
-                
-                <p style="margin-top: 1rem;"><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> look like something you'd actually want to wear. Low profile, clean design. More "considered accessory" than "hearing protection device." That matters, because <span class="inline-highlight">the coolest earplugs are the ones you'll actually put in</span>.</p>
-            </div>
-        </article>
-
-        <!-- Reason 7 -->
-        <article class="reason" data-num="7">
-            <div class="reason-header">
-                <div class="reason-icon">🎯</div>
-                <h3 class="reason-title">It's Made By Festival People, Not a Lab Equipment Company</h3>
-            </div>
-            <div class="reason-body">
-                <p>The founder has hearing loss. The team goes to shows. They built this because they were tired of the same problem everyone else has — and no one was solving it.</p>
-                
-                <p style="margin-top: 1rem;">That matters because the details are right. The button pressure. The fit for long sets. The fact that you can click it with one finger without thinking about it. These are things you only get right if you've actually stood in the crowd wondering why your ears are ringing again.</p>
-
-                <div class="comparison">
-                    <div class="comparison-bad">
-                        <h4>❌ Most Earplug Companies</h4>
-                        <p>Industrial safety focus. Concert use is an afterthought.</p>
-                    </div>
-                    <div class="comparison-good">
-                        <h4>✓ Unplugs</h4>
-                        <p>Built for live music from day one. Every feature is intentional.</p>
-                    </div>
-                </div>
+                <p>When AirPods die at 2am, you're back to foam plugs. <strong><a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="unplugs-link">Unplugs</a> are pure mechanical.</strong> A physical button that works every time, forever.</p>
             </div>
         </article>
     </section>
 
-    <!-- CTA -->
     <section class="cta-section">
         <h2>Stop Losing Earplugs.<br/><span class="highlight">Start Keeping Your Hearing.</span></h2>
-        <p>One click to protect. One click to connect. The earplugs you'll actually use.</p>
+        <p>One click to protect. One click to connect.</p>
         <a href="https://unplugshearing.com/products/unplugs?variant=45758659985585" class="cta-button">
-            Get Unplugs
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            Get Unplugs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>Published on <a href="https://safesound.guide">Safe Sound Guide</a> — Independent hearing health resources for music lovers.</p>
-    </footer>
+    <footer><p>Published on <a href="https://safesound.guide">Safe Sound Guide</a></p></footer>
 
     <script>
-        // Hair Cells Visualizer
         let hairCellsRemaining = 50;
-        
         function initHairCells() {
-            const container = document.getElementById('hair-cells');
-            if (!container) return;
-            container.innerHTML = '';
-            for (let i = 0; i < 50; i++) {
-                const cell = document.createElement('div');
-                cell.className = 'hair-cell';
-                container.appendChild(cell);
-            }
-            hairCellsRemaining = 50;
-            updateCellCount();
+            const c = document.getElementById('hair-cells'); if (!c) return;
+            c.innerHTML = '';
+            for (let i = 0; i < 50; i++) { const cell = document.createElement('div'); cell.className = 'hair-cell'; c.appendChild(cell); }
+            hairCellsRemaining = 50; updateCellCount();
         }
-
         function damageHairCells() {
             const cells = document.querySelectorAll('.hair-cell:not(.damaged)');
-            const toDamage = Math.min(Math.floor(Math.random() * 8) + 3, cells.length);
-            
-            for (let i = 0; i < toDamage; i++) {
-                const randomIndex = Math.floor(Math.random() * cells.length);
-                if (cells[randomIndex] && !cells[randomIndex].classList.contains('damaged')) {
-                    cells[randomIndex].classList.add('damaged');
-                    hairCellsRemaining--;
-                }
-            }
+            const n = Math.min(Math.floor(Math.random() * 8) + 3, cells.length);
+            for (let i = 0; i < n; i++) { const idx = Math.floor(Math.random() * cells.length); if (cells[idx] && !cells[idx].classList.contains('damaged')) { cells[idx].classList.add('damaged'); hairCellsRemaining--; } }
             updateCellCount();
         }
+        function resetHairCells() { initHairCells(); }
+        function updateCellCount() { const el = document.getElementById('cell-count'); if (el) el.textContent = (hairCellsRemaining * 2); }
 
-        function resetHairCells() {
-            initHairCells();
-        }
-
-        function updateCellCount() {
-            const el = document.getElementById('cell-count');
-            if (el) el.textContent = (hairCellsRemaining * 2);
-        }
-
-        // Click Toggle Demo
         let isProtected = true;
-        
         function togglePlug() {
             isProtected = !isProtected;
-            const plug = document.getElementById('plug-demo');
-            const status = document.getElementById('plug-status');
-            const desc = document.getElementById('plug-desc');
-            
-            if (isProtected) {
-                plug.className = 'plug-visual protected';
-                status.className = 'plug-status status-protected';
-                status.textContent = '🛡️ PROTECTED MODE';
-                desc.textContent = '20dB reduction • Full protection • Feel the bass, save your ears';
-            } else {
-                plug.className = 'plug-visual connected';
-                status.className = 'plug-status status-connected';
-                status.textContent = '👂 CONNECTED MODE';
-                desc.textContent = 'Full clarity • Hear conversations • Click back when ready';
-            }
+            const plug = document.getElementById('plug-demo'), status = document.getElementById('plug-status'), desc = document.getElementById('plug-desc');
+            if (isProtected) { plug.className = 'plug-visual protected'; status.className = 'plug-status status-protected'; status.textContent = '🛡️ PROTECTED'; desc.textContent = '20dB reduction • Click to switch'; }
+            else { plug.className = 'plug-visual connected'; status.className = 'plug-status status-connected'; status.textContent = '👂 OPEN'; desc.textContent = 'Full clarity • Click to protect'; }
         }
-
-        // Exposure Calculator
-        function updateExposure() {
-            const slider = document.getElementById('volume-slider');
-            if (!slider) return;
-            const db = parseInt(slider.value);
-            document.getElementById('volume-display').textContent = db + ' dB';
-            
-            // Calculate safe exposure time using NIOSH formula
-            const safeMinutes = 480 / Math.pow(2, (db - 85) / 3);
-            const withUnplugs = 480 / Math.pow(2, (db - 20 - 85) / 3);
-            
-            document.getElementById('time-without').textContent = formatTime(safeMinutes);
-            document.getElementById('time-with').textContent = formatTime(withUnplugs);
-        }
-
-        function formatTime(minutes) {
-            if (minutes >= 480) return '8+ hours';
-            if (minutes >= 60) return Math.round(minutes / 60) + ' hours';
-            if (minutes >= 1) return Math.round(minutes) + ' min';
-            return Math.round(minutes * 60) + ' sec';
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initHairCells();
-            updateExposure();
-        });
+        document.addEventListener('DOMContentLoaded', initHairCells);
     </script>
 </body>
 </html>
