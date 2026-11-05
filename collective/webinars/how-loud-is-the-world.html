@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Loud Is the World? | Safe Sound Collective Webinar by Unplugs</title>
+  <meta name="description" content="A Safe Sound Collective webinar from Unplugs Hearing teaching how loud everyday life really is, why hearing protection matters, and practical techniques to moderate sound without disconnecting." />
+  <meta name="author" content="Safe Sound Collective by Unplugs Hearing" />
+  <meta property="og:title" content="How Loud Is the World? | Safe Sound Collective Webinar" />
+  <meta property="og:description" content="Learn how loud everyday spaces really are, how sound exposure adds up, and practical ways to protect your hearing while staying connected." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Safe Sound Collective" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://unplugshearing.com" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationEvent",
+    "name": "How Loud Is the World? Techniques to Moderate Sound",
+    "description": "A Safe Sound Collective educational webinar by Unplugs Hearing about everyday noise exposure, decibel awareness, listening breaks, and practical hearing protection techniques.",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Safe Sound Collective by Unplugs Hearing",
+      "url": "https://www.unplugshearing.com"
+    },
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://safe-sound-collective.vercel.app/webinars/how-loud-is-the-world"
+    },
+    "educationalLevel": "Beginner",
+    "teaches": ["Decibel awareness", "Noise exposure", "Hearing protection", "Safe listening techniques"]
+  }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Bamboy';
+      src: url('../fonts/Bamboy-Regular.woff2') format('woff2'), url('../fonts/Bamboy-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Bamboy';
+      src: url('../fonts/Bamboy-Condensed.woff2') format('woff2'), url('../fonts/Bamboy-Condensed.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --green: #29EF78;
+      --green-dark: #16c95b;
+      --ink: #f3fff7;
+      --muted: #aeb9b2;
+      --deep: #111714;
+      --darker: #090d0b;
+      --card: #17211b;
+      --card-2: #1d2c23;
+      --line: rgba(217, 255, 230, 0.12);
+      --cream: #eff7e9;
+      --shadow: 0 24px 90px rgba(0,0,0,.45);
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 7%, rgba(41,239,120,.16), transparent 32rem),
+        radial-gradient(circle at 82% 0%, rgba(41,239,120,.08), transparent 28rem),
+        linear-gradient(180deg, #0b120e 0%, #111714 42%, #090d0b 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .announcement {
+      background: var(--green);
+      color: #07100b;
+      text-align: center;
+      font-weight: 800;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .65rem 1rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(9,13,11,.74);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      min-width: 0;
+    }
+    .brand img {
+      width: 138px;
+      max-width: 42vw;
+      display: block;
+    }
+    .brand-divider {
+      height: 30px;
+      width: 1px;
+      background: var(--line);
+    }
+    .brand span {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 650;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--green);
+      color: #08120c !important;
+      border-radius: 999px;
+      padding: .72rem 1rem;
+      box-shadow: 0 10px 30px rgba(41,239,120,.18);
+    }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(4.5rem, 8vw, 7rem) 1.25rem 3.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .72fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      border: 1px solid rgba(41,239,120,.35);
+      color: var(--green);
+      background: rgba(41,239,120,.08);
+      border-radius: 999px;
+      padding: .48rem .78rem;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .pulse {
+      width: .5rem;
+      height: .5rem;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 7px rgba(41,239,120,.1);
+    }
+    h1, h2, h3 {
+      font-family: Bamboy, Inter, sans-serif;
+      letter-spacing: -.045em;
+      margin: 0;
+    }
+    h1 {
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: .82;
+      text-transform: uppercase;
+      max-width: 820px;
+    }
+    .hero .accent { color: var(--green); }
+    .hero-copy {
+      max-width: 690px;
+      color: #d5e3d9;
+      font-size: clamp(1.05rem, 1.55vw, 1.32rem);
+      margin: 1.6rem 0 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+      align-items: center;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      border-radius: 999px;
+      padding: .96rem 1.25rem;
+      font-weight: 850;
+      border: 1px solid transparent;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary {
+      background: var(--green);
+      color: #07100b;
+      box-shadow: 0 18px 45px rgba(41,239,120,.2);
+    }
+    .button-secondary {
+      border-color: var(--line);
+      color: var(--ink);
+      background: rgba(255,255,255,.035);
+    }
+    .fineprint {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-top: 1rem;
+    }
+
+    .webinar-card {
+      border: 1px solid rgba(41,239,120,.26);
+      background: linear-gradient(180deg, rgba(41,239,120,.12), rgba(29,44,35,.74));
+      border-radius: 28px;
+      padding: 1.1rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .webinar-card::before {
+      content: "";
+      position: absolute;
+      inset: -42% -35% auto auto;
+      width: 270px;
+      height: 270px;
+      background: radial-gradient(circle, rgba(41,239,120,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .card-inner {
+      position: relative;
+      background: rgba(8,14,11,.7);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.35rem;
+    }
+    .card-label {
+      color: var(--green);
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      font-size: .74rem;
+      margin-bottom: 1rem;
+    }
+    .speaker {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: .85rem;
+      align-items: center;
+      margin: 1.2rem 0;
+      padding: 1rem;
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      border: 1px solid var(--line);
+    }
+    .speaker-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #07100b;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      font-size: 1.15rem;
+    }
+    .speaker strong { display: block; }
+    .speaker span { color: var(--muted); font-size: .88rem; }
+    .session-details {
+      display: grid;
+      gap: .65rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: .65rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .detail-row strong { color: var(--ink); }
+    .sound-meter {
+      margin-top: 1.2rem;
+      padding: 1rem;
+      background: #0a0f0c;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+    .meter-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .7rem;
+    }
+    .meter {
+      height: 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green) 0%, #d7ff5f 46%, #ffcf5b 68%, #ff5c48 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .meter::after {
+      content: "85 dB";
+      position: absolute;
+      left: 55%;
+      top: -8px;
+      transform: translateX(-50%);
+      color: #07100b;
+      background: white;
+      border-radius: 999px;
+      padding: .1rem .38rem;
+      font-size: .68rem;
+      font-weight: 900;
+      box-shadow: 0 5px 12px rgba(0,0,0,.18);
+    }
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: .75rem;
+      margin-top: .48rem;
+    }
+
+    section { padding: 4.2rem 1.25rem; }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(260px, .45fr);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+    .kicker {
+      color: var(--green);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .12em;
+      font-size: .78rem;
+      margin-bottom: .65rem;
+    }
+    h2 { font-size: clamp(2.7rem, 6vw, 5.6rem); line-height: .88; text-transform: uppercase; }
+    .section-heading p, .lead { color: var(--muted); font-size: 1.06rem; margin: 0; }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .learn-card {
+      min-height: 260px;
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .learn-num {
+      color: var(--green);
+      font-family: Bamboy, Inter, sans-serif;
+      font-size: 3.5rem;
+      line-height: .8;
+    }
+    .learn-card h3 {
+      font-family: Inter, sans-serif;
+      letter-spacing: -.03em;
+      font-size: 1.15rem;
+      margin: 1rem 0 .55rem;
+    }
+    .learn-card p { color: var(--muted); margin: 0; font-size: .94rem; }
+
+    .curriculum {
+      background: var(--cream);
+      color: #111714;
+    }
+    .curriculum .kicker { color: #0b9e42; }
+    .curriculum .section-heading p { color: #4b5a51; }
+    .agenda {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .agenda-item {
+      background: #fff;
+      border: 1px solid rgba(17,23,20,.1);
+      border-radius: 24px;
+      padding: 1.15rem;
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 1rem;
+      box-shadow: 0 15px 45px rgba(17,23,20,.05);
+    }
+    .agenda-time {
+      color: #0b9e42;
+      font-weight: 950;
+      font-size: .86rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .agenda-item h3 {
+      font-family: Inter, sans-serif;
+      letter-spacing: -.03em;
+      font-size: 1.1rem;
+      margin: 0 0 .35rem;
+    }
+    .agenda-item p { margin: 0; color: #58675f; }
+
+    .techniques {
+      display: grid;
+      grid-template-columns: .8fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .big-quote {
+      background: var(--green);
+      color: #07100b;
+      border-radius: 28px;
+      padding: clamp(1.35rem, 3vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 430px;
+    }
+    .big-quote p {
+      font-family: Bamboy, Inter, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -.04em;
+      font-size: clamp(2.6rem, 5vw, 5.6rem);
+      line-height: .82;
+      margin: 0;
+    }
+    .big-quote span { font-weight: 850; }
+    .tech-list {
+      display: grid;
+      gap: .85rem;
+    }
+    .tech-item {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 22px;
+      padding: 1.1rem;
+    }
+    .tech-item strong { color: var(--green); display: block; margin-bottom: .35rem; }
+    .tech-item p { margin: 0; color: var(--muted); }
+
+    .why {
+      background:
+        linear-gradient(180deg, rgba(41,239,120,.08), rgba(41,239,120,.02)),
+        #0b100d;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .proof {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 24px;
+      padding: 1.25rem;
+    }
+    .proof strong {
+      display: block;
+      color: var(--green);
+      font-size: 1.6rem;
+      margin-bottom: .35rem;
+    }
+    .proof p { margin: 0; color: var(--muted); }
+
+    .final-cta {
+      max-width: var(--max);
+      margin: 0 auto;
+      border-radius: 32px;
+      border: 1px solid rgba(41,239,120,.28);
+      background:
+        radial-gradient(circle at 88% 12%, rgba(41,239,120,.24), transparent 22rem),
+        linear-gradient(135deg, rgba(29,44,35,.96), rgba(9,13,11,.96));
+      padding: clamp(1.4rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(280px, .45fr);
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .final-cta h2 { font-size: clamp(3rem, 7vw, 6.5rem); max-width: 760px; }
+    .signup-box {
+      background: rgba(255,255,255,.055);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.1rem;
+    }
+    .signup-box input {
+      width: 100%;
+      background: rgba(0,0,0,.3);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: .95rem 1rem;
+      margin-bottom: .7rem;
+      font: inherit;
+    }
+    .signup-box .button { width: 100%; border: none; cursor: pointer; }
+    .signup-note { color: var(--muted); font-size: .82rem; margin: .8rem 0 0; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 1.25rem;
+      color: var(--muted);
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: .9rem;
+    }
+    .footer-inner img { width: 120px; display: block; }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero, .section-heading, .techniques, .final-cta { grid-template-columns: 1fr; }
+      .hero { padding-top: 4rem; }
+      .webinar-card { max-width: 560px; }
+      .learn-grid { grid-template-columns: repeat(2, 1fr); }
+      .agenda { grid-template-columns: 1fr; }
+      .proof-strip { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .announcement { font-size: .68rem; }
+      .brand-divider, .brand span { display: none; }
+      .nav { padding: .9rem 1rem; }
+      .brand img { width: 118px; }
+      .nav-cta { padding: .65rem .82rem; font-size: .85rem; }
+      .learn-grid { grid-template-columns: 1fr; }
+      .agenda-item { grid-template-columns: 1fr; }
+      .big-quote { min-height: 300px; }
+      .hero-actions .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Safe Sound Collective webinar series · Presented by Unplugs</div>
+
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html">
+        <img src="https://unplugshearing.com/cdn/shop/files/wordmark_green.svg?v=1750962732" alt="Unplugs" />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span>Safe Sound Collective</span>
+      </a>
+      <div class="nav-links">
+        <a href="#learn">What you’ll learn</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#techniques">Techniques</a>
+        <a class="nav-cta" href="mailto:hello@unplugshearing.com?subject=Safe%20Sound%20Collective%20Webinar%20Registration">Reserve seat</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> Live educational webinar</div>
+        <h1>The world got <span class="accent">louder.</span><br>Your ears didn’t.</h1>
+        <p class="hero-copy">A practical Safe Sound Collective session on subway screeches, loud restaurants, fitness classes, festival floors, and the everyday noise that stacks up. Learn how to turn down the roar without tuning out the room.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="mailto:hello@unplugshearing.com?subject=Safe%20Sound%20Collective%20Webinar%20Registration">Reserve a seat →</a>
+          <a class="button button-secondary" href="#curriculum">View curriculum</a>
+        </div>
+        <p class="fineprint">Free educational session · For anyone who wants to stay present in loud places without paying for it later.</p>
+      </div>
+
+      <aside class="webinar-card" aria-label="Webinar details">
+        <div class="card-inner">
+          <div class="card-label">Featured webinar</div>
+          <p style="margin:.1rem 0 1rem;color:#29EF78;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;">Click. Connect. Protect.</p>
+          <h2 style="font-size:2.7rem;line-height:.9;margin-bottom:.65rem;">Turn down the roar. Stay in the room.</h2>
+          <p class="lead">Why loudness is volume multiplied by duration — and how to moderate sound before your ears are forced to adapt.</p>
+
+          <div class="speaker">
+            <div class="speaker-avatar">UH</div>
+            <div>
+              <strong>Unplugs Hearing Education Team</strong>
+              <span>Safe Sound Collective curriculum</span>
+            </div>
+          </div>
+
+          <div class="session-details">
+            <div class="detail-row"><span>Format</span><strong>Online webinar</strong></div>
+            <div class="detail-row"><span>Length</span><strong>45 minutes + Q&A</strong></div>
+            <div class="detail-row"><span>Level</span><strong>Beginner friendly</strong></div>
+            <div class="detail-row"><span>Focus</span><strong>Education + practical tools</strong></div>
+          </div>
+
+          <div class="sound-meter">
+            <div class="meter-top"><span>Sound exposure map</span><span>Quiet → risky</span></div>
+            <div class="meter"></div>
+            <div class="meter-labels"><span>40 dB</span><span>85 dB</span><span>110+ dB</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="learn">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">What you’ll learn</div>
+            <h2>Sound adds up. Take back the dial.</h2>
+          </div>
+          <p>No scare tactics. No sterile lecture. Just a clear map of how loud the world really is — and practical ways to filter, pause, reposition, and protect without disappearing.</p>
+        </div>
+
+        <div class="learn-grid">
+          <article class="learn-card">
+            <div class="learn-num">01</div>
+            <div>
+              <h3>Read the loud world</h3>
+              <p>Understand decibels through familiar places: concerts, subways, gyms, restaurants, offices, and daily commutes.</p>
+            </div>
+          </article>
+          <article class="learn-card">
+            <div class="learn-num">02</div>
+            <div>
+              <h3>Know when it stacks</h3>
+              <p>Learn why exposure is about volume plus time — and why “a little loud” can become too much when it lasts.</p>
+            </div>
+          </article>
+          <article class="learn-card">
+            <div class="learn-num">03</div>
+            <div>
+              <h3>Dial down without opting out</h3>
+              <p>Use distance, breaks, positioning, lower-volume routines, and hearing protection as tools for participation.</p>
+            </div>
+          </article>
+          <article class="learn-card">
+            <div class="learn-num">04</div>
+            <div>
+              <h3>Protect without disappearing</h3>
+              <p>Learn why modern protection should not force a choice between preserving your ears and staying socially present.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="curriculum" id="curriculum">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Webinar curriculum</div>
+            <h2>Loud world. Clear head. Zero compromise.</h2>
+          </div>
+          <p>A concise curriculum module for hearing health, everyday sound literacy, and the habit of staying connected without letting loud environments run the show.</p>
+        </div>
+
+        <div class="agenda">
+          <div class="agenda-item">
+            <div class="agenda-time">0–5 min</div>
+            <div><h3>The world got louder. Your ears didn’t.</h3><p>How modern life stacks sound exposure through entertainment, travel, work, and personal audio.</p></div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">5–15 min</div>
+            <div><h3>Decibels without the jargon</h3><p>A clear explanation of loudness, exposure time, and the threshold where hearing stress begins.</p></div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">15–25 min</div>
+            <div><h3>Your personal sound audit</h3><p>A guided exercise to map the loudest moments in your week and identify easy interventions.</p></div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">25–35 min</div>
+            <div><h3>Techniques to moderate sound</h3><p>Positioning, breaks, volume rituals, recovery windows, and when to use hearing protection.</p></div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">35–42 min</div>
+            <div><h3>Protection that keeps you connected</h3><p>Why traditional plugs fail socially, and how mechanical sound control can help people participate.</p></div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-time">42–45+ min</div>
+            <div><h3>Q&A and next steps</h3><p>Questions, personal use cases, and a simple checklist for building safer listening habits.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="techniques">
+      <div class="section-inner techniques">
+        <div class="big-quote">
+          <p>Never choose between your ears and the experience.</p>
+          <span>— Safe Sound Collective</span>
+        </div>
+        <div>
+          <div class="kicker">Practical techniques</div>
+          <h2 style="margin-bottom:1.3rem;">The sound moderation toolkit.</h2>
+          <div class="tech-list">
+            <div class="tech-item"><strong>Move first. Protect smarter.</strong><p>Distance from speakers, machines, sirens, or reflective walls can sharply change your exposure.</p></div>
+            <div class="tech-item"><strong>Use quiet like a reset button.</strong><p>Short quiet resets during loud events reduce cumulative stress and help you notice fatigue earlier.</p></div>
+            <div class="tech-item"><strong>Carry protection before you need it.</strong><p>Concerts, transit, gyms, clubs, childcare, and job sites are easier to manage when protection is already with you.</p></div>
+            <div class="tech-item"><strong>Filter sound without vanishing.</strong><p>The right tool should reduce sound when you need it and let you re-enter conversation when connection matters.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Why it matters now</div>
+            <h2>Hear everything. Damage nothing.</h2>
+          </div>
+          <p>We built modern life around volume: bigger speakers, louder rooms, longer events, nonstop headphones. Education gives you the map; moderation gives you the switch.</p>
+        </div>
+        <div class="proof-strip">
+          <div class="proof"><strong>Volume</strong><p>Learn to recognize risky loudness before it becomes discomfort, ringing, or fatigue.</p></div>
+          <div class="proof"><strong>Time</strong><p>Understand why duration matters: exposure compounds even when each moment feels manageable.</p></div>
+          <div class="proof"><strong>Control</strong><p>Build a personal strategy for moderation: breaks, distance, settings, and hearing protection.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="final-cta">
+        <div>
+          <div class="kicker">Register interest</div>
+          <h2>Join the Safe Sound webinar series.</h2>
+          <p class="lead" style="max-width:680px;margin-top:1rem;">A free educational program from Unplugs Hearing and Safe Sound Collective for people who want to understand sound, moderate loud environments, and stay connected to the experiences they love.</p>
+        </div>
+        <form class="signup-box" action="mailto:hello@unplugshearing.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" />
+          <input type="hidden" name="subject" value="Safe Sound Collective webinar registration" />
+          <button class="button button-primary" type="submit">Reserve my seat</button>
+          <p class="signup-note">This demonstration form opens your email client. Full webinar registration functionality can be connected later.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <img src="https://unplugshearing.com/cdn/shop/files/wordmark_green.svg?v=1750962732" alt="Unplugs" />
+      <span>© 2026 Safe Sound Collective by Unplugs Hearing. Educational content; not medical advice.</span>
+      <a href="https://www.unplugshearing.com" target="_blank" rel="noreferrer">Visit Unplugs Hearing →</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
